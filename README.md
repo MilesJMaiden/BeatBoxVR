@@ -5,8 +5,8 @@ Game Title: BeatBox VR
 
 Project Members:
 
-Joshua J Davies (Miles J Maiden)
-Nathan Thomas-Benke
-Jake Boulton
-Mai Ye
+Joshua J Davies (Miles J Maiden), 
+Nathan Thomas-Benke, 
+Jake Boulton, 
+Mai Ye, 
 HWANJOON JANG
