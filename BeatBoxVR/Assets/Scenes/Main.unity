@@ -1104,6 +1104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dbe0758d02bd048bc1b2f84bbd9f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drumSounds: []
+  audioSourcePrefab: {fileID: 0}
 --- !u!4 &1420608398
 Transform:
   m_ObjectHideFlags: 0
@@ -1997,6 +1999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 5785627124233829180, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1420608397}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.x
