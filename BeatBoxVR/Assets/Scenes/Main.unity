@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drumSounds: []
-  audioSourcePrefab: {fileID: 0}
+  cymbalSounds: []
 --- !u!4 &1420608398
 Transform:
   m_ObjectHideFlags: 0
@@ -1994,16 +1994,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2549780165450510478, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549780165450510478, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3402378825602470908, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
-    - target: {fileID: 5785627124233829180, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
-      propertyPath: soundManager
-      value: 
-      objectReference: {fileID: 1420608397}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2054,11 +2059,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8544853761853020447, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 1712656757}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
