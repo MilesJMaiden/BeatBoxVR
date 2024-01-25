@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4425230727731089558}
   m_Layer: 0
   m_Name: Crash Cymbal
-  m_TagString: Untagged
+  m_TagString: CrashCymbal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 9167012511494776714}
   m_Layer: 0
   m_Name: Col
-  m_TagString: Untagged
+  m_TagString: CrashCymbal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.925, y: 0.125, z: 0.925}
+  m_LocalScale: {x: 0.4625, y: 0.125, z: 0.4625}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4425230727731089558}
@@ -129,8 +129,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.595321
+      objectReference: {fileID: 0}
+    - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.595321
+      objectReference: {fileID: 0}
+    - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.595321
+      objectReference: {fileID: 0}
+    - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0015
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
         type: 3}
@@ -140,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.266875
+      value: -0.1335
       objectReference: {fileID: 0}
     - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
         type: 3}
@@ -176,6 +191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899119488362079480, guid: c5201263ee085f945a56d522e425e0f3,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2470329927517420398, guid: c5201263ee085f945a56d522e425e0f3,
         type: 3}
