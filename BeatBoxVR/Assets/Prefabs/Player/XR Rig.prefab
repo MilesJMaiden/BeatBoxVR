@@ -1207,6 +1207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drumstick
       objectReference: {fileID: 0}
+    - target: {fileID: 1973353008610775427, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
+      propertyPath: m_TagString
+      value: DrumstickTip
+      objectReference: {fileID: 0}
     - target: {fileID: 3529863159614565858, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1256,6 +1261,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803516254807064484, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drumstick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678871134860068384, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
