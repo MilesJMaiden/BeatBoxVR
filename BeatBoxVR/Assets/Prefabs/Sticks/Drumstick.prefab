@@ -90,6 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8f53c98d44874ba1c4ca825445114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteSparkVFXPrefab: {fileID: 0}
+  yellowSparkVFXPrefab: {fileID: 0}
+  redSparkVFXPrefab: {fileID: 0}
+  vfxLifetime: 0.2
 --- !u!54 &7822111460504177810
 Rigidbody:
   m_ObjectHideFlags: 0

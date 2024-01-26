@@ -32,7 +32,11 @@ public class SoundManager : MonoBehaviour
             AudioSource audioSource = soundObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
             audioSource.spatialBlend = 1.0f; // Fully 3D sound
-            audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f); // Scale volume based on velocity
+
+            // Volume and pitch scaling based on velocity
+            audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
+            audioSource.pitch = 1.0f + velocity * 0.1f; // Slight pitch variation based on velocity
+
             audioSource.Play();
             Destroy(soundObject, clip.length);
         }

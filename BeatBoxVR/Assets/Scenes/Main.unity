@@ -537,7 +537,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 5150
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -2008,6 +2008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246571706973899003, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: vfxLifetime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
