@@ -3,25 +3,29 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    // Serializable class to hold sound data for drums
     [System.Serializable]
     public class DrumSound
     {
-        public string tag;
-        public AudioClip surfaceSound;
-        public AudioClip rimSound;
+        public string tag;           // Tag to identify the drum
+        public AudioClip surfaceSound;  // Sound for hitting the drum surface
+        public AudioClip rimSound;      // Sound for hitting the drum rim
     }
 
+    // Serializable class to hold sound data for cymbals
     [System.Serializable]
     public class CymbalSound
     {
-        public string tag;
-        public AudioClip normalSound;
-        public AudioClip accentSound;
+        public string tag;           // Tag to identify the cymbal
+        public AudioClip normalSound;    // Normal sound for cymbal hit
+        public AudioClip accentSound;    // Accent sound for cymbal hit (not used in this version)
     }
 
+    // Lists to hold the drum and cymbal sounds
     public List<DrumSound> drumSounds;
     public List<CymbalSound> cymbalSounds;
 
+    // Method to play a sound based on the tag, position, and velocity
     public void PlaySound(string tag, Vector3 position, float velocity)
     {
         AudioClip clip = GetClipForTag(tag);
@@ -31,14 +35,14 @@ public class SoundManager : MonoBehaviour
             soundObject.transform.position = position;
             AudioSource audioSource = soundObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // Fully 3D sound
+            audioSource.spatialBlend = 1.0f; // Sets the sound to be 3D
 
-            // Volume and pitch scaling based on velocity
+            // Adjusts volume and pitch based on the hit velocity
             audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
-            audioSource.pitch = 1.0f + velocity * 0.1f; // Slight pitch variation based on velocity
+            audioSource.pitch = 1.0f + velocity * 0.1f;
 
             audioSource.Play();
-            Destroy(soundObject, clip.length);
+            Destroy(soundObject, clip.length); // Destroys the audio source after playing
         }
         else
         {
@@ -46,18 +50,21 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    // Helper method to get the appropriate AudioClip based on the tag
     private AudioClip GetClipForTag(string tag)
     {
         DrumSound drumSound = drumSounds.Find(ds => ds.tag == tag);
         if (drumSound != null)
         {
+            // Chooses rim or surface sound for drums based on the tag
             return tag.EndsWith("Rim") ? drumSound.rimSound : drumSound.surfaceSound;
         }
 
         CymbalSound cymbalSound = cymbalSounds.Find(cs => cs.tag == tag);
         if (cymbalSound != null)
         {
-            return cymbalSound.normalSound; // Replace with appropriate logic for cymbals
+            // Currently returns only the normal sound for cymbals
+            return cymbalSound.normalSound;
         }
 
         return null;

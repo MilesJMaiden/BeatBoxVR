@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6205508541321505931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5907859520688328981}
+  - component: {fileID: 8366493464169677254}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5907859520688328981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205508541321505931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8366493464169677254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205508541321505931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dbe0758d02bd048bc1b2f84bbd9f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumSounds:
+  - tag: SnareDrum
+    surfaceSound: {fileID: 8300000, guid: fc958084262133f40813ebad53a72a17, type: 3}
+    rimSound: {fileID: 8300000, guid: 4de441ef531f20c45a8ada1ee975f08d, type: 3}
+  - tag: SmallTomTom
+    surfaceSound: {fileID: 8300000, guid: 6adaddedd8347714bae5159e61dfdf65, type: 3}
+    rimSound: {fileID: 8300000, guid: ae9e4593108a164439fdaaefaece8aa2, type: 3}
+  - tag: MediumTomTom
+    surfaceSound: {fileID: 8300000, guid: a815de4265c1fe04eb9e654a3b4c7bbf, type: 3}
+    rimSound: {fileID: 0}
+  - tag: FloorTom
+    surfaceSound: {fileID: 8300000, guid: 069093ac3d77cf543a90b6873510bdea, type: 3}
+    rimSound: {fileID: 0}
+  cymbalSounds:
+  - tag: RideCymbal
+    normalSound: {fileID: 8300000, guid: 51a74963b160a744299eeb764aac8af1, type: 3}
+    accentSound: {fileID: 8300000, guid: bc29a243ff3844c4b90e259b3b9da3c8, type: 3}
+  - tag: CrashCymbal
+    normalSound: {fileID: 8300000, guid: a78dfd0365d69de418cbd9e4927f6dcd, type: 3}
+    accentSound: {fileID: 0}
