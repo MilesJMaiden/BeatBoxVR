@@ -1926,10 +1926,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5562685}
     m_Modifications:
+    - target: {fileID: 62462378244761451, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 373453236355748936, guid: d73b0e47380c3bd4796d937272e9ef3a,
         type: 3}
       propertyPath: m_Name
       value: Crash Cymbal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221640075542238698, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221640075542238698, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 3282
       objectReference: {fileID: 0}
     - target: {fileID: 4425230727731089558, guid: d73b0e47380c3bd4796d937272e9ef3a,
         type: 3}
@@ -1944,7 +1959,7 @@ PrefabInstance:
     - target: {fileID: 4425230727731089558, guid: d73b0e47380c3bd4796d937272e9ef3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.03999996
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4425230727731089558, guid: d73b0e47380c3bd4796d937272e9ef3a,
         type: 3}
@@ -1981,11 +1996,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6936243283280127325, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170580839644918675, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4221640075542238698, guid: d73b0e47380c3bd4796d937272e9ef3a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6984189830983749942, guid: d73b0e47380c3bd4796d937272e9ef3a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5184767723409037606}
   m_SourcePrefab: {fileID: 100100000, guid: d73b0e47380c3bd4796d937272e9ef3a, type: 3}
+--- !u!1 &5184767723409037605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6984189830983749942, guid: d73b0e47380c3bd4796d937272e9ef3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5184767723409037604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5184767723409037606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184767723409037605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MeshFormatVersion: 0
+  m_Faces: []
+  m_SharedVertices: []
+  m_SharedTextures: []
+  m_Positions: []
+  m_Textures0: []
+  m_Textures2: []
+  m_Textures3: []
+  m_Tangents: []
+  m_Colors: []
+  m_UnwrapParameters:
+    m_HardAngle: 88
+    m_PackMargin: 20
+    m_AngleError: 8
+    m_AreaError: 15
+  m_PreserveMeshAssetOnDestroy: 0
+  assetGuid: 
+  m_Mesh: {fileID: 0}
+  m_VersionIndex: 0
+  m_IsSelectable: 1
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!1001 &5474525785052308459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2008,11 +2079,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig
-      objectReference: {fileID: 0}
-    - target: {fileID: 5246571706973899003, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
-      propertyPath: vfxLifetime
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
