@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4425230727731089558}
+  - component: {fileID: 7398468576704482015}
   m_Layer: 0
   m_Name: Crash Cymbal
   m_TagString: CrashCymbal
@@ -33,6 +34,23 @@ Transform:
   - {fileID: 7073155023180743543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7398468576704482015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373453236355748936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceCollider: {fileID: 9167012511494776714}
+  rimCollider: {fileID: 0}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &1433472481127833564
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +62,7 @@ GameObject:
   - component: {fileID: 6232125593586508403}
   - component: {fileID: 9167012511494776714}
   m_Layer: 0
-  m_Name: Col
+  m_Name: SurfaceCollider
   m_TagString: CrashCymbal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +78,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4625, y: 0.125, z: 0.4625}
+  m_LocalScale: {x: 0.4625, y: 0.05, z: 0.4625}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4425230727731089558}

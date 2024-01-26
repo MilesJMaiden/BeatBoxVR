@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6707144313715245860}
   - component: {fileID: 8402137955442046337}
   m_Layer: 0
-  m_Name: Col
+  m_Name: SurfaceCollider
   m_TagString: SmallTomTom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349909640284662179}
+  - component: {fileID: 626133722158568111}
   m_Layer: 0
   m_Name: Small TomTom
   m_TagString: Untagged
@@ -140,6 +141,23 @@ Transform:
   - {fileID: 7344001931581463481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626133722158568111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038596853013202293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceCollider: {fileID: 8402137955442046337}
+  rimCollider: {fileID: 7204645529425727596}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &4515184358474381197
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +205,7 @@ GameObject:
   - component: {fileID: 1191358725867563746}
   - component: {fileID: 7204645529425727596}
   m_Layer: 0
-  m_Name: RimCol
+  m_Name: RimCollider
   m_TagString: SmallTomTomRim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

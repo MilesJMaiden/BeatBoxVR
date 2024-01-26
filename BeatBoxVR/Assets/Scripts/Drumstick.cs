@@ -24,11 +24,14 @@ public class Drumstick : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         float velocity = Mathf.Clamp(rigidBody.velocity.magnitude, 0, MaxVelocity);
-        soundManager.PlaySound(other.tag, other.ClosestPointOnBounds(transform.position), velocity / MaxVelocity); // Volume scales from 0 to 1
+        soundManager.PlaySound(other.tag, other.ClosestPointOnBounds(transform.position), velocity / MaxVelocity);
 
-        if (velocity > 1) // Assuming velocity < 1 is too soft for VFX
+        if (velocity > 1) // Assuming very soft hits don't produce VFX
         {
-            GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
+            // Determines the VFX prefab to use based on the hit collider's tag and the drumstick's velocity.
+            // If the drumstick hits a rim (identified by the tag ending in "Rim"), it always uses the whiteSparkVFXPrefab.
+            // For other hits (not on the rim), it selects the VFX prefab based on the velocity of the drumstick hit.
+            GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(velocity);
             if (vfxPrefab != null)
             {
                 Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);
