@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3529863159614565858}
   - component: {fileID: 8678871134860068384}
-  - component: {fileID: 4832942496319389100}
   - component: {fileID: 2280429259485660960}
   - component: {fileID: 7822111460504177810}
   m_Layer: 0
@@ -57,27 +56,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0, y: 0.304125, z: 0}
---- !u!135 &4832942496319389100
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973353008610775427}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.004
-  m_Center: {x: 0, y: 0.304125, z: 0}
 --- !u!114 &2280429259485660960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +74,9 @@ MonoBehaviour:
     type: 3}
   redSparkVFXPrefab: {fileID: 2375842249092589218, guid: f683deb4ed852a84ebfd1fa4e5e5c8a4,
     type: 3}
-  vfxLifetime: 0.5
+  vfxLifetime: 0.4
+  drumstickTipCollider: {fileID: 8678871134860068384}
+  drumstickBodyCollider: {fileID: 1587781425224472340}
 --- !u!54 &7822111460504177810
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,7 +113,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4576533864423531806}
-  - component: {fileID: 2646765220591176631}
   m_Layer: 0
   m_Name: Model
   m_TagString: Drumstick
@@ -157,29 +136,6 @@ Transform:
   - {fileID: 4031611720841532486}
   m_Father: {fileID: 1395131887224509023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2646765220591176631
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3803516254807064484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0078109996
-  m_Height: 0.3853793
-  m_Direction: 1
-  m_Center: {x: 0.0000005001202, y: -0.0073703527, z: 0.00004200078}
 --- !u!1 &5279632741821941629
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,9 +147,10 @@ GameObject:
   - component: {fileID: 4031611720841532486}
   - component: {fileID: 2243925264787418380}
   - component: {fileID: 3315137520191048088}
+  - component: {fileID: 1587781425224472340}
   m_Layer: 0
-  m_Name: Mesh
-  m_TagString: Untagged
+  m_Name: MeshCol
+  m_TagString: Drumstick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +220,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1587781425224472340
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279632741821941629}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0078109996
+  m_Height: 0.3853793
+  m_Direction: 1
+  m_Center: {x: 0.0000005001202, y: -0.0073703527, z: 0.00004200078}
 --- !u!1 &7180889602343995495
 GameObject:
   m_ObjectHideFlags: 0

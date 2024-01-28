@@ -33,6 +33,7 @@ public class PercussionInstrument : MonoBehaviour
         if (other.CompareTag("DrumstickTip") || other.CompareTag("Drumstick"))
         {
             float velocity = other.attachedRigidbody.velocity.magnitude;
+            Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
             if (!isAnimating)
             {
@@ -50,7 +51,9 @@ public class PercussionInstrument : MonoBehaviour
             }
             else if (rimCollider != null && other == rimCollider)
             {
+                string soundType = other == surfaceCollider ? "Surface" : "Rim";
                 soundManager.PlaySound(this.tag + "Rim", transform.position, velocity);
+                Debug.Log($"Played sound for: {this.tag + soundType}. Volume and Pitch influenced by Velocity: {velocity}");
             }
         }
     }
