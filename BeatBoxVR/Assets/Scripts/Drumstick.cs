@@ -11,8 +11,6 @@ public class Drumstick : MonoBehaviour
     public float vfxLifetime = 0.2f;
     private const float MaxVelocity = 10f; // Maximum considered velocity
 
-    public Collider drumstickTipCollider; // Collider for the tip of the drumstick
-    public Collider drumstickBodyCollider; // Collider for the body (+ shoulder) of the drumstick
 
     public Transform tipTransform; // Assign this in the Inspector
     private Vector3 previousTipPosition;
@@ -28,11 +26,6 @@ public class Drumstick : MonoBehaviour
         if (soundManager == null)
         {
             Debug.LogError("SoundManager not found in the scene");
-        }
-
-        if (drumstickTipCollider == null || drumstickBodyCollider == null)
-        {
-            Debug.LogError("Drumstick colliders not assigned in " + gameObject.name);
         }
 
         previousTipPosition = tipTransform.position;

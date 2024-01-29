@@ -76,8 +76,6 @@ MonoBehaviour:
   redSparkVFXPrefab: {fileID: 2375842249092589218, guid: f683deb4ed852a84ebfd1fa4e5e5c8a4,
     type: 3}
   vfxLifetime: 0.4
-  drumstickTipCollider: {fileID: 8678871134860068384}
-  drumstickBodyCollider: {fileID: 1587781425224472340}
   tipTransform: {fileID: 3273985625040863214}
   hitCooldown: 0.02
 --- !u!54 &8383255093238196266
@@ -106,7 +104,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!1 &3803516254807064484
 GameObject:
   m_ObjectHideFlags: 0
