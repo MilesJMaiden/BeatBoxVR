@@ -8,6 +8,7 @@ public class Drumstick : MonoBehaviour
     public GameObject whiteSparkVFXPrefab;
     public GameObject yellowSparkVFXPrefab;
     public GameObject redSparkVFXPrefab;
+    public GameObject vfxSpawnTransform;
     public float vfxLifetime = 0.2f;
     private const float MaxVelocity = 10f; // Maximum considered velocity
 
@@ -67,7 +68,8 @@ public class Drumstick : MonoBehaviour
             GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(velocity);
             if (vfxPrefab != null)
             {
-                Vector3 hitPoint = other.ClosestPointOnBounds(transform.position);
+                // Use the vfxSpawnTransform as the position and rotation reference
+                Vector3 hitPoint = other.ClosestPointOnBounds(vfxSpawnTransform.transform.position);
                 Quaternion hitRotation = Quaternion.LookRotation(other.transform.position - hitPoint);
                 GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
 

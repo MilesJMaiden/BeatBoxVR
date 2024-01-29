@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3273985625040863214}
   - {fileID: 1395131887224509023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
@@ -74,6 +75,7 @@ MonoBehaviour:
     type: 3}
   redSparkVFXPrefab: {fileID: 2375842249092589218, guid: f683deb4ed852a84ebfd1fa4e5e5c8a4,
     type: 3}
+  vfxSpawnTransform: {fileID: 5029640789941863890}
   vfxLifetime: 0.4
   drumstickTipCollider: {fileID: 8678871134860068384}
   drumstickBodyCollider: {fileID: 1587781425224472340}
@@ -135,6 +137,37 @@ Transform:
   m_Children:
   - {fileID: 4031611720841532486}
   m_Father: {fileID: 1395131887224509023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5029640789941863890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3273985625040863214}
+  m_Layer: 0
+  m_Name: VFXSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3273985625040863214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029640789941863890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.305, z: -0.000000014901161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3529863159614565858}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5279632741821941629
 GameObject:
