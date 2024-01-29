@@ -62,12 +62,15 @@ public class PercussionInstrument : MonoBehaviour
 
     private IEnumerator AnimateInstrument(float velocity)
     {
+        isAnimating = true;
+
         // Use mainParent's transform if it's assigned, otherwise use current GameObject's transform
         Transform targetTransform = mainParent ? mainParent.transform : transform;
 
         Vector3 originalPosition = targetTransform.localPosition;
         Quaternion originalRotation = targetTransform.localRotation;
 
+        // Drum animation
         if (rimCollider != null) // Assuming drums have a rim collider
         {
             Vector3 targetPosition = originalPosition + Vector3.up * drumBounceIntensity * velocity;
@@ -75,13 +78,14 @@ public class PercussionInstrument : MonoBehaviour
 
             while (elapsedTime < animationDuration)
             {
-                transform.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
+                targetTransform.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            transform.localPosition = originalPosition;
+            targetTransform.localPosition = originalPosition;
         }
+        // Cymbal animation
         else
         {
             float rotationAmount = cymbalRotationIntensity * velocity;
@@ -89,12 +93,12 @@ public class PercussionInstrument : MonoBehaviour
 
             while (elapsedTime < animationDuration)
             {
-                transform.localRotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(0, 0, rotationAmount), elapsedTime / animationDuration);
+                targetTransform.localRotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(0, 0, rotationAmount), elapsedTime / animationDuration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            transform.localRotation = originalRotation;
+            targetTransform.localRotation = originalRotation;
         }
 
         isAnimating = false;

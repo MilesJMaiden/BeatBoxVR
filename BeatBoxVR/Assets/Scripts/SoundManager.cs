@@ -3,27 +3,16 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Serializable class to hold sound data for drums
+    // Serializable class to hold sound data for drums and cymbals
     [System.Serializable]
-    public class DrumSound
+    public class PercussionSound
     {
-        public string tag;           // Tag to identify the drum
-        public AudioClip surfaceSound;  // Sound for hitting the drum surface
-        public AudioClip rimSound;      // Sound for hitting the drum rim
+        public string tag;           // Tag to identify the percussion instrument
+        public AudioClip sound;      // Sound for the percussion hit
     }
 
-    // Serializable class to hold sound data for cymbals
-    [System.Serializable]
-    public class CymbalSound
-    {
-        public string tag;           // Tag to identify the cymbal
-        public AudioClip normalSound;    // Normal sound for cymbal hit
-        public AudioClip accentSound;    // Accent sound for cymbal hit (not used in this version)
-    }
-
-    // Lists to hold the drum and cymbal sounds
-    public List<DrumSound> drumSounds;
-    public List<CymbalSound> cymbalSounds;
+    // Lists to hold the sounds for drums and cymbals
+    public List<PercussionSound> percussionSounds;
 
     // Method to play a sound based on the tag, position, and velocity
     public void PlaySound(string tag, Vector3 position, float velocity)
@@ -53,20 +42,7 @@ public class SoundManager : MonoBehaviour
     // Helper method to get the appropriate AudioClip based on the tag
     private AudioClip GetClipForTag(string tag)
     {
-        DrumSound drumSound = drumSounds.Find(ds => ds.tag == tag);
-        if (drumSound != null)
-        {
-            // Chooses rim or surface sound for drums based on the tag
-            return tag.EndsWith("Rim") ? drumSound.rimSound : drumSound.surfaceSound;
-        }
-
-        CymbalSound cymbalSound = cymbalSounds.Find(cs => cs.tag == tag);
-        if (cymbalSound != null)
-        {
-            // Currently returns only the normal sound for cymbals
-            return cymbalSound.normalSound;
-        }
-
-        return null;
+        PercussionSound percussionSound = percussionSounds.Find(ps => ps.tag == tag);
+        return percussionSound?.sound;
     }
 }
