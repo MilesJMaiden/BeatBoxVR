@@ -2779,7 +2779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1500299760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3601,6 +3601,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 566190877}
+    - target: {fileID: 2976609002848505637, guid: 24eb4d536005edd4abe465836342554c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7641339356247115709, guid: 24eb4d536005edd4abe465836342554c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3908,14 +3913,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2549780165450510478, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+    - target: {fileID: 1168601233335825787, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2549780165450510478, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+    - target: {fileID: 3037767988067462138, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
-      propertyPath: m_CollisionDetection
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402378825602470908, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
@@ -3923,11 +3928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
-    - target: {fileID: 5931955026564394834, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+    - target: {fileID: 5510189023252422844, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1712656757}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3936,12 +3941,12 @@ PrefabInstance:
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
@@ -3979,8 +3984,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5478881168373194328, guid: 60b772f35c5f38e4ba390ab9397ce9f0, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b772f35c5f38e4ba390ab9397ce9f0, type: 3}
@@ -4047,6 +4051,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8366493464169677254, guid: ac2be1e3095f8d94db8189d2871997c6,
+        type: 3}
+      propertyPath: drumSounds.Array.data[2].rimSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4de441ef531f20c45a8ada1ee975f08d, type: 3}
+    - target: {fileID: 8366493464169677254, guid: ac2be1e3095f8d94db8189d2871997c6,
+        type: 3}
+      propertyPath: drumSounds.Array.data[3].rimSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4de441ef531f20c45a8ada1ee975f08d, type: 3}
+    - target: {fileID: 8366493464169677254, guid: ac2be1e3095f8d94db8189d2871997c6,
+        type: 3}
+      propertyPath: cymbalSounds.Array.data[1].accentSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bc29a243ff3844c4b90e259b3b9da3c8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -14,6 +14,9 @@ public class Drumstick : MonoBehaviour
     public Collider drumstickTipCollider; // Collider for the tip of the drumstick
     public Collider drumstickBodyCollider; // Collider for the body (+ shoulder) of the drumstick
 
+    private Vector3 previousPosition;
+    private float velocity;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -27,12 +30,28 @@ public class Drumstick : MonoBehaviour
         {
             Debug.LogError("Drumstick colliders not assigned in " + gameObject.name);
         }
+
+        previousPosition = transform.position;
+    }
+
+    void Update()
+    {
+        // Calculate velocity manually
+        velocity = (transform.position - previousPosition).magnitude / Time.deltaTime;
+        previousPosition = transform.position;
+    }
+
+    // Method to get current velocity
+    public float GetCurrentVelocity()
+    {
+        return Mathf.Clamp(velocity, 0, MaxVelocity);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        float velocity = Mathf.Clamp(rigidBody.velocity.magnitude, 0, MaxVelocity);
-        Debug.Log($"Drumstick hit detected. Velocity: {velocity}. Collider Tag: {other.tag}");
+        // Use the manually calculated velocity
+        float clampedVelocity = Mathf.Clamp(velocity, 0, MaxVelocity);
+        Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
 
         soundManager.PlaySound(other.tag, other.ClosestPointOnBounds(transform.position), velocity / MaxVelocity);
