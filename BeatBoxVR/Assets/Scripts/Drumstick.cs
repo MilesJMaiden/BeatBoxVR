@@ -84,9 +84,9 @@ public class Drumstick : MonoBehaviour
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
-        if (velocity <= 4)
+        if (velocity <= 2)
             return whiteSparkVFXPrefab;
-        else if (velocity <= 7)
+        else if (velocity <= 4)
             return yellowSparkVFXPrefab;
         else
             return redSparkVFXPrefab;
