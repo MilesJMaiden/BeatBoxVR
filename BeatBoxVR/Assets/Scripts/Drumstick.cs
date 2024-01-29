@@ -15,8 +15,13 @@ public class Drumstick : MonoBehaviour
     public Collider drumstickTipCollider; // Collider for the tip of the drumstick
     public Collider drumstickBodyCollider; // Collider for the body (+ shoulder) of the drumstick
 
-    private Vector3 previousPosition;
-    private float velocity;
+    public Transform tipTransform; // Assign this in the Inspector
+    private Vector3 previousTipPosition;
+    private Vector3 tipMovementDirection;
+    private float tipVelocity;
+
+    private float lastHitTime = 0f;
+    private float hitCooldown = 0.2f; // Adjust as needed
 
     void Start()
     {
@@ -32,54 +37,49 @@ public class Drumstick : MonoBehaviour
             Debug.LogError("Drumstick colliders not assigned in " + gameObject.name);
         }
 
-        previousPosition = transform.position;
+        previousTipPosition = tipTransform.position;
     }
 
     void Update()
     {
-        // Calculate velocity manually
-        velocity = (transform.position - previousPosition).magnitude / Time.deltaTime;
-        previousPosition = transform.position;
+        Vector3 currentTipPosition = tipTransform.position;
+        tipMovementDirection = currentTipPosition - previousTipPosition;
+        tipVelocity = tipMovementDirection.magnitude / Time.deltaTime;
+        previousTipPosition = currentTipPosition;
     }
 
     // Method to get current velocity
     public float GetCurrentVelocity()
     {
-        return Mathf.Clamp(velocity, 0, MaxVelocity);
+        return Mathf.Clamp(tipVelocity, 0, MaxVelocity);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // Use the manually calculated velocity
-        float clampedVelocity = Mathf.Clamp(velocity, 0, MaxVelocity);
-        Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
-
-
-        soundManager.PlaySound(other.tag, other.ClosestPointOnBounds(transform.position), velocity / MaxVelocity);
-
-        if (velocity > 1) // Assuming very soft hits don't produce VFX
+        // Check if the drumstick is moving downwards and if cooldown has passed
+        if (tipMovementDirection.y < 0 && Time.time - lastHitTime > hitCooldown)
         {
-            // This line selects the appropriate VFX prefab based on the part of the drumstick that made contact and the velocity of the hit.
-            // If the drumstick hits a 'Rim' (determined by checking if the tag of the collided object ends with "Rim"), 
-            // it always uses the whiteSparkVFXPrefab, which is designated for rim hits.
-            // If the hit is not on a rim, it calls the SelectVFXPrefabBasedOnVelocity method to choose the VFX prefab 
-            // based on the velocity of the drumstick hit. This allows for different VFX (white, yellow, red) 
-            // at different velocities, providing visual feedback corresponding to the intensity of the hit.
-            GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(velocity);
-            if (vfxPrefab != null)
+            lastHitTime = Time.time; // Update the last hit time
+            float clampedVelocity = Mathf.Clamp(tipVelocity, 0, MaxVelocity);
+            Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
+
+            soundManager.PlaySound(other.tag, other.ClosestPointOnBounds(transform.position), clampedVelocity / MaxVelocity);
+
+            if (clampedVelocity > 1) // Assuming very soft hits don't produce VFX
             {
-                // Use the vfxSpawnTransform as the position and rotation reference
-                Vector3 hitPoint = other.ClosestPointOnBounds(vfxSpawnTransform.transform.position);
-                Quaternion hitRotation = Quaternion.LookRotation(other.transform.position - hitPoint);
-                GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
+                GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(clampedVelocity);
+                if (vfxPrefab != null)
+                {
+                    Vector3 hitPoint = other.ClosestPointOnBounds(vfxSpawnTransform.transform.position);
+                    Quaternion hitRotation = Quaternion.LookRotation(other.transform.position - hitPoint);
+                    GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
 
-                // Scale VFX size based on velocity
-                float scaleMultiplier = 1 + (velocity - 1) / (MaxVelocity - 1) * 0.2f; // Scale from 1 to 1.2
-                vfxInstance.transform.localScale *= scaleMultiplier;
+                    float scaleMultiplier = 1 + (clampedVelocity - 1) / (MaxVelocity - 1) * 0.2f; // Scale from 1 to 1.2
+                    vfxInstance.transform.localScale *= scaleMultiplier;
 
-                Destroy(vfxInstance, vfxLifetime);
-                Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {hitPoint}. Scale Multiplier: {scaleMultiplier}");
-
+                    Destroy(vfxInstance, vfxLifetime);
+                    Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {hitPoint}. Scale Multiplier: {scaleMultiplier}");
+                }
             }
         }
     }
