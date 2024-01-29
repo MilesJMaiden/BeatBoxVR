@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PercussionInstrument : MonoBehaviour
 {
+    public GameObject mainParent;
+
     public Collider surfaceCollider; // Surface collider
     public Collider rimCollider;     // Rim collider, if applicable (e.g., not used for cymbals)
     private SoundManager soundManager;
@@ -60,9 +62,11 @@ public class PercussionInstrument : MonoBehaviour
 
     private IEnumerator AnimateInstrument(float velocity)
     {
-        isAnimating = true;
-        Vector3 originalPosition = transform.localPosition;
-        Quaternion originalRotation = transform.localRotation;
+        // Use mainParent's transform if it's assigned, otherwise use current GameObject's transform
+        Transform targetTransform = mainParent ? mainParent.transform : transform;
+
+        Vector3 originalPosition = targetTransform.localPosition;
+        Quaternion originalRotation = targetTransform.localRotation;
 
         if (rimCollider != null) // Assuming drums have a rim collider
         {

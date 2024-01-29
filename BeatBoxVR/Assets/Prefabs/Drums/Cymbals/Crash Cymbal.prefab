@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainParent: {fileID: 373453236355748936}
   surfaceCollider: {fileID: 531434858669895373}
   rimCollider: {fileID: 6936243283280127325}
   drumBounceIntensity: 0.1
@@ -11852,7 +11853,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3282
+  m_VersionIndex: 3285
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
