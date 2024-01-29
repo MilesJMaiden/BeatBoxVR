@@ -44,23 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dbe0758d02bd048bc1b2f84bbd9f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drumSounds:
+  percussionSounds:
   - tag: SnareDrum
-    surfaceSound: {fileID: 8300000, guid: fc958084262133f40813ebad53a72a17, type: 3}
-    rimSound: {fileID: 8300000, guid: 4de441ef531f20c45a8ada1ee975f08d, type: 3}
+    sound: {fileID: 8300000, guid: fc958084262133f40813ebad53a72a17, type: 3}
+  - tag: SnareDrumRim
+    sound: {fileID: 8300000, guid: 4de441ef531f20c45a8ada1ee975f08d, type: 3}
   - tag: SmallTomTom
-    surfaceSound: {fileID: 8300000, guid: 6adaddedd8347714bae5159e61dfdf65, type: 3}
-    rimSound: {fileID: 8300000, guid: ae9e4593108a164439fdaaefaece8aa2, type: 3}
+    sound: {fileID: 8300000, guid: 6adaddedd8347714bae5159e61dfdf65, type: 3}
+  - tag: SmallTomTomRim
+    sound: {fileID: 8300000, guid: ae9e4593108a164439fdaaefaece8aa2, type: 3}
   - tag: MediumTomTom
-    surfaceSound: {fileID: 8300000, guid: a815de4265c1fe04eb9e654a3b4c7bbf, type: 3}
-    rimSound: {fileID: 0}
+    sound: {fileID: 8300000, guid: a815de4265c1fe04eb9e654a3b4c7bbf, type: 3}
+  - tag: MediumTomTomRim
+    sound: {fileID: 8300000, guid: ae9e4593108a164439fdaaefaece8aa2, type: 3}
   - tag: FloorTom
-    surfaceSound: {fileID: 8300000, guid: 069093ac3d77cf543a90b6873510bdea, type: 3}
-    rimSound: {fileID: 0}
-  cymbalSounds:
-  - tag: RideCymbal
-    normalSound: {fileID: 8300000, guid: 51a74963b160a744299eeb764aac8af1, type: 3}
-    accentSound: {fileID: 8300000, guid: bc29a243ff3844c4b90e259b3b9da3c8, type: 3}
+    sound: {fileID: 8300000, guid: 069093ac3d77cf543a90b6873510bdea, type: 3}
+  - tag: FloorTomRim
+    sound: {fileID: 8300000, guid: ae9e4593108a164439fdaaefaece8aa2, type: 3}
   - tag: CrashCymbal
-    normalSound: {fileID: 8300000, guid: a78dfd0365d69de418cbd9e4927f6dcd, type: 3}
-    accentSound: {fileID: 0}
+    sound: {fileID: 8300000, guid: a78dfd0365d69de418cbd9e4927f6dcd, type: 3}
+  - tag: CrashCymbalRim
+    sound: {fileID: 8300000, guid: bc29a243ff3844c4b90e259b3b9da3c8, type: 3}
+  - tag: RideCymbal
+    sound: {fileID: 8300000, guid: 51a74963b160a744299eeb764aac8af1, type: 3}
+  - tag: RideCymbalRim
+    sound: {fileID: 8300000, guid: bc29a243ff3844c4b90e259b3b9da3c8, type: 3}
