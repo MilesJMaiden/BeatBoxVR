@@ -3,7 +3,27 @@ guid: 54dead0c6bdc26443bd830a909234c2b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brass.001
+    second: {fileID: 2100000, guid: 4e89232d06903ba4aac11fb5ff0a7449, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 6c25fe4fdea0c914ca6a0009e6ad3fa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: bc05914a8dde50f44b014ed7e4386ac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rubber
+    second: {fileID: 2100000, guid: 99d656bba60b68343b22b98d813025b8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

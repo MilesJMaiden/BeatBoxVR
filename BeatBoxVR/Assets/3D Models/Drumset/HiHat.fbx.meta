@@ -3,7 +3,37 @@ guid: e7d1b822b63530448ba1925ced217ce9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium_cast
+    second: {fileID: 2100000, guid: 6d22716e299217a49bfbc163de79d3b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brass
+    second: {fileID: 2100000, guid: b15901ee4ccefda41b78fe3cf36027b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 50f465fb2fe39f843b59e8e26c56687b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 58bf8cdb0d2d45c40b95a4d977a3f086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: f1216cc3d576dde46b553ab145baf6dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rubber
+    second: {fileID: 2100000, guid: 2184d293400342b4aa1780621c620d58, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
