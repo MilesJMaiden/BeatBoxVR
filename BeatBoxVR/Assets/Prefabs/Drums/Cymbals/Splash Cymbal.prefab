@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5094208038737690309}
   m_Layer: 0
   m_Name: RimCollider
-  m_TagString: RideCymbalRim
+  m_TagString: SplashCymbalRim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11709,7 +11709,7 @@ GameObject:
   - component: {fileID: 1622131035736369198}
   m_Layer: 0
   m_Name: Splash Cymbal
-  m_TagString: RideCymbal
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11727,8 +11727,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5315062633186657987}
   - {fileID: 410217214717752327}
+  - {fileID: 5315062633186657987}
   - {fileID: 8657850062782204706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
@@ -11762,7 +11762,7 @@ GameObject:
   - component: {fileID: 7374344415334080338}
   - component: {fileID: 6376010230989720854}
   m_Layer: 0
-  m_Name: Ride_Cymbal
+  m_Name: Splash_Cymbal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11811,8 +11811,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15a132c43e045e24ca578e33105d40b2, type: 2}
-  - {fileID: 2100000, guid: 15a132c43e045e24ca578e33105d40b2, type: 2}
+  - {fileID: 2100000, guid: 0891488347b53e94983da453d8894bbd, type: 2}
+  - {fileID: 2100000, guid: 0891488347b53e94983da453d8894bbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11895,8 +11895,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c25fe4fdea0c914ca6a0009e6ad3fa7, type: 2}
-  - {fileID: 2100000, guid: 99d656bba60b68343b22b98d813025b8, type: 2}
+  - {fileID: 2100000, guid: 9fe72b9535a39c24fa03a6ceea2a3241, type: 2}
+  - {fileID: 2100000, guid: a4b5b237099db094ba7616b755d73c5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11979,7 +11979,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc05914a8dde50f44b014ed7e4386ac2, type: 2}
+  - {fileID: 2100000, guid: a4b5b237099db094ba7616b755d73c5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12050,7 +12050,7 @@ GameObject:
   - component: {fileID: 961650664481622558}
   m_Layer: 0
   m_Name: SurfaceCollider
-  m_TagString: RideCymbal
+  m_TagString: SplashCymbal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12203,7 +12203,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c25fe4fdea0c914ca6a0009e6ad3fa7, type: 2}
+  - {fileID: 2100000, guid: 9fe72b9535a39c24fa03a6ceea2a3241, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
