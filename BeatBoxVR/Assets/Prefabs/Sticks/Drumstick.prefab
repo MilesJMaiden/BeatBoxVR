@@ -55,7 +55,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.01
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0.304125, z: 0}
 --- !u!114 &2280429259485660960
 MonoBehaviour:
@@ -77,7 +77,7 @@ MonoBehaviour:
     type: 3}
   vfxLifetime: 0.4
   tipTransform: {fileID: 3273985625040863214}
-  hitCooldown: 0.02
+  hitCooldown: 0.01
 --- !u!54 &8383255093238196266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!1 &3803516254807064484
 GameObject:
   m_ObjectHideFlags: 0
