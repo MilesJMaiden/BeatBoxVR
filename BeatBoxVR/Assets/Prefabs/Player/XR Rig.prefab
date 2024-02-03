@@ -862,6 +862,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b028ec4193f25ee4ba9eb4d96ef09382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  hiHatVFXPrefab: {fileID: 3820475996070040374, guid: c737493713254ec409b8c80f0cd2a27e,
+    type: 3}
+  kickDrumVFXPrefab: {fileID: 3820475996070040374, guid: c737493713254ec409b8c80f0cd2a27e,
+    type: 3}
+  hiHatTransform: {fileID: 0}
+  kickDrumTransform: {fileID: 0}
+  vfxLifetime: 2
 --- !u!1 &3623489899314893314
 GameObject:
   m_ObjectHideFlags: 0
