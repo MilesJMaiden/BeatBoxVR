@@ -50,8 +50,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 3475118261464492563, guid: 7fdc100293154bb488382eba1348084d,
-    type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 2822851233474353296}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -432,8 +431,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 8270855663187062767, guid: 69648bd2fa29a134b8538cf4b19d5b71,
-    type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 1836232979675392735}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -869,7 +867,7 @@ MonoBehaviour:
     type: 3}
   hiHatTransform: {fileID: 0}
   kickDrumTransform: {fileID: 0}
-  vfxLifetime: 2
+  vfxLifetime: 0.4
 --- !u!1 &3623489899314893314
 GameObject:
   m_ObjectHideFlags: 0
