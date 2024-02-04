@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SkyboxManager : MonoBehaviour
 {
-    // Array to hold the Cubemap textures you want to switch between
+    // Array to hold the Cubemap textures
     public Cubemap[] skyboxCubemaps;
 
-    // The generic skybox material to be modified at runtime
+    // The generic skybox material - modified at rt
     public Material skyboxMaterial;
 
     private void Awake()
@@ -36,6 +36,16 @@ public class SkyboxManager : MonoBehaviour
         if (index < skyboxCubemaps.Length && skyboxMaterial != null)
         {
             skyboxMaterial.SetTexture("_Tex", skyboxCubemaps[index]);
+        }
+    }
+
+    void OnDisable()
+    {
+        // Revert to the first skybox when the game is stopped or the object is disabled
+        if (skyboxCubemaps.Length > 0 && skyboxMaterial != null)
+        {
+            skyboxMaterial.SetTexture("_Tex", skyboxCubemaps[0]);
+            DynamicGI.UpdateEnvironment(); // Update the environment to reflect the change
         }
     }
 }
