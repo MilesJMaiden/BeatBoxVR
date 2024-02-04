@@ -12,13 +12,15 @@ public class Drumstick : MonoBehaviour
     private const float MaxVelocity = 10f; // Maximum considered velocity
 
 
-    public Transform tipTransform; // Assign this in the Inspector
+    public Transform tipTransform;
     private Vector3 previousTipPosition;
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
     private float lastHitTime = 0f;
-    public float hitCooldown = 0.02f; // Adjust as needed
+    public float hitCooldown = 0.02f;
+
+    public bool instantiateVFX = true; // Boolean flag to control VFX instantiation
 
     void Start()
     {
@@ -56,27 +58,18 @@ public class Drumstick : MonoBehaviour
 
             // Use the tipTransform's position for sound and VFX instantiation
             Vector3 collisionPoint = tipTransform.position;
-
             soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
 
-            if (clampedVelocity > 1) // Assuming very soft hits don't produce VFX
+            if (clampedVelocity > 1 && instantiateVFX) // Check if VFX should be instantiated
             {
-                GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(clampedVelocity);
+                GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    Quaternion hitRotation = Quaternion.LookRotation(other.transform.position - collisionPoint);
-                    GameObject vfxInstance = Instantiate(vfxPrefab, collisionPoint, hitRotation);
-
-                    float scaleMultiplier = 1 + (clampedVelocity - 1) / (MaxVelocity - 1) * 0.2f; // Scale from 1 to 1.2
-                    vfxInstance.transform.localScale *= scaleMultiplier;
-
-                    Destroy(vfxInstance, vfxLifetime);
-                    Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {collisionPoint}. Scale Multiplier: {scaleMultiplier}");
+                    InstantiateVFX(vfxPrefab, collisionPoint, other.transform.position - collisionPoint);
                 }
             }
         }
     }
-
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
@@ -86,5 +79,16 @@ public class Drumstick : MonoBehaviour
             return yellowSparkVFXPrefab;
         else
             return redSparkVFXPrefab;
+    }
+
+    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    {
+        // Instantiate VFX prefab and adjust its scale based on velocity
+        Quaternion hitRotation = Quaternion.LookRotation(direction);
+        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+        float scaleMultiplier = 1 + (tipVelocity - 1) / (MaxVelocity - 1) * 0.2f;
+        vfxInstance.transform.localScale *= scaleMultiplier;
+        Destroy(vfxInstance, vfxLifetime);
+        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
     }
 }
