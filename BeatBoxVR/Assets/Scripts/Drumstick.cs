@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Drumstick : MonoBehaviour
 {
@@ -68,6 +69,10 @@ public class Drumstick : MonoBehaviour
                     InstantiateVFX(vfxPrefab, collisionPoint, other.transform.position - collisionPoint);
                 }
             }
+
+            // Trigger haptic feedback based on the velocity
+            float feedbackStrength = Mathf.InverseLerp(0, MaxVelocity, clampedVelocity);
+            TriggerHapticFeedback(gameObject.tag, 0.1f, feedbackStrength); // Assuming duration is constant
         }
     }
 
@@ -90,5 +95,32 @@ public class Drumstick : MonoBehaviour
         vfxInstance.transform.localScale *= scaleMultiplier;
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
+    }
+
+    private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)
+    {
+        InputDevice device = GetDeviceByDrumstickTag(drumstickTag);
+
+        if (device.isValid)
+        {
+            device.SendHapticImpulse(0, strength, duration);
+        }
+    }
+
+    private InputDevice GetDeviceByDrumstickTag(string tag)
+    {
+        // This method should be implemented to return the correct InputDevice
+        // based on whether the tag is LeftDrumstick or RightDrumstick.
+
+        if (tag == "LeftDrumstick")
+        {
+            return InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        }
+        else if (tag == "RightDrumstick")
+        {
+            return InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        }
+
+        return new InputDevice(); // Fallback, ideally never used
     }
 }
