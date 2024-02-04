@@ -32,7 +32,7 @@ public class PercussionInstrument : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("LeftDrumstick") || other.CompareTag("RightDrumstick"))
+        if (other.CompareTag("Drumstick"))
         {
             float velocity = other.attachedRigidbody.velocity.magnitude;
             Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");

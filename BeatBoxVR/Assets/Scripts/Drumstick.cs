@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class Drumstick : MonoBehaviour
 {
@@ -13,15 +12,13 @@ public class Drumstick : MonoBehaviour
     private const float MaxVelocity = 10f; // Maximum considered velocity
 
 
-    public Transform tipTransform;
+    public Transform tipTransform; // Assign this in the Inspector
     private Vector3 previousTipPosition;
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
     private float lastHitTime = 0f;
-    public float hitCooldown = 0.02f;
-
-    public bool instantiateVFX = true; // Boolean flag to control VFX instantiation
+    public float hitCooldown = 0.02f; // Adjust as needed
 
     void Start()
     {
@@ -59,68 +56,35 @@ public class Drumstick : MonoBehaviour
 
             // Use the tipTransform's position for sound and VFX instantiation
             Vector3 collisionPoint = tipTransform.position;
+
             soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
 
-            if (clampedVelocity > 1 && instantiateVFX) // Check if VFX should be instantiated
+            if (clampedVelocity > 1) // Assuming very soft hits don't produce VFX
             {
-                GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
+                GameObject vfxPrefab = other.tag.EndsWith("Rim") ? whiteSparkVFXPrefab : SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, collisionPoint, other.transform.position - collisionPoint);
+                    Quaternion hitRotation = Quaternion.LookRotation(other.transform.position - collisionPoint);
+                    GameObject vfxInstance = Instantiate(vfxPrefab, collisionPoint, hitRotation);
+
+                    float scaleMultiplier = 1 + (clampedVelocity - 1) / (MaxVelocity - 1) * 0.2f; // Scale from 1 to 1.2
+                    vfxInstance.transform.localScale *= scaleMultiplier;
+
+                    Destroy(vfxInstance, vfxLifetime);
+                    Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {collisionPoint}. Scale Multiplier: {scaleMultiplier}");
                 }
             }
-
-            // Trigger haptic feedback based on the velocity
-            float feedbackStrength = Mathf.InverseLerp(0, MaxVelocity, clampedVelocity);
-            TriggerHapticFeedback(gameObject.tag, 0.1f, feedbackStrength); // Assuming duration is constant
         }
     }
+
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
-        if (velocity <= 4)
+        if (velocity <= 2)
             return whiteSparkVFXPrefab;
-        else if (velocity <= 7)
+        else if (velocity <= 4)
             return yellowSparkVFXPrefab;
         else
             return redSparkVFXPrefab;
-    }
-
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
-    {
-        // Instantiate VFX prefab and adjust its scale based on velocity
-        Quaternion hitRotation = Quaternion.LookRotation(direction);
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
-        float scaleMultiplier = 1 + (tipVelocity - 1) / (MaxVelocity - 1) * 0.2f;
-        vfxInstance.transform.localScale *= scaleMultiplier;
-        Destroy(vfxInstance, vfxLifetime);
-        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
-    }
-
-    private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)
-    {
-        InputDevice device = GetDeviceByDrumstickTag(drumstickTag);
-
-        if (device.isValid)
-        {
-            device.SendHapticImpulse(0, strength, duration);
-        }
-    }
-
-    private InputDevice GetDeviceByDrumstickTag(string tag)
-    {
-        // This method should be implemented to return the correct InputDevice
-        // based on whether the tag is LeftDrumstick or RightDrumstick.
-
-        if (tag == "LeftDrumstick")
-        {
-            return InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-        }
-        else if (tag == "RightDrumstick")
-        {
-            return InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        }
-
-        return new InputDevice(); // Fallback, ideally never used
     }
 }
