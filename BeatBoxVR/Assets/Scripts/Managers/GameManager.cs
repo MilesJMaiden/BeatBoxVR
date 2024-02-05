@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
     public UIController uiController;
     private bool isGamePaused = false;
 
-    // Call this method to toggle pause state
     public void TogglePauseGame()
     {
         isGamePaused = !isGamePaused;

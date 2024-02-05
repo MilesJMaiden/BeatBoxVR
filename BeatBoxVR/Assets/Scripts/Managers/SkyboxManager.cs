@@ -10,7 +10,7 @@ public class SkyboxManager : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure the skybox material is set to the RenderSettings
+        // skybox material is set to the RenderSettings
         if (skyboxMaterial != null)
             RenderSettings.skybox = skyboxMaterial;
     }
@@ -45,7 +45,7 @@ public class SkyboxManager : MonoBehaviour
         if (skyboxCubemaps.Length > 0 && skyboxMaterial != null)
         {
             skyboxMaterial.SetTexture("_Tex", skyboxCubemaps[0]);
-            DynamicGI.UpdateEnvironment(); // Update the environment to reflect the change
+            DynamicGI.UpdateEnvironment();
         }
     }
 }

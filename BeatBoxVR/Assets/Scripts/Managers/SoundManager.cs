@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     // Lists to hold the sounds for drums and cymbals
     public List<PercussionSound> percussionSounds;
 
-    // Method to play a sound based on the tag, position, and velocity
+    // Play a sound based on the tag, position, and velocity
     public void PlaySound(string tag, Vector3 position, float velocity)
     {
         AudioClip clip = GetClipForTag(tag);
@@ -24,14 +24,14 @@ public class SoundManager : MonoBehaviour
             soundObject.transform.position = position;
             AudioSource audioSource = soundObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // Sets the sound to be 3D
+            audioSource.spatialBlend = 1.0f; // Sets the sound to be 3D/ Spatial
 
-            // Adjusts volume and pitch based on the hit velocity
+            // Adjusts volume and pitch based on the hit velocity 
             audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
             audioSource.pitch = 1.0f + velocity * 0.1f;
 
             audioSource.Play();
-            Destroy(soundObject, clip.length); // Destroys the audio source after playing
+            Destroy(soundObject, clip.length);
         }
         else
         {

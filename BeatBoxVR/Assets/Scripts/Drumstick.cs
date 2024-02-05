@@ -10,7 +10,7 @@ public class Drumstick : MonoBehaviour
     public GameObject redSparkVFXPrefab;
 
     public float vfxLifetime = 0.2f;
-    private const float MaxVelocity = 10f; // Maximum considered velocity
+    private const float MaxVelocity = 10f;
 
 
     public Transform tipTransform;
@@ -21,7 +21,7 @@ public class Drumstick : MonoBehaviour
     private float lastHitTime = 0f;
     public float hitCooldown = 0.02f;
 
-    public bool instantiateVFX = true; // Boolean flag to control VFX instantiation
+    public bool instantiateVFX = true; // Flag to control VFX instantiation
 
     void Start()
     {
@@ -50,6 +50,7 @@ public class Drumstick : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Joshua - TODO Remove cooldown, this is not needed
         // Check if the drumstick is moving downwards and if cooldown has passed
         if (tipMovementDirection.y < 0 && Time.time - lastHitTime > hitCooldown)
         {
@@ -121,6 +122,6 @@ public class Drumstick : MonoBehaviour
             return InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
         }
 
-        return new InputDevice(); // Fallback, ideally never used
+        return new InputDevice(); // (Fallback) ideally never used
     }
 }

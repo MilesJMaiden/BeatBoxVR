@@ -7,7 +7,6 @@ public class UIController : MonoBehaviour
     public float animationDuration = 1.0f;
     public CanvasGroup mainMenuCanvasGroup;
 
-    // Function to toggle the main menu visibility
     public void ToggleMenu(bool show)
     {
         StartCoroutine(AnimateDrumKit(show));

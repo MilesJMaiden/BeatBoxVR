@@ -15,10 +15,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        // Initialize the input actions
+        // Initialize input actions
         inputActions = new XRIDefaultInputActions();
 
-        // Assuming you have an action map named "Gameplay" with actions "PlayHiHat" and "PlayKickDrum"
         inputActions.XRILeftHandInteraction.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRILeftHandInteraction.PlayKickDrumAction.performed += ctx => PlayKickDrum();
     }
@@ -53,7 +52,7 @@ public class Player : MonoBehaviour
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position)
     {
-        // Instantiate the VFX prefab and destroy it after a specified time
+        // Instantiate the VFX prefab and destroy it after vfxLifetime
         var vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
         Destroy(vfxInstance, vfxLifetime);
     }

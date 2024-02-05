@@ -6,8 +6,8 @@ public class PercussionInstrument : MonoBehaviour
 {
     public GameObject mainParent;
 
-    public Collider surfaceCollider; // Surface collider
-    public Collider rimCollider;     // Rim collider, if applicable (e.g., not used for cymbals)
+    public Collider surfaceCollider; 
+    public Collider rimCollider;
     private SoundManager soundManager;
 
     public float drumBounceIntensity = 0.1f;
@@ -60,18 +60,18 @@ public class PercussionInstrument : MonoBehaviour
         }
     }
 
+    //!This currently does not work! TODO 
     private IEnumerator AnimateInstrument(float velocity)
     {
         isAnimating = true;
 
-        // Use mainParent's transform if it's assigned, otherwise use current GameObject's transform
         Transform targetTransform = mainParent ? mainParent.transform : transform;
 
         Vector3 originalPosition = targetTransform.localPosition;
         Quaternion originalRotation = targetTransform.localRotation;
 
         // Drum animation
-        if (rimCollider != null) // Assuming drums have a rim collider
+        if (rimCollider != null) 
         {
             Vector3 targetPosition = originalPosition + Vector3.up * drumBounceIntensity * velocity;
             float elapsedTime = 0;
