@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform kickDrumTransform;
     [SerializeField] private float vfxLifetime = 2.0f;
 
+
     private void Awake()
     {
         // Initialize input actions

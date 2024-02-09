@@ -9,13 +9,11 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class PlayAlongButtonManager : MonoBehaviour, IDragHandler, IPointerDownHandler
+public class PlayAlongButtonManager : MonoBehaviour
 {
-    private int currentSongID = 0;
-    private int currentSongTime = 0;
+    public int currentSongID = 0;
+
     private bool isPaused = false;
-    // public Button decrementSong;
-    // public Button incrementSong;
 
     public Button PlayButton;
     public Button PauseButton;
@@ -82,7 +80,7 @@ public class PlayAlongButtonManager : MonoBehaviour, IDragHandler, IPointerDownH
     }
 
 
-    private void setCurrentAudioTime(float clickedTime)
+    public void setCurrentAudioTime(float clickedTime)
     {
         TimeSpan time = TimeSpan.FromSeconds(clickedTime);
         currentAudioTimeTMP.text = time.ToString(@"m\:ss");
@@ -113,6 +111,8 @@ public class PlayAlongButtonManager : MonoBehaviour, IDragHandler, IPointerDownH
 
         loader.loadSong(currentSongID);
     }
+
+
     public void increaseSongID()
     {
         currentSongID++;
@@ -163,31 +163,5 @@ public class PlayAlongButtonManager : MonoBehaviour, IDragHandler, IPointerDownH
         loader.currDrumTrack.Pause();
         PauseButton.gameObject.SetActive(false);
         PlayButton.gameObject.SetActive(true);
-
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        TrySkip(eventData);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        TrySkip(eventData);
-    }
-
-    private void TrySkip(PointerEventData eventData)
-    {
-        Debug.Log("TrySkip attempted");
-        Vector2 localPoint;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(ProgressBar.rectTransform
-            , eventData.position, null, out localPoint))            
-            //null = World Space needs to be changed to camera rendering it
-
-        {
-            float pct = Mathf.InverseLerp(ProgressBar.rectTransform.rect.xMin,
-                ProgressBar.rectTransform.rect.xMax, localPoint.x);
-            setCurrentAudioTime(pct);
-        }
     }
 }
