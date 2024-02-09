@@ -8,8 +8,8 @@ public class UnicodeSupport : MonoBehaviour
 {
 
     TextMeshProUGUI starDifficulty;
-    string blackStar = "\u2605"; // Black Star
-    string whiteStar = "\u2606"; // White Star
+//    string blackStar = "\u2605"; // Black Star
+//    string whiteStar = "\u2606"; // White Star
 
 
     // Start is called before the first frame update
