@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform kickDrumTransform;
     [SerializeField] private float vfxLifetime = 2.0f;
 
+    [Header("Volume Adjustment")]
+    public PlayAlongDetailLoader loader; // Assign this in the Inspector
+
 
     private void Awake()
     {
@@ -20,7 +23,10 @@ public class Player : MonoBehaviour
         inputActions = new XRIDefaultInputActions();
 
         inputActions.XRILeftHandInteraction.PlayHiHatAction.performed += ctx => PlayHiHat();
-        inputActions.XRILeftHandInteraction.PlayKickDrumAction.performed += ctx => PlayKickDrum();
+        inputActions.XRIRightHandInteraction.PlayKickDrumAction.performed += ctx => PlayKickDrum();
+
+        inputActions.XRILeftHandInteraction.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), true);
+        inputActions.XRIRightHandInteraction.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), false);
     }
 
     private void OnEnable()
@@ -56,5 +62,19 @@ public class Player : MonoBehaviour
         // Instantiate the VFX prefab and destroy it after vfxLifetime
         var vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
         Destroy(vfxInstance, vfxLifetime);
+    }
+
+    private void AdjustVolume(Vector2 joystickInput, bool isLeftController)
+    {
+        if (loader == null) return;
+
+        Debug.Log($"{(isLeftController ? "Left" : "Right")} Joystick: {joystickInput}");
+
+        if (joystickInput.y != 0)
+        {
+            float adjustment = joystickInput.y * Time.deltaTime; // Consider scaling this value
+            loader.currBalancedTrack.volume += adjustment;
+            loader.currDrumTrack.volume += adjustment;
+        }
     }
 }

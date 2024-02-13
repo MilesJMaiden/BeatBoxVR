@@ -792,13 +792,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PlayKickDrumAction",
-                    "type": "Button",
-                    "id": "fd6ea2af-c505-4dd7-beb1-8ae705fd9e87",
-                    "expectedControlType": "Button",
+                    "name": "AdjustVolume",
+                    "type": "Value",
+                    "id": "1b0f9fc2-4bc9-4e31-a078-d26df0f7df39",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -980,12 +980,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2d11845c-8693-4366-b5ef-7688a23a8cf8",
-                    "path": "<OculusTouchController>{RightHand}/gripPressed",
+                    "id": "af3e7b7d-1c43-4e3f-9b6b-c13b18e682cd",
+                    "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlayKickDrumAction",
+                    "action": "AdjustVolume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1617,6 +1617,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PlayKickDrumAction",
+                    "type": "Button",
+                    "id": "806c35ee-376a-44a4-af97-cbab8b51e028",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AdjustVolume",
+                    "type": "Value",
+                    "id": "1fef5653-3199-404a-ad92-24b80fea4e60",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1782,6 +1800,28 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ca5ad55-342c-4302-9f39-c2a516154ba0",
+                    "path": "<OculusTouchController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayKickDrumAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85f36535-30df-4668-86ba-21f1902efce6",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AdjustVolume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
