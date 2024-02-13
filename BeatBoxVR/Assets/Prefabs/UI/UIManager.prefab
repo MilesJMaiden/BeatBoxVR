@@ -755,8 +755,6 @@ GameObject:
   - component: {fileID: 4467730030366429092}
   - component: {fileID: 7317835236653124637}
   - component: {fileID: 8626508364056664539}
-  - component: {fileID: 8606736121349117233}
-  - component: {fileID: 3416139424567231170}
   m_Layer: 5
   m_Name: SongManager
   m_TagString: Untagged
@@ -859,31 +857,6 @@ MonoBehaviour:
   AlbumArt: {fileID: 2687675826469109800}
   currDrumTrack: {fileID: 0}
   currBalancedTrack: {fileID: 0}
---- !u!114 &8606736121349117233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182808842080463117}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 549b231c399972543aa3d04c71f100fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loader: {fileID: 8626508364056664539}
---- !u!114 &3416139424567231170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182808842080463117}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbc22cf3367bfa429a971b05257ba43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1233293945770225914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,6 +4462,7 @@ GameObject:
   - component: {fileID: 403680623199680253}
   - component: {fileID: 2235960648575908711}
   - component: {fileID: 3034164967357886166}
+  - component: {fileID: 6406781144907078440}
   m_Layer: 0
   m_Name: CountDownCanvas
   m_TagString: Untagged
@@ -4591,6 +4565,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6406781144907078440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762712379730179101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &4859447999369784887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6282,6 +6275,7 @@ GameObject:
   - component: {fileID: 4594306531043185852}
   - component: {fileID: 6797159870255501943}
   - component: {fileID: 3565330655128442928}
+  - component: {fileID: 8104164917897148646}
   m_Layer: 5
   m_Name: PlayAlongCanvas
   m_TagString: Untagged
@@ -6373,6 +6367,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8104164917897148646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707914437676053979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &5738830939162569405
 GameObject:
   m_ObjectHideFlags: 0
@@ -10344,6 +10357,7 @@ GameObject:
   - component: {fileID: 5864362004676940867}
   - component: {fileID: 6113143574448486925}
   - component: {fileID: 7919556690955425834}
+  - component: {fileID: 6296596590118400893}
   m_Layer: 0
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -10453,3 +10467,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6296596590118400893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166829735601703447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
