@@ -565,6 +565,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 878199627}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetToGarageSkybox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkyboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223556744995857706, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 878199627}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetToStudioSkybox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkyboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359421859131167014, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4762712379730179101, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_IsActive
@@ -1276,6 +1346,18 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!114 &878199627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6048175386578320805, guid: 297ae36b083c13e43922fb8082e46226,
+    type: 3}
+  m_PrefabInstance: {fileID: 3184359286015278323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ac9d5ceb1372b48baa78dd79f5ec66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &900719102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7641339356247115709, guid: 24eb4d536005edd4abe465836342554c,
