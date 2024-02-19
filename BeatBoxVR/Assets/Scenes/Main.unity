@@ -779,6 +779,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8626508364056664539, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: currDrumTrack
+      value: 
+      objectReference: {fileID: 295108395}
+    - target: {fileID: 8626508364056664539, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: currBalancedTrack
+      value: 
+      objectReference: {fileID: 1244624260}
     - target: {fileID: 9166829735601703447, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_IsActive
@@ -5078,12 +5088,21 @@ MonoBehaviour:
   - songName: LOVE STORY
     songArtist: TAYLOR SWIFT
     songBPM: 119
-    songKey: A Major
-    songDifficulty: "\u2605\u2605\u2605\u2606\u2606"
-    songLengthSec: 0
-    AlbumCover: {fileID: 0}
-    rebalancedTrack: {fileID: 0}
-    drumTrack: {fileID: 0}
+    songKey: D Major
+    songDifficulty: "\u2605\u2605\u2605\u2605\u2606"
+    songLengthSec: 235
+    AlbumCover: {fileID: 21300000, guid: 3a5135176917b474a942185618c0e880, type: 3}
+    rebalancedTrack: {fileID: 8300000, guid: b6b91ed12911ac7409e666517b79e8dd, type: 3}
+    drumTrack: {fileID: 8300000, guid: e317c760b72224f429174f3c181976dd, type: 3}
+  - songName: SEVEN NATION ARMY
+    songArtist: THE WHITE STRIPES
+    songBPM: 124
+    songKey: E Minor
+    songDifficulty: "\u2605\u2605\u2606\u2606\u2606"
+    songLengthSec: 231
+    AlbumCover: {fileID: 21300000, guid: ae0000a748d7c9a4299f8cf95bd1de85, type: 3}
+    rebalancedTrack: {fileID: 8300000, guid: 843c7b3fade6f63448e3be2a4a982dfe, type: 3}
+    drumTrack: {fileID: 8300000, guid: e115d8ef17273424ba59995de4cd678a, type: 3}
   songTitleValueTMP: {fileID: 755229891}
   songArtistValueTMP: {fileID: 1469021307}
   songTempoTMP: {fileID: 1383641344}
