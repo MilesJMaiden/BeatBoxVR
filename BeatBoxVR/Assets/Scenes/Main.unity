@@ -1184,51 +1184,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &562976794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 562976796}
-  - component: {fileID: 562976795}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &562976795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562976794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce3c3754309aa249b78602d4c66f8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiController: {fileID: 0}
---- !u!4 &562976796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562976794}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &566190877
 Mesh:
   m_ObjectHideFlags: 0
@@ -1482,6 +1437,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 39925040643857621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1125023859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125023861}
+  - component: {fileID: 1125023860}
+  m_Layer: 0
+  m_Name: DrumCustomizationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1125023860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125023859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68af764cd9c012546ab150c3b5ae91e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumMaterial: {fileID: 2100000, guid: f7041fcbb22287a4e9d3385f6b860b3b, type: 2}
+  drumTextures:
+  - {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+  drumColors:
+  - {r: 0.745, g: 0.073755026, b: 0.073755026, a: 1}
+  - {r: 0.06113364, g: 0.603, b: 0.07780639, a: 1}
+  - {r: 0.042497326, g: 0.2641151, b: 0.9009434, a: 1}
+--- !u!4 &1125023861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125023859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1146936675
 Mesh:
   m_ObjectHideFlags: 0
@@ -3791,9 +3797,9 @@ SceneRoots:
   - {fileID: 1516775099}
   - {fileID: 8386561}
   - {fileID: 1712656758}
-  - {fileID: 562976796}
   - {fileID: 413962938}
   - {fileID: 7059978641324089412}
+  - {fileID: 1125023861}
   - {fileID: 3184359286015278323}
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
