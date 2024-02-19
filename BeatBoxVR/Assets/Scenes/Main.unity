@@ -735,16 +735,31 @@ PrefabInstance:
     - target: {fileID: 39003275763368637, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1779443791807820702, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3114764651733527626, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4904951036487858484, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361233650976655298, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504165880242803058, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6410311666841534140, guid: 583211680e08bea4dbdc52ad04a9cde4,
@@ -765,12 +780,12 @@ PrefabInstance:
     - target: {fileID: 7747543909344940411, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8108713442088868408, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8357641772436041550, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
