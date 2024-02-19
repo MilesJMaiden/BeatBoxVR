@@ -5,6 +5,10 @@ public class Player : MonoBehaviour
 {
     private XRIDefaultInputActions inputActions;
 
+    [Header("Game Control")]
+    public GamePauseController gamePauseController;
+    public UIController uiController;
+
     [Header("Sound and VFX")]
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private GameObject hiHatVFXPrefab;
@@ -22,11 +26,15 @@ public class Player : MonoBehaviour
         // Initialize input actions
         inputActions = new XRIDefaultInputActions();
 
-        inputActions.XRILeftHandInteraction.PlayHiHatAction.performed += ctx => PlayHiHat();
-        inputActions.XRIRightHandInteraction.PlayKickDrumAction.performed += ctx => PlayKickDrum();
+        // bindings for pausing the game
+        inputActions.XRILeftHand.PauseGame.performed += _ => TogglePauseGame();
+        inputActions.XRIRightHand.PauseGame.performed += _ => TogglePauseGame();
 
-        inputActions.XRILeftHandInteraction.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), true);
-        inputActions.XRIRightHandInteraction.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), false);
+        inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
+        inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
+
+        inputActions.XRILeftHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), true);
+        inputActions.XRIRightHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), false);
     }
 
     private void OnEnable()
@@ -41,6 +49,22 @@ public class Player : MonoBehaviour
         // Disable the input action map when the script is disabled
         inputActions.XRILeftHandInteraction.Disable();
         inputActions.XRIRightHandInteraction.Disable();
+    }
+
+    private void TogglePauseGame()
+    {
+        if (Time.timeScale == 0)
+        {
+            // Unpause the game
+            gamePauseController.UnpauseGameWithCountdown();
+            uiController.ToggleMenu(false);
+        }
+        else
+        {
+            // Pause the game
+            gamePauseController.PauseGame();
+            uiController.ToggleMenu(true);
+        }
     }
 
     private void PlayHiHat()
