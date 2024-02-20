@@ -21,6 +21,4 @@ public class GameManager : MonoBehaviour
             uiController.ToggleMenu(false);
         }
     }
-
-    // Additional game management methods...
 }

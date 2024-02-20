@@ -48,4 +48,8 @@ public class SkyboxManager : MonoBehaviour
             DynamicGI.UpdateEnvironment();
         }
     }
+
+    //Intermediary methods for UI buttons
+    public void SetToStudioSkybox() => SetSkyboxCubemap(0);
+    public void SetToGarageSkybox() => SetSkyboxCubemap(1);
 }
