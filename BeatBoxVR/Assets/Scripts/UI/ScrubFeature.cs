@@ -16,8 +16,8 @@ public class ScrubFeature : MonoBehaviour, IPointerDownHandler
         Debug.Log(eventPos);
 
         
-        if (eventPos.y >= 180 && eventPos.y <= 350)
-            if (eventPos.x >= 670 && eventPos.x <= 3160)
+        if (eventPos.y >= 665 && eventPos.y <= 770)
+            if (eventPos.x >= 260 && eventPos.x <= 275)
             {
                 newTime = 0 + (((eventData.position.x - 670) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
                     / (3160 - 670));

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     [Header("Volume Adjustment")]
     public PlayAlongDetailLoader loader; // Assign this in the Inspector
+    private float currentAudioAdjustments;
 
 
     private void Awake()
@@ -33,8 +34,8 @@ public class Player : MonoBehaviour
         inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
 
-        inputActions.XRILeftHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), true);
-        inputActions.XRIRightHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), false);
+        inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
+        inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
     }
 
     private void OnEnable()
@@ -88,17 +89,20 @@ public class Player : MonoBehaviour
         Destroy(vfxInstance, vfxLifetime);
     }
 
-    private void AdjustVolume(Vector2 joystickInput, bool isLeftController)
+    private void AdjustVolumeRedux(Vector2 joystickInput, bool isLeftController)
     {
         if (loader == null) return;
 
         Debug.Log($"{(isLeftController ? "Left" : "Right")} Joystick: {joystickInput}");
+        //adjustment = joystickInput.y * Time.deltaTime;
+        currentAudioAdjustments = joystickInput.y * Time.deltaTime; // Consider scaling this value
 
-        if (joystickInput.y != 0)
+        if (joystickInput.y != 0 && isLeftController)
         {
-            float adjustment = joystickInput.y * Time.deltaTime; // Consider scaling this value
-            loader.currBalancedTrack.volume += adjustment;
-            loader.currDrumTrack.volume += adjustment;
+            loader.currBalancedTrack.volume += currentAudioAdjustments;
+        } else if (joystickInput.y != 0 && !isLeftController)
+        {
+            loader.currDrumTrack.volume += currentAudioAdjustments;
         }
     }
 }

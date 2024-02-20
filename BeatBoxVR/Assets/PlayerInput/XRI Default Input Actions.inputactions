@@ -340,8 +340,17 @@
                     "name": "AdjustVolume",
                     "type": "Value",
                     "id": "83c55e3f-ccb8-4fff-979b-e2cacbc8d487",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Vector2",
                     "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AdjustVolumeRedux",
+                    "type": "Value",
+                    "id": "d81d5b5e-7432-4c82-bdab-e5af4f76ba0f",
+                    "expectedControlType": "Vector2",
+                    "processors": "InvertVector2(invertY=false)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -734,6 +743,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AdjustVolume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0562660-d4de-4e85-b7e4-46bd900d8612",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "AdjustVolumeRedux",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1187,7 +1207,7 @@
                     "name": "Position",
                     "type": "Value",
                     "id": "c4990d70-7b8a-4ce1-b03c-da86716b8352",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -1207,6 +1227,15 @@
                     "id": "bc95569d-853e-444f-81b7-2969278762a4",
                     "expectedControlType": "Stick",
                     "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AdjustVolumeRedux",
+                    "type": "Value",
+                    "id": "348caf6b-6e43-4fbb-b08d-0cbd1531cfc0",
+                    "expectedControlType": "Vector2",
+                    "processors": "InvertVector2(invertY=false)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -1590,6 +1619,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PlayKickDrumAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "281c64ff-e070-4a17-808e-854f8252fd86",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "AdjustVolumeRedux",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

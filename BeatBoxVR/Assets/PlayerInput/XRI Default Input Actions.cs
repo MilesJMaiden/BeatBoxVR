@@ -362,8 +362,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""AdjustVolume"",
                     ""type"": ""Value"",
                     ""id"": ""83c55e3f-ccb8-4fff-979b-e2cacbc8d487"",
-                    ""expectedControlType"": ""Stick"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AdjustVolumeRedux"",
+                    ""type"": ""Value"",
+                    ""id"": ""d81d5b5e-7432-4c82-bdab-e5af4f76ba0f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""InvertVector2(invertY=false)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -756,6 +765,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AdjustVolume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0562660-d4de-4e85-b7e4-46bd900d8612"",
+                    ""path"": ""<XRController>{LeftHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""AdjustVolumeRedux"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1209,7 +1229,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Position"",
                     ""type"": ""Value"",
                     ""id"": ""c4990d70-7b8a-4ce1-b03c-da86716b8352"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -1229,6 +1249,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""id"": ""bc95569d-853e-444f-81b7-2969278762a4"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AdjustVolumeRedux"",
+                    ""type"": ""Value"",
+                    ""id"": ""348caf6b-6e43-4fbb-b08d-0cbd1531cfc0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""InvertVector2(invertY=false)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -1612,6 +1641,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PlayKickDrumAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""281c64ff-e070-4a17-808e-854f8252fd86"",
+                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""AdjustVolumeRedux"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2819,6 +2859,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRILeftHand = asset.FindActionMap("XRI LeftHand", throwIfNotFound: true);
         m_XRILeftHand_Position = m_XRILeftHand.FindAction("Position", throwIfNotFound: true);
         m_XRILeftHand_AdjustVolume = m_XRILeftHand.FindAction("AdjustVolume", throwIfNotFound: true);
+        m_XRILeftHand_AdjustVolumeRedux = m_XRILeftHand.FindAction("AdjustVolumeRedux", throwIfNotFound: true);
         m_XRILeftHand_PlayHiHatAction = m_XRILeftHand.FindAction("PlayHiHatAction", throwIfNotFound: true);
         m_XRILeftHand_Rotation = m_XRILeftHand.FindAction("Rotation", throwIfNotFound: true);
         m_XRILeftHand_IsTracked = m_XRILeftHand.FindAction("Is Tracked", throwIfNotFound: true);
@@ -2861,6 +2902,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRIRightHand_Position = m_XRIRightHand.FindAction("Position", throwIfNotFound: true);
         m_XRIRightHand_PlayKickDrumAction = m_XRIRightHand.FindAction("PlayKickDrumAction", throwIfNotFound: true);
         m_XRIRightHand_AdjustVolume = m_XRIRightHand.FindAction("AdjustVolume", throwIfNotFound: true);
+        m_XRIRightHand_AdjustVolumeRedux = m_XRIRightHand.FindAction("AdjustVolumeRedux", throwIfNotFound: true);
         m_XRIRightHand_Rotation = m_XRIRightHand.FindAction("Rotation", throwIfNotFound: true);
         m_XRIRightHand_IsTracked = m_XRIRightHand.FindAction("Is Tracked", throwIfNotFound: true);
         m_XRIRightHand_TrackingState = m_XRIRightHand.FindAction("Tracking State", throwIfNotFound: true);
@@ -3083,6 +3125,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private List<IXRILeftHandActions> m_XRILeftHandActionsCallbackInterfaces = new List<IXRILeftHandActions>();
     private readonly InputAction m_XRILeftHand_Position;
     private readonly InputAction m_XRILeftHand_AdjustVolume;
+    private readonly InputAction m_XRILeftHand_AdjustVolumeRedux;
     private readonly InputAction m_XRILeftHand_PlayHiHatAction;
     private readonly InputAction m_XRILeftHand_Rotation;
     private readonly InputAction m_XRILeftHand_IsTracked;
@@ -3103,6 +3146,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         public XRILeftHandActions(@XRIDefaultInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Position => m_Wrapper.m_XRILeftHand_Position;
         public InputAction @AdjustVolume => m_Wrapper.m_XRILeftHand_AdjustVolume;
+        public InputAction @AdjustVolumeRedux => m_Wrapper.m_XRILeftHand_AdjustVolumeRedux;
         public InputAction @PlayHiHatAction => m_Wrapper.m_XRILeftHand_PlayHiHatAction;
         public InputAction @Rotation => m_Wrapper.m_XRILeftHand_Rotation;
         public InputAction @IsTracked => m_Wrapper.m_XRILeftHand_IsTracked;
@@ -3132,6 +3176,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @AdjustVolume.started += instance.OnAdjustVolume;
             @AdjustVolume.performed += instance.OnAdjustVolume;
             @AdjustVolume.canceled += instance.OnAdjustVolume;
+            @AdjustVolumeRedux.started += instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.performed += instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.canceled += instance.OnAdjustVolumeRedux;
             @PlayHiHatAction.started += instance.OnPlayHiHatAction;
             @PlayHiHatAction.performed += instance.OnPlayHiHatAction;
             @PlayHiHatAction.canceled += instance.OnPlayHiHatAction;
@@ -3184,6 +3231,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @AdjustVolume.started -= instance.OnAdjustVolume;
             @AdjustVolume.performed -= instance.OnAdjustVolume;
             @AdjustVolume.canceled -= instance.OnAdjustVolume;
+            @AdjustVolumeRedux.started -= instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.performed -= instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.canceled -= instance.OnAdjustVolumeRedux;
             @PlayHiHatAction.started -= instance.OnPlayHiHatAction;
             @PlayHiHatAction.performed -= instance.OnPlayHiHatAction;
             @PlayHiHatAction.canceled -= instance.OnPlayHiHatAction;
@@ -3478,6 +3528,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRIRightHand_Position;
     private readonly InputAction m_XRIRightHand_PlayKickDrumAction;
     private readonly InputAction m_XRIRightHand_AdjustVolume;
+    private readonly InputAction m_XRIRightHand_AdjustVolumeRedux;
     private readonly InputAction m_XRIRightHand_Rotation;
     private readonly InputAction m_XRIRightHand_IsTracked;
     private readonly InputAction m_XRIRightHand_TrackingState;
@@ -3498,6 +3549,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         public InputAction @Position => m_Wrapper.m_XRIRightHand_Position;
         public InputAction @PlayKickDrumAction => m_Wrapper.m_XRIRightHand_PlayKickDrumAction;
         public InputAction @AdjustVolume => m_Wrapper.m_XRIRightHand_AdjustVolume;
+        public InputAction @AdjustVolumeRedux => m_Wrapper.m_XRIRightHand_AdjustVolumeRedux;
         public InputAction @Rotation => m_Wrapper.m_XRIRightHand_Rotation;
         public InputAction @IsTracked => m_Wrapper.m_XRIRightHand_IsTracked;
         public InputAction @TrackingState => m_Wrapper.m_XRIRightHand_TrackingState;
@@ -3529,6 +3581,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @AdjustVolume.started += instance.OnAdjustVolume;
             @AdjustVolume.performed += instance.OnAdjustVolume;
             @AdjustVolume.canceled += instance.OnAdjustVolume;
+            @AdjustVolumeRedux.started += instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.performed += instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.canceled += instance.OnAdjustVolumeRedux;
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
@@ -3581,6 +3636,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @AdjustVolume.started -= instance.OnAdjustVolume;
             @AdjustVolume.performed -= instance.OnAdjustVolume;
             @AdjustVolume.canceled -= instance.OnAdjustVolume;
+            @AdjustVolumeRedux.started -= instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.performed -= instance.OnAdjustVolumeRedux;
+            @AdjustVolumeRedux.canceled -= instance.OnAdjustVolumeRedux;
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
@@ -4119,6 +4177,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     {
         void OnPosition(InputAction.CallbackContext context);
         void OnAdjustVolume(InputAction.CallbackContext context);
+        void OnAdjustVolumeRedux(InputAction.CallbackContext context);
         void OnPlayHiHatAction(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnIsTracked(InputAction.CallbackContext context);
@@ -4164,6 +4223,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         void OnPosition(InputAction.CallbackContext context);
         void OnPlayKickDrumAction(InputAction.CallbackContext context);
         void OnAdjustVolume(InputAction.CallbackContext context);
+        void OnAdjustVolumeRedux(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnIsTracked(InputAction.CallbackContext context);
         void OnTrackingState(InputAction.CallbackContext context);
