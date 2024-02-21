@@ -737,6 +737,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1464437692535757656, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464437692535757656, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464437692535757656, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464437692535757656, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: pointer
+      value: 
+      objectReference: {fileID: 1725447489}
     - target: {fileID: 1779443791807820702, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_Name
@@ -2272,6 +2292,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1725447489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6661115730127492490, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5474525785052308459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1775447279
 Mesh:
   m_ObjectHideFlags: 0

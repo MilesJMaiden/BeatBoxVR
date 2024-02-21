@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     {
         // Initialize input actions
         inputActions = new XRIDefaultInputActions();
+        // Define input actions for left and right controllers
+        leftJoystickAction = new InputAction("AdjustRebalancedTrackVolume", binding: "<XRController>{LeftHand}/primary2DAxis");
+        rightJoystickAction = new InputAction("AdjustDrumTrackVolume", binding: "<XRController>{RightHand}/primary2DAxis");
+
 
         // bindings for pausing the game
         inputActions.XRILeftHand.PauseGame.performed += _ => TogglePauseGame();
@@ -36,8 +40,14 @@ public class Player : MonoBehaviour
         inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
 
-        //inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
-        //inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
+        inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
+        inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
+
+        // Assign callbacks for input events
+        leftJoystickAction.performed += ctx => AdjustRebalancedTrackVolume(ctx.ReadValue<Vector2>());
+        rightJoystickAction.performed += ctx => AdjustDrumTrackVolume(ctx.ReadValue<Vector2>());
+
+
     }
 
     private void OnEnable()
@@ -54,13 +64,10 @@ public class Player : MonoBehaviour
         rightJoystickAction.Enable();
 
 
-        // Define input actions for left and right controllers
-        leftJoystickAction = new InputAction("AdjustRebalancedTrackVolume", binding: "<XRController>{LeftHand}/primary2DAxis");
-        rightJoystickAction = new InputAction("AdjustDrumTrackVolume", binding: "<XRController>{RightHand}/primary2DAxis");
 
         // Assign callbacks for input events
-        leftJoystickAction.performed += ctx => AdjustRebalancedTrackVolume(ctx.ReadValue<Vector2>());
-        rightJoystickAction.performed += ctx => AdjustDrumTrackVolume(ctx.ReadValue<Vector2>());
+        //leftJoystickAction.performed += ctx => AdjustRebalancedTrackVolume(ctx.ReadValue<Vector2>());
+        //rightJoystickAction.performed += ctx => AdjustDrumTrackVolume(ctx.ReadValue<Vector2>());
 
     }
 
@@ -117,7 +124,7 @@ public class Player : MonoBehaviour
     private void AdjustRebalancedTrackVolume (Vector2 joystickInput)
     {
         Debug.Log("Left Joystick position: " + joystickInput);
-        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 2; // Consider scaling this value
 
         if (currentAudioAdjustments != 0)
         {
@@ -130,7 +137,7 @@ public class Player : MonoBehaviour
     private void AdjustDrumTrackVolume (Vector2 joystickInput)
     {
         Debug.Log("Right Joystick position: " + joystickInput);
-        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 2; // Consider scaling this value
         if (currentAudioAdjustments != 0)
         {
             loader.currDrumTrack.volume += currentAudioAdjustments;
@@ -139,14 +146,13 @@ public class Player : MonoBehaviour
 
 
 
-    /*
     private void AdjustVolumeRedux(Vector2 joystickInput, bool isLeftController)
     {
         if (loader == null) return;
 
         Debug.Log($"{(isLeftController ? "Left" : "Right")} Joystick: {joystickInput}");
         //adjustment = joystickInput.y * Time.deltaTime;
-        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 2; // Consider scaling this value
 
         if (joystickInput.y != 0 && isLeftController)
         {
@@ -156,6 +162,4 @@ public class Player : MonoBehaviour
             loader.currDrumTrack.volume += currentAudioAdjustments;
         }
     }
-    */
-
 }
