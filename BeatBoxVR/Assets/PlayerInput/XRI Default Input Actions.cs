@@ -501,6 +501,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdjustRebalancedTrackVolume"",
+                    ""type"": ""Value"",
+                    ""id"": ""7ef0f152-ea9a-4d0c-9452-08d679796117"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -776,6 +785,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
                     ""action"": ""AdjustVolumeRedux"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e79b6e9f-7b26-41c3-9221-a03e16591330"",
+                    ""path"": ""<XRController>{LeftHand}/primary2DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""AdjustRebalancedTrackVolume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1377,6 +1397,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdjustDrumTrackVolume"",
+                    ""type"": ""Value"",
+                    ""id"": ""8c113289-67b6-4381-add0-cba47550e11c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -1652,6 +1681,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
                     ""action"": ""AdjustVolumeRedux"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a5b4766-890c-4220-b8c9-508636285bc7"",
+                    ""path"": ""<XRController>{LeftHand}/primary2DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""AdjustDrumTrackVolume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2874,6 +2914,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRILeftHand_GripPosition = m_XRILeftHand.FindAction("Grip Position", throwIfNotFound: true);
         m_XRILeftHand_GripRotation = m_XRILeftHand.FindAction("Grip Rotation", throwIfNotFound: true);
         m_XRILeftHand_PauseGame = m_XRILeftHand.FindAction("PauseGame ", throwIfNotFound: true);
+        m_XRILeftHand_AdjustRebalancedTrackVolume = m_XRILeftHand.FindAction("AdjustRebalancedTrackVolume", throwIfNotFound: true);
         // XRI LeftHand Interaction
         m_XRILeftHandInteraction = asset.FindActionMap("XRI LeftHand Interaction", throwIfNotFound: true);
         m_XRILeftHandInteraction_Select = m_XRILeftHandInteraction.FindAction("Select", throwIfNotFound: true);
@@ -2916,6 +2957,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRIRightHand_GripPosition = m_XRIRightHand.FindAction("Grip Position", throwIfNotFound: true);
         m_XRIRightHand_GripRotation = m_XRIRightHand.FindAction("Grip Rotation", throwIfNotFound: true);
         m_XRIRightHand_PauseGame = m_XRIRightHand.FindAction("PauseGame ", throwIfNotFound: true);
+        m_XRIRightHand_AdjustDrumTrackVolume = m_XRIRightHand.FindAction("AdjustDrumTrackVolume", throwIfNotFound: true);
         // XRI RightHand Interaction
         m_XRIRightHandInteraction = asset.FindActionMap("XRI RightHand Interaction", throwIfNotFound: true);
         m_XRIRightHandInteraction_Select = m_XRIRightHandInteraction.FindAction("Select", throwIfNotFound: true);
@@ -3140,6 +3182,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRILeftHand_GripPosition;
     private readonly InputAction m_XRILeftHand_GripRotation;
     private readonly InputAction m_XRILeftHand_PauseGame;
+    private readonly InputAction m_XRILeftHand_AdjustRebalancedTrackVolume;
     public struct XRILeftHandActions
     {
         private @XRIDefaultInputActions m_Wrapper;
@@ -3161,6 +3204,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         public InputAction @GripPosition => m_Wrapper.m_XRILeftHand_GripPosition;
         public InputAction @GripRotation => m_Wrapper.m_XRILeftHand_GripRotation;
         public InputAction @PauseGame => m_Wrapper.m_XRILeftHand_PauseGame;
+        public InputAction @AdjustRebalancedTrackVolume => m_Wrapper.m_XRILeftHand_AdjustRebalancedTrackVolume;
         public InputActionMap Get() { return m_Wrapper.m_XRILeftHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -3221,6 +3265,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @AdjustRebalancedTrackVolume.started += instance.OnAdjustRebalancedTrackVolume;
+            @AdjustRebalancedTrackVolume.performed += instance.OnAdjustRebalancedTrackVolume;
+            @AdjustRebalancedTrackVolume.canceled += instance.OnAdjustRebalancedTrackVolume;
         }
 
         private void UnregisterCallbacks(IXRILeftHandActions instance)
@@ -3276,6 +3323,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @AdjustRebalancedTrackVolume.started -= instance.OnAdjustRebalancedTrackVolume;
+            @AdjustRebalancedTrackVolume.performed -= instance.OnAdjustRebalancedTrackVolume;
+            @AdjustRebalancedTrackVolume.canceled -= instance.OnAdjustRebalancedTrackVolume;
         }
 
         public void RemoveCallbacks(IXRILeftHandActions instance)
@@ -3542,6 +3592,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRIRightHand_GripPosition;
     private readonly InputAction m_XRIRightHand_GripRotation;
     private readonly InputAction m_XRIRightHand_PauseGame;
+    private readonly InputAction m_XRIRightHand_AdjustDrumTrackVolume;
     public struct XRIRightHandActions
     {
         private @XRIDefaultInputActions m_Wrapper;
@@ -3563,6 +3614,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         public InputAction @GripPosition => m_Wrapper.m_XRIRightHand_GripPosition;
         public InputAction @GripRotation => m_Wrapper.m_XRIRightHand_GripRotation;
         public InputAction @PauseGame => m_Wrapper.m_XRIRightHand_PauseGame;
+        public InputAction @AdjustDrumTrackVolume => m_Wrapper.m_XRIRightHand_AdjustDrumTrackVolume;
         public InputActionMap Get() { return m_Wrapper.m_XRIRightHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -3623,6 +3675,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @AdjustDrumTrackVolume.started += instance.OnAdjustDrumTrackVolume;
+            @AdjustDrumTrackVolume.performed += instance.OnAdjustDrumTrackVolume;
+            @AdjustDrumTrackVolume.canceled += instance.OnAdjustDrumTrackVolume;
         }
 
         private void UnregisterCallbacks(IXRIRightHandActions instance)
@@ -3678,6 +3733,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @AdjustDrumTrackVolume.started -= instance.OnAdjustDrumTrackVolume;
+            @AdjustDrumTrackVolume.performed -= instance.OnAdjustDrumTrackVolume;
+            @AdjustDrumTrackVolume.canceled -= instance.OnAdjustDrumTrackVolume;
         }
 
         public void RemoveCallbacks(IXRIRightHandActions instance)
@@ -4192,6 +4250,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         void OnGripPosition(InputAction.CallbackContext context);
         void OnGripRotation(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnAdjustRebalancedTrackVolume(InputAction.CallbackContext context);
     }
     public interface IXRILeftHandInteractionActions
     {
@@ -4237,6 +4296,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         void OnGripPosition(InputAction.CallbackContext context);
         void OnGripRotation(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnAdjustDrumTrackVolume(InputAction.CallbackContext context);
     }
     public interface IXRIRightHandInteractionActions
     {

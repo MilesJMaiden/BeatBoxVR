@@ -479,6 +479,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AdjustRebalancedTrackVolume",
+                    "type": "Value",
+                    "id": "7ef0f152-ea9a-4d0c-9452-08d679796117",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -754,6 +763,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "AdjustVolumeRedux",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e79b6e9f-7b26-41c3-9221-a03e16591330",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "AdjustRebalancedTrackVolume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1355,6 +1375,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AdjustDrumTrackVolume",
+                    "type": "Value",
+                    "id": "8c113289-67b6-4381-add0-cba47550e11c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1630,6 +1659,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "AdjustVolumeRedux",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a5b4766-890c-4220-b8c9-508636285bc7",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "AdjustDrumTrackVolume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

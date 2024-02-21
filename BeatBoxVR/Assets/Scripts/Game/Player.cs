@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private XRIDefaultInputActions inputActions;
+    private InputAction leftJoystickAction;
+    private InputAction rightJoystickAction;
 
     [Header("Game Control")]
     public GamePauseController gamePauseController;
@@ -34,8 +36,8 @@ public class Player : MonoBehaviour
         inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
 
-        inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
-        inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
+        //inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
+        //inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
     }
 
     private void OnEnable()
@@ -46,6 +48,20 @@ public class Player : MonoBehaviour
 
         inputActions.XRILeftHand.Enable();
         inputActions.XRIRightHand.Enable();
+
+
+        leftJoystickAction.Enable();
+        rightJoystickAction.Enable();
+
+
+        // Define input actions for left and right controllers
+        leftJoystickAction = new InputAction("AdjustRebalancedTrackVolume", binding: "<XRController>{LeftHand}/primary2DAxis");
+        rightJoystickAction = new InputAction("AdjustDrumTrackVolume", binding: "<XRController>{RightHand}/primary2DAxis");
+
+        // Assign callbacks for input events
+        leftJoystickAction.performed += ctx => AdjustRebalancedTrackVolume(ctx.ReadValue<Vector2>());
+        rightJoystickAction.performed += ctx => AdjustDrumTrackVolume(ctx.ReadValue<Vector2>());
+
     }
 
     private void OnDisable()
@@ -56,6 +72,9 @@ public class Player : MonoBehaviour
 
         inputActions.XRILeftHand.Disable();
         inputActions.XRIRightHand.Disable();
+
+        leftJoystickAction.Disable();
+        rightJoystickAction.Disable();
     }
 
     private void TogglePauseGame()
@@ -95,13 +114,39 @@ public class Player : MonoBehaviour
         Destroy(vfxInstance, vfxLifetime);
     }
 
+    private void AdjustRebalancedTrackVolume (Vector2 joystickInput)
+    {
+        Debug.Log("Left Joystick position: " + joystickInput);
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
+
+        if (currentAudioAdjustments != 0)
+        {
+            loader.currBalancedTrack.volume += currentAudioAdjustments;
+        }
+
+
+    }
+
+    private void AdjustDrumTrackVolume (Vector2 joystickInput)
+    {
+        Debug.Log("Right Joystick position: " + joystickInput);
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
+        if (currentAudioAdjustments != 0)
+        {
+            loader.currDrumTrack.volume += currentAudioAdjustments;
+        }
+    }
+
+
+
+    /*
     private void AdjustVolumeRedux(Vector2 joystickInput, bool isLeftController)
     {
         if (loader == null) return;
 
         Debug.Log($"{(isLeftController ? "Left" : "Right")} Joystick: {joystickInput}");
         //adjustment = joystickInput.y * Time.deltaTime;
-        currentAudioAdjustments = joystickInput.y * Time.deltaTime; // Consider scaling this value
+        currentAudioAdjustments = (joystickInput.y * Time.deltaTime) / 10; // Consider scaling this value
 
         if (joystickInput.y != 0 && isLeftController)
         {
@@ -111,4 +156,6 @@ public class Player : MonoBehaviour
             loader.currDrumTrack.volume += currentAudioAdjustments;
         }
     }
+    */
+
 }
