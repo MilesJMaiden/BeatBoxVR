@@ -51,10 +51,12 @@ public class SoundManager : MonoBehaviour
     }
 
     // Method to adjust the master volume
-    public void SetMasterVolume(float volume)
+    public void SetMasterVolume(float sliderValue)
     {
-        // Convert the volume to a logarithmic scale and set it
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        // Ensure sliderValue is never 0 to avoid log10(0) which is undefined
+        sliderValue = Mathf.Max(sliderValue, 0.0001f);
+        float volumeDb = Mathf.Log10(sliderValue) * 20;
+        audioMixer.SetFloat("MasterVolume", volumeDb);
     }
 
     // Method to adjust the drum volume
