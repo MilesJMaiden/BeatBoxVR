@@ -92,7 +92,7 @@ public class Drumstick : MonoBehaviour
         // Instantiate VFX prefab and adjust its scale based on velocity
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
-        float scaleMultiplier = 1 + (tipVelocity - 1) / (MaxVelocity - 1) * 0.2f;
+        float scaleMultiplier = 1 + (tipVelocity - 1) / (MaxVelocity - 1) * 2f;
         vfxInstance.transform.localScale *= scaleMultiplier;
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
