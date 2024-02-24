@@ -51,7 +51,6 @@ public class Drumstick : MonoBehaviour
         if (tipMovementDirection.y < 0)
         {
             float clampedVelocity = GetCurrentVelocity();
-            LastHitVelocity = clampedVelocity;
 
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
@@ -72,6 +71,12 @@ public class Drumstick : MonoBehaviour
                 TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
             }
         }
+    }
+
+    // Method to toggle VFX instantiation
+    public void ToggleVFXInstantiation(bool isEnabled)
+    {
+        instantiateVFX = isEnabled;
     }
 
     public void ToggleHapticFeedback(bool isEnabled)
