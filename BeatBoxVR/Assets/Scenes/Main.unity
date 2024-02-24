@@ -1446,57 +1446,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 39925040643857621}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1125023859
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1125023861}
-  - component: {fileID: 1125023860}
-  m_Layer: 0
-  m_Name: DrumCustomizationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1125023860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125023859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68af764cd9c012546ab150c3b5ae91e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drumMaterial: {fileID: 2100000, guid: f7041fcbb22287a4e9d3385f6b860b3b, type: 2}
-  drumTextures:
-  - {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
-  drumColors:
-  - {r: 0.745, g: 0.073755026, b: 0.073755026, a: 1}
-  - {r: 0.06113364, g: 0.603, b: 0.07780639, a: 1}
-  - {r: 0.042497326, g: 0.2641151, b: 0.9009434, a: 1}
---- !u!4 &1125023861
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125023859}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1146936675
 Mesh:
   m_ObjectHideFlags: 0
@@ -3170,6 +3119,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4111831940448787573}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4400118376142645164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061303456359933802, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682271393592527397, guid: d2d9b264efe2ef345b61c127b2e46599,
+        type: 3}
+      propertyPath: m_Name
+      value: DrumCustomizationManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2d9b264efe2ef345b61c127b2e46599, type: 3}
 --- !u!1001 &4585011255972844721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3830,7 +3847,7 @@ SceneRoots:
   - {fileID: 1712656758}
   - {fileID: 413962938}
   - {fileID: 7059978641324089412}
-  - {fileID: 1125023861}
+  - {fileID: 4400118376142645164}
   - {fileID: 3184359286015278323}
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
