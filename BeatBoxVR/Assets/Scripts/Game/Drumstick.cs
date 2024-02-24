@@ -12,16 +12,14 @@ public class Drumstick : MonoBehaviour
     public float vfxLifetime = 0.2f;
     private const float MaxVelocity = 10f;
 
-
     public Transform tipTransform;
     private Vector3 previousTipPosition;
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
-    private float lastHitTime = 0f;
-    public float hitCooldown = 0.02f;
-
     public bool instantiateVFX = true; // Flag to control VFX instantiation
+    public bool enableHapticFeedback = true; // Flag to control haptic feedback
+    public float LastHitVelocity { get; private set; }
 
     void Start()
     {
@@ -50,19 +48,17 @@ public class Drumstick : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Joshua - TODO Remove cooldown, this is not needed
-        // Check if the drumstick is moving downwards and if cooldown has passed
-        if (tipMovementDirection.y < 0 && Time.time - lastHitTime > hitCooldown)
+        if (tipMovementDirection.y < 0)
         {
-            lastHitTime = Time.time; // Update the last hit time
-            float clampedVelocity = Mathf.Clamp(tipVelocity, 0, MaxVelocity);
+            float clampedVelocity = GetCurrentVelocity();
+            LastHitVelocity = clampedVelocity;
+
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            // Use the tipTransform's position for sound and VFX instantiation
             Vector3 collisionPoint = tipTransform.position;
             soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
 
-            if (clampedVelocity > 1 && instantiateVFX) // Check if VFX should be instantiated
+            if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
@@ -71,10 +67,16 @@ public class Drumstick : MonoBehaviour
                 }
             }
 
-            // Trigger haptic feedback based on the velocity
-            float feedbackStrength = Mathf.InverseLerp(0, MaxVelocity, clampedVelocity);
-            TriggerHapticFeedback(gameObject.tag, 0.1f, feedbackStrength); // Assuming duration is constant
+            if (enableHapticFeedback)
+            {
+                TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
+            }
         }
+    }
+
+    public void ToggleHapticFeedback(bool isEnabled)
+    {
+        enableHapticFeedback = isEnabled;
     }
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
