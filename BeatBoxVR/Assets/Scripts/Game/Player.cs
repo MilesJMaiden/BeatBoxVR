@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
         // Enable the input action maps
         inputActions.XRILeftHandInteraction.Enable();
         inputActions.XRIRightHandInteraction.Enable();
+
+        inputActions.XRILeftHand.Enable();
+        inputActions.XRIRightHand.Enable();
     }
 
     private void OnDisable()
@@ -50,21 +53,27 @@ public class Player : MonoBehaviour
         // Disable the input action map when the script is disabled
         inputActions.XRILeftHandInteraction.Disable();
         inputActions.XRIRightHandInteraction.Disable();
+
+        inputActions.XRILeftHand.Disable();
+        inputActions.XRIRightHand.Disable();
     }
 
     private void TogglePauseGame()
     {
-        if (Time.timeScale == 0)
+        // Check if the game is currently paused
+        bool isPaused = Time.timeScale == 0;
+
+        if (isPaused)
         {
             // Unpause the game
-            gamePauseController.UnpauseGameWithCountdown();
-            uiController.ToggleMenu(false);
+            gamePauseController?.UnpauseGameWithCountdown(); // Using null-conditional operator for safety
+            uiController?.ToggleMenu(false); // Similarly, ensure uiController is not null
         }
         else
         {
             // Pause the game
-            gamePauseController.PauseGame();
-            uiController.ToggleMenu(true);
+            gamePauseController?.PauseGame();
+            uiController?.ToggleMenu(true);
         }
     }
 

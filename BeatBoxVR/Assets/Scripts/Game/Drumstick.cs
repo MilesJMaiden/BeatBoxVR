@@ -12,16 +12,14 @@ public class Drumstick : MonoBehaviour
     public float vfxLifetime = 0.2f;
     private const float MaxVelocity = 10f;
 
-
     public Transform tipTransform;
     private Vector3 previousTipPosition;
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
-    private float lastHitTime = 0f;
-    public float hitCooldown = 0.02f;
-
     public bool instantiateVFX = true; // Flag to control VFX instantiation
+    public bool enableHapticFeedback = true; // Flag to control haptic feedback
+    public float LastHitVelocity { get; private set; }
 
     void Start()
     {
@@ -50,19 +48,16 @@ public class Drumstick : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Joshua - TODO Remove cooldown, this is not needed
-        // Check if the drumstick is moving downwards and if cooldown has passed
-        if (tipMovementDirection.y < 0 && Time.time - lastHitTime > hitCooldown)
+        if (tipMovementDirection.y < 0)
         {
-            lastHitTime = Time.time; // Update the last hit time
-            float clampedVelocity = Mathf.Clamp(tipVelocity, 0, MaxVelocity);
+            float clampedVelocity = GetCurrentVelocity();
+
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            // Use the tipTransform's position for sound and VFX instantiation
             Vector3 collisionPoint = tipTransform.position;
             soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
 
-            if (clampedVelocity > 1 && instantiateVFX) // Check if VFX should be instantiated
+            if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
@@ -71,10 +66,22 @@ public class Drumstick : MonoBehaviour
                 }
             }
 
-            // Trigger haptic feedback based on the velocity
-            float feedbackStrength = Mathf.InverseLerp(0, MaxVelocity, clampedVelocity);
-            TriggerHapticFeedback(gameObject.tag, 0.1f, feedbackStrength); // Assuming duration is constant
+            if (enableHapticFeedback)
+            {
+                TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
+            }
         }
+    }
+
+    // Method to toggle VFX instantiation
+    public void ToggleVFXInstantiation(bool isEnabled)
+    {
+        instantiateVFX = isEnabled;
+    }
+
+    public void ToggleHapticFeedback(bool isEnabled)
+    {
+        enableHapticFeedback = isEnabled;
     }
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
@@ -89,13 +96,35 @@ public class Drumstick : MonoBehaviour
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
-        // Instantiate VFX prefab and adjust its scale based on velocity
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
-        float scaleMultiplier = 1 + (tipVelocity - 1) / (MaxVelocity - 1) * 0.2f;
-        vfxInstance.transform.localScale *= scaleMultiplier;
+
+        // Update the scale multiplier based on velocity to accentuate differences
+        float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
+        vfxInstance.transform.localScale = Vector3.one * scaleMultiplier; // Apply scale uniformly
+
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
+    }
+
+    // Method to calculate scale multiplier based on tip velocity
+    private float CalculateScaleMultiplier(float velocity)
+    {
+        if (velocity <= 4) // Slow hits
+        {
+            // Smaller scale for slower hits
+            return 0.5f + (velocity / MaxVelocity) * 0.5f; // Scale from 0.5 to 1 for slow hits
+        }
+        else if (velocity <= 7) // Medium hits
+        {
+            // Medium scale for medium hits
+            return 1f + ((velocity - 4) / (7 - 4)) * 0.5f; // Scale from 1 to 1.5 for medium hits
+        }
+        else // Fast hits
+        {
+            // Larger scale for fast hits
+            return 1.5f + ((velocity - 7) / (MaxVelocity - 7)) * 1f; // Scale from 1.5 to 2.5 for fast hits
+        }
     }
 
     private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)
