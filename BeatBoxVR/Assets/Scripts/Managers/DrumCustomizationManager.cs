@@ -4,39 +4,88 @@ public class DrumCustomizationManager : MonoBehaviour
 {
     [Header("Material Customization")]
     public Material drumMaterial; // Shared material for all drums
+    private Color defaultColor; // To store the default color of the drum material
 
     [Header("Texture Options")]
-    public Texture[] drumTextures; // Array of textures for the drums
+    public Texture textureRock;
+    public Texture textureElectronic;
+    public Texture textureJazz;
+    public Texture texturePop;
 
-    [Header("Color Options")]
-    public Color[] drumColors; // Array of colors for the drums
-
-    // Method to change the drum texture
-    // This method is intended to be called by UI buttons, passing in the index of the desired texture
-    public void ChangeDrumTexture(int textureIndex)
+    private void Awake()
     {
-        if (drumTextures != null && textureIndex >= 0 && textureIndex < drumTextures.Length)
+        // Store the default color of the material
+        defaultColor = drumMaterial.color;
+    }
+
+    // Method to apply the "Rock" texture
+    public void PassInTextureRock()
+    {
+        SetTexture(textureRock);
+    }
+
+    // Method to apply the "Electronic" texture
+    public void PassInTextureElectronic()
+    {
+        SetTexture(textureElectronic);
+    }
+
+    // Method to apply the "Jazz" texture
+    public void PassInTextureJazz()
+    {
+        SetTexture(textureJazz);
+    }
+
+    // Method to apply the "Pop" texture
+    public void PassInTexturePop()
+    {
+        SetTexture(texturePop);
+    }
+
+    // Helper method to set the texture and ensure the color is set to white
+    private void SetTexture(Texture texture)
+    {
+        if (texture != null)
         {
-            drumMaterial.mainTexture = drumTextures[textureIndex];
+            drumMaterial.mainTexture = texture;
+            drumMaterial.color = Color.white; // Ensure the color is white
         }
         else
         {
-            Debug.LogWarning("Invalid texture index or texture array not set.");
+            // Fallback to default color if texture is null
+            RevertToDefaultColor();
         }
     }
 
-    // Method to change the drum color
-    // This method is intended to be called by UI buttons, passing in the index of the desired color
-    public void ChangeDrumColor(int colorIndex)
+    // Method to revert to the default color of the drum material
+    public void RevertToDefaultColor()
     {
-        if (drumColors != null && colorIndex >= 0 && colorIndex < drumColors.Length)
-        {
-            drumMaterial.color = drumColors[colorIndex];
-            drumMaterial.mainTexture = null; // Remove any texture, using color only
-        }
-        else
-        {
-            Debug.LogWarning("Invalid color index or color array not set.");
-        }
+        drumMaterial.color = defaultColor;
+        drumMaterial.mainTexture = null; // Ensure no texture is applied
+    }
+
+    // Helper method to set the color and remove any applied texture
+    private void SetColor(Color color)
+    {
+        drumMaterial.color = color;
+        drumMaterial.mainTexture = null; // Remove any applied texture
+    }
+
+    // Method to set drum color to Red
+    public void PassColorRed()
+    {
+        SetColor(Color.red);
+    }
+
+    // Method to set drum color to Green
+    public void PassColorGreen()
+    {
+        SetColor(Color.green);
+    }
+
+    // Method to set drum color to Blue
+    public void PassColorBlue()
+    {
+        SetColor(Color.blue);
     }
 }
