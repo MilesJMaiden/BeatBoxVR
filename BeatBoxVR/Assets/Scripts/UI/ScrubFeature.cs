@@ -12,15 +12,16 @@ public class ScrubFeature : MonoBehaviour, IPointerDownHandler
     private float newTime;
     public void OnPointerDown(PointerEventData eventData)
     {
-        Vector2 eventPos = eventData.position;
+        Vector2 eventPos = eventData.pointerPressRaycast.worldPosition;
         Debug.Log(eventPos);
+        
 
         
-        if (eventPos.y >= 665 && eventPos.y <= 770)
-            if (eventPos.x >= 260 && eventPos.x <= 275)
+        if (eventPos.y >= 1.28f && eventPos.y <= 1.4f)
+            if (eventPos.x >= 0.78 && eventPos.x <= 2.12f)
             {
-                newTime = 0 + (((eventData.position.x - 670) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
-                    / (3160 - 670));
+                newTime = 0 + (((eventData.pointerPressRaycast.worldPosition.x - 0.78f) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
+                    / (2.12f - 0.78f));
 
                 m_PlayAlongDetailLoader.currBalancedTrack.time = newTime;
                 m_PlayAlongDetailLoader.currDrumTrack.time = newTime;
