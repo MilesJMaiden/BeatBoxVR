@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PercussionInstrument : MonoBehaviour
 {
-    public GameObject mainParent;
-
-    public Collider surfaceCollider; 
+    public GameObject animationPivot;
+    public Collider surfaceCollider;
     public Collider rimCollider;
     private SoundManager soundManager;
 
@@ -15,6 +13,7 @@ public class PercussionInstrument : MonoBehaviour
     public float animationDuration = 0.2f;
 
     private bool isAnimating = false;
+    private bool animationsEnabled = true; // New bool to enable/disable animations
 
     void Start()
     {
@@ -24,27 +23,29 @@ public class PercussionInstrument : MonoBehaviour
             Debug.LogError("SoundManager not found in the scene");
         }
 
-        if (surfaceCollider == null)
+        if (surfaceCollider == null || animationPivot == null)
         {
-            Debug.LogError("Surface collider not assigned on " + gameObject.name);
+            Debug.LogError("Required components not assigned on " + gameObject.name);
         }
+    }
+
+    public void ToggleAnimations(bool enable) // Method to toggle animations on/off
+    {
+        animationsEnabled = enable;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("LeftDrumstick") || other.CompareTag("RightDrumstick"))
+        Drumstick drumstick = other.GetComponent<Drumstick>();
+        if (drumstick != null && animationsEnabled)
         {
-            float velocity = other.attachedRigidbody.velocity.magnitude;
+            float velocity = drumstick.GetCurrentVelocity();
             Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-            if (!isAnimating)
+            if (!isAnimating || velocity > drumstick.LastHitVelocity) // Prioritize higher velocity hits
             {
+                StopAllCoroutines(); // Ensure a smooth transition between animations
                 StartCoroutine(AnimateInstrument(velocity));
-            }
-            else
-            {
-                StopAllCoroutines(); // Stop current animation
-                StartCoroutine(AnimateInstrument(velocity)); // Start a new animation
             }
 
             if (other == surfaceCollider)
@@ -53,55 +54,60 @@ public class PercussionInstrument : MonoBehaviour
             }
             else if (rimCollider != null && other == rimCollider)
             {
-                string soundType = other == surfaceCollider ? "Surface" : "Rim";
                 soundManager.PlaySound(this.tag + "Rim", transform.position, velocity);
-                Debug.Log($"Played sound for: {this.tag + soundType}. Volume and Pitch influenced by Velocity: {velocity}");
             }
         }
     }
 
-    //!This currently does not work! TODO 
     private IEnumerator AnimateInstrument(float velocity)
     {
         isAnimating = true;
+        Transform targetTransform = animationPivot.transform;
 
-        Transform targetTransform = mainParent ? mainParent.transform : transform;
+        bool isDrum = rimCollider != null;
 
-        Vector3 originalPosition = targetTransform.localPosition;
-        Quaternion originalRotation = targetTransform.localRotation;
-
-        // Drum animation
-        if (rimCollider != null) 
+        if (isDrum)
         {
-            Vector3 targetPosition = originalPosition + Vector3.up * drumBounceIntensity * velocity;
-            float elapsedTime = 0;
-
-            while (elapsedTime < animationDuration)
-            {
-                targetTransform.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            targetTransform.localPosition = originalPosition;
+            Vector3 bounceDirection = Vector3.up * drumBounceIntensity * velocity;
+            yield return StartCoroutine(AnimateBounce(targetTransform, bounceDirection));
         }
-        // Cymbal animation
         else
         {
-            float rotationAmount = cymbalRotationIntensity * velocity;
-            float elapsedTime = 0;
-
-            while (elapsedTime < animationDuration)
-            {
-                targetTransform.localRotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(0, 0, rotationAmount), elapsedTime / animationDuration);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            targetTransform.localRotation = originalRotation;
+            yield return StartCoroutine(AnimateRotation(targetTransform, velocity));
         }
 
         isAnimating = false;
     }
-}
 
+    private IEnumerator AnimateBounce(Transform target, Vector3 direction)
+    {
+        Vector3 originalPosition = target.localPosition;
+        Vector3 targetPosition = originalPosition + direction;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            target.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        target.localPosition = originalPosition;
+    }
+
+    private IEnumerator AnimateRotation(Transform target, float velocity)
+    {
+        Quaternion originalRotation = target.localRotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, cymbalRotationIntensity * velocity);
+
+        float elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            target.localRotation = Quaternion.Lerp(originalRotation, targetRotation, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        target.localRotation = originalRotation;
+    }
+}
