@@ -582,7 +582,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614585}
   dataType: 0
-  capacity: 1000
+  capacity: 50
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -4352,7 +4352,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.TArcCone, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"cone":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"baseRadius":0.019999999552965165,"topRadius":0.0,"height":1.0},"arc":6.2831854820251469}'
+      m_SerializableObject: '{"cone":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"baseRadius":0.019999999552965165,"topRadius":0.0,"height":0.5},"arc":6.2831854820251469}'
     m_Space: 0
   m_Property:
     name: arcCone
@@ -5034,7 +5034,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.34247052669525149,"g":0.9811320900917053,"b":0.8502588868141174,"a":0.0}'
+      m_SerializableObject: '{"r":0.0,"g":2.6627936363220217,"b":2.9960784912109377,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color1
@@ -5204,7 +5204,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.955974817276001,"g":0.8066607117652893,"b":0.2735649347305298,"a":0.0}'
+      m_SerializableObject: '{"r":2.9960784912109377,"g":2.402256965637207,"b":0.29207006096839907,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color2

@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class Drumstick : MonoBehaviour
+public class DrumstickAdapted : MonoBehaviour
 {
     private SoundManager soundManager;
 
-    public GameObject whiteSparkVFXPrefab;
-    public GameObject yellowSparkVFXPrefab;
-    public GameObject redSparkVFXPrefab;
+    public GameObject smallSplashPrefab;
+    public GameObject mediumSplashPrefab;
+    public GameObject largeSplashPrefab;
 
     public float vfxLifetime = 1.4f;
     private const float MaxVelocity = 10f;
@@ -87,11 +87,11 @@ public class Drumstick : MonoBehaviour
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
         if (velocity <= 4)
-            return whiteSparkVFXPrefab;
+            return smallSplashPrefab;
         else if (velocity <= 7)
-            return yellowSparkVFXPrefab;
+            return mediumSplashPrefab;
         else
-            return redSparkVFXPrefab;
+            return largeSplashPrefab;
     }
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
@@ -99,23 +99,12 @@ public class Drumstick : MonoBehaviour
         GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
 
         Destroy(vfxInstance, vfxLifetime);
+        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
 
-        //Joshua's original code
-        /*
-        Quaternion hitRotation = Quaternion.LookRotation(direction);
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
-
-
-        // Update the scale multiplier based on velocity to accentuate differences
-        float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
-        vfxInstance.transform.localScale = Vector3.one * scaleMultiplier;  //Apply scale uniformly
-
-        Destroy(vfxInstance, vfxLifetime);
-        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
-        */
     }
 
     // Method to calculate scale multiplier based on tip velocity
+    // Can be used on haptic
     private float CalculateScaleMultiplier(float velocity)
     {
         if (velocity <= 4) // Slow hits
