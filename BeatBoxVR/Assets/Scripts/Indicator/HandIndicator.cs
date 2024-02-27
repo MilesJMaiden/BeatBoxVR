@@ -6,6 +6,4 @@ public class HandIndicator : MonoBehaviour
 {
     public GameObject rightHand;
     public GameObject leftHand;
-
-   
 }
