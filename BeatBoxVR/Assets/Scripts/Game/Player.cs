@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     [Header("Volume Adjustment")]
     public PlayAlongDetailLoader loader; // Assign this in the Inspector
+    private float currentAudioAdjustments;
 
 
     private void Awake()
@@ -33,8 +34,8 @@ public class Player : MonoBehaviour
         inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
 
-        inputActions.XRILeftHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), true);
-        inputActions.XRIRightHand.AdjustVolume.performed += ctx => AdjustVolume(ctx.ReadValue<Vector2>(), false);
+        inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
+        inputActions.XRIRightHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), false);
     }
 
     private void OnEnable()
@@ -42,6 +43,9 @@ public class Player : MonoBehaviour
         // Enable the input action maps
         inputActions.XRILeftHandInteraction.Enable();
         inputActions.XRIRightHandInteraction.Enable();
+
+        inputActions.XRILeftHand.Enable();
+        inputActions.XRIRightHand.Enable();
     }
 
     private void OnDisable()
@@ -49,21 +53,27 @@ public class Player : MonoBehaviour
         // Disable the input action map when the script is disabled
         inputActions.XRILeftHandInteraction.Disable();
         inputActions.XRIRightHandInteraction.Disable();
+
+        inputActions.XRILeftHand.Disable();
+        inputActions.XRIRightHand.Disable();
     }
 
     private void TogglePauseGame()
     {
-        if (Time.timeScale == 0)
+        // Check if the game is currently paused
+        bool isPaused = Time.timeScale == 0;
+
+        if (isPaused)
         {
             // Unpause the game
-            gamePauseController.UnpauseGameWithCountdown();
-            uiController.ToggleMenu(false);
+            gamePauseController?.UnpauseGameWithCountdown(); // Using null-conditional operator for safety
+            uiController?.ToggleMenu(false); // Similarly, ensure uiController is not null
         }
         else
         {
             // Pause the game
-            gamePauseController.PauseGame();
-            uiController.ToggleMenu(true);
+            gamePauseController?.PauseGame();
+            uiController?.ToggleMenu(true);
         }
     }
 
@@ -88,17 +98,20 @@ public class Player : MonoBehaviour
         Destroy(vfxInstance, vfxLifetime);
     }
 
-    private void AdjustVolume(Vector2 joystickInput, bool isLeftController)
+    private void AdjustVolumeRedux(Vector2 joystickInput, bool isLeftController)
     {
         if (loader == null) return;
 
         Debug.Log($"{(isLeftController ? "Left" : "Right")} Joystick: {joystickInput}");
+        //adjustment = joystickInput.y * Time.deltaTime;
+        currentAudioAdjustments = joystickInput.y * Time.deltaTime; // Consider scaling this value
 
-        if (joystickInput.y != 0)
+        if (joystickInput.y != 0 && isLeftController)
         {
-            float adjustment = joystickInput.y * Time.deltaTime; // Consider scaling this value
-            loader.currBalancedTrack.volume += adjustment;
-            loader.currDrumTrack.volume += adjustment;
+            loader.currBalancedTrack.volume += currentAudioAdjustments;
+        } else if (joystickInput.y != 0 && !isLeftController)
+        {
+            loader.currDrumTrack.volume += currentAudioAdjustments;
         }
     }
 }

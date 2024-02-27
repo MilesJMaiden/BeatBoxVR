@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    [Header("Audio Mixer")]
+    public AudioMixer audioMixer; // Assign this in the Inspector
+
     // Serializable class to hold sound data for drums and cymbals
     [System.Serializable]
     public class PercussionSound
@@ -44,5 +48,21 @@ public class SoundManager : MonoBehaviour
     {
         PercussionSound percussionSound = percussionSounds.Find(ps => ps.tag == tag);
         return percussionSound?.sound;
+    }
+
+    // Method to adjust the master volume
+    public void SetMasterVolume(float sliderValue)
+    {
+        // Ensure sliderValue is never 0 to avoid log10(0) which is undefined
+        sliderValue = Mathf.Max(sliderValue, 0.0001f);
+        float volumeDb = Mathf.Log10(sliderValue) * 20;
+        audioMixer.SetFloat("MasterVolume", volumeDb);
+    }
+
+    // Method to adjust the drum volume
+    public void SetDrumVolume(float volume)
+    {
+        // Convert the volume to a logarithmic scale and set it
+        audioMixer.SetFloat("DrumVolume", Mathf.Log10(volume) * 20);
     }
 }
