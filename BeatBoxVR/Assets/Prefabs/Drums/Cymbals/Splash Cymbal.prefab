@@ -11744,12 +11744,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainParent: {fileID: 2797462650763884277}
+  animationPivot: {fileID: 2935342876750679781}
   surfaceCollider: {fileID: 961650664481622558}
   rimCollider: {fileID: 5094208038737690309}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+--- !u!1 &2935342876750679781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5260289555348215837}
+  m_Layer: 0
+  m_Name: AnimPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5260289555348215837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935342876750679781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3763443380496859502}
+  m_Father: {fileID: 8657850062782204706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5107160854423698568
 GameObject:
   m_ObjectHideFlags: 0
@@ -11776,12 +11808,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5107160854423698568}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.49999985, y: -0.49999952, z: -0.5000004, w: 0.50000024}
-  m_LocalPosition: {x: -0.16767521, y: 0.01800005, z: -0.0003247697}
-  m_LocalScale: {x: 3.829198, y: 3.829198, z: 3.829198}
+  m_LocalRotation: {x: -0.49999985, y: -0.4999995, z: -0.5000004, w: 0.50000024}
+  m_LocalPosition: {x: -0.1676752, y: 0.018000042, z: -0.00032474997}
+  m_LocalScale: {x: 3.8291976, y: 3.8291976, z: 3.829198}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8657850062782204706}
+  m_Father: {fileID: 5260289555348215837}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &7374344415334080338
 MeshFilter:
@@ -12030,7 +12062,7 @@ Transform:
   m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3763443380496859502}
+  - {fileID: 5260289555348215837}
   - {fileID: 3289735273191033554}
   - {fileID: 5599385638893286312}
   - {fileID: 8692467348590384006}

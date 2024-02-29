@@ -132,12 +132,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063052361529515193}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.49999985, y: -0.49999952, z: -0.5000004, w: 0.50000024}
-  m_LocalPosition: {x: -0.16767521, y: 0.01800005, z: -0.0003247697}
-  m_LocalScale: {x: 3.829198, y: 3.829198, z: 3.829198}
+  m_LocalRotation: {x: -0.4999998, y: -0.49999955, z: -0.5000004, w: 0.5000003}
+  m_LocalPosition: {x: -0.16767521, y: 0.018000053, z: -0.00032478612}
+  m_LocalScale: {x: 3.829198, y: 3.8291974, z: 3.829198}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7442760073322162734}
+  m_Father: {fileID: 4433122792926681592}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &7684816552500690170
 MeshFilter:
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainParent: {fileID: 2855285444735770708}
+  animationPivot: {fileID: 6952968381811739660}
   surfaceCollider: {fileID: 6580584650990926021}
   rimCollider: {fileID: 1731064378657096657}
   drumBounceIntensity: 0.1
@@ -12023,6 +12023,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &6952968381811739660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4433122792926681592}
+  m_Layer: 0
+  m_Name: AnimPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4433122792926681592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952968381811739660}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3702869884723657854}
+  m_Father: {fileID: 7442760073322162734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7459608262271434640
 GameObject:
   m_ObjectHideFlags: 0
@@ -12219,7 +12251,7 @@ Transform:
   m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3702869884723657854}
+  - {fileID: 4433122792926681592}
   - {fileID: 50009122941354729}
   - {fileID: 5348679577203938428}
   - {fileID: 350430426601357233}
