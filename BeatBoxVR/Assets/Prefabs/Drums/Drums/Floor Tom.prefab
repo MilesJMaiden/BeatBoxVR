@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainParent: {fileID: 1819764092612121828}
+  animationPivot: {fileID: 5867124105518966862}
   surfaceCollider: {fileID: 2327225263615655644}
   rimCollider: {fileID: 954964891327347982}
   drumBounceIntensity: 0.1
@@ -810,7 +810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7036513059023412281}
   m_Layer: 0
-  m_Name: FloorTom
+  m_Name: AnimPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

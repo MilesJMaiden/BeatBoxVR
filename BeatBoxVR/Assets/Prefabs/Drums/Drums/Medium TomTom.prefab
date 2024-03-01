@@ -3216,7 +3216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3515044439260263412}
   m_Layer: 0
-  m_Name: Tom_Right
+  m_Name: AnimPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3369,7 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainParent: {fileID: 8119669222167935545}
+  animationPivot: {fileID: 4290842924157086030}
   surfaceCollider: {fileID: 7835907573593160766}
   rimCollider: {fileID: 999312243154929496}
   drumBounceIntensity: 0.1

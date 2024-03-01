@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainParent: {fileID: 3038596853013202293}
+  animationPivot: {fileID: 6142719186252806719}
   surfaceCollider: {fileID: 8402137955442046337}
   rimCollider: {fileID: 7204645529425727596}
   drumBounceIntensity: 0.1
@@ -3427,7 +3427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6806208017007337605}
   m_Layer: 0
-  m_Name: Tom_Left
+  m_Name: AnimPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
