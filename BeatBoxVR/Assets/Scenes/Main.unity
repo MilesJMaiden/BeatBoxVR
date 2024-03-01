@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.038348872, g: 0.03995534, b: 0.044025064, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 598c010340e9ef04baf32c15abb801bf, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -564,7 +564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &277072631
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,6 +1220,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8699615719843299425, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 413962942}
     - target: {fileID: 8856898519428836338, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1259,6 +1264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166829735601703447, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1301,6 +1311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb17c3b27eb9024a98c1583ea754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &413962942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9166829735601703447, guid: 583211680e08bea4dbdc52ad04a9cde4,
+    type: 3}
+  m_PrefabInstance: {fileID: 413962938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &494253688
 Mesh:
   m_ObjectHideFlags: 0
@@ -2177,6 +2193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environments
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283737073183969553, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2082381327724080566, guid: 665f9eac09ca1e348b26b466ae9d7daa,
         type: 3}
@@ -5428,6 +5449,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
+  - {fileID: 277072631}
   - {fileID: 2100211542}
   - {fileID: 1516775099}
   - {fileID: 8386561}
@@ -5440,4 +5462,3 @@ SceneRoots:
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
   - {fileID: 5562685}
-  - {fileID: 277072631}
