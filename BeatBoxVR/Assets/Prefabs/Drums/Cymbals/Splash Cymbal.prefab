@@ -12022,6 +12022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3212518575319918420}
+  - component: {fileID: 2296976092220832815}
   m_Layer: 0
   m_Name: Splash Cymbal
   m_TagString: Untagged
@@ -12046,6 +12047,27 @@ Transform:
   - {fileID: 8657850062782204706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
+--- !u!95 &2296976092220832815
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797462650763884277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd60e8b33077fbb40b7d48d18bb5eb25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3225923330963882394
 GameObject:
   m_ObjectHideFlags: 0

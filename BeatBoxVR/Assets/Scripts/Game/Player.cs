@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,7 +24,9 @@ public class Player : MonoBehaviour
     public PlayAlongDetailLoader loader; // Assign this in the Inspector
     private float currentAudioAdjustments;
 
-
+    [Header("Animation for Kick Drum and HiHat")]
+    public GameObject kickDrum;
+    public GameObject hiHat;
     private void Awake()
     {
         // Initialize input actions
@@ -107,14 +110,44 @@ public class Player : MonoBehaviour
     {
         // Play HiHat sound and instantiate VFX
         soundManager.PlaySound("HiHat", hiHatTransform.position, 1.0f);
-        InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+        //InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+        // Play HiHat animation
+        StartCoroutine(AnimateHiHat());
+
     }
 
     private void PlayKickDrum()
     {
         // Play Kick Drum sound and instantiate VFX
         soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f);
-        InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
+        //InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
+        // Play Kick Drum animation
+        StartCoroutine(AnimateKickDrum());
+    }
+
+    private IEnumerator AnimateHiHat()
+    {
+        Animator hiHatAnimator = hiHat.GetComponent<Animator>();
+        if (hiHatAnimator != null)
+        {
+            hiHatAnimator.SetBool("isAnimating", true);
+
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        hiHatAnimator.SetBool("isAnimating", false);
+    }
+    private IEnumerator AnimateKickDrum()
+    {
+        Animator kickDrumAnimator = kickDrum.GetComponent<Animator>();
+        if (kickDrumAnimator != null)
+        {
+            kickDrumAnimator.SetBool("isAnimating", true);
+
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        kickDrumAnimator.SetBool("isAnimating", false);
     }
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position)

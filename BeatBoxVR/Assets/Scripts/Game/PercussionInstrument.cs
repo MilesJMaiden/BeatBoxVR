@@ -6,6 +6,7 @@ public class PercussionInstrument : MonoBehaviour
     public GameObject animationPivot;
     public Collider surfaceCollider;
     public Collider rimCollider;
+    public Animator parentAnimator;
     private SoundManager soundManager;
 
     public float drumBounceIntensity = 0.1f;
@@ -18,6 +19,7 @@ public class PercussionInstrument : MonoBehaviour
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        parentAnimator.SetBool("isAnimating", isAnimating);
         if (soundManager == null)
         {
             Debug.LogError("SoundManager not found in the scene");
@@ -40,8 +42,9 @@ public class PercussionInstrument : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         Drumstick drumstick = other.GetComponent<Drumstick>();
-        Debug.Log("I have drumsticks!!!!!!!");
+
         if (drumstick != null && animationsEnabled)
         {
             float velocity = drumstick.GetCurrentVelocity();
@@ -49,9 +52,15 @@ public class PercussionInstrument : MonoBehaviour
 
             if (!isAnimating || velocity > drumstick.LastHitVelocity) // Prioritize higher velocity hits
             {
+                /*
                 StopAllCoroutines(); // Ensure a smooth transition between animations
                 StartCoroutine(AnimateInstrument(velocity));
+                */
+
+                StartCoroutine(AnimateInstrument());
+
             }
+
 
             if (other == surfaceCollider)
             {
@@ -65,7 +74,23 @@ public class PercussionInstrument : MonoBehaviour
             }
         }
     }
+    
+    public IEnumerator AnimateInstrument()
+    {
+        
+        isAnimating = true;
+        Debug.Log("isAnimating" + isAnimating);
+        parentAnimator.SetBool("isAnimating", isAnimating);
 
+        yield return new WaitForSeconds(animationDuration);
+        
+        isAnimating = false;
+        parentAnimator.SetBool("isAnimating", isAnimating);
+
+    }
+    
+
+    /*
     private IEnumerator AnimateInstrument(float velocity)
     {
         isAnimating = true;
@@ -117,4 +142,5 @@ public class PercussionInstrument : MonoBehaviour
 
         target.localRotation = originalRotation;
     }
+    */
 }
