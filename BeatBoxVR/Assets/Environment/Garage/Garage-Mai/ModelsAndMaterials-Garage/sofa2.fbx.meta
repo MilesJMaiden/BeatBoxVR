@@ -1,0 +1,339 @@
+fileFormatVersion: 2
+guid: 61c951d1ff893f94cb434c433bb1a48e
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ferrum
+    second: {fileID: 2100000, guid: 64b4e039719307a419b605da3870b7e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow1
+    second: {fileID: 2100000, guid: 172f07f774c322c499a68033719825c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow2
+    second: {fileID: 2100000, guid: f02a497825aae8345aa3b4c8a039971d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow3
+    second: {fileID: 2100000, guid: bd28f1f5a1e59a64592408abd5a8aafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow5
+    second: {fileID: 2100000, guid: e0a12b76bcbd1cf45ab5d8205f46a0da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow6
+    second: {fileID: 2100000, guid: 77606e7b2c83d4e4f93503ad72619dc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow7
+    second: {fileID: 2100000, guid: f25398ec068a5f848b71617f1ff3c521, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pilow4
+    second: {fileID: 2100000, guid: 5e579c5352c62044bab11554d446acd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sofa1
+    second: {fileID: 2100000, guid: c1039b91b3d4b9246bda7a110ed8db5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sofa2
+    second: {fileID: 2100000, guid: 7dc0cab1871a5844b910d7495c8094e5, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow1_Base_Color
+    second: {fileID: 2800000, guid: 1f179fcbf372c9f4f9cd465102387dba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow1_Metallic
+    second: {fileID: 2800000, guid: c7c1f8c4bbbe6d244a454d1593377554, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow1_Normal
+    second: {fileID: 2800000, guid: 09856397a3e9dcc4c9727eedec42647e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow1_Roughness
+    second: {fileID: 2800000, guid: ef4adbad9178d204693da747faab509d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow2_Base_Color
+    second: {fileID: 2800000, guid: 1e6af511c969a714a876348059e913d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow2_Metallic
+    second: {fileID: 2800000, guid: aa72060634b1fea438abb00ec8a70f78, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow2_Normal
+    second: {fileID: 2800000, guid: d387d165bcac1cb45ae6e113425e5cd7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow2_Roughness
+    second: {fileID: 2800000, guid: d5c39ebdfed742e42a2045a99a883275, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow3_Base_Color
+    second: {fileID: 2800000, guid: 4a09580dd1bff7e48b266bf47097876f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow3_Metallic
+    second: {fileID: 2800000, guid: beb8e395c7d0897449a418fd12b0844f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow3_Normal
+    second: {fileID: 2800000, guid: 3ac37b2353eba064d9109d92dd6c5918, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow3_Roughness
+    second: {fileID: 2800000, guid: dac77781c7d83e944afbc09baea44c82, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow5_Base_Color
+    second: {fileID: 2800000, guid: 1bb4ab175cb46eb4f9cb979c07441e25, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow5_Metallic
+    second: {fileID: 2800000, guid: e8c21a602d8ce0643b39997d283cc1b8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow5_Normal
+    second: {fileID: 2800000, guid: b59844303fe9bee429c7e21a0c90303c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow5_Roughness
+    second: {fileID: 2800000, guid: eb39ca34b391f864dacd0d9f9bbc9a47, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow6_Base_Color
+    second: {fileID: 2800000, guid: f3716549bc49c9e4b8317e9f09f08a46, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow6_Metallic
+    second: {fileID: 2800000, guid: dbfb9b82728599344873b475f17a3b36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow6_Normal
+    second: {fileID: 2800000, guid: f65ac3041229a1a4eb9859e9802c9be6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow6_Roughness
+    second: {fileID: 2800000, guid: e2cd771471f229d4293dae064dc1b683, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow7_Base_Color
+    second: {fileID: 2800000, guid: 68c40f7450d27c74986373cbad57c159, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow7_Metallic
+    second: {fileID: 2800000, guid: 5fd28f989fdfdd545885a97de266650c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow7_Normal
+    second: {fileID: 2800000, guid: 0e64b1f2086452e479cfe6c6737971d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pillow7_Roughness
+    second: {fileID: 2800000, guid: 7be0235c30f1d6a42890cc949918ba60, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pilow4_Base_Color
+    second: {fileID: 2800000, guid: 87096e5628cb639489ffc4edbbccc928, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pilow4_Metallic
+    second: {fileID: 2800000, guid: d971a4d8f5d9cd74abe8fa0479abb5d6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pilow4_Normal
+    second: {fileID: 2800000, guid: f5d06bf198a988b4d8ce52216058a837, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pilow4_Roughness
+    second: {fileID: 2800000, guid: 6eb4915d82f24f04eacf10a62a857084, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa1_Base_Color
+    second: {fileID: 2800000, guid: 985ebb0825e0b4743b9d2e61558a468d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa1_Metallic
+    second: {fileID: 2800000, guid: 9da014f4cf1769e47bcd95421dfbd10b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa1_Normal
+    second: {fileID: 2800000, guid: 7a53dbe9ff532694391da035cb5bc667, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa1_Roughness
+    second: {fileID: 2800000, guid: 82f9e10710014dd428d6aae88d608092, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa2_Base_Color
+    second: {fileID: 2800000, guid: 10a109811eaffdd4eb0ced9a7f2c578e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa2_Metallic
+    second: {fileID: 2800000, guid: 44563d1a47174c04787f7e25459ff422, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa2_Normal
+    second: {fileID: 2800000, guid: 6f1ec6e0a88e80948842b856f8ef44e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sofa2_Roughness
+    second: {fileID: 2800000, guid: fc3c15b281190044b8338b0f8922ebec, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

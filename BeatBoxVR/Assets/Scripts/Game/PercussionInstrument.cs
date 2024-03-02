@@ -23,9 +23,13 @@ public class PercussionInstrument : MonoBehaviour
             Debug.LogError("SoundManager not found in the scene");
         }
 
-        if (surfaceCollider == null || animationPivot == null)
+
+        //removed animationPivot == null
+        if (surfaceCollider == null)
         {
-            Debug.LogError("Required components not assigned on " + gameObject.name);
+            Debug.LogError("Required components not assigned on " + gameObject.name + " surfaceCollier: " + surfaceCollider.ToString()
+                + " animationPivot: " + animationPivot.ToString());
+
         }
     }
 
