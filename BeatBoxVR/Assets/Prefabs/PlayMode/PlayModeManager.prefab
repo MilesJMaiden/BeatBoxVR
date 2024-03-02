@@ -282,9 +282,156 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 40d22ae576eb6ee4bb13fc8b90a34e94, type: 2}
+    - {fileID: 11400000, guid: 298d4215d5b79204589097b3ffdb14cf, type: 2}
+    - {fileID: 11400000, guid: b52c82728a486ea469f7738cdaa482a6, type: 2}
+    - {fileID: 11400000, guid: 86be98e4f1155ab4f84c084ac3f9c2c9, type: 2}
+    - {fileID: 11400000, guid: a478fc4ad9e4c574a8a795581ee3f8ea, type: 2}
+    - {fileID: 11400000, guid: 4e6eebaaadba82d47b480c2583c40d90, type: 2}
+    - {fileID: 11400000, guid: 211a516b9640e7c418b6f66091260116, type: 2}
+    - {fileID: 11400000, guid: c922f73853db0b345b306fd3ef3fb7e8, type: 2}
+    - {fileID: 11400000, guid: 49196d57afc22cb4db395bd000bbf198, type: 2}
+    - {fileID: 11400000, guid: c5ef47d079edf6b4b999f91bd982e04a, type: 2}
     m_Events:
     - m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnHiHatNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnCrashNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnSnareNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnSmallTomNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnKickDrumNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnMediumNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnFloorTomNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnSplashNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4709487644291085596}
+          m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+          m_MethodName: SpawnRideNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5946369258880921190}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6888301401413998590
 GameObject:
   m_ObjectHideFlags: 0

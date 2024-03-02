@@ -78,6 +78,7 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
+    //Individual Notes
     public void SpawnHiHatNote() { SpawnNoteOfType(0); }
     public void SpawnCrashNote() { SpawnNoteOfType(1); }
     public void SpawnSnareNote() { SpawnNoteOfType(2); }
@@ -86,7 +87,26 @@ public class PlayModeManager : MonoBehaviour
     public void SpawnMediumNote() { SpawnNoteOfType(5); }
     public void SpawnFloorTomNote() { SpawnNoteOfType(6); }
     public void SpawnSplashNote() { SpawnNoteOfType(7); }
-    public void SpawnRidehNote() { SpawnNoteOfType(8); }
+    public void SpawnRideNote() { SpawnNoteOfType(8); }
+
+    //DoubleNotes
+    public void SpawnHiHatCrashNotes() { 
+        
+        SpawnNoteOfType(0);
+        SpawnNoteOfType(1);
+
+    }
+    public void SpawnHiHatSnarehNotes()
+    {
+
+        SpawnNoteOfType(0);
+        SpawnNoteOfType(2);
+
+    }
+
+    //Triple Notes
+
+    //Quad Notes
 
     public void SpawnNoteCombination(int[] noteTypes)
     {
