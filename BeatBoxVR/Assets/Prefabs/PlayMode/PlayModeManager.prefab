@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 2253700039268043158}
   - component: {fileID: 4709487644291085596}
   - component: {fileID: 3017924205687666944}
+  - component: {fileID: 4748774124177931180}
   m_Layer: 0
   m_Name: PlayModeManager
   m_TagString: Untagged
@@ -248,6 +249,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a77936b85122014c8c8ef1ed404d1f4, type: 2}
   - {fileID: 11400000, guid: 96f2ec6ca38714848ad33159333a984d, type: 2}
   delayBeforeStart: 3
+  notePrefabs: []
 --- !u!320 &3017924205687666944
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -265,6 +267,24 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!114 &4748774124177931180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946369258880921190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 40d22ae576eb6ee4bb13fc8b90a34e94, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &6888301401413998590
 GameObject:
   m_ObjectHideFlags: 0
