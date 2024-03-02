@@ -1509,6 +1509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2553658836322178401}
   - component: {fileID: 7895507876461305010}
+  - component: {fileID: 7985226853882691898}
   m_Layer: 0
   m_Name: Snare Drum
   m_TagString: Untagged
@@ -1527,7 +1528,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.39000005, y: 0.635, z: -0.4300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3655364037169251154}
   - {fileID: 8704202099026455894}
@@ -1552,6 +1553,27 @@ MonoBehaviour:
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+--- !u!95 &7985226853882691898
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626468831820473392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e33c9435f67c0942aa92fd2041e0429, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4020841386143030437
 GameObject:
   m_ObjectHideFlags: 0

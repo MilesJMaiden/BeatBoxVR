@@ -27,7 +27,7 @@ public class PercussionInstrument : MonoBehaviour
         //removed animationPivot == null
         if (surfaceCollider == null)
         {
-            Debug.LogError("Required components not assigned on " + gameObject.name + " surfaceCollier: " + surfaceCollider.ToString()
+            Debug.LogError("Required components not assigned on " + gameObject.name + " surfaceCollider: " + surfaceCollider.ToString()
                 + " animationPivot: " + animationPivot.ToString());
 
         }
@@ -41,6 +41,7 @@ public class PercussionInstrument : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Drumstick drumstick = other.GetComponent<Drumstick>();
+        Debug.Log("I have drumsticks!!!!!!!");
         if (drumstick != null && animationsEnabled)
         {
             float velocity = drumstick.GetCurrentVelocity();
@@ -55,10 +56,12 @@ public class PercussionInstrument : MonoBehaviour
             if (other == surfaceCollider)
             {
                 soundManager.PlaySound(this.tag, transform.position, velocity);
+
             }
             else if (rimCollider != null && other == rimCollider)
             {
                 soundManager.PlaySound(this.tag + "Rim", transform.position, velocity);
+
             }
         }
     }

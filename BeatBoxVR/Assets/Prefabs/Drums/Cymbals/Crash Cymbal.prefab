@@ -11992,6 +11992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999347086908768547}
   - component: {fileID: 3651992740933107775}
+  - component: {fileID: 5054717342143734624}
   m_Layer: 0
   m_Name: Crash Cymbal
   m_TagString: Untagged
@@ -12035,6 +12036,27 @@ MonoBehaviour:
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+--- !u!95 &5054717342143734624
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825617881803097202}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8477716e10e53e8429cc913a890ed7d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2880354806562104883
 GameObject:
   m_ObjectHideFlags: 0

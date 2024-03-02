@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952479454051480562}
   - component: {fileID: 9078277602850589748}
+  - component: {fileID: 4243615057930892961}
   m_Layer: 0
   m_Name: Hi-Hat
   m_TagString: Untagged
@@ -250,6 +251,27 @@ MonoBehaviour:
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+--- !u!95 &4243615057930892961
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773997421841177745}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ca24add11166d14f803aa100bf54c5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5103032287319153995
 GameObject:
   m_ObjectHideFlags: 0

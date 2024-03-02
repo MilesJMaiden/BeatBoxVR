@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8913182329636858630}
   - component: {fileID: 6556341544500582453}
+  - component: {fileID: 4823807570911901966}
   m_Layer: 0
   m_Name: Ride Cymbal
   m_TagString: Untagged
@@ -243,6 +244,27 @@ MonoBehaviour:
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+--- !u!95 &4823807570911901966
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855285444735770708}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c70af9d993ec580459a388fe70a7168c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3428925584953766770
 GameObject:
   m_ObjectHideFlags: 0
