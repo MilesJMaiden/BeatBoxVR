@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 1699708161064333384}
   - component: {fileID: 4618631171369105327}
   - component: {fileID: 5596122645230834216}
+  - component: {fileID: 6224295682775904537}
   m_Layer: 0
   m_Name: SurfaceCollider
   m_TagString: HiHat
@@ -1043,6 +1044,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6224295682775904537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212402220237766771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPivot: {fileID: 7685565928993950011}
+  surfaceCollider: {fileID: 5596122645230834216}
+  rimCollider: {fileID: 7077444346935136588}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &5798325845956047905
 GameObject:
   m_ObjectHideFlags: 0

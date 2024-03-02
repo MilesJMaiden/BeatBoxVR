@@ -12022,7 +12022,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3212518575319918420}
-  - component: {fileID: 1622131035736369198}
   m_Layer: 0
   m_Name: Splash Cymbal
   m_TagString: Untagged
@@ -12047,24 +12046,6 @@ Transform:
   - {fileID: 8657850062782204706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
---- !u!114 &1622131035736369198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2797462650763884277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationPivot: {fileID: 2666275153013936749}
-  surfaceCollider: {fileID: 961650664481622558}
-  rimCollider: {fileID: 5094208038737690309}
-  drumBounceIntensity: 0.1
-  cymbalRotationIntensity: 15
-  animationDuration: 0.2
 --- !u!1 &3225923330963882394
 GameObject:
   m_ObjectHideFlags: 0
@@ -13049,6 +13030,7 @@ GameObject:
   - component: {fileID: 5994548073816812144}
   - component: {fileID: 9112669337913743358}
   - component: {fileID: 961650664481622558}
+  - component: {fileID: 7693259490140062250}
   m_Layer: 0
   m_Name: SurfaceCollider
   m_TagString: SplashCymbal
@@ -13143,6 +13125,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7693259490140062250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246274464515244256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPivot: {fileID: 2666275153013936749}
+  surfaceCollider: {fileID: 961650664481622558}
+  rimCollider: {fileID: 5094208038737690309}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &8714923818770530197
 GameObject:
   m_ObjectHideFlags: 0
