@@ -8,19 +8,10 @@ public class PlayModeManager : MonoBehaviour
     public PlayableDirector playableDirector; // Assign in the Inspector
     public TimelineAsset[] timelines;         // Assign your different song Timelines in the Inspector
     public float delayBeforeStart = 3.0f;     // Delay in seconds before a song starts
-    public GameObject[] notePrefabs;          // Assign note prefabs in the Inspector
 
-    [Header("Note Prefabs")]
-    public GameObject hiHatPrefab;
-    public GameObject crashPrefab;
-    public GameObject snarePrefab;
-    // Add other prefabs as needed
-
-    [Header("Spawn Points")]
-    public Transform hiHatSpawnPoint;
-    public Transform crashSpawnPoint;
-    public Transform snareSpawnPoint;
-    // Add other spawn points as needed
+    [Header("Notes Configuration")]
+    public GameObject[] notePrefabs; // Prefabs for each note type
+    public Transform[] noteSpawnPoints; // Spawn points for each note type
 
     // Start is called before the first frame update
     void Start()
@@ -81,16 +72,18 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
-    private void SpawnNoteOfType(int noteType)
+    public void SpawnNoteOfType(params int[] noteTypes)
     {
-        if (noteType >= 0 && noteType < notePrefabs.Length)
+        foreach (int noteType in noteTypes)
         {
-            // Instantiate note at a specific location. Modify as needed.
-            Instantiate(notePrefabs[noteType], new Vector3(0, 0, 0), Quaternion.identity);
+            if (noteType >= 0 && noteType < notePrefabs.Length && noteType < noteSpawnPoints.Length)
+            {
+                Instantiate(notePrefabs[noteType], noteSpawnPoints[noteType].position, Quaternion.identity);
+            }
         }
     }
-    #region Notes
 
+    #region Notes
     #region Individual Notes
     //Individual Notes
     public void SpawnHiHatNote() { SpawnNoteOfType(0); }
@@ -356,6 +349,7 @@ public class PlayModeManager : MonoBehaviour
         SpawnNoteOfType(8);
 
     }
+
     public void SpawnSplashRideNotes()
     {
 
