@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 3878445902548882154}
   - component: {fileID: 3414861791500381612}
   - component: {fileID: 5340728504916702828}
+  - component: {fileID: 7852503238240926030}
   m_Layer: 0
   m_Name: RimCollider
   m_TagString: CrashCymbalRim
@@ -12146,6 +12147,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &7852503238240926030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170558733352531091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPivot: {fileID: 3919227062932345172}
+  surfaceCollider: {fileID: 8386062374076582101}
+  rimCollider: {fileID: 5340728504916702828}
+  parentAnimator: {fileID: 8532946689695526415}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &2825617881803097202
 GameObject:
   m_ObjectHideFlags: 0
@@ -12190,7 +12210,7 @@ Animator:
   m_GameObject: {fileID: 2825617881803097202}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd8cf58e50a6e57429fdcbf58f75ba9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8477716e10e53e8429cc913a890ed7d5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13078,6 +13098,7 @@ MonoBehaviour:
   animationPivot: {fileID: 3919227062932345172}
   surfaceCollider: {fileID: 8386062374076582101}
   rimCollider: {fileID: 5340728504916702828}
+  parentAnimator: {fileID: 8532946689695526415}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
