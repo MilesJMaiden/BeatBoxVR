@@ -2545,6 +2545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2553658836322178401}
+  - component: {fileID: 7819610654511490638}
   m_Layer: 0
   m_Name: Snare Drum
   m_TagString: Untagged
@@ -2569,6 +2570,27 @@ Transform:
   - {fileID: 6547141635586230033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7819610654511490638
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626468831820473392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e33c9435f67c0942aa92fd2041e0429, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4001984737453496318
 GameObject:
   m_ObjectHideFlags: 0
