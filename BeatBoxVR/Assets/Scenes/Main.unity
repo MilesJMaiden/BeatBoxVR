@@ -1311,6 +1311,49 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: skinContainer.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: environmentContainer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: skinContainer.Array.data[0].DrumkitSkinName
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: skinContainer.Array.data[0].DrumkitSkinPreview
+      value: 
+      objectReference: {fileID: 21300000, guid: 456d22619dfa062419b30f3cd4dfb8cb,
+        type: 3}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: environmentContainer.Array.data[0].EnvironmentName
+      value: Recording Studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: environmentContainer.Array.data[1].EnvironmentName
+      value: Garage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: environmentContainer.Array.data[0].EnvironmentPreviewSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6442028236a4234bb6122658d3c7a1b,
+        type: 3}
+    - target: {fileID: 2554316326673140995, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: environmentContainer.Array.data[1].EnvironmentPreviewSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7579b1a66f9f79a44bf6f70a4b7dca9d,
+        type: 3}
     - target: {fileID: 2555056252465041752, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1351,6 +1394,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3114764651733527626, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3884034148714791692, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1366,11 +1414,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3184359286015278324}
+    - target: {fileID: 5361233650976655298, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707914437676053979, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6410311666841534140, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: drumKit
       value: 
       objectReference: {fileID: 5562684}
+    - target: {fileID: 6797159870255501943, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7652742412691438706, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: leftDrumstick
@@ -1604,7 +1667,7 @@ PrefabInstance:
     - target: {fileID: 9166829735601703447, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

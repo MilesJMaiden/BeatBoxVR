@@ -63,10 +63,16 @@ public class CustomizationLoader : MonoBehaviour
     {
         EnvironmentText.text = environmentContainer[environmentID].EnvironmentName;
         EnvironmentPreview.sprite = environmentContainer[environmentID].EnvironmentPreviewSprite;
+       
+        /*
+         * UNCOMMENT WHEN GAMEOBJECTS SET
         currentEnvironment.SetActive(false);
-        //environmentContainer[environmentID].environmentPrefab.SetActive(true);
         currentEnvironment = environmentContainer[environmentID].environmentPrefab;
         currentEnvironment.SetActive(true);
+        */
+        
+        
+        //environmentContainer[environmentID].environmentPrefab.SetActive(true);
 
     }
 
@@ -98,10 +104,12 @@ public class CustomizationLoader : MonoBehaviour
         EnvironmentText.text = skinContainer[skinID].DrumkitSkinName ;
         EnvironmentPreview.sprite = skinContainer[skinID].DrumkitSkinPreview;
 
+        /*
+         * UNCOMMENT WHEN GAMEOBJECTS SET
         currentDrumkitSkin.SetActive(false);
         currentDrumkitSkin = skinContainer[skinID].DrumkitPrefab;
         currentDrumkitSkin.SetActive(true);
-
+        */
 
     }
 
