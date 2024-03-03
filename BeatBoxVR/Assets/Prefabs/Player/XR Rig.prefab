@@ -1565,6 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b028ec4193f25ee4ba9eb4d96ef09382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreZone: {fileID: 0}
   gamePauseController: {fileID: 0}
   uiController: {fileID: 0}
   soundManager: {fileID: 0}
@@ -1576,6 +1577,8 @@ MonoBehaviour:
   kickDrumTransform: {fileID: 0}
   vfxLifetime: 0.4
   loader: {fileID: 0}
+  kickDrum: {fileID: 0}
+  hiHat: {fileID: 0}
 --- !u!1 &3623489899314893314
 GameObject:
   m_ObjectHideFlags: 0
