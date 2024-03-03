@@ -9,7 +9,7 @@ public class Drumstick : MonoBehaviour
     public GameObject yellowSparkVFXPrefab;
     public GameObject redSparkVFXPrefab;
 
-    public float vfxLifetime = 0.2f;
+    public float vfxLifetime = 1.4f;
     private const float MaxVelocity = 10f;
 
     public Transform tipTransform;
@@ -96,15 +96,23 @@ public class Drumstick : MonoBehaviour
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
+        //GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
+
+        //Destroy(vfxInstance, vfxLifetime);
+
+        //Joshua's original code
+
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
+
         // Update the scale multiplier based on velocity to accentuate differences
         float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
-        vfxInstance.transform.localScale = Vector3.one * scaleMultiplier; // Apply scale uniformly
+        vfxInstance.transform.localScale = Vector3.one * scaleMultiplier;  //Apply scale uniformly
 
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
+    
     }
 
     // Method to calculate scale multiplier based on tip velocity

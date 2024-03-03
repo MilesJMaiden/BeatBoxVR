@@ -1565,17 +1565,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b028ec4193f25ee4ba9eb4d96ef09382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreZone: {fileID: 0}
   gamePauseController: {fileID: 0}
   uiController: {fileID: 0}
   soundManager: {fileID: 0}
-  hiHatVFXPrefab: {fileID: 3820475996070040374, guid: c737493713254ec409b8c80f0cd2a27e,
+  hiHatVFXPrefab: {fileID: 3820475996070040374, guid: a2afbb95e181d594994391263ff2a59b,
     type: 3}
-  kickDrumVFXPrefab: {fileID: 3820475996070040374, guid: c737493713254ec409b8c80f0cd2a27e,
+  kickDrumVFXPrefab: {fileID: 3820475996070040374, guid: a2afbb95e181d594994391263ff2a59b,
     type: 3}
   hiHatTransform: {fileID: 0}
   kickDrumTransform: {fileID: 0}
   vfxLifetime: 0.4
   loader: {fileID: 0}
+  kickDrum: {fileID: 0}
+  hiHat: {fileID: 0}
 --- !u!1 &3623489899314893314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,11 +2666,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drumstick
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973353008610775427, guid: 92482df20e979c249bb1aec34fd4194d,
-        type: 3}
-      propertyPath: m_TagString
-      value: LeftDrumstick
       objectReference: {fileID: 0}
     - target: {fileID: 3529863159614565858, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}

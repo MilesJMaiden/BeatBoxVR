@@ -4,12 +4,13 @@ using UnityEngine;
 public class GamePauseController : MonoBehaviour
 {
     public GameObject countdownUI;
+    public GameObject pauseUI;
 
     public void PauseGame()
     {
         // Pause game logic
         Time.timeScale = 0;
-        // Show pause menu... Call from UI controller
+        pauseUI.SetActive(true);
     }
 
     public void UnpauseGameWithCountdown()
@@ -20,10 +21,13 @@ public class GamePauseController : MonoBehaviour
     private IEnumerator CountdownAndUnpause()
     {
         // Show countdown UI
+        pauseUI.SetActive(false);
         countdownUI.SetActive(true);
         yield return new WaitForSecondsRealtime(3); // 3-second countdown
 
         countdownUI.SetActive(false);
         Time.timeScale = 1; // Resume game
+
+
     }
 }

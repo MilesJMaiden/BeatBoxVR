@@ -9,22 +9,22 @@ public class UIController : MonoBehaviour
 
     public void ToggleMenu(bool show)
     {
-        StartCoroutine(AnimateDrumKit(show));
+        //StartCoroutine(AnimateDrumKit(show));
         StartCoroutine(FadeCanvasGroup(mainMenuCanvasGroup, show ? 1 : 0, animationDuration));
     }
 
-    private IEnumerator AnimateDrumKit(bool show)
-    {
-        Vector3 targetPosition = show ? new Vector3(0, 0, 1) : Vector3.zero; // Adjust target position
-        float elapsedTime = 0;
+    //private IEnumerator AnimateDrumKit(bool show)
+    //{
+    //    Vector3 targetPosition = show ? new Vector3(0, 0, 1) : Vector3.zero; // Adjust target position
+    //    float elapsedTime = 0;
 
-        while (elapsedTime < animationDuration)
-        {
-            drumKit.transform.localPosition = Vector3.Lerp(drumKit.transform.localPosition, targetPosition, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-    }
+    //    while (elapsedTime < animationDuration)
+    //    {
+    //        drumKit.transform.localPosition = Vector3.Lerp(drumKit.transform.localPosition, targetPosition, elapsedTime / animationDuration);
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //}
 
     private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)
     {
