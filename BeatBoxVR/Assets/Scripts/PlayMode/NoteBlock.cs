@@ -20,28 +20,24 @@ public class NoteBlock : MonoBehaviour
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
-    // This method gets called when something enters its trigger collider
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the colliding object is the score zone
         if (other.CompareTag("ScoreZone"))
         {
-            // Assuming the parent of the collider has a Drumstick component
             Drumstick drumstick = other.GetComponentInParent<Drumstick>();
-            if (drumstick != null && drumstick.tag == expectedTag)
+            if (drumstick != null && drumstick.gameObject.tag == expectedTag)
             {
-                // Correct instrument was hit
                 HandleHit();
             }
-            else
-            {
-                // Incorrect instrument was hit or missed
-                HandleMiss();
-            }
+        }
+        else if (other.CompareTag("MissZone"))
+        {
+            HandleMiss();
         }
     }
 
-    private void HandleHit()
+    // Adjusted to public so it can be called from the PercussionInstrument class
+    public void HandleHit()
     {
         // Instantiate hit VFX
         if (hitVFXPrefab != null)
@@ -49,8 +45,9 @@ public class NoteBlock : MonoBehaviour
             Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
         }
 
-        // Update the score through the PlayModeManager
-        PlayModeManager.Instance?.UpdateScore(1);
+        // Correct instrument was hit
+        PlayModeManager.Instance.IncrementStreak(); // Increment streak
+        PlayModeManager.Instance.UpdateScore(1); // Update score considering streak multiplier
 
         Destroy(gameObject, destroyDelay);
     }
@@ -62,6 +59,8 @@ public class NoteBlock : MonoBehaviour
         {
             Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
         }
+
+        PlayModeManager.Instance.ResetStreak(); // Reset only the streak on miss
 
         Destroy(gameObject, destroyDelay);
     }

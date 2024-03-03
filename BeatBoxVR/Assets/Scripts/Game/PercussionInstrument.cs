@@ -14,7 +14,7 @@ public class PercussionInstrument : MonoBehaviour
     public float animationDuration = 0.2f;
 
     private bool isAnimating = false;
-    private bool animationsEnabled = true; // New bool to enable/disable animations
+    private bool animationsEnabled = true;
 
     void Start()
     {
@@ -42,38 +42,53 @@ public class PercussionInstrument : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        Drumstick drumstick = other.GetComponent<Drumstick>();
-        if (drumstick != null && animationsEnabled)
+        // Check if a drumstick hits the instrument
+        if (other.CompareTag("Drumstick"))
         {
-            float velocity = drumstick.GetCurrentVelocity();
-            NoteBlock noteBlock = FindObjectOfType<NoteBlock>();
-            Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
-
-            if (!isAnimating || velocity > drumstick.LastHitVelocity) // Prioritize higher velocity hits
+            Drumstick drumstick = other.GetComponent<Drumstick>();
+            if (drumstick != null && animationsEnabled)
             {
-                /*
-                StopAllCoroutines(); // Ensure a smooth transition between animations
-                StartCoroutine(AnimateInstrument(velocity));
-                */
-                StartCoroutine(AnimateInstrument());
+                float velocity = drumstick.GetCurrentVelocity();
+                Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-            }
+                // Perform animations if enabled
+                if (!isAnimating || velocity > drumstick.LastHitVelocity)
+                {
+                    StartCoroutine(AnimateInstrument());
+                }
 
+                // Play sound based on which part of the instrument was hit
+                PlayInstrumentSound(other, velocity);
 
-            if (other == surfaceCollider)
-            {
-                soundManager.PlaySound(this.tag, transform.position, velocity);
-
-            }
-            else if (rimCollider != null && other == rimCollider)
-            {
-                soundManager.PlaySound(this.tag + "Rim", transform.position, velocity);
-
+                // Notify the nearest NoteBlock of a hit
+                NotifyNoteBlockOfHit();
             }
         }
     }
-    
+
+    private void NotifyNoteBlockOfHit()
+    {
+        // Find the nearest NoteBlock and check if its tag matches this instrument's tag
+        NoteBlock[] noteBlocks = FindObjectsOfType<NoteBlock>();
+        foreach (var noteBlock in noteBlocks)
+        {
+            if (noteBlock.expectedTag == this.tag && Vector3.Distance(transform.position, noteBlock.transform.position) < 1f) // Assuming a small threshold for distance
+            {
+                noteBlock.HandleHit();
+                break; // Assuming only one NoteBlock can be relevant at a time
+            }
+        }
+    }
+
+    private void PlayInstrumentSound(Collider other, float velocity)
+    {
+        if (other == surfaceCollider || (rimCollider != null && other == rimCollider))
+        {
+            string soundType = other == surfaceCollider ? "" : "Rim";
+            soundManager.PlaySound(this.tag + soundType, transform.position, velocity);
+        }
+    }
+
     public IEnumerator AnimateInstrument()
     {
         

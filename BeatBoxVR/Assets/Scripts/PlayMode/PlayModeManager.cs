@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -18,8 +19,10 @@ public class PlayModeManager : MonoBehaviour
 
     public PlayableDirector playableDirector; // Reference to the PlayableDirector component
     public TimelineAsset[] timelines; // Array of Timeline assets for different songs
+
     public float delayBeforeStart = 3.0f; // Delay before starting a song
-    private int currentSongIndex = 0; // Index of the currently selected or playing song
+    private int currentSongIndex = 0;
+
     public List<SongData> songsData = new List<SongData>();
 
     [Header("Notes Configuration")]
@@ -29,8 +32,15 @@ public class PlayModeManager : MonoBehaviour
     [Header("Audio Playback")]
     public AudioSource audioSource;
 
-    public int score = 0;
+    [Header("UI Components")]
+    // Add UI components for displaying score and streak
+    [Header("UI Components")]
+    public TextMeshProUGUI scoreText; // Already existing
+    public TextMeshProUGUI streakText; // Add this for streak display
 
+    private int score = 0;
+    private int streak = 0; // Declare the streak variable
+    
     void Awake()
     {
         if (Instance == null)
@@ -46,6 +56,7 @@ public class PlayModeManager : MonoBehaviour
     void Start()
     {
         InitializePlayMode();
+        UpdateScore(0);
     }
 
     void InitializePlayMode()
@@ -106,21 +117,6 @@ public class PlayModeManager : MonoBehaviour
     public void OnSong2ButtonPressed() { SwitchToSongWithDelay(1); }
     #endregion
 
-    // Retrieves the speed for the current song
-    // Retrieves the speed for the current song from songsData list
-    private float GetCurrentSongSpeed()
-    {
-        if (currentSongIndex >= 0 && currentSongIndex < songsData.Count)
-        {
-            return songsData[currentSongIndex].songSpeed;
-        }
-        else
-        {
-            Debug.LogError("Invalid song index for speed retrieval: " + currentSongIndex);
-            return 1f; // Default speed if index is out of range
-        }
-    }
-
     // Spawns notes of the specified types at their designated spawn points
     private void SpawnNoteOfType(int noteType)
     {
@@ -134,11 +130,55 @@ public class PlayModeManager : MonoBehaviour
             }
         }
     }
-    public void UpdateScore(int points)
+
+    // Updates score and streak display on the UI
+    private void UpdateUI()
     {
-        score += points;
-        // Update UI or perform other actions based on the new score
-        Debug.Log("Current Score: " + score);
+        if (scoreText != null) scoreText.text = "Score: " + score;
+        if (streakText != null) streakText.text = "Streak: " + streak;
+    }
+
+    // Calculates the multiplier based on the current streak
+    private int CalculateMultiplier()
+    {
+        if (streak >= 50) return 3;
+        else if (streak >= 25) return 2;
+        return 1;
+    }
+
+    // Method to update the score and potentially the streak
+    public void UpdateScore(int pointsToAdd)
+    {
+        score += pointsToAdd * CalculateMultiplier(); // Use a multiplier based on the streak
+        streak++; // Increment streak with each successful hit
+        UpdateUI(); // Update the UI to reflect the new score and streak
+    }
+
+    // Method to be called at the start or end of a song to reset the score and streak
+    public void ResetScoreAndStreak()
+    {
+        score = 0;
+        streak = 0;
+        UpdateUI();
+    }
+
+    public void IncrementStreak()
+    {
+        streak++;
+        UpdateStreakDisplay(); // This method updates the streak UI
+    }
+    // Resets the streak to 0 and updates the UI
+
+    public void ResetStreak()
+    {
+        streak = 0;
+        UpdateUI();
+    }
+
+    private void UpdateStreakDisplay()
+    {
+        // Assuming you have a TextMeshProUGUI component for displaying the streak
+        streakText.text = "Streak: " + streak;
     }
 
     //Individual Notes
