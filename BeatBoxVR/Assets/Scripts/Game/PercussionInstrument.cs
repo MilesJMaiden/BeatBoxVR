@@ -44,10 +44,10 @@ public class PercussionInstrument : MonoBehaviour
     {
 
         Drumstick drumstick = other.GetComponent<Drumstick>();
-
         if (drumstick != null && animationsEnabled)
         {
             float velocity = drumstick.GetCurrentVelocity();
+            NoteBlock noteBlock = FindObjectOfType<NoteBlock>();
             Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
             if (!isAnimating || velocity > drumstick.LastHitVelocity) // Prioritize higher velocity hits
@@ -56,7 +56,6 @@ public class PercussionInstrument : MonoBehaviour
                 StopAllCoroutines(); // Ensure a smooth transition between animations
                 StartCoroutine(AnimateInstrument(velocity));
                 */
-
                 StartCoroutine(AnimateInstrument());
 
             }
@@ -87,10 +86,9 @@ public class PercussionInstrument : MonoBehaviour
         isAnimating = false;
         parentAnimator.SetBool("isAnimating", isAnimating);
 
-    }
-    
+    }  
 
-    /*
+    /* Joshua IEnum animation - NOT USED
     private IEnumerator AnimateInstrument(float velocity)
     {
         isAnimating = true;

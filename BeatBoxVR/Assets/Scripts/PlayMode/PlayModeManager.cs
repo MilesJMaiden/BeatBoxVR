@@ -14,6 +14,7 @@ public class SongData
 
 public class PlayModeManager : MonoBehaviour
 {
+    public static PlayModeManager Instance;
 
     public PlayableDirector playableDirector; // Reference to the PlayableDirector component
     public TimelineAsset[] timelines; // Array of Timeline assets for different songs
@@ -27,6 +28,20 @@ public class PlayModeManager : MonoBehaviour
 
     [Header("Audio Playback")]
     public AudioSource audioSource;
+
+    public int score = 0;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -53,18 +68,16 @@ public class PlayModeManager : MonoBehaviour
             currentSongIndex = songIndex;
             playableDirector.playableAsset = timelines[songIndex];
             playableDirector.Play();
-            // Play the audio for the current song
+
             if (audioSource != null && songsData[songIndex].songClip != null)
             {
                 audioSource.clip = songsData[songIndex].songClip;
                 audioSource.Play();
             }
-            // Adjust the speed for the current song if necessary
-            // Use songsData[songIndex].songSpeed as needed
         }
         else
         {
-            Debug.LogError("Song index out of range: " + songIndex);
+            Debug.LogError("Song index out of range.");
         }
     }
 
@@ -114,12 +127,18 @@ public class PlayModeManager : MonoBehaviour
         if (noteType >= 0 && noteType < notePrefabs.Length && noteType < noteSpawnPoints.Length)
         {
             var noteInstance = Instantiate(notePrefabs[noteType], noteSpawnPoints[noteType].position, Quaternion.identity);
-            var noteBlock = noteInstance.GetComponent<NoteBlock>(); // Assuming NoteBlock is a component managing the note's behavior
+            var noteBlock = noteInstance.GetComponent<NoteBlock>();
             if (noteBlock != null)
             {
-                noteBlock.songSpeed = GetCurrentSongSpeed(); // Set the note's speed
+                noteBlock.InitializeNoteBlock(songsData[currentSongIndex].songSpeed);
             }
         }
+    }
+    public void UpdateScore(int points)
+    {
+        score += points;
+        // Update UI or perform other actions based on the new score
+        Debug.Log("Current Score: " + score);
     }
 
     //Individual Notes

@@ -2,41 +2,67 @@ using UnityEngine;
 
 public class NoteBlock : MonoBehaviour
 {
-    public float songSpeed; // Speed at which the note moves, assigned from the PlayModeManager
-    public GameObject missVFXPrefab; // VFX to instantiate on miss
+    public string expectedTag; // The tag this note block expects (e.g., "HiHat", "SnareDrum")
     public GameObject hitVFXPrefab; // VFX to instantiate on hit
-    public float destroyDelay = 0.2f; // Time before the note is destroyed after missing or hitting
+    public GameObject missVFXPrefab; // VFX to instantiate on miss
+    public float destroyDelay = 0.2f; // Delay before destruction
+
+    public float moveSpeed;
+
+    public void InitializeNoteBlock(float speed)
+    {
+        moveSpeed = speed;
+    }
 
     private void Update()
     {
-        // Move the note block forward along its local Z axis
-        transform.Translate(Vector3.forward * songSpeed * Time.deltaTime);
+        // Move the note block forward along its local Z axis at songSpeed
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
+    // This method gets called when something enters its trigger collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MissZone"))
+        // Check if the colliding object is the score zone
+        if (other.CompareTag("ScoreZone"))
         {
-            // Instantiate miss VFX if assigned
-            if (missVFXPrefab != null)
+            // Assuming the parent of the collider has a Drumstick component
+            Drumstick drumstick = other.GetComponentInParent<Drumstick>();
+            if (drumstick != null && drumstick.tag == expectedTag)
             {
-                Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
+                // Correct instrument was hit
+                HandleHit();
             }
-
-            // Destroy the note block after a delay
-            Destroy(gameObject, destroyDelay);
+            else
+            {
+                // Incorrect instrument was hit or missed
+                HandleMiss();
+            }
         }
-        else if (other.CompareTag("HitZone"))
+    }
+
+    private void HandleHit()
+    {
+        // Instantiate hit VFX
+        if (hitVFXPrefab != null)
         {
-            // Logic for when a note block is hit successfully
-            // Instantiate hit VFX if assigned
-            if (hitVFXPrefab != null)
-            {
-                Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
-            }
-
-            // Destroy the note block immediately or after a delay
-            Destroy(gameObject, destroyDelay);
+            Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
         }
+
+        // Update the score through the PlayModeManager
+        PlayModeManager.Instance?.UpdateScore(1);
+
+        Destroy(gameObject, destroyDelay);
+    }
+
+    private void HandleMiss()
+    {
+        // Instantiate miss VFX
+        if (missVFXPrefab != null)
+        {
+            Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject, destroyDelay);
     }
 }
