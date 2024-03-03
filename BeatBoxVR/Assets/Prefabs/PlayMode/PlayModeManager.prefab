@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 2935459477917467138}
   - component: {fileID: 3612187803137940141}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Song2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1728,7 +1728,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2935459477917467138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4709487644291085596}
+        m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+        m_MethodName: OnSong2ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5563072320133287763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,7 +3197,7 @@ GameObject:
   - component: {fileID: 417343842908023727}
   - component: {fileID: 5297536764578752788}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Song1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3292,7 +3304,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 417343842908023727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4709487644291085596}
+        m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
+        m_MethodName: OnSong1ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8033814016872839110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,7 +3714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Song 1
+  m_text: Song 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

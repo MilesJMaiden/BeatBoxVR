@@ -65,6 +65,6 @@ public class NoteBlock : MonoBehaviour
 
         PlayModeManager.Instance.ResetStreak(); // Reset only the streak on miss
 
-        Destroy(gameObject, destroyDelay); // Destroy the note block itself after the delay
+        Destroy(gameObject); // Destroy the note block itself after the delay
     }
 }
