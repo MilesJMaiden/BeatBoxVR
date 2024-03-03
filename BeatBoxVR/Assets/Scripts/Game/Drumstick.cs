@@ -96,12 +96,12 @@ public class Drumstick : MonoBehaviour
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
+        //GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
 
-        Destroy(vfxInstance, vfxLifetime);
+        //Destroy(vfxInstance, vfxLifetime);
 
         //Joshua's original code
-        /*
+
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
@@ -112,7 +112,7 @@ public class Drumstick : MonoBehaviour
 
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
-        */
+    
     }
 
     // Method to calculate scale multiplier based on tip velocity

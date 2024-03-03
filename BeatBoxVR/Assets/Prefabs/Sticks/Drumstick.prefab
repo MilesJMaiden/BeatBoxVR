@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8383255093238196266}
   m_Layer: 0
   m_Name: Drumstick
-  m_TagString: Drumstick
+  m_TagString: LeftDrumstick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,11 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8f53c98d44874ba1c4ca825445114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteSparkVFXPrefab: {fileID: 3289575967326038831, guid: 4c988e95a58698146a96a8d045b70e1d,
+  whiteSparkVFXPrefab: {fileID: 3820475996070040374, guid: a2afbb95e181d594994391263ff2a59b,
     type: 3}
-  yellowSparkVFXPrefab: {fileID: 3289575967326038831, guid: 03be5a9f0e9b1b847bfcb5167e688dff,
+  yellowSparkVFXPrefab: {fileID: 2812408939595944617, guid: 76b0bd3d306a7084aabefe4ad0714552,
     type: 3}
-  redSparkVFXPrefab: {fileID: 3289575967326038831, guid: 8bf0fa2c3a68d7d4997e5570450e9d6f,
+  redSparkVFXPrefab: {fileID: 2375842249092589218, guid: 404ff4eae5ed8474b8bbfb23281d9e60,
     type: 3}
   vfxLifetime: 0.4
   tipTransform: {fileID: 3273985625040863214}

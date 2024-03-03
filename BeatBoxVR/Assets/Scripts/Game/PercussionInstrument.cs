@@ -43,7 +43,7 @@ public class PercussionInstrument : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Check if a drumstick hits the instrument
-        if (other.CompareTag("Drumstick"))
+        if (other.CompareTag("RightDrumstick") || other.CompareTag("LeftDrumstick"))
         {
             Drumstick drumstick = other.GetComponent<Drumstick>();
             if (drumstick != null && animationsEnabled)
