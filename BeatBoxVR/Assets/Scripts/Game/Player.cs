@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    [Header("Note Interaction")]
+    public ScoreZone scoreZone; // Reference to the ScoreZone component
+
     private XRIDefaultInputActions inputActions;
     private InputAction leftJoystickAction;
     private InputAction rightJoystickAction;
@@ -110,9 +114,13 @@ public class Player : MonoBehaviour
     {
         // Play HiHat sound and instantiate VFX
         soundManager.PlaySound("HiHat", hiHatTransform.position, 1.0f);
-        //InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+        InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+
         // Play HiHat animation
         StartCoroutine(AnimateHiHat());
+
+        // Attempt to hit a HiHat note in the score zone
+        TryHitNote("HiHat");
 
     }
 
@@ -120,9 +128,18 @@ public class Player : MonoBehaviour
     {
         // Play Kick Drum sound and instantiate VFX
         soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f);
-        //InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
+        InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
         // Play Kick Drum animation
         StartCoroutine(AnimateKickDrum());
+
+        // Attempt to hit a Kick Drum note in the score zone
+        TryHitNote("KickDrum");
+    }
+
+    // This method is correctly set up to attempt to hit a note.
+    private void TryHitNote(string noteTag)
+    {
+        scoreZone.AttemptToHitNoteWithTag(noteTag);
     }
 
     private IEnumerator AnimateHiHat()
