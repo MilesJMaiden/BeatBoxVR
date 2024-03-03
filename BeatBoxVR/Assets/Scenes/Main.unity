@@ -1030,6 +1030,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3184359286015278324}
+    - target: {fileID: 5707914437676053979, guid: 583211680e08bea4dbdc52ad04a9cde4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6410311666841534140, guid: 583211680e08bea4dbdc52ad04a9cde4,
         type: 3}
       propertyPath: drumKit
@@ -2252,6 +2257,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 777580974862585487, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Range
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 777580974862585487, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 777580974862585487, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 840345584097387719, guid: 665f9eac09ca1e348b26b466ae9d7daa,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -2707,15 +2727,60 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[14]
       value: 
       objectReference: {fileID: 2100000, guid: 68c84aa8e674ea543b9b306b69e4bf14, type: 2}
+    - target: {fileID: 6974388347679051766, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Range
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974388347679051766, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974388347679051766, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6975265893136880753, guid: 665f9eac09ca1e348b26b466ae9d7daa,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7200563178535741671, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Range
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200563178535741671, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200563178535741671, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7801046630071459608, guid: 665f9eac09ca1e348b26b466ae9d7daa,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071642481192478704, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Range
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071642481192478704, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071642481192478704, guid: 665f9eac09ca1e348b26b466ae9d7daa,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8190060567089783610, guid: 665f9eac09ca1e348b26b466ae9d7daa,
         type: 3}
@@ -2807,7 +2872,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3671286086710303588, guid: 665f9eac09ca1e348b26b466ae9d7daa, type: 3}
+    - {fileID: 7115124267375839850, guid: 665f9eac09ca1e348b26b466ae9d7daa, type: 3}
+    - {fileID: 834213300670295877, guid: 665f9eac09ca1e348b26b466ae9d7daa, type: 3}
+    - {fileID: 5015859944901809523, guid: 665f9eac09ca1e348b26b466ae9d7daa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
