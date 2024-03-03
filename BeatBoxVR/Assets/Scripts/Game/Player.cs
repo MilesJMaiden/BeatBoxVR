@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    [Header("Note Interaction")]
+    public ScoreZone scoreZone; // Reference to the ScoreZone component
+
     private XRIDefaultInputActions inputActions;
     private InputAction leftJoystickAction;
     private InputAction rightJoystickAction;
@@ -23,7 +28,9 @@ public class Player : MonoBehaviour
     public PlayAlongDetailLoader loader; // Assign this in the Inspector
     private float currentAudioAdjustments;
 
-
+    [Header("Animation for Kick Drum and HiHat")]
+    public GameObject kickDrum;
+    public GameObject hiHat;
     private void Awake()
     {
         // Initialize input actions
@@ -108,6 +115,13 @@ public class Player : MonoBehaviour
         // Play HiHat sound and instantiate VFX
         soundManager.PlaySound("HiHat", hiHatTransform.position, 1.0f);
         InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+
+        // Play HiHat animation
+        StartCoroutine(AnimateHiHat());
+
+        // Attempt to hit a HiHat note in the score zone
+        TryHitNote("HiHat");
+
     }
 
     private void PlayKickDrum()
@@ -115,6 +129,42 @@ public class Player : MonoBehaviour
         // Play Kick Drum sound and instantiate VFX
         soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f);
         InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
+        // Play Kick Drum animation
+        StartCoroutine(AnimateKickDrum());
+
+        // Attempt to hit a Kick Drum note in the score zone
+        TryHitNote("KickDrum");
+    }
+
+    // This method is correctly set up to attempt to hit a note.
+    private void TryHitNote(string noteTag)
+    {
+        scoreZone.AttemptToHitNoteWithTag(noteTag);
+    }
+
+    private IEnumerator AnimateHiHat()
+    {
+        Animator hiHatAnimator = hiHat.GetComponent<Animator>();
+        if (hiHatAnimator != null)
+        {
+            hiHatAnimator.SetBool("isAnimating", true);
+
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        hiHatAnimator.SetBool("isAnimating", false);
+    }
+    private IEnumerator AnimateKickDrum()
+    {
+        Animator kickDrumAnimator = kickDrum.GetComponent<Animator>();
+        if (kickDrumAnimator != null)
+        {
+            kickDrumAnimator.SetBool("isAnimating", true);
+
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        kickDrumAnimator.SetBool("isAnimating", false);
     }
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position)

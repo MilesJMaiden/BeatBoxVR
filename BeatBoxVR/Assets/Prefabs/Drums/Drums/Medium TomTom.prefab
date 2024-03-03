@@ -3477,6 +3477,7 @@ GameObject:
   - component: {fileID: 2976609002848505637}
   - component: {fileID: 7179542991029161521}
   - component: {fileID: 7835907573593160766}
+  - component: {fileID: 7196205871506629868}
   m_Layer: 0
   m_Name: SurfaceCollider
   m_TagString: MediumTomTom
@@ -3529,6 +3530,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7196205871506629868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007036470599139976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPivot: {fileID: 9211794135663519684}
+  surfaceCollider: {fileID: 7835907573593160766}
+  rimCollider: {fileID: 999312243154929496}
+  drumBounceIntensity: 0.1
+  cymbalRotationIntensity: 15
+  animationDuration: 0.2
 --- !u!1 &4290842924157086030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,7 +4120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7641339356247115709}
-  - component: {fileID: 9143937556886321363}
+  - component: {fileID: 2282440183060756717}
   m_Layer: 0
   m_Name: Medium TomTom
   m_TagString: Untagged
@@ -4126,24 +4145,27 @@ Transform:
   - {fileID: 2430728615079277987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9143937556886321363
-MonoBehaviour:
+--- !u!95 &2282440183060756717
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8119669222167935545}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationPivot: {fileID: 9211794135663519684}
-  surfaceCollider: {fileID: 7835907573593160766}
-  rimCollider: {fileID: 999312243154929496}
-  drumBounceIntensity: 0.1
-  cymbalRotationIntensity: 15
-  animationDuration: 0.2
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78a2f52044d41ef498bf305095853a5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8411253317580326904
 GameObject:
   m_ObjectHideFlags: 0
