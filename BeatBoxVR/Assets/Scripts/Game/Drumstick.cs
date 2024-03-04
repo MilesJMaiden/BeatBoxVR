@@ -9,7 +9,7 @@ public class Drumstick : MonoBehaviour
     public GameObject yellowSparkVFXPrefab;
     public GameObject redSparkVFXPrefab;
 
-    public float vfxLifetime = 1.4f;
+    public float vfxLifetime = 0.2f;
     private const float MaxVelocity = 10f;
 
     public Transform tipTransform;
@@ -57,15 +57,12 @@ public class Drumstick : MonoBehaviour
             Vector3 collisionPoint = tipTransform.position;
             soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
 
-            // Assume the collider's center is a good approximation for VFX spawn location
-            Vector3 spawnPosition = other.bounds.center + new Vector3(0, 0.1f, 0); // Offset above the collider
-
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                    InstantiateVFX(vfxPrefab, collisionPoint, other.transform.position - collisionPoint);
                 }
             }
 
@@ -102,36 +99,32 @@ public class Drumstick : MonoBehaviour
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
+        // Update the scale multiplier based on velocity to accentuate differences
         float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
-        ParticleSystem particleSystem = vfxInstance.GetComponentInChildren<ParticleSystem>();
-
-        if (particleSystem != null)
-        {
-            // Adjust start speed based on scaleMultiplier
-            var mainModule = particleSystem.main;
-            // Use a more dramatic range for startSpeed for slow hits
-            mainModule.startSpeed = Mathf.Lerp(0.01f, 1f, Mathf.Pow(scaleMultiplier, 2)); // Use square to exaggerate difference at lower end
-
-            // Adjust emission rate over time
-            var emissionModule = particleSystem.emission;
-            // Decrease minimum rate for slower hits
-            emissionModule.rateOverTime = Mathf.Lerp(0.5f, 75f, Mathf.Pow(scaleMultiplier, 2)); // Adjusted range and used square
-
-            // Adjust shape length
-            var shapeModule = particleSystem.shape;
-            // Use a narrower range for the length to make it even smaller for slow hits
-            shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2)); // Decreased minimum length and used square
-        }
+        vfxInstance.transform.localScale = Vector3.one * scaleMultiplier; // Apply scale uniformly
 
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
     }
 
-    // Method to calculate scale multiplier based on tip velocity, now with more variance
+    // Method to calculate scale multiplier based on tip velocity
     private float CalculateScaleMultiplier(float velocity)
     {
-        // Example adjustment: use exponential or quadratic scaling for more noticeable differences
-        return Mathf.Lerp(0.5f, 3f, Mathf.Pow(velocity / MaxVelocity, 2));
+        if (velocity <= 4) // Slow hits
+        {
+            // Smaller scale for slower hits
+            return 0.5f + (velocity / MaxVelocity) * 0.5f; // Scale from 0.5 to 1 for slow hits
+        }
+        else if (velocity <= 7) // Medium hits
+        {
+            // Medium scale for medium hits
+            return 1f + ((velocity - 4) / (7 - 4)) * 0.5f; // Scale from 1 to 1.5 for medium hits
+        }
+        else // Fast hits
+        {
+            // Larger scale for fast hits
+            return 1.5f + ((velocity - 7) / (MaxVelocity - 7)) * 1f; // Scale from 1.5 to 2.5 for fast hits
+        }
     }
 
     private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)
