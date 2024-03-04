@@ -23,20 +23,20 @@ public class SelectionController : MonoBehaviour
         {
             selectionPointer.SetActive(true);
             selectionPointer.transform.position = hit.point;
-            if(OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger)>0)
-            {
+            //if(OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger)>0)
+            //{
                 
-                if(hit.collider.tag == "BPM")
-                {
-                    hit.collider.gameObject.GetComponent<TutorialChangeSpeed>().AssignSpeed();
-                }
+            //    if(hit.collider.tag == "BPM")
+            //    {
+            //        hit.collider.gameObject.GetComponent<TutorialChangeSpeed>().AssignSpeed();
+            //    }
 
-                if (hit.collider.tag == "Beat")
-                {
-                    hit.collider.gameObject.GetComponent<NotationLoad>().ChangeBeat();
-                }
+            //    if (hit.collider.tag == "Beat")
+            //    {
+            //        hit.collider.gameObject.GetComponent<NotationLoad>().ChangeBeat();
+            //    }
                    
-            }
+            //}
         }
     }
 }
