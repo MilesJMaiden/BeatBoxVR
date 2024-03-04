@@ -1522,10 +1522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationPivot: {fileID: 1974271484}
+  animationPivot: {fileID: 0}
   surfaceCollider: {fileID: 458601677}
   rimCollider: {fileID: 467468782}
-  parentAnimator: {fileID: 6315448411421953092}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
@@ -2036,12 +2035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8f53c98d44874ba1c4ca825445114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &665082896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6591272879409489557, guid: 4988b958b27c862488c06eb7553bdc8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8551363480892903907}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &684626955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6783476676945943071, guid: 1fa63ef05310b7c4c97ff397739e2fc2,
@@ -2355,10 +2348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5b0b6606a8bba498ccdf5cfd2cfda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationPivot: {fileID: 665082896}
+  animationPivot: {fileID: 0}
   surfaceCollider: {fileID: 1621236562}
   rimCollider: {fileID: 869195495}
-  parentAnimator: {fileID: 2126974190}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
@@ -3381,18 +3373,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5174067622955399085}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1480410132 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5666409739818243595, guid: d788a0b93b3fccb4ba07338568f7bcb8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5174067622955399085}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1509421773 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7819610654511490638, guid: a254c5c6a9c6db843b65b250ac0ded66,
-    type: 3}
-  m_PrefabInstance: {fileID: 39925040643857621}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1516775098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,12 +3739,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!95 &1808526000 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2282440183060756717, guid: 24eb4d536005edd4abe465836342554c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1983337956897303921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1819637189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,21 +4476,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4585011255972844721}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1974271484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2666275153013936749, guid: 3bcea1ff2c3a79d46a5eead19ae8c430,
-    type: 3}
-  m_PrefabInstance: {fileID: 5192336041287149191}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1984877746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1349909640284662179, guid: b98f45a2b5cbf4d428ddffb1a7fdafb4,
-    type: 3}
-  m_PrefabInstance: {fileID: 788665289210502061}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1984877747 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9128678718910335201, guid: b98f45a2b5cbf4d428ddffb1a7fdafb4,
     type: 3}
   m_PrefabInstance: {fileID: 788665289210502061}
   m_PrefabAsset: {fileID: 0}
@@ -4809,12 +4771,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8551363480892903907}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2126974190 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1995369885556406534, guid: 4988b958b27c862488c06eb7553bdc8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8551363480892903907}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39925040643857621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4922,7 +4878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 1509421773}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5000,7 +4956,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 1984877747}
+      objectReference: {fileID: 0}
     - target: {fileID: 7204645529425727596, guid: b98f45a2b5cbf4d428ddffb1a7fdafb4,
         type: 3}
       propertyPath: m_Mesh
@@ -5038,7 +4994,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 1808526000}
+      objectReference: {fileID: 0}
     - target: {fileID: 7641339356247115709, guid: 24eb4d536005edd4abe465836342554c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5532,7 +5488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 1480410132}
+      objectReference: {fileID: 0}
     - target: {fileID: 954964891327347982, guid: d788a0b93b3fccb4ba07338568f7bcb8,
         type: 3}
       propertyPath: m_Mesh
@@ -5690,7 +5646,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 6315448411421953092}
+      objectReference: {fileID: 0}
     - target: {fileID: 7826629090511164662, guid: 3bcea1ff2c3a79d46a5eead19ae8c430,
         type: 3}
       propertyPath: m_Mesh
@@ -5831,12 +5787,6 @@ PrefabInstance:
 --- !u!4 &6315448411421953091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3212518575319918420, guid: 3bcea1ff2c3a79d46a5eead19ae8c430,
-    type: 3}
-  m_PrefabInstance: {fileID: 5192336041287149191}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6315448411421953092 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2296976092220832815, guid: 3bcea1ff2c3a79d46a5eead19ae8c430,
     type: 3}
   m_PrefabInstance: {fileID: 5192336041287149191}
   m_PrefabAsset: {fileID: 0}
@@ -6064,7 +6014,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parentAnimator
       value: 
-      objectReference: {fileID: 2126974190}
+      objectReference: {fileID: 0}
     - target: {fileID: 8781319769841002656, guid: 4988b958b27c862488c06eb7553bdc8e,
         type: 3}
       propertyPath: m_Mesh
