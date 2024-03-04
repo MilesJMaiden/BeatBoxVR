@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 6295282511537721177}
   - component: {fileID: 2293221461787504770}
   - component: {fileID: 4680767095409894943}
-  - component: {fileID: 1778332601801128675}
+  - component: {fileID: 2528410937377377104}
   m_Layer: 6
   m_Name: TutorialSmallTom
   m_TagString: Untagged
@@ -450,7 +450,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1778332601801128675
+--- !u!114 &2528410937377377104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6117009015229020903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 2675758798349639766}

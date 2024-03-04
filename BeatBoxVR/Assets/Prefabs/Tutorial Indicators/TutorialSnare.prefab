@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 3052893318827040396}
   - component: {fileID: 56714739489678570}
   - component: {fileID: 1601574274512186916}
-  - component: {fileID: 8817971820956662259}
+  - component: {fileID: 578133993610015586}
   m_Layer: 6
   m_Name: TutorialSnare
   m_TagString: Untagged
@@ -450,7 +450,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8817971820956662259
+--- !u!114 &578133993610015586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6248041169279280414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1341092702995913228}

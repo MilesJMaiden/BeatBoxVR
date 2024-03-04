@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1921508526372842344}
   - component: {fileID: 7538677208489839747}
   - component: {fileID: 1023708391793608414}
-  - component: {fileID: 6369855656268832931}
+  - component: {fileID: 2871937101620095787}
   m_Layer: 6
   m_Name: TutorialKickDrum
   m_TagString: Untagged
@@ -279,7 +279,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6369855656268832931
+--- !u!114 &2871937101620095787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4705721342588992523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 5187366238001709835}

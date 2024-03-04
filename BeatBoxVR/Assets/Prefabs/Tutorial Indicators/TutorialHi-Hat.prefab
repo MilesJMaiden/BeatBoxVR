@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 4975932875049259504}
   - component: {fileID: 3546237750027690824}
   - component: {fileID: 6252145346459840104}
-  - component: {fileID: 4380859143017264540}
+  - component: {fileID: 5532149000923789538}
   m_Layer: 6
   m_Name: TutorialHi-Hat
   m_TagString: Untagged
@@ -279,7 +279,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4380859143017264540
+--- !u!114 &5532149000923789538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6142951969042900521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 8073270513391525445}

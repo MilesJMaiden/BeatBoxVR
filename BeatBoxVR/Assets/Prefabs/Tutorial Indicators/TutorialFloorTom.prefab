@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8072118769552426849}
   - component: {fileID: 6332379376103280347}
   - component: {fileID: 2311986541699697774}
-  - component: {fileID: 4740808493929128257}
+  - component: {fileID: 3389449733013420269}
   m_Layer: 6
   m_Name: TutorialFloorTom
   m_TagString: Untagged
@@ -279,7 +279,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4740808493929128257
+--- !u!114 &3389449733013420269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2363576559252917644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1930823343909198674}

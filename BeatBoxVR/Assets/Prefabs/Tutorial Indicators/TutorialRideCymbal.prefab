@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 7780199575521390381}
   - component: {fileID: 3770330027017925956}
   - component: {fileID: 6279006070873128590}
-  - component: {fileID: 6854792726067973471}
+  - component: {fileID: 2256901919920236956}
   m_Layer: 6
   m_Name: TutorialRideCymbal
   m_TagString: Untagged
@@ -450,7 +450,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6854792726067973471
+--- !u!114 &2256901919920236956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6175000718779203423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7897ff5f4426364988dd4cf3b0920cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5714dd4587524fe4386866e30b9dd013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHand: {fileID: 5604776860616929378}
