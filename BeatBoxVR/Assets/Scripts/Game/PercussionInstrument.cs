@@ -25,7 +25,7 @@ public class PercussionInstrument : MonoBehaviour
 
         if (surfaceCollider == null || animationPivot == null)
         {
-            Debug.LogError("Required components not assigned on " + gameObject.name);
+            //Debug.LogError("Required components not assigned on " + gameObject.name);
         }
     }
 

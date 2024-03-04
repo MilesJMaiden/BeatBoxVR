@@ -1482,12 +1482,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drumMaterial: {fileID: 2100000, guid: f7041fcbb22287a4e9d3385f6b860b3b, type: 2}
-  drumTextures:
-  - {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
-  drumColors:
-  - {r: 0.745, g: 0.073755026, b: 0.073755026, a: 1}
-  - {r: 0.06113364, g: 0.603, b: 0.07780639, a: 1}
-  - {r: 0.042497326, g: 0.2641151, b: 0.9009434, a: 1}
+  textureRock: {fileID: 0}
+  textureElectronic: {fileID: 0}
+  textureJazz: {fileID: 0}
+  texturePop: {fileID: 0}
 --- !u!4 &1125023861
 Transform:
   m_ObjectHideFlags: 0
@@ -2924,7 +2922,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98f45a2b5cbf4d428ddffb1a7fdafb4, type: 3}
---- !u!1001 &1312130261629351391
+--- !u!1001 &1185706010589247957
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2932,60 +2930,60 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 129917386076257023, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+        type: 3}
+      propertyPath: m_Name
+      value: Indicators
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.357
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.486
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.22
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 200009117038515569, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
+    - target: {fileID: 3221629115984542670, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1420335781610908319, guid: 8b0ffa8dc62a515488ccd269e8f4c61c,
-        type: 3}
-      propertyPath: m_Name
-      value: Indicators
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3927,4 +3925,4 @@ SceneRoots:
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
   - {fileID: 5562685}
-  - {fileID: 1312130261629351391}
+  - {fileID: 1185706010589247957}
