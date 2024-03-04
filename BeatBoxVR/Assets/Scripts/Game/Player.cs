@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
         StartCoroutine(AnimateHiHat());
 
         // Attempt to hit a HiHat note in the score zone
-        TryHitNote("HiHat");
+        //TryHitNote("HiHat");
 
     }
 
@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
         StartCoroutine(AnimateKickDrum());
 
         // Attempt to hit a Kick Drum note in the score zone
-        TryHitNote("KickDrum");
+        //TryHitNote("KickDrum");
     }
 
     // This method is correctly set up to attempt to hit a note.

@@ -51,7 +51,7 @@ public class NoteBlock : MonoBehaviour
         PlayModeManager.Instance.IncrementStreak(); // Increment streak
         PlayModeManager.Instance.UpdateScore(1); // Update score considering streak multiplier
 
-        Destroy(gameObject, destroyDelay); // Destroy the note block itself after the delay
+        Destroy(gameObject); // Destroy the note block itself after the delay
     }
 
     private void HandleMiss()
