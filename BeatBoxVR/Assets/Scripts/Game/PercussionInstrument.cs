@@ -78,23 +78,23 @@ public class PercussionInstrument : MonoBehaviour
                     if (vfxPrefab != null)
                     {
                         Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                        //InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
                     }
                 }
             }
         }
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
-    {
-        Quaternion hitRotation = Quaternion.identity;
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+    //private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    //{
+    //    Quaternion hitRotation = Quaternion.identity;
+    //    GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
 
 
-        Destroy(vfxInstance, vfxLifetime);
-        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
-    }
+    //    Destroy(vfxInstance, vfxLifetime);
+    //    Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
+    //}
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
