@@ -4,11 +4,11 @@ using UnityEngine.XR;
 public class Drumstick : MonoBehaviour
 {
     private SoundManager soundManager;
-
+    
     public GameObject whiteSparkVFXPrefab;
     public GameObject yellowSparkVFXPrefab;
     public GameObject redSparkVFXPrefab;
-
+    
     public float vfxLifetime = 1.4f;
     private const float MaxVelocity = 10f;
 
@@ -17,7 +17,7 @@ public class Drumstick : MonoBehaviour
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
-    public bool instantiateVFX = true; // Flag to control VFX instantiation
+    public bool instantiateVFX = false; // Flag to control VFX instantiation
     public bool enableHapticFeedback = true; // Flag to control haptic feedback
     public float LastHitVelocity { get; private set; }
 
@@ -59,7 +59,7 @@ public class Drumstick : MonoBehaviour
 
             // Assume the collider's center is a good approximation for VFX spawn location
             Vector3 spawnPosition = other.bounds.center + new Vector3(0, 0.1f, 0); // Offset above the collider
-
+            
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
@@ -68,7 +68,7 @@ public class Drumstick : MonoBehaviour
                     InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
                 }
             }
-
+            
             if (enableHapticFeedback)
             {
                 TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
@@ -89,16 +89,19 @@ public class Drumstick : MonoBehaviour
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
+        
         if (velocity <= 4)
             return whiteSparkVFXPrefab;
         else if (velocity <= 7)
             return yellowSparkVFXPrefab;
         else
             return redSparkVFXPrefab;
+        
     }
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
+        /*
         Quaternion hitRotation = Quaternion.LookRotation(direction);
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
@@ -125,6 +128,7 @@ public class Drumstick : MonoBehaviour
 
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
+        */
     }
 
     // Method to calculate scale multiplier based on tip velocity, now with more variance

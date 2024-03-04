@@ -4,14 +4,22 @@ using UnityEngine;
 public class PercussionInstrument : MonoBehaviour
 {
     public GameObject animationPivot;
+
+    public GameObject smallSplashVFXPrefab;
+    public GameObject mediumSplashVFXPrefab;
+    public GameObject largeSplashVFXPrefab;
+
     public Collider surfaceCollider;
     public Collider rimCollider;
     public Animator parentAnimator;
     private SoundManager soundManager;
 
+    public Transform centerPosition;
+
     public float drumBounceIntensity = 0.1f;
     public float cymbalRotationIntensity = 15.0f;
     public float animationDuration = 0.2f;
+    public float vfxLifetime = 1.4f;
 
     private bool isAnimating = false;
     private bool animationsEnabled = true;
@@ -62,8 +70,40 @@ public class PercussionInstrument : MonoBehaviour
 
                 // Notify the nearest NoteBlock of a hit
                 NotifyNoteBlockOfHit();
+
+                // Instantiate the VFX on drums
+                if (velocity > 1 )
+                {
+                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
+                    if (vfxPrefab != null)
+                    {
+                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                    }
+                }
             }
         }
+    }
+
+    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    {
+        Quaternion hitRotation = Quaternion.identity;
+        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+
+
+
+        Destroy(vfxInstance, vfxLifetime);
+        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
+    }
+
+    private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
+    {
+        if (velocity <= 4)
+            return smallSplashVFXPrefab;
+        else if (velocity <= 7)
+            return mediumSplashVFXPrefab;
+        else
+            return largeSplashVFXPrefab;
     }
 
     private void NotifyNoteBlockOfHit()
