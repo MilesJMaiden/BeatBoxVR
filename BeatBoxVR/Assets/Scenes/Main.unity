@@ -767,8 +767,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.94030267, b: 0.8980392, a: 1}
-  m_Intensity: 3.5
-  m_Range: 2.6499953
+  m_Intensity: 11.55
+  m_Range: 3
   m_SpotAngle: 65.51588
   m_InnerSpotAngle: 50.214783
   m_CookieSize: 10
@@ -825,13 +825,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187430729}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2.65, z: 0}
+  m_LocalRotation: {x: 0.8433915, y: 0, z: 0, w: 0.53729963}
+  m_LocalPosition: {x: 0, y: 2.65, z: 0.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 115, y: 0, z: 0}
 --- !u!1 &277072630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,6 +4154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnvironmentManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313795342881220958, guid: 5b9f053837ea0e846ab518602fc4091e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
