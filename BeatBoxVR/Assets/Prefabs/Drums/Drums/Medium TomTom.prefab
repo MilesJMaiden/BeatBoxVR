@@ -3494,8 +3494,8 @@ Transform:
   m_GameObject: {fileID: 4007036470599139976}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07515275, y: -0, z: -0, w: 0.99717206}
-  m_LocalPosition: {x: -0.00049999356, y: 0.041090727, z: 0.002791632}
-  m_LocalScale: {x: 0.235, y: 0.080000006, z: 0.23500001}
+  m_LocalPosition: {x: -0.00049999356, y: -0.219, z: 0.042}
+  m_LocalScale: {x: 0.235, y: 0.34, z: 0.23500001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2751084187421540279}
@@ -3543,11 +3543,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPivot: {fileID: 9211794135663519684}
+  smallSplashVFXPrefab: {fileID: 3289575967326038831, guid: 4c988e95a58698146a96a8d045b70e1d,
+    type: 3}
+  mediumSplashVFXPrefab: {fileID: 3289575967326038831, guid: 03be5a9f0e9b1b847bfcb5167e688dff,
+    type: 3}
+  largeSplashVFXPrefab: {fileID: 3289575967326038831, guid: 8bf0fa2c3a68d7d4997e5570450e9d6f,
+    type: 3}
   surfaceCollider: {fileID: 7835907573593160766}
   rimCollider: {fileID: 999312243154929496}
+  parentAnimator: {fileID: 2282440183060756717}
+  centerPosition: {fileID: 2751084187421540279}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+  vfxLifetime: 1.4
 --- !u!1 &4290842924157086030
 GameObject:
   m_ObjectHideFlags: 0
