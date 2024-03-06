@@ -12160,12 +12160,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPivot: {fileID: 3919227062932345172}
+  smallSplashVFXPrefab: {fileID: 3289575967326038831, guid: 4c988e95a58698146a96a8d045b70e1d,
+    type: 3}
+  mediumSplashVFXPrefab: {fileID: 3289575967326038831, guid: 03be5a9f0e9b1b847bfcb5167e688dff,
+    type: 3}
+  largeSplashVFXPrefab: {fileID: 3289575967326038831, guid: 8bf0fa2c3a68d7d4997e5570450e9d6f,
+    type: 3}
   surfaceCollider: {fileID: 8386062374076582101}
   rimCollider: {fileID: 5340728504916702828}
   parentAnimator: {fileID: 8532946689695526415}
+  centerPosition: {fileID: 4041481146793056501}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+  vfxLifetime: 1.4
 --- !u!1 &2825617881803097202
 GameObject:
   m_ObjectHideFlags: 0
@@ -13096,12 +13104,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPivot: {fileID: 3919227062932345172}
+  smallSplashVFXPrefab: {fileID: 3289575967326038831, guid: 4c988e95a58698146a96a8d045b70e1d,
+    type: 3}
+  mediumSplashVFXPrefab: {fileID: 3289575967326038831, guid: 03be5a9f0e9b1b847bfcb5167e688dff,
+    type: 3}
+  largeSplashVFXPrefab: {fileID: 3289575967326038831, guid: 8bf0fa2c3a68d7d4997e5570450e9d6f,
+    type: 3}
   surfaceCollider: {fileID: 8386062374076582101}
   rimCollider: {fileID: 5340728504916702828}
   parentAnimator: {fileID: 8532946689695526415}
+  centerPosition: {fileID: 5375258415988847013}
   drumBounceIntensity: 0.1
   cymbalRotationIntensity: 15
   animationDuration: 0.2
+  vfxLifetime: 1.4
 --- !u!1 &8418717079972660393
 GameObject:
   m_ObjectHideFlags: 0

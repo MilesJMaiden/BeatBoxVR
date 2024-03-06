@@ -13,8 +13,7 @@ public class Player : MonoBehaviour
     private InputAction rightJoystickAction;
 
     [Header("Game Control")]
-    public GamePauseController gamePauseController;
-    public UIController uiController;
+    public GameManager gameManager;
 
     [Header("Sound and VFX")]
     [SerializeField] private SoundManager soundManager;
@@ -41,8 +40,8 @@ public class Player : MonoBehaviour
 
 
         // bindings for pausing the game
-        inputActions.XRILeftHand.PauseGame.performed += _ => TogglePauseGame();
-        inputActions.XRIRightHand.PauseGame.performed += _ => TogglePauseGame();
+        inputActions.XRILeftHand.PauseGame.performed += _ => gameManager.TogglePauseGame();
+        inputActions.XRIRightHand.PauseGame.performed += _ => gameManager.TogglePauseGame();
 
         inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
@@ -93,20 +92,14 @@ public class Player : MonoBehaviour
 
     private void TogglePauseGame()
     {
-        // Check if the game is currently paused
-        bool isPaused = Time.timeScale == 0;
-
-        if (isPaused)
+        // Directly call the GameManager's TogglePauseGame method
+        if (gameManager != null)
         {
-            // Unpause the game
-            gamePauseController?.UnpauseGameWithCountdown(); // Using null-conditional operator for safety
-            uiController?.ToggleMenu(false); // Similarly, ensure uiController is not null
+            gameManager.TogglePauseGame();
         }
         else
         {
-            // Pause the game
-            gamePauseController?.PauseGame();
-            uiController?.ToggleMenu(true);
+            Debug.LogError("GameManager reference is not set in the Player script.");
         }
     }
 
