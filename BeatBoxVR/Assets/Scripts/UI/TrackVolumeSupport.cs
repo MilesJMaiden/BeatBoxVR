@@ -26,6 +26,6 @@ public class TrackVolumeSupport : MonoBehaviour
     public void convertAudioVolume(float volume)
     {
         volumeConversion = volume * 100;
-        trackVolumeDisplay.text = volumeConversion.ToString("0.##") + "%";
+        trackVolumeDisplay.text = volumeConversion.ToString("0") + "%";
     }
 }

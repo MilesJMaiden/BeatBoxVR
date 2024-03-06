@@ -73,9 +73,9 @@ public class GameManager : MonoBehaviour
     // Method to deactivate all game modes
     private void DeactivateAllModes()
     {
-        playAlongModePrefab.SetActive(false);
-        tutorialModePrefab.SetActive(false);
-        playModePrefab.SetActive(false);
+       // playAlongModePrefab.SetActive(false);
+       // tutorialModePrefab.SetActive(false);
+       // playModePrefab.SetActive(false);
     }
 
     // Method to start Free Play Mode
