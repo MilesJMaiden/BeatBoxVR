@@ -1085,8 +1085,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GamePauseController, Assembly-CSharp
-        m_MethodName: UnpauseGameWithCountdown
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TogglePauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2464,19 +2464,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &5034364718577047983
 GameObject:
@@ -2576,7 +2564,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Drumstick, Assembly-CSharp
-        m_MethodName: ToggleHapticFeedback
+        m_MethodName: ToggleVFXInstantiation
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4913,79 +4901,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6443407913094076019}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PassColorBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DrumCustomizationManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 321150828346595316, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: skinContainer.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: environmentContainer.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: skinContainer.Array.data[0].DrumkitSkinName
-      value: Default
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: skinContainer.Array.data[0].DrumkitSkinPreview
-      value: 
-      objectReference: {fileID: 21300000, guid: 456d22619dfa062419b30f3cd4dfb8cb,
-        type: 3}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: environmentContainer.Array.data[0].EnvironmentName
-      value: Recording Studio
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: environmentContainer.Array.data[1].EnvironmentName
-      value: Garage
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: environmentContainer.Array.data[0].EnvironmentPreviewSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c6442028236a4234bb6122658d3c7a1b,
-        type: 3}
-    - target: {fileID: 1136051691504133312, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: environmentContainer.Array.data[1].EnvironmentPreviewSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7579b1a66f9f79a44bf6f70a4b7dca9d,
-        type: 3}
     - target: {fileID: 1209522995431127269, guid: 3f27e82014d297749b48feaf586c8032,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -5001,36 +4916,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6443407913094076019}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PassColorRed
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DrumCustomizationManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824393577777110960, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2960750497564173541, guid: 3f27e82014d297749b48feaf586c8032,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -5151,36 +5036,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6443407913094076019}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RevertToDefaultColor
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DrumCustomizationManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3961154455605087149, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4862987675273744577, guid: 3f27e82014d297749b48feaf586c8032,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -5206,36 +5061,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6443407913094076019}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PassColorGreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DrumCustomizationManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841937575173326102, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6300711343189971711, guid: 3f27e82014d297749b48feaf586c8032,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -5255,11 +5080,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CustomisePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6977316485529221297, guid: 3f27e82014d297749b48feaf586c8032,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7345839603739548140, guid: 3f27e82014d297749b48feaf586c8032,
         type: 3}

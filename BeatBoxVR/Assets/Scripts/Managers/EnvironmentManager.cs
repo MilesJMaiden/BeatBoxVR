@@ -1,16 +1,22 @@
 using UnityEngine;
+using TMPro; // For the TextMeshProUGUI
+using UnityEngine.UI; // For the Image component
 
 public class EnvironmentManager : MonoBehaviour
 {
     [System.Serializable]
     public class EnvironmentSetting
     {
+        public string name;
         public Cubemap skybox;
         public GameObject environmentPrefab; // Assume these are pre-placed in the scene
+        public Sprite environmentImage; // Sprite for the environment to display in the UI
     }
 
     public EnvironmentSetting[] environmentSettings;
     public Material skyboxMaterial;
+    public TextMeshProUGUI environmentNameText; // Reference to the TextMeshProUGUI component for displaying the environment name
+    public Image environmentImageUI; // Reference to the Image component where the environment image will be displayed
 
     private int currentEnvironmentIndex = -1; // Initialize to an invalid index to ensure the first set is applied
 
@@ -52,6 +58,18 @@ public class EnvironmentManager : MonoBehaviour
 
             // Enable the new environment object
             environmentSettings[index].environmentPrefab.SetActive(true);
+
+            // Update the TextMeshProUGUI with the name of the current environment
+            if (environmentNameText != null)
+            {
+                environmentNameText.text = environmentSettings[index].name;
+            }
+
+            // Update the Image UI component with the sprite of the current environment
+            if (environmentImageUI != null && environmentSettings[index].environmentImage != null)
+            {
+                environmentImageUI.sprite = environmentSettings[index].environmentImage;
+            }
 
             // Update the current environment index
             currentEnvironmentIndex = index;

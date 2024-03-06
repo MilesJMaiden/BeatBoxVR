@@ -2960,7 +2960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c6442028236a4234bb6122658d3c7a1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7579b1a66f9f79a44bf6f70a4b7dca9d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3944,7 +3944,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: PassColorBlue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2559946832928388875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,7 +4227,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: PassColorGreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2686782567159375056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,7 +7002,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: RevertToDefaultColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5311131329569609693
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,9 +7580,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136051691504133312}
-        m_TargetAssemblyTypeName: CustomizationLoader, Assembly-CSharp
-        m_MethodName: increaseSkinID
+      - m_Target: {fileID: 5789869678926554249}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: NextTextureSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7676,9 +7712,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136051691504133312}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CustomizationLoader, Assembly-CSharp
         m_MethodName: increaseEnvironmentID
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5789869678926554249}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: NextTextureSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8462,14 +8510,13 @@ GameObject:
   - component: {fileID: 3004835259691580484}
   - component: {fileID: 179295202770135476}
   - component: {fileID: 1428236782249959192}
-  - component: {fileID: 1136051691504133312}
   m_Layer: 0
   m_Name: CustomisePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3004835259691580484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8477,11 +8524,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6977316485529221297}
-  m_LocalRotation: {x: -0, y: 0.3418878, z: -0, w: 0.93974084}
+  m_LocalRotation: {x: 0, y: 0.34188896, z: 0, w: 0.93974036}
   m_LocalPosition: {x: 0, y: 0, z: -615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1594636651288375271}
   - {fileID: 569511084797659082}
   - {fileID: 6952483176211162948}
   - {fileID: 916449383061184577}
@@ -8531,30 +8579,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1136051691504133312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6977316485529221297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d76f61e4682dea4d907cf86b4cd3eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentEnvironmentID: 0
-  currentDrumkitSkinID: 0
-  IncEnvironmentButton: {fileID: 1824320418859651198}
-  DecEnvironmentButton: {fileID: 8732004982896581806}
-  IncSkinButton: {fileID: 158633738660892760}
-  DecSkinButton: {fileID: 2573339042417037016}
-  SkinText: {fileID: 1744733429148736886}
-  EnvironmentText: {fileID: 8792567556351220358}
-  EnvironmentPreview: {fileID: 7740954417644858514}
-  DrumkitSkinPreview: {fileID: 2210638901052486520}
-  environmentContainer: []
-  skinContainer: []
 --- !u!1 &7085036837155013586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10106,9 +10130,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136051691504133312}
-        m_TargetAssemblyTypeName: CustomizationLoader, Assembly-CSharp
-        m_MethodName: decreaseSkinID
+      - m_Target: {fileID: 5789869678926554249}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: PreviousTextureSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10354,9 +10378,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136051691504133312}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CustomizationLoader, Assembly-CSharp
         m_MethodName: decreaseEnvironmentID
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5789869678926554249}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: PreviousTextureSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10757,7 +10793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DrumCustomizationManager, Assembly-CSharp
+        m_MethodName: PassColorRed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9074753331140014977
 GameObject:
   m_ObjectHideFlags: 0
@@ -11176,3 +11224,94 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &6807930098213210951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3004835259691580484}
+    m_Modifications:
+    - target: {fileID: 1018692672833499086, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: textureSetNameText
+      value: 
+      objectReference: {fileID: 1744733429148736886}
+    - target: {fileID: 3966190690223371347, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_Name
+      value: DrumCustomizationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -744.63416
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1325
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1779.4779
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.93974084
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3418878
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a960d8d38bfe8c34886c2ca18c3e664d, type: 3}
+--- !u!4 &1594636651288375271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5214018070463177888, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6807930098213210951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5789869678926554249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1018692672833499086, guid: a960d8d38bfe8c34886c2ca18c3e664d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6807930098213210951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68af764cd9c012546ab150c3b5ae91e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

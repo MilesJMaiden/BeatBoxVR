@@ -63,21 +63,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 502513521735176242, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2411763511739404250, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: m_Alpha
-      value: 0
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PreviousEnvironment
       objectReference: {fileID: 0}
-    - target: {fileID: 2417642734826053250, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToggleVFXInstantiation
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnvironmentManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3490512791485733562, guid: 9418ae584d4c63e4c803699a8b688dd4,
+        type: 3}
+      propertyPath: textureSetPreviewImage
+      value: 
+      objectReference: {fileID: 8645373696403592267}
     - target: {fileID: 3722431699587014119, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_Name
@@ -88,56 +93,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3924221578790026242, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330293586234625480, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5086965839424616707, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482347214866830669, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843524529350081045, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7011141504435775340, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8163437722500062966}
-    - target: {fileID: 7011141504435775340, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePauseGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011141504435775340, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468790114689989562, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8064476769020757672, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8570899767051056834, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -238,15 +198,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8753159849844364540, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    - target: {fileID: 8752812871694495309, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: m_Value
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2786501486476487554, guid: 9418ae584d4c63e4c803699a8b688dd4, type: 3}
-    - {fileID: 319162435046578590, guid: 9418ae584d4c63e4c803699a8b688dd4, type: 3}
-    - {fileID: 647083813989259417, guid: 9418ae584d4c63e4c803699a8b688dd4, type: 3}
+    - target: {fileID: 8752812871694495309, guid: 9418ae584d4c63e4c803699a8b688dd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextEnvironment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752812871694495309, guid: 9418ae584d4c63e4c803699a8b688dd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnvironmentManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -269,6 +236,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 684046743214414080}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8645373696403592267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9116606648346643787, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    type: 3}
+  m_PrefabInstance: {fileID: 684046743214414080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9191788629628858306 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8570899767051056834, guid: 9418ae584d4c63e4c803699a8b688dd4,
