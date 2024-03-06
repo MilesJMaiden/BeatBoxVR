@@ -3,14 +3,26 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject drumKit; // Reference to the drum kit
+    //public GameObject drumKit; // Reference to the drum kit
+
+    private bool isGamePaused = false;
+
+    //UI
     public GameObject countdownUI; // Reference to the countdown UI
     public GameObject pauseUI; // Reference to the pause UI
     public CanvasGroup mainMenuCanvasGroup; // Reference to the main menu's canvas group
-
     public float animationDuration = 1.0f; // Duration for animations and fades
 
-    private bool isGamePaused = false;
+    //Game Modes
+    public GameObject playAlongModePrefab;
+    public GameObject tutorialModePrefab;
+    public GameObject playModePrefab;
+
+    // Deactivate all game modes on start to ensure a clean slate
+    private void Start()
+    {
+        DeactivateAllModes();
+    }
 
     public void TogglePauseGame()
     {
@@ -57,5 +69,42 @@ public class GameManager : MonoBehaviour
         // Additional logic after fade if needed
     }
 
-    // Additional methods for UI interactions can be added here
+    #region GameModeTransitions
+    // Method to deactivate all game modes
+    private void DeactivateAllModes()
+    {
+        playAlongModePrefab.SetActive(false);
+        tutorialModePrefab.SetActive(false);
+        playModePrefab.SetActive(false);
+    }
+
+    // Method to start Free Play Mode
+    public void StartFreePlayMode()
+    {
+        DeactivateAllModes();
+        // Free play mode means deactivating all specific game modes, so no prefab is activated here
+    }
+
+    // Method to start Play Along Mode
+    public void StartPlayAlongMode()
+    {
+        DeactivateAllModes();
+        playAlongModePrefab.SetActive(true);
+    }
+
+    // Method to start Tutorial Mode
+    public void StartTutorialMode()
+    {
+        DeactivateAllModes();
+        tutorialModePrefab.SetActive(true);
+    }
+
+    // Method to start Play Mode
+    public void StartPlayMode()
+    {
+        DeactivateAllModes();
+        playModePrefab.SetActive(true);
+    }
+    #endregion
+
 }
