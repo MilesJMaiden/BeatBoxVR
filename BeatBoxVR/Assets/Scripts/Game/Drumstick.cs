@@ -51,24 +51,19 @@ public class Drumstick : MonoBehaviour
         if (tipMovementDirection.y < 0)
         {
             float clampedVelocity = GetCurrentVelocity();
-
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            Vector3 collisionPoint = tipTransform.position;
-            soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
+            soundManager.PlaySound(other.tag, tipTransform.position, clampedVelocity / MaxVelocity);
 
-            // Assume the collider's center is a good approximation for VFX spawn location
-            Vector3 spawnPosition = other.bounds.center + new Vector3(0, 0.1f, 0); // Offset above the collider
-            
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                    InstantiateVFX(vfxPrefab, tipTransform.position, other);
                 }
             }
-            
+
             if (enableHapticFeedback)
             {
                 TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
@@ -99,36 +94,36 @@ public class Drumstick : MonoBehaviour
         
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Collider collider)
     {
-        
-        Quaternion hitRotation = Quaternion.LookRotation(direction);
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+        // Calculate the highest point on the collider's surface along the y-axis.
+        float highestPoint = collider.bounds.max.y;
+        Vector3 spawnPosition = new Vector3(position.x, highestPoint, position.z);
 
-        float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
+        // Instantiate VFX at the calculated spawn position
+        Quaternion hitRotation = Quaternion.LookRotation(tipMovementDirection.normalized);
+        GameObject vfxInstance = Instantiate(vfxPrefab, spawnPosition, hitRotation);
+
+        // Apply scaling based on velocity
+        ApplyParticleScaling(vfxInstance, tipVelocity);
+
+        // Destroy the VFX after its lifetime expires
+        Destroy(vfxInstance, vfxLifetime);
+    }
+
+    private void ApplyParticleScaling(GameObject vfxInstance, float velocity)
+    {
+        float scaleMultiplier = CalculateScaleMultiplier(velocity);
         ParticleSystem particleSystem = vfxInstance.GetComponentInChildren<ParticleSystem>();
-
         if (particleSystem != null)
         {
-            // Adjust start speed based on scaleMultiplier
-            var mainModule = particleSystem.main;
-            // Use a more dramatic range for startSpeed for slow hits
-            mainModule.startSpeed = Mathf.Lerp(0.01f, 1f, Mathf.Pow(scaleMultiplier, 2)); // Use square to exaggerate difference at lower end
+            ParticleSystem.MainModule mainModule = particleSystem.main;
+            mainModule.startSpeedMultiplier = Mathf.Lerp(0.1f, 1f, scaleMultiplier);
+            mainModule.startSizeMultiplier = scaleMultiplier;
 
-            // Adjust emission rate over time
             var emissionModule = particleSystem.emission;
-            // Decrease minimum rate for slower hits
-            emissionModule.rateOverTime = Mathf.Lerp(0.5f, 75f, Mathf.Pow(scaleMultiplier, 2)); // Adjusted range and used square
-
-            // Adjust shape length
-            var shapeModule = particleSystem.shape;
-            // Use a narrower range for the length to make it even smaller for slow hits
-            shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2)); // Decreased minimum length and used square
+            emissionModule.rateOverTimeMultiplier = Mathf.Lerp(10f, 100f, scaleMultiplier);
         }
-
-        Destroy(vfxInstance, vfxLifetime);
-        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
-        
     }
 
     // Method to calculate scale multiplier based on tip velocity, now with more variance
