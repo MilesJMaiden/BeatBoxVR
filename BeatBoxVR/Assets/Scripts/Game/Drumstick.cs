@@ -48,7 +48,7 @@ public class Drumstick : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (tipMovementDirection.y < 0)
+        if (tipMovementDirection.y < 0) // Check if moving downwards
         {
             float clampedVelocity = GetCurrentVelocity();
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
@@ -60,7 +60,7 @@ public class Drumstick : MonoBehaviour
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, tipTransform.position, other);
+                    InstantiateVFX(vfxPrefab, other);
                 }
             }
 
@@ -94,43 +94,47 @@ public class Drumstick : MonoBehaviour
         
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Collider collider)
+    private void InstantiateVFX(GameObject vfxPrefab, Collider hitCollider)
     {
-        // Calculate the highest point on the collider's surface along the y-axis.
-        float highestPoint = collider.bounds.max.y;
-        Vector3 spawnPosition = new Vector3(position.x, highestPoint, position.z);
+        // Assuming the hit is from above and we're looking for the highest point on the collider.
+        Vector3 hitPoint = new Vector3(tipTransform.position.x, hitCollider.bounds.max.y, tipTransform.position.z);
+        Vector3 estimatedNormal = Vector3.up; // Default normal, works well for flat horizontal surfaces
 
-        // Instantiate VFX at the calculated spawn position
-        Quaternion hitRotation = Quaternion.LookRotation(tipMovementDirection.normalized);
-        GameObject vfxInstance = Instantiate(vfxPrefab, spawnPosition, hitRotation);
+        // Instantiate the VFX at the hit point, using the estimated normal for rotation.
+        Quaternion hitRotation = Quaternion.LookRotation(estimatedNormal);
+        GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
 
-        // Apply scaling based on velocity
-        ApplyParticleScaling(vfxInstance, tipVelocity);
-
-        // Destroy the VFX after its lifetime expires
-        Destroy(vfxInstance, vfxLifetime);
-    }
-
-    private void ApplyParticleScaling(GameObject vfxInstance, float velocity)
-    {
-        float scaleMultiplier = CalculateScaleMultiplier(velocity);
         ParticleSystem particleSystem = vfxInstance.GetComponentInChildren<ParticleSystem>();
         if (particleSystem != null)
         {
-            ParticleSystem.MainModule mainModule = particleSystem.main;
-            mainModule.startSpeedMultiplier = Mathf.Lerp(0.1f, 1f, scaleMultiplier);
-            mainModule.startSizeMultiplier = scaleMultiplier;
-
-            var emissionModule = particleSystem.emission;
-            emissionModule.rateOverTimeMultiplier = Mathf.Lerp(10f, 100f, scaleMultiplier);
+            ApplyParticleModifications(particleSystem, tipVelocity);
         }
+
+        Destroy(vfxInstance, vfxLifetime);
     }
 
-    // Method to calculate scale multiplier based on tip velocity, now with more variance
+    private void ApplyParticleModifications(ParticleSystem particleSystem, float velocity)
+    {
+        float scaleMultiplier = CalculateScaleMultiplier(velocity);
+        var mainModule = particleSystem.main;
+
+        // Adjust start speed and size based on velocity
+        mainModule.startSpeed = Mathf.Lerp(0.01f, 1f, Mathf.Pow(scaleMultiplier, 2));
+        mainModule.startSize = scaleMultiplier;
+
+        // Adjust emission rate
+        var emissionModule = particleSystem.emission;
+        emissionModule.rateOverTime = Mathf.Lerp(10, 100, scaleMultiplier);
+
+        // Adjust shape length for a more natural effect
+        var shapeModule = particleSystem.shape;
+        shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2));
+    }
+
     private float CalculateScaleMultiplier(float velocity)
     {
-        // Example adjustment: use exponential or quadratic scaling for more noticeable differences
-        return Mathf.Lerp(0.5f, 3f, Mathf.Pow(velocity / MaxVelocity, 2));
+        // Adjust this method as needed to fit the desired effect
+        return Mathf.Clamp((velocity / MaxVelocity), 0.5f, 2.5f);
     }
 
     private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)

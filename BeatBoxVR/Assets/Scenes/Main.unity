@@ -2842,6 +2842,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &874114317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874114318}
+  m_Layer: 0
+  m_Name: Tutorial COMING
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874114318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874114317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3761774, y: 1.1368599, z: 9.926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &900719102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7641339356247115709, guid: 24eb4d536005edd4abe465836342554c,
@@ -5933,6 +5964,11 @@ PrefabInstance:
       propertyPath: drumKit
       value: 
       objectReference: {fileID: 5562684}
+    - target: {fileID: 8163437722500062966, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: tutorialModePrefab
+      value: 
+      objectReference: {fileID: 874114317}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6416,11 +6452,6 @@ PrefabInstance:
       objectReference: {fileID: 1003061340}
     - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
-      propertyPath: loader
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
       propertyPath: kickDrum
       value: 
       objectReference: {fileID: 684626955}
@@ -6436,11 +6467,6 @@ PrefabInstance:
       objectReference: {fileID: 2027416778}
     - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
-      propertyPath: uiController
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
       propertyPath: hiHatTransform
       value: 
       objectReference: {fileID: 7691823183569434479}
@@ -6449,11 +6475,6 @@ PrefabInstance:
       propertyPath: kickDrumTransform
       value: 
       objectReference: {fileID: 4585011255972844722}
-    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
-        type: 3}
-      propertyPath: gamePauseController
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5510189023252422844, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_InteractionManager
@@ -6785,3 +6806,4 @@ SceneRoots:
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
   - {fileID: 5562685}
+  - {fileID: 874114318}
