@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 3784418825073081999}
   - component: {fileID: 6088573000466190765}
   - component: {fileID: 3404055765360995678}
+  - component: {fileID: 8383011445141288830}
   m_Layer: 0
   m_Name: FloorTom (1)
   m_TagString: ScoreZone
@@ -1340,6 +1341,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &8383011445141288830
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058833882441437584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1409920272270808149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1668,7 @@ GameObject:
   - component: {fileID: 2742970452298865581}
   - component: {fileID: 10568402682286977}
   - component: {fileID: 2655481365948201224}
+  - component: {fileID: 3125941730367308488}
   m_Layer: 0
   m_Name: KickDrum (1)
   m_TagString: ScoreZone
@@ -2507,6 +2530,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &3125941730367308488
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453842213037490424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2974458613446278570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2668,7 @@ GameObject:
   - component: {fileID: 7571284415252910436}
   - component: {fileID: 1883138884488810183}
   - component: {fileID: 6878626166826546976}
+  - component: {fileID: 318847462612603943}
   m_Layer: 0
   m_Name: RideCymbal (1)
   m_TagString: ScoreZone
@@ -3485,6 +3530,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &318847462612603943
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3427643927027312076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3777975408241207591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,6 +3854,7 @@ GameObject:
   - component: {fileID: 6834199641494269960}
   - component: {fileID: 6341900730510392681}
   - component: {fileID: 7849690706516568210}
+  - component: {fileID: 6706663353333029733}
   m_Layer: 0
   m_Name: MediumTom (1)
   m_TagString: ScoreZone
@@ -4649,6 +4716,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &6706663353333029733
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483508304603765748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4483847182955842689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4759,6 +4847,7 @@ GameObject:
   - component: {fileID: 1316160441669860716}
   - component: {fileID: 4450983394308438815}
   - component: {fileID: 4538069145799500325}
+  - component: {fileID: 529191914053841964}
   m_Layer: 0
   m_Name: CrashCymbal (1)
   m_TagString: ScoreZone
@@ -5620,6 +5709,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &529191914053841964
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720291884331585590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4806312614121913483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5899,6 +6009,7 @@ GameObject:
   - component: {fileID: 8484329177619055842}
   - component: {fileID: 5653691545810899287}
   - component: {fileID: 4850105172582832705}
+  - component: {fileID: 1322530452010784067}
   m_Layer: 0
   m_Name: SmallTom (1)
   m_TagString: ScoreZone
@@ -6760,6 +6871,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &1322530452010784067
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604419465881292637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5939077820218945854
 GameObject:
   m_ObjectHideFlags: 0
@@ -7381,6 +7513,7 @@ GameObject:
   - component: {fileID: 6590489788809512939}
   - component: {fileID: 8756971161026719441}
   - component: {fileID: 1091666982900530645}
+  - component: {fileID: 3052519140872728589}
   m_Layer: 0
   m_Name: Snare (1)
   m_TagString: ScoreZone
@@ -8242,6 +8375,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &3052519140872728589
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736900516032804721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6758575696899688253
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,6 +8408,7 @@ GameObject:
   - component: {fileID: 2802696077981840501}
   - component: {fileID: 3745020553366208421}
   - component: {fileID: 3045415562981098047}
+  - component: {fileID: 5485790962560961410}
   m_Layer: 0
   m_Name: Splash (1)
   m_TagString: ScoreZone
@@ -9115,6 +9270,27 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &5485790962560961410
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758575696899688253}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6888301401413998590
 GameObject:
   m_ObjectHideFlags: 0
@@ -11284,6 +11460,7 @@ GameObject:
   - component: {fileID: 8464434750913006123}
   - component: {fileID: 981057302771919143}
   - component: {fileID: 6988550280410367064}
+  - component: {fileID: 8441155913245604809}
   m_Layer: 0
   m_Name: Hi-Hat (1)
   m_TagString: ScoreZone
@@ -12145,3 +12322,24 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!95 &8441155913245604809
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066878873416322294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
