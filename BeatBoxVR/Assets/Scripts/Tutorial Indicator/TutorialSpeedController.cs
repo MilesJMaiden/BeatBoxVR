@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedController : MonoBehaviour
+public class TutorialSpeedController : MonoBehaviour
 {
-    public static SpeedController Instance;
+    public static TutorialSpeedController Instance;
     public float speed;
     void Start()
     {
         if (Instance == null)
-            Instance = GetComponent<SpeedController>();
+            Instance = GetComponent<TutorialSpeedController>();
     }
 
    
