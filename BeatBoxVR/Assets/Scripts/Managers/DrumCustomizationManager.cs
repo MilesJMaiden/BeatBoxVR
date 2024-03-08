@@ -1,72 +1,91 @@
 using UnityEngine;
-using TMPro; // Include the TextMeshPro namespace
-using UnityEngine.UI; // Include the UI namespace for the Image component
 
 public class DrumCustomizationManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class DrumTextureSet
-    {
-        public string name;
-        public Texture baseMap;
-        public Texture specularMap;
-        public Texture normalMap;
-        public Sprite setPreviewImage; // Sprite for preview in the UI
-    }
-
     [Header("Material Customization")]
     public Material drumMaterial; // Shared material for all drums
+    private Color defaultColor; // To store the default color of the drum material
 
-    [Header("Texture Sets")]
-    public DrumTextureSet[] textureSets;
+    [Header("Texture Options")]
+    public Texture textureRock;
+    public Texture textureElectronic;
+    public Texture textureJazz;
+    public Texture texturePop;
 
-    [Header("UI Components")]
-    public TextMeshProUGUI textureSetNameText; // Reference to the TextMeshProUGUI component
-    public Image textureSetPreviewImage; // Reference to the Image component for displaying the set preview
-
-    private int currentTextureSetIndex = 0;
-
-    private void Start()
+    private void Awake()
     {
-        ApplyTextureSet(currentTextureSetIndex); // Apply the first texture set by default
+        // Store the default color of the material
+        defaultColor = drumMaterial.color;
     }
 
-    // Method to apply the next texture set
-    public void NextTextureSet()
+    // Method to apply the "Rock" texture
+    public void PassInTextureRock()
     {
-        currentTextureSetIndex = (currentTextureSetIndex + 1) % textureSets.Length;
-        ApplyTextureSet(currentTextureSetIndex);
+        SetTexture(textureRock);
     }
 
-    // Method to apply the previous texture set
-    public void PreviousTextureSet()
+    // Method to apply the "Electronic" texture
+    public void PassInTextureElectronic()
     {
-        currentTextureSetIndex--;
-        if (currentTextureSetIndex < 0)
-        {
-            currentTextureSetIndex = textureSets.Length - 1; // Loop back to the last set
-        }
-        ApplyTextureSet(currentTextureSetIndex);
+        SetTexture(textureElectronic);
     }
 
-    // Helper method to apply texture sets based on the index
-    private void ApplyTextureSet(int index)
+    // Method to apply the "Jazz" texture
+    public void PassInTextureJazz()
     {
-        DrumTextureSet textureSet = textureSets[index];
-        drumMaterial.SetTexture("_MainTex", textureSet.baseMap);
-        drumMaterial.SetTexture("_SpecGlossMap", textureSet.specularMap);
-        drumMaterial.SetTexture("_BumpMap", textureSet.normalMap);
+        SetTexture(textureJazz);
+    }
 
-        // Update the TextMeshProUGUI with the name of the current texture set
-        if (textureSetNameText != null)
-        {
-            textureSetNameText.text = textureSet.name;
-        }
+    // Method to apply the "Pop" texture
+    public void PassInTexturePop()
+    {
+        SetTexture(texturePop);
+    }
 
-        // Update the Image UI component with the sprite of the current texture set
-        if (textureSetPreviewImage != null && textureSet.setPreviewImage != null)
+    // Helper method to set the texture and ensure the color is set to white
+    private void SetTexture(Texture texture)
+    {
+        if (texture != null)
         {
-            textureSetPreviewImage.sprite = textureSet.setPreviewImage;
+            drumMaterial.mainTexture = texture;
+            drumMaterial.color = Color.white; // Ensure the color is white
         }
+        else
+        {
+            // Fallback to default color if texture is null
+            RevertToDefaultColor();
+        }
+    }
+
+    // Method to revert to the default color of the drum material
+    public void RevertToDefaultColor()
+    {
+        drumMaterial.color = defaultColor;
+        drumMaterial.mainTexture = null; // Ensure no texture is applied
+    }
+
+    // Helper method to set the color and remove any applied texture
+    private void SetColor(Color color)
+    {
+        drumMaterial.color = color;
+        drumMaterial.mainTexture = null; // Remove any applied texture
+    }
+
+    // Method to set drum color to Red
+    public void PassColorRed()
+    {
+        SetColor(Color.red);
+    }
+
+    // Method to set drum color to Green
+    public void PassColorGreen()
+    {
+        SetColor(Color.green);
+    }
+
+    // Method to set drum color to Blue
+    public void PassColorBlue()
+    {
+        SetColor(Color.blue);
     }
 }

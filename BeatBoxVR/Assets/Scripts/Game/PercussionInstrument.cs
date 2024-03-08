@@ -4,42 +4,28 @@ using UnityEngine;
 public class PercussionInstrument : MonoBehaviour
 {
     public GameObject animationPivot;
-
-    public GameObject smallSplashVFXPrefab;
-    public GameObject mediumSplashVFXPrefab;
-    public GameObject largeSplashVFXPrefab;
-
     public Collider surfaceCollider;
     public Collider rimCollider;
-    public Animator parentAnimator;
     private SoundManager soundManager;
-
-    public Transform centerPosition;
 
     public float drumBounceIntensity = 0.1f;
     public float cymbalRotationIntensity = 15.0f;
     public float animationDuration = 0.2f;
-    public float vfxLifetime = 1.4f;
 
     private bool isAnimating = false;
-    private bool animationsEnabled = true;
+    private bool animationsEnabled = true; // New bool to enable/disable animations
 
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
-        parentAnimator.SetBool("isAnimating", isAnimating);
         if (soundManager == null)
         {
             Debug.LogError("SoundManager not found in the scene");
         }
 
-
-        //removed animationPivot == null
-        if (surfaceCollider == null)
+        if (surfaceCollider == null || animationPivot == null)
         {
-            Debug.LogError("Required components not assigned on " + gameObject.name + " surfaceCollider: " + surfaceCollider.ToString()
-                + " animationPivot: " + animationPivot.ToString());
-
+            //Debug.LogError("Required components not assigned on " + gameObject.name);
         }
     }
 
@@ -50,100 +36,29 @@ public class PercussionInstrument : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if a drumstick hits the instrument
-        if (other.CompareTag("RightDrumstick") || other.CompareTag("LeftDrumstick"))
+        Drumstick drumstick = other.GetComponent<Drumstick>();
+        if (drumstick != null && animationsEnabled)
         {
-            Drumstick drumstick = other.GetComponent<Drumstick>();
-            if (drumstick != null && animationsEnabled)
+            float velocity = drumstick.GetCurrentVelocity();
+            Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
+
+            if (!isAnimating || velocity > drumstick.LastHitVelocity) // Prioritize higher velocity hits
             {
-                float velocity = drumstick.GetCurrentVelocity();
-                Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
+                StopAllCoroutines(); // Ensure a smooth transition between animations
+                StartCoroutine(AnimateInstrument(velocity));
+            }
 
-                // Perform animations if enabled
-                if (!isAnimating || velocity > drumstick.LastHitVelocity)
-                {
-                    StartCoroutine(AnimateInstrument());
-                }
-
-                // Play sound based on which part of the instrument was hit
-                PlayInstrumentSound(other, velocity);
-
-                // Notify the nearest NoteBlock of a hit
-                NotifyNoteBlockOfHit();
-
-                // Instantiate the VFX on drums
-                if (velocity > 1 )
-                {
-                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
-                    if (vfxPrefab != null)
-                    {
-                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        //InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
-                    }
-                }
+            if (other == surfaceCollider)
+            {
+                soundManager.PlaySound(this.tag, transform.position, velocity);
+            }
+            else if (rimCollider != null && other == rimCollider)
+            {
+                soundManager.PlaySound(this.tag + "Rim", transform.position, velocity);
             }
         }
     }
 
-    //private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
-    //{
-    //    Quaternion hitRotation = Quaternion.identity;
-    //    GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
-
-
-
-    //    Destroy(vfxInstance, vfxLifetime);
-    //    Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
-    //}
-
-    private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
-    {
-        if (velocity <= 4)
-            return smallSplashVFXPrefab;
-        else if (velocity <= 7)
-            return mediumSplashVFXPrefab;
-        else
-            return largeSplashVFXPrefab;
-    }
-
-    private void NotifyNoteBlockOfHit()
-    {
-        // Find the nearest NoteBlock and check if its tag matches this instrument's tag
-        NoteBlock[] noteBlocks = FindObjectsOfType<NoteBlock>();
-        foreach (var noteBlock in noteBlocks)
-        {
-            if (noteBlock.expectedTag == this.tag && Vector3.Distance(transform.position, noteBlock.transform.position) < 1f) // Assuming a small threshold for distance
-            {
-                noteBlock.HandleHit();
-                break; // Assuming only one NoteBlock can be relevant at a time
-            }
-        }
-    }
-
-    private void PlayInstrumentSound(Collider other, float velocity)
-    {
-        if (other == surfaceCollider || (rimCollider != null && other == rimCollider))
-        {
-            string soundType = other == surfaceCollider ? "" : "Rim";
-            soundManager.PlaySound(this.tag + soundType, transform.position, velocity);
-        }
-    }
-
-    public IEnumerator AnimateInstrument()
-    {
-        
-        isAnimating = true;
-        Debug.Log("isAnimating" + isAnimating);
-        parentAnimator.SetBool("isAnimating", isAnimating);
-
-        yield return new WaitForSeconds(animationDuration);
-        
-        isAnimating = false;
-        parentAnimator.SetBool("isAnimating", isAnimating);
-
-    }  
-
-    /* Joshua IEnum animation - NOT USED
     private IEnumerator AnimateInstrument(float velocity)
     {
         isAnimating = true;
@@ -195,5 +110,4 @@ public class PercussionInstrument : MonoBehaviour
 
         target.localRotation = originalRotation;
     }
-    */
 }
