@@ -2842,37 +2842,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &874114317
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 874114318}
-  m_Layer: 0
-  m_Name: Tutorial COMING
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &874114318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874114317}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3761774, y: 1.1368599, z: 9.926}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &900719102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7641339356247115709, guid: 24eb4d536005edd4abe465836342554c,
@@ -4390,7 +4359,7 @@ PrefabInstance:
     - target: {fileID: 7082329852609415145, guid: 481bd163caa62c14faf306e5c44f6730,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.356
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 7082329852609415145, guid: 481bd163caa62c14faf306e5c44f6730,
         type: 3}
@@ -6715,7 +6684,7 @@ PrefabInstance:
         type: 3}
       propertyPath: tutorialModePrefab
       value: 
-      objectReference: {fileID: 874114317}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8564,16 +8533,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693b56b5fc0271444b4e9021cc219f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hihat: 
-  snare: 
+  hihat: RRRRRRRR
+  snare: 00L000L0
   crash: 
-  kick: 
+  kick: L0L0L0L0
   small: 
   medium: 
   floor: 
   ride: 
   splash: 
-  key: 
+  key: Tutorial1
 --- !u!1 &3268217869459524384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,8 +10270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d63822c3d3d9042a77fbe6b3894e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  key: 
+  speed: 0.5
+  key: 120
 --- !u!4 &5071337129934497411
 Transform:
   m_ObjectHideFlags: 0
@@ -12069,16 +12038,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693b56b5fc0271444b4e9021cc219f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hihat: 
-  snare: 
+  hihat: 00L0R0R0R0R0R0R00000000000000000
+  snare: 0000L0000000L000RLRL000000000000
   crash: 
-  kick: 
-  small: 
-  medium: 
-  floor: 
-  ride: 
+  kick: R0000000R00000000000000000000000
+  small: 00000000000000000000RLRL00000000
+  medium: 000000000000000000000000RLRL0000
+  floor: 0000000000000000000000000000RLRL
+  ride: R0000000000000000000000000000000
   splash: 
-  key: 
+  key: Tutorial3
 --- !u!1 &6868557774431732390
 GameObject:
   m_ObjectHideFlags: 0
@@ -12338,8 +12307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d63822c3d3d9042a77fbe6b3894e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  key: 
+  speed: 0.3
+  key: 200
 --- !u!4 &7176493188494086791
 Transform:
   m_ObjectHideFlags: 0
@@ -12951,8 +12920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d63822c3d3d9042a77fbe6b3894e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  key: 
+  speed: 1
+  key: 60
 --- !u!23 &8240011939687621044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13583,16 +13552,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693b56b5fc0271444b4e9021cc219f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hihat: 
-  snare: 
+  hihat: 00L000L0
+  snare: 0R0R0R0R
   crash: 
-  kick: 
+  kick: R0R0R0R0
   small: 
   medium: 
   floor: 
   ride: 
   splash: 
-  key: 
+  key: Tutorial2
 --- !u!114 &8858138231271551426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13740,15 +13709,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9938717d07f024a9c02e4689aa7f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hihat: {fileID: 0}
-  snare: {fileID: 0}
-  crash: {fileID: 0}
-  kick: {fileID: 0}
-  small: {fileID: 0}
-  medium: {fileID: 0}
-  floor: {fileID: 0}
-  ride: {fileID: 0}
-  splash: {fileID: 0}
+  hihat: {fileID: 8762303924331868998}
+  snare: {fileID: 5198281818218821177}
+  crash: {fileID: 6646496433108612419}
+  kick: {fileID: 9206113282940962119}
+  small: {fileID: 6785736262699578025}
+  medium: {fileID: 8255571049227645093}
+  floor: {fileID: 5529292627471460161}
+  ride: {fileID: 5155267257350733226}
+  splash: {fileID: 8741255473887163428}
 --- !u!33 &8924169815617631820
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13909,8 +13878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d63822c3d3d9042a77fbe6b3894e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  key: 
+  speed: 0.4286
+  key: 140
 --- !u!1 &9171782087410090658
 GameObject:
   m_ObjectHideFlags: 0
@@ -13995,6 +13964,5 @@ SceneRoots:
   - {fileID: 1235101173}
   - {fileID: 5474525785052308459}
   - {fileID: 5562685}
-  - {fileID: 874114318}
   - {fileID: 1569829693}
   - {fileID: 6386412091775226077}
