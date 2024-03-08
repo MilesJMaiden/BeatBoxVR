@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GarageJD
       objectReference: {fileID: 0}
+    - target: {fileID: 208498905944954321, guid: 3216d32c418fd50469c91a732d24a8c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3240632927139646981, guid: 3216d32c418fd50469c91a732d24a8c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -243,6 +248,21 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 2728837876717815236, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728837876717815236, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728837876717815236, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3180618971297076912, guid: a1f01fd09224df84ca14a0647941c364,
         type: 3}
       propertyPath: m_Mesh
@@ -378,6 +398,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6091831390086225715, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6446944063889263449, guid: a1f01fd09224df84ca14a0647941c364,
         type: 3}
       propertyPath: m_Mesh
@@ -418,6 +443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecordingStudio JD
       objectReference: {fileID: 0}
+    - target: {fileID: 7032868136858023879, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7252494409797059602, guid: a1f01fd09224df84ca14a0647941c364,
         type: 3}
       propertyPath: m_Mesh
@@ -427,6 +457,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252494409797059602, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252494409797059602, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252494409797059602, guid: a1f01fd09224df84ca14a0647941c364,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7707827327681112120, guid: a1f01fd09224df84ca14a0647941c364,
         type: 3}
