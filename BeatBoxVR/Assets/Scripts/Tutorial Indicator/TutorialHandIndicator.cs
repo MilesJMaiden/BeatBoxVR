@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandIndicator : MonoBehaviour
+public class TutorialHandIndicator : MonoBehaviour
 {
     public GameObject rightHand;
     public GameObject leftHand;
