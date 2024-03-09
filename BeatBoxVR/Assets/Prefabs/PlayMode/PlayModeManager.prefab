@@ -1687,7 +1687,6 @@ Transform:
   - {fileID: 605256757782979865}
   - {fileID: 4659795936301543475}
   - {fileID: 6704764156825610017}
-  - {fileID: 4107383991185331610}
   - {fileID: 403771699398527909}
   - {fileID: 1006414052964958728}
   m_Father: {fileID: 2253700039268043158}
@@ -2980,11 +2979,11 @@ Transform:
   m_GameObject: {fileID: 2974458613446278570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.10300019, z: -2.9}
-  m_LocalScale: {x: 2.7, y: 0.10000001, z: 0.20000002}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4187805041784851414}
+  m_Father: {fileID: 6704764156825610017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8421030616016509990
 MeshFilter:
@@ -7381,10 +7380,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96f2ec6ca38714848ad33159333a984d, type: 2}
   delayBeforeStart: 3
   songsData:
-  - songClip: {fileID: 8300000, guid: 0d352331697489044aeb43d6da0209d7, type: 3}
+  - songClip: {fileID: 8300000, guid: 7e57b8c452082754389e79a0ca33226a, type: 3}
     songSpeed: 1
-  - songClip: {fileID: 8300000, guid: e317c760b72224f429174f3c181976dd, type: 3}
+    drumTrackClip: {fileID: 8300000, guid: 0d352331697489044aeb43d6da0209d7, type: 3}
+  - songClip: {fileID: 8300000, guid: b6b91ed12911ac7409e666517b79e8dd, type: 3}
     songSpeed: 1
+    drumTrackClip: {fileID: 8300000, guid: e317c760b72224f429174f3c181976dd, type: 3}
   notePrefabs:
   - {fileID: 8101594666129114746, guid: f9f778bb7a737204692ae3dca6c5aa6d, type: 3}
   - {fileID: 8941465481211914514, guid: eb5f86ad0a2bf8941a5bf2fdc42ff741, type: 3}
@@ -7406,6 +7407,7 @@ MonoBehaviour:
   - {fileID: 5783375903066842584}
   - {fileID: 8120623191033201372}
   audioSource: {fileID: 977229220087877903}
+  drumTrackSource: {fileID: 0}
   scoreText: {fileID: 2570236434978097094}
   streakText: {fileID: 2448679106853325860}
 --- !u!320 &3017924205687666944
@@ -11086,7 +11088,6 @@ GameObject:
   - component: {fileID: 6704764156825610017}
   - component: {fileID: 4243004648667569392}
   - component: {fileID: 6756327723451125106}
-  - component: {fileID: 4455707471791644608}
   - component: {fileID: 8639870564807027365}
   m_Layer: 0
   m_Name: MissZone
@@ -11107,7 +11108,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.103000164, z: -2.7}
   m_LocalScale: {x: 2.7, y: 0.10000001, z: 0.20000002}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4107383991185331610}
   m_Father: {fileID: 4187805041784851414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4243004648667569392
@@ -11160,27 +11162,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4455707471791644608
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8745356005672639607}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8639870564807027365
 MonoBehaviour:
   m_ObjectHideFlags: 0
