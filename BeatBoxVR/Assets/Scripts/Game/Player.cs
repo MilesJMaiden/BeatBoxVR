@@ -113,8 +113,7 @@ public class Player : MonoBehaviour
         StartCoroutine(AnimateHiHat());
 
         // Attempt to hit a HiHat note in the score zone
-        //TryHitNote("HiHat");
-
+        scoreZone.AttemptToHitNoteWithTag("HiHat");
     }
 
     private void PlayKickDrum()
@@ -122,11 +121,12 @@ public class Player : MonoBehaviour
         // Play Kick Drum sound and instantiate VFX
         soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f);
         InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
+
         // Play Kick Drum animation
         StartCoroutine(AnimateKickDrum());
 
         // Attempt to hit a Kick Drum note in the score zone
-        //TryHitNote("KickDrum");
+        scoreZone.AttemptToHitNoteWithTag("KickDrum");
     }
 
     // This method is correctly set up to attempt to hit a note.
