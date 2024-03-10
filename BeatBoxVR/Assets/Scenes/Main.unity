@@ -3337,12 +3337,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &788016232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3727214299290785435, guid: 057d928f9f30ba049817bf092da25969,
-    type: 3}
-  m_PrefabInstance: {fileID: 1098948845629775428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &889638478
 Mesh:
   m_ObjectHideFlags: 0
@@ -7509,46 +7503,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1446628039}
-    - target: {fileID: 482024537075042867, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 482024537075042867, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 482024537075042867, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 533.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 482024537075042867, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -543.31665
-      objectReference: {fileID: 0}
     - target: {fileID: 709453555656219900, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1947102231}
-    - target: {fileID: 709453555656219900, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_VersionIndex
-      value: 26
-      objectReference: {fileID: 0}
     - target: {fileID: 1187012450587589533, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 18455279949453767}
-    - target: {fileID: 1198854616972899957, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ac4323a722668f84baf7439d629cc551, type: 2}
     - target: {fileID: 1251169631570311260, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Name
@@ -7569,11 +7533,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 889638478}
-    - target: {fileID: 2833291597782174195, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9af73275c234193458009bc4efc57610, type: 2}
     - target: {fileID: 2950712770369324930, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7639,21 +7598,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3541755853038904781, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 720e006e20269544cafad29f3d34f38c, type: 2}
     - target: {fileID: 3626016417897471823, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1649759297}
-    - target: {fileID: 3727214299290785435, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3914163805158961028, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
@@ -7674,16 +7623,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1446628039}
-    - target: {fileID: 4296876486502233794, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4421085477474765065, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f1ccaf19051e2184bac0113a73917a95, type: 2}
     - target: {fileID: 4856939106182666907, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
@@ -7709,101 +7648,31 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 79211238}
-    - target: {fileID: 6033698165295341800, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6033698165295341800, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6033698165295341800, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 533.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 6033698165295341800, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -173.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6036515703287088212, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 889638478}
-    - target: {fileID: 6116236716375106491, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cfce8a33d11bb714087e7b4b2cf7a8e3, type: 2}
     - target: {fileID: 6331595896074926721, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2057487678}
-    - target: {fileID: 6547338211767232257, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6ef7c3117cf122a4e8e0ce0200ad9862, type: 2}
     - target: {fileID: 6746631854178166315, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1463964982}
-    - target: {fileID: 7257910720909685123, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e1e4c8daa7498044fa0eaf08196ac3d6, type: 2}
     - target: {fileID: 7350521541577745777, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1649759297}
-    - target: {fileID: 7566512278438103845, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4afc02397bae3f845a2798c739d8ab46, type: 2}
     - target: {fileID: 8072143836826040141, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 18455279949453767}
-    - target: {fileID: 8163437722500062966, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: tutorialModePrefab
-      value: 
-      objectReference: {fileID: 788016232}
-    - target: {fileID: 8288432996415542883, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b1c43a4dea19ea944a6df4f01ce1f655, type: 2}
-    - target: {fileID: 8675592453911073136, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675592453911073136, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675592453911073136, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 533.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675592453911073136, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -913.18335
-      objectReference: {fileID: 0}
     - target: {fileID: 8892319811178128840, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
