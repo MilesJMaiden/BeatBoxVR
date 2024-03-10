@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 428707938791800483}
   - component: {fileID: 3812441828695551498}
   m_Layer: 0
-  m_Name: Hi-Hat
+  m_Name: Hi-HatMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2619795633292662850}
@@ -1256,7 +1256,7 @@ PrefabInstance:
     - target: {fileID: 8098345562285349644, guid: 2ef148b09f58d0e469d5d300304b2f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098345562285349644, guid: 2ef148b09f58d0e469d5d300304b2f8f,
         type: 3}

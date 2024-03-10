@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1706859674976437334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.21}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.9
-      minScalar: 0.5
+      scalar: 1.2
+      minScalar: 0.9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -552,8 +552,8 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6.283185
-      minScalar: 0
+      scalar: 0.7853981
+      minScalar: -0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1317,16 +1317,16 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.99056596, g: 0.72502637, b: 0.22895154, a: 1}
-        key1: {r: 0.81761, g: 0.46595046, b: 0.053993, a: 1}
-        key2: {r: 0.34591186, g: 0.26642072, b: 0.11856721, a: 0}
-        key3: {r: 0.30817598, g: 0.2658432, b: 0.18897581, a: 0}
+        key0: {r: 0.4156863, g: 0.19215688, b: 0.9960785, a: 1}
+        key1: {r: 0.6392157, g: 0.21568629, b: 0.9960785, a: 1}
+        key2: {r: 0.26232708, g: 0, b: 0.54088044, a: 0}
+        key3: {r: 0.10670063, g: 0.049879313, b: 0.16352195, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 25315
+        ctime1: 25572
         ctime2: 51914
         ctime3: 53713
         ctime4: 65535
@@ -1496,7 +1496,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 98e8e1cf8dc7dbf469617c2e40c8a944, type: 3}
+    - sprite: {fileID: -266042797, guid: f65139afeb1e4c0498e29266be24b2f4, type: 3}
+    - sprite: {fileID: -479344251, guid: f65139afeb1e4c0498e29266be24b2f4, type: 3}
+    - sprite: {fileID: 1515046565, guid: f65139afeb1e4c0498e29266be24b2f4, type: 3}
+    - sprite: {fileID: -537957630, guid: f65139afeb1e4c0498e29266be24b2f4, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4811,7 +4814,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.8
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
