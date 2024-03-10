@@ -6,7 +6,7 @@ public class NoteBlock : MonoBehaviour
     public string expectedTag; // The tag this note block expects (e.g., "HiHat", "SnareDrum")
     public GameObject hitVFXPrefab; // VFX to instantiate on hit
     public GameObject missVFXPrefab; // VFX to instantiate on miss
-    public float destroyDelay = 0.2f; // Delay before destruction
+    public float destroyDelay = 0.5f; // Delay before destruction
 
     private Vector3 movementDirection;
     public float moveSpeed;
