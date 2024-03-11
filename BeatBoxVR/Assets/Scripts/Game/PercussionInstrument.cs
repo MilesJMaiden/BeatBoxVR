@@ -116,20 +116,6 @@ public class PercussionInstrument : MonoBehaviour
             return largeSplashVFXPrefab;
     }
 
-    private void NotifyNoteBlockOfHit()
-    {
-        // Find the nearest NoteBlock and check if its tag matches this instrument's tag
-        NoteBlock[] noteBlocks = FindObjectsOfType<NoteBlock>();
-        foreach (var noteBlock in noteBlocks)
-        {
-            if (noteBlock.expectedTag == this.tag && Vector3.Distance(transform.position, noteBlock.transform.position) < 1f) // Assuming a small threshold for distance
-            {
-                noteBlock.HandleHit();
-                break; // Assuming only one NoteBlock can be relevant at a time
-            }
-        }
-    }
-
     private void PlayInstrumentSound(Collider other, float velocity)
     {
         if (other == surfaceCollider || (rimCollider != null && other == rimCollider))
