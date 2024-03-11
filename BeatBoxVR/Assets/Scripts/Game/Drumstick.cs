@@ -60,7 +60,7 @@ public class Drumstick : MonoBehaviour
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, other);
+                    //InstantiateVFX(vfxPrefab, other);
                 }
             }
 
