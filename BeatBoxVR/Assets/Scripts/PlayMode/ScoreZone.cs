@@ -23,26 +23,22 @@ public class ScoreZone : MonoBehaviour
         }
     }
 
-    // Modified to allow handling multiple note hits
     public void AttemptToHitNoteWithTag(string noteTag)
     {
-        // Track the number of hits to ensure no more than 4 notes are processed
         int hitCount = 0;
 
         foreach (var noteBlock in noteBlocksInZone)
         {
             if (noteBlock.expectedTag == noteTag && !noteBlock.IsHit)
             {
+                Debug.Log($"Hitting note: {noteBlock.name}, Tag: {noteTag}");
                 noteBlock.HandleHit();
-                hitCount++;
 
-                // Break out of the loop if the maximum number of notes has been hit
-                if (hitCount >= 4)
-                {
-                    break;
-                }
+                if (hitCount >= 4) break;
             }
         }
+
+        Debug.Log($"Total hits processed for {noteTag}: {hitCount}");
     }
 
     public void HandleInstrumentHit(string instrumentTag)

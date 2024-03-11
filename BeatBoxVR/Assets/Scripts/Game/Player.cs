@@ -129,12 +129,6 @@ public class Player : MonoBehaviour
         scoreZone.AttemptToHitNoteWithTag("KickDrum");
     }
 
-    // This method is correctly set up to attempt to hit a note.
-    private void TryHitNote(string noteTag)
-    {
-        scoreZone.AttemptToHitNoteWithTag(noteTag);
-    }
-
     private IEnumerator AnimateHiHat()
     {
         Animator hiHatAnimator = hiHat.GetComponent<Animator>();

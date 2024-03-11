@@ -26,15 +26,7 @@ public class NoteBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ScoreZone"))
-        {
-            Drumstick drumstick = other.GetComponentInParent<Drumstick>();
-            if (drumstick != null && drumstick.gameObject.tag == expectedTag)
-            {
-                HandleHit();
-            }
-        }
-        else if (other.CompareTag("MissZone"))
+        if (other.CompareTag("MissZone"))
         {
             HandleMiss();
         }
