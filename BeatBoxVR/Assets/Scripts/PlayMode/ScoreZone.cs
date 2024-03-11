@@ -44,4 +44,16 @@ public class ScoreZone : MonoBehaviour
             }
         }
     }
+
+    public void HandleInstrumentHit(string instrumentTag)
+    {
+        foreach (var noteBlock in noteBlocksInZone)
+        {
+            if (noteBlock.expectedTag == instrumentTag && !noteBlock.IsHit)
+            {
+                noteBlock.HandleHit(); // Marks the note as hit and updates the game state
+                // No need for hitCount logic here unless you have a specific gameplay reason
+            }
+        }
+    }
 }

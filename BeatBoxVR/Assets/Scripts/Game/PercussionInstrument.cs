@@ -24,6 +24,8 @@ public class PercussionInstrument : MonoBehaviour
     private bool isAnimating = false;
     private bool animationsEnabled = true;
 
+    public ScoreZone scoreZone;
+
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
@@ -68,22 +70,30 @@ public class PercussionInstrument : MonoBehaviour
                 // Play sound based on which part of the instrument was hit
                 PlayInstrumentSound(other, velocity);
 
-                // Notify the nearest NoteBlock of a hit
-                NotifyNoteBlockOfHit();
+                // Directly notify the ScoreZone of a hit on this instrument
+                if (scoreZone != null)
+                {
+                    scoreZone.HandleInstrumentHit(this.tag);
+                }
+                else
+                {
+                    Debug.LogWarning("ScoreZone reference not set in PercussionInstrument.");
+                }
 
-                // Instantiate the VFX on drums
-                if (velocity > 1 )
+                // Instantiate the VFX on drums if velocity is high enough
+                if (velocity > 1)
                 {
                     GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
                     if (vfxPrefab != null)
                     {
-                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0); // Adjusted to use centerPosition for VFX
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Direction is up for consistency
                     }
                 }
             }
         }
     }
+
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
@@ -142,58 +152,4 @@ public class PercussionInstrument : MonoBehaviour
         parentAnimator.SetBool("isAnimating", isAnimating);
 
     }  
-
-    /* Joshua IEnum animation - NOT USED
-    private IEnumerator AnimateInstrument(float velocity)
-    {
-        isAnimating = true;
-        Transform targetTransform = animationPivot.transform;
-
-        bool isDrum = rimCollider != null;
-
-        if (isDrum)
-        {
-            Vector3 bounceDirection = Vector3.up * drumBounceIntensity * velocity;
-            yield return StartCoroutine(AnimateBounce(targetTransform, bounceDirection));
-        }
-        else
-        {
-            yield return StartCoroutine(AnimateRotation(targetTransform, velocity));
-        }
-
-        isAnimating = false;
-    }
-
-    private IEnumerator AnimateBounce(Transform target, Vector3 direction)
-    {
-        Vector3 originalPosition = target.localPosition;
-        Vector3 targetPosition = originalPosition + direction;
-
-        float elapsedTime = 0f;
-        while (elapsedTime < animationDuration)
-        {
-            target.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        target.localPosition = originalPosition;
-    }
-
-    private IEnumerator AnimateRotation(Transform target, float velocity)
-    {
-        Quaternion originalRotation = target.localRotation;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, cymbalRotationIntensity * velocity);
-
-        float elapsedTime = 0f;
-        while (elapsedTime < animationDuration)
-        {
-            target.localRotation = Quaternion.Lerp(originalRotation, targetRotation, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        target.localRotation = originalRotation;
-    }
-    */
 }
