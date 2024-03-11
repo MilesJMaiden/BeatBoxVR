@@ -980,7 +980,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.94030267, b: 0.8980392, a: 1}
   m_Intensity: 11.55
-  m_Range: 3
+  m_Range: 5
   m_SpotAngle: 65.51588
   m_InnerSpotAngle: 50.214783
   m_CookieSize: 10
@@ -2494,6 +2494,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &556512927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4877716353323410872, guid: 057d928f9f30ba049817bf092da25969,
+    type: 3}
+  m_PrefabInstance: {fileID: 1098948845629775428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98c5f9824000da4681b4bc24edf699c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &566190877
 Mesh:
   m_ObjectHideFlags: 0
@@ -7719,6 +7731,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1098948845629775432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1162574731050294406, guid: 057d928f9f30ba049817bf092da25969,
+    type: 3}
+  m_PrefabInstance: {fileID: 1098948845629775428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494d9b0df359554e96f01f5c0d71679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1983337956897303921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8161,9 +8185,19 @@ PrefabInstance:
       objectReference: {fileID: 1003061340}
     - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
+      propertyPath: loader
+      value: 
+      objectReference: {fileID: 556512927}
+    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
       propertyPath: kickDrum
       value: 
       objectReference: {fileID: 684626955}
+    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: scoreZone
+      value: 
+      objectReference: {fileID: 1098948845629775432}
     - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: gameManager
