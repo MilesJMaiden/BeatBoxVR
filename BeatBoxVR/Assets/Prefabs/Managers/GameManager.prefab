@@ -100,55 +100,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8163437722500062966}
+    - target: {fileID: 1088274880261011582, guid: 9418ae584d4c63e4c803699a8b688dd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 8163437722500062966}
     - target: {fileID: 1550897554722002946, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8163437722500062966}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
+    - target: {fileID: 1550897554722002946, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PreviousEnvironment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnvironmentManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803451318991577757, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UISoundManager, Assembly-CSharp
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8163437722500062966}
     - target: {fileID: 3722431699587014119, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_Name
       value: PauseMenuPanels
-      objectReference: {fileID: 0}
-    - target: {fileID: 3722431699587014119, guid: 9418ae584d4c63e4c803699a8b688dd4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7011141504435775340, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
@@ -158,6 +128,11 @@ PrefabInstance:
     - target: {fileID: 7998275539249535304, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8163437722500062966}
+    - target: {fileID: 7998275539249535304, guid: 9418ae584d4c63e4c803699a8b688dd4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 8163437722500062966}
     - target: {fileID: 8570899767051056834, guid: 9418ae584d4c63e4c803699a8b688dd4,
@@ -267,9 +242,9 @@ PrefabInstance:
       objectReference: {fileID: 8163437722500062966}
     - target: {fileID: 8746056115644004954, guid: 9418ae584d4c63e4c803699a8b688dd4,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 4296876486502233794}
+      objectReference: {fileID: 8163437722500062966}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
