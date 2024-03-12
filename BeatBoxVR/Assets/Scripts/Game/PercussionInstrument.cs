@@ -45,9 +45,9 @@ public class PercussionInstrument : MonoBehaviour
         }
     }
 
-    public void ToggleAnimations(bool enable) // Method to toggle animations on/off
+    public void ToggleAnimations() // Method to toggle animations on/off
     {
-        animationsEnabled = enable;
+        animationsEnabled = !animationsEnabled;
     }
 
     void OnTriggerEnter(Collider other)
@@ -93,7 +93,6 @@ public class PercussionInstrument : MonoBehaviour
             }
         }
     }
-
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
