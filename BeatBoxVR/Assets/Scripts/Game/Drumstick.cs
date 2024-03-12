@@ -4,11 +4,11 @@ using UnityEngine.XR;
 public class Drumstick : MonoBehaviour
 {
     private SoundManager soundManager;
-
+    
     public GameObject whiteSparkVFXPrefab;
     public GameObject yellowSparkVFXPrefab;
     public GameObject redSparkVFXPrefab;
-
+    
     public float vfxLifetime = 1.4f;
     private const float MaxVelocity = 10f;
 
@@ -17,7 +17,7 @@ public class Drumstick : MonoBehaviour
     private Vector3 tipMovementDirection;
     private float tipVelocity;
 
-    public bool instantiateVFX = true; // Flag to control VFX instantiation
+    public bool instantiateVFX = false; // Flag to control VFX instantiation
     public bool enableHapticFeedback = true; // Flag to control haptic feedback
     public float LastHitVelocity { get; private set; }
 
@@ -48,24 +48,19 @@ public class Drumstick : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (tipMovementDirection.y < 0)
+        if (tipMovementDirection.y < 0) // Check if moving downwards
         {
             float clampedVelocity = GetCurrentVelocity();
-
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            Vector3 collisionPoint = tipTransform.position;
-            soundManager.PlaySound(other.tag, collisionPoint, clampedVelocity / MaxVelocity);
-
-            // Assume the collider's center is a good approximation for VFX spawn location
-            Vector3 spawnPosition = other.bounds.center + new Vector3(0, 0.1f, 0); // Offset above the collider
+            soundManager.PlaySound(other.tag, tipTransform.position, clampedVelocity / MaxVelocity);
 
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Use upward direction for consistency
+                    //InstantiateVFX(vfxPrefab, other);
                 }
             }
 
@@ -89,49 +84,57 @@ public class Drumstick : MonoBehaviour
 
     private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
     {
+        
         if (velocity <= 4)
             return whiteSparkVFXPrefab;
         else if (velocity <= 7)
             return yellowSparkVFXPrefab;
         else
             return redSparkVFXPrefab;
+        
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    private void InstantiateVFX(GameObject vfxPrefab, Collider hitCollider)
     {
-        Quaternion hitRotation = Quaternion.LookRotation(direction);
-        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+        // Assuming the hit is from above and we're looking for the highest point on the collider.
+        Vector3 hitPoint = new Vector3(tipTransform.position.x, hitCollider.bounds.max.y, tipTransform.position.z);
+        Vector3 estimatedNormal = Vector3.up; // Default normal, works well for flat horizontal surfaces
 
-        float scaleMultiplier = CalculateScaleMultiplier(tipVelocity);
+        // Instantiate the VFX at the hit point, using the estimated normal for rotation.
+        Quaternion hitRotation = Quaternion.LookRotation(estimatedNormal);
+        GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
+
         ParticleSystem particleSystem = vfxInstance.GetComponentInChildren<ParticleSystem>();
-
         if (particleSystem != null)
         {
-            // Adjust start speed based on scaleMultiplier
-            var mainModule = particleSystem.main;
-            // Use a more dramatic range for startSpeed for slow hits
-            mainModule.startSpeed = Mathf.Lerp(0.01f, 1f, Mathf.Pow(scaleMultiplier, 2)); // Use square to exaggerate difference at lower end
-
-            // Adjust emission rate over time
-            var emissionModule = particleSystem.emission;
-            // Decrease minimum rate for slower hits
-            emissionModule.rateOverTime = Mathf.Lerp(0.5f, 75f, Mathf.Pow(scaleMultiplier, 2)); // Adjusted range and used square
-
-            // Adjust shape length
-            var shapeModule = particleSystem.shape;
-            // Use a narrower range for the length to make it even smaller for slow hits
-            shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2)); // Decreased minimum length and used square
+            ApplyParticleModifications(particleSystem, tipVelocity);
         }
 
         Destroy(vfxInstance, vfxLifetime);
-        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}. Scale Multiplier: {scaleMultiplier}");
     }
 
-    // Method to calculate scale multiplier based on tip velocity, now with more variance
+    private void ApplyParticleModifications(ParticleSystem particleSystem, float velocity)
+    {
+        float scaleMultiplier = CalculateScaleMultiplier(velocity);
+        var mainModule = particleSystem.main;
+
+        // Adjust start speed and size based on velocity
+        mainModule.startSpeed = Mathf.Lerp(0.01f, 1f, Mathf.Pow(scaleMultiplier, 2));
+        mainModule.startSize = scaleMultiplier;
+
+        // Adjust emission rate
+        var emissionModule = particleSystem.emission;
+        emissionModule.rateOverTime = Mathf.Lerp(10, 100, scaleMultiplier);
+
+        // Adjust shape length for a more natural effect
+        var shapeModule = particleSystem.shape;
+        shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2));
+    }
+
     private float CalculateScaleMultiplier(float velocity)
     {
-        // Example adjustment: use exponential or quadratic scaling for more noticeable differences
-        return Mathf.Lerp(0.5f, 3f, Mathf.Pow(velocity / MaxVelocity, 2));
+        // Adjust this method as needed to fit the desired effect
+        return Mathf.Clamp((velocity / MaxVelocity), 0.5f, 2.5f);
     }
 
     private void TriggerHapticFeedback(string drumstickTag, float duration, float strength)

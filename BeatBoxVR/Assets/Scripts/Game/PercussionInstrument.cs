@@ -4,17 +4,29 @@ using UnityEngine;
 public class PercussionInstrument : MonoBehaviour
 {
     public GameObject animationPivot;
+
+    public GameObject smallSplashVFXPrefab;
+    public GameObject mediumSplashVFXPrefab;
+    public GameObject largeSplashVFXPrefab;
+
     public Collider surfaceCollider;
     public Collider rimCollider;
     public Animator parentAnimator;
     private SoundManager soundManager;
 
+    public Transform centerPosition;
+
     public float drumBounceIntensity = 0.1f;
     public float cymbalRotationIntensity = 15.0f;
     public float animationDuration = 0.2f;
+    public float vfxLifetime = 1.4f;
 
     private bool isAnimating = false;
+
+    private bool vfxEnabled = true;
     private bool animationsEnabled = true;
+
+    public ScoreZone scoreZone;
 
     void Start()
     {
@@ -35,49 +47,73 @@ public class PercussionInstrument : MonoBehaviour
         }
     }
 
-    public void ToggleAnimations(bool enable) // Method to toggle animations on/off
+    public void ToggleAnimations()
     {
-        animationsEnabled = enable;
+        animationsEnabled = !animationsEnabled;
+        Debug.Log("Animations toggled. Now: " + animationsEnabled);
+    }
+
+    public void ToggleVFX() // Method to toggle VFX instantiation
+    {
+        vfxEnabled = !vfxEnabled;
+        Debug.Log("VFX toggled. Now: " + vfxEnabled);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if a drumstick hits the instrument
         if (other.CompareTag("RightDrumstick") || other.CompareTag("LeftDrumstick"))
         {
             Drumstick drumstick = other.GetComponent<Drumstick>();
-            if (drumstick != null && animationsEnabled)
+            if (drumstick != null)
             {
                 float velocity = drumstick.GetCurrentVelocity();
                 Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-                // Perform animations if enabled
-                if (!isAnimating || velocity > drumstick.LastHitVelocity)
+                // Notify the ScoreZone regardless of animations enabled
+                scoreZone?.HandleInstrumentHit(gameObject.tag);
+
+                // Conditional VFX instantiation based on the vfxEnabled toggle
+                if (vfxEnabled && velocity > 1)
                 {
-                    StartCoroutine(AnimateInstrument());
+                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
+                    if (vfxPrefab != null)
+                    {
+                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up);
+                    }
                 }
 
                 // Play sound based on which part of the instrument was hit
                 PlayInstrumentSound(other, velocity);
 
-                // Notify the nearest NoteBlock of a hit
-                NotifyNoteBlockOfHit();
+                // Conditional animation based on the animationsEnabled toggle
+                if (animationsEnabled && (!isAnimating || velocity > drumstick.LastHitVelocity))
+                {
+                    StartCoroutine(AnimateInstrument());
+                }
             }
         }
     }
 
-    private void NotifyNoteBlockOfHit()
+    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
     {
-        // Find the nearest NoteBlock and check if its tag matches this instrument's tag
-        NoteBlock[] noteBlocks = FindObjectsOfType<NoteBlock>();
-        foreach (var noteBlock in noteBlocks)
-        {
-            if (noteBlock.expectedTag == this.tag && Vector3.Distance(transform.position, noteBlock.transform.position) < 1f) // Assuming a small threshold for distance
-            {
-                noteBlock.HandleHit();
-                break; // Assuming only one NoteBlock can be relevant at a time
-            }
-        }
+        Quaternion hitRotation = Quaternion.identity;
+        GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
+
+
+
+        Destroy(vfxInstance, vfxLifetime);
+        Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
+    }
+
+    private GameObject SelectVFXPrefabBasedOnVelocity(float velocity)
+    {
+        if (velocity <= 4)
+            return smallSplashVFXPrefab;
+        else if (velocity <= 7)
+            return mediumSplashVFXPrefab;
+        else
+            return largeSplashVFXPrefab;
     }
 
     private void PlayInstrumentSound(Collider other, float velocity)
@@ -91,69 +127,19 @@ public class PercussionInstrument : MonoBehaviour
 
     public IEnumerator AnimateInstrument()
     {
-        
+        if (!animationsEnabled) yield break;
+
         isAnimating = true;
-        Debug.Log("isAnimating" + isAnimating);
-        parentAnimator.SetBool("isAnimating", isAnimating);
+        Debug.Log("Animating Instrument: " + gameObject.name + " Animation Enabled: " + animationsEnabled);
+        parentAnimator.SetBool("isAnimating", true);
 
         yield return new WaitForSeconds(animationDuration);
-        
-        isAnimating = false;
-        parentAnimator.SetBool("isAnimating", isAnimating);
 
-    }  
-
-    /* Joshua IEnum animation - NOT USED
-    private IEnumerator AnimateInstrument(float velocity)
-    {
-        isAnimating = true;
-        Transform targetTransform = animationPivot.transform;
-
-        bool isDrum = rimCollider != null;
-
-        if (isDrum)
+        if (animationsEnabled)
         {
-            Vector3 bounceDirection = Vector3.up * drumBounceIntensity * velocity;
-            yield return StartCoroutine(AnimateBounce(targetTransform, bounceDirection));
+            isAnimating = false;
+            Debug.Log("Stopping Animation: " + gameObject.name + " Animation Enabled: " + animationsEnabled);
+            parentAnimator.SetBool("isAnimating", false);
         }
-        else
-        {
-            yield return StartCoroutine(AnimateRotation(targetTransform, velocity));
-        }
-
-        isAnimating = false;
     }
-
-    private IEnumerator AnimateBounce(Transform target, Vector3 direction)
-    {
-        Vector3 originalPosition = target.localPosition;
-        Vector3 targetPosition = originalPosition + direction;
-
-        float elapsedTime = 0f;
-        while (elapsedTime < animationDuration)
-        {
-            target.localPosition = Vector3.Lerp(originalPosition, targetPosition, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        target.localPosition = originalPosition;
-    }
-
-    private IEnumerator AnimateRotation(Transform target, float velocity)
-    {
-        Quaternion originalRotation = target.localRotation;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, cymbalRotationIntensity * velocity);
-
-        float elapsedTime = 0f;
-        while (elapsedTime < animationDuration)
-        {
-            target.localRotation = Quaternion.Lerp(originalRotation, targetRotation, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        target.localRotation = originalRotation;
-    }
-    */
 }

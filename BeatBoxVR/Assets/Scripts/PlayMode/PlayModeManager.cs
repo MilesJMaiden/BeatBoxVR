@@ -6,11 +6,12 @@ using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 
-[System.Serializable] // Make sure this is outside and above the PlayModeManager class
+[System.Serializable]
 public class SongData
 {
     public AudioClip songClip;
     public float songSpeed;
+    public AudioClip drumTrackClip;
 }
 
 public class PlayModeManager : MonoBehaviour
@@ -31,6 +32,7 @@ public class PlayModeManager : MonoBehaviour
 
     [Header("Audio Playback")]
     public AudioSource audioSource;
+    public AudioSource drumTrackSource;
 
     [Header("UI Components")]
     // Add UI components for displaying score and streak
@@ -70,7 +72,6 @@ public class PlayModeManager : MonoBehaviour
         StartCoroutine(SwitchSongAfterDelay(songIndex, delayBeforeStart));
     }
 
-    // Coroutine that waits for a specified delay before switching to the selected song
     private IEnumerator SwitchSongAfterDelay(int songIndex, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -80,10 +81,18 @@ public class PlayModeManager : MonoBehaviour
             playableDirector.playableAsset = timelines[songIndex];
             playableDirector.Play();
 
+            // Play the main song clip
             if (audioSource != null && songsData[songIndex].songClip != null)
             {
                 audioSource.clip = songsData[songIndex].songClip;
                 audioSource.Play();
+            }
+
+            // Play the additional drum track in sync
+            if (drumTrackSource != null && songsData[songIndex].drumTrackClip != null)
+            {
+                drumTrackSource.clip = songsData[songIndex].drumTrackClip;
+                drumTrackSource.Play();
             }
         }
         else

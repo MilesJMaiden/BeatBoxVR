@@ -6,11 +6,12 @@ public class NoteBlock : MonoBehaviour
     public string expectedTag; // The tag this note block expects (e.g., "HiHat", "SnareDrum")
     public GameObject hitVFXPrefab; // VFX to instantiate on hit
     public GameObject missVFXPrefab; // VFX to instantiate on miss
-    public float destroyDelay = 0.2f; // Delay before destruction
+    public float destroyDelay = 0.5f; // Delay before destruction
 
     private Vector3 movementDirection;
-
     public float moveSpeed;
+
+    public bool IsHit { get; private set; } = false;
 
     public void InitializeNoteBlock(Vector3 direction, float speed)
     {
@@ -25,15 +26,7 @@ public class NoteBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ScoreZone"))
-        {
-            Drumstick drumstick = other.GetComponentInParent<Drumstick>();
-            if (drumstick != null && drumstick.gameObject.tag == expectedTag)
-            {
-                HandleHit();
-            }
-        }
-        else if (other.CompareTag("MissZone"))
+        if (other.CompareTag("MissZone"))
         {
             HandleMiss();
         }
@@ -41,30 +34,36 @@ public class NoteBlock : MonoBehaviour
 
     public void HandleHit()
     {
-        if (hitVFXPrefab != null)
+        if (!IsHit) // Check if the note has not already been hit
         {
-            GameObject hitVFXInstance = Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
-            Destroy(hitVFXInstance, destroyDelay); // Destroy the hit VFX after the specified delay
+            if (hitVFXPrefab != null)
+            {
+                GameObject hitVFXInstance = Instantiate(hitVFXPrefab, transform.position, Quaternion.identity);
+                Destroy(hitVFXInstance, destroyDelay); // Destroy the hit VFX after the specified delay
+            }
+
+            // Correct instrument was hit
+            PlayModeManager.Instance.IncrementStreak(); // Increment streak
+            PlayModeManager.Instance.UpdateScore(1); // Update score accoring to streak multiplier
+
+            Destroy(gameObject); // Destroy the note block itself after the delay
+            IsHit = true; // Mark the note as hit
         }
-
-        // Correct instrument was hit
-        PlayModeManager.Instance.IncrementStreak(); // Increment streak
-        PlayModeManager.Instance.UpdateScore(1); // Update score considering streak multiplier
-
-        Destroy(gameObject); // Destroy the note block itself after the delay
     }
 
     private void HandleMiss()
     {
-        Debug.Log("Miss detected for: " + gameObject.name); // Debugging line
-        if (missVFXPrefab != null)
+        if (!IsHit) // Only process the miss if the note hasn't been hit
         {
-            GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
-            Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
+            Debug.Log("Miss detected for: " + gameObject.name); // Debug
+            if (missVFXPrefab != null)
+            {
+                GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
+                Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
+            }
+
+            PlayModeManager.Instance.ResetStreak(); // Reset
+            Destroy(gameObject);
         }
-
-        PlayModeManager.Instance.ResetStreak(); // Reset only the streak on miss
-
-        Destroy(gameObject); // Destroy the note block itself after the delay
     }
 }
