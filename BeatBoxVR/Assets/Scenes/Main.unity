@@ -9519,11 +9519,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3539684105369576540, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_text
+      value: HELP
+      objectReference: {fileID: 0}
     - target: {fileID: 3626016417897471823, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1649759297}
+    - target: {fileID: 3673931045606095298, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3914163805158961028, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
@@ -9549,6 +9559,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 79211238}
+    - target: {fileID: 4955823440894683477, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5051226362059273722, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
@@ -9969,11 +9984,26 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[12].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5767755419663509191, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6036515703287088212, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 889638478}
+    - target: {fileID: 6233575228895480859, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1863.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233575228895480859, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1024.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6331595896074926721, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Mesh

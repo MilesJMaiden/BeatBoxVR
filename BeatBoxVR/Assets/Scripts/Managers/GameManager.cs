@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     //UI
     public GameObject countdownUI; // Reference to the countdown UI
+    public TextMeshProUGUI countdownText;
     public GameObject pauseUI; // Reference to the pause UI
     public CanvasGroup mainMenuCanvasGroup; // Reference to the main menu's canvas group
     public float animationDuration = 1.0f; // Duration for animations and fades
@@ -26,32 +28,42 @@ public class GameManager : MonoBehaviour
 
     public void TogglePauseGame()
     {
-        isGamePaused = !isGamePaused;
-
         if (isGamePaused)
         {
-            // Pause logic
-            Time.timeScale = 0;
-            pauseUI.SetActive(true);
-            FadeCanvasGroup(mainMenuCanvasGroup, 1, animationDuration);
+            // Start the countdown and unpause logic
+            StartCoroutine(CountdownAndUnpause());
         }
         else
         {
-            // Unpause logic
-            StartCoroutine(CountdownAndUnpause());
+            // Pause the game immediately
+            PauseGame();
         }
+    }
+
+    private void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0;
+        pauseUI.SetActive(true);
     }
 
     private IEnumerator CountdownAndUnpause()
     {
-        // Show countdown UI
+        // Hide pause UI and show countdown
         pauseUI.SetActive(false);
         countdownUI.SetActive(true);
-        yield return new WaitForSecondsRealtime(3); // 3-second countdown
 
+        // Perform the countdown while game is still paused in terms of game logic
+        for (int count = 3; count > 0; count--)
+        {
+            countdownText.text = count.ToString();
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        // Resume game after countdown
         countdownUI.SetActive(false);
-        FadeCanvasGroup(mainMenuCanvasGroup, 0, animationDuration);
-        Time.timeScale = 1; // Resume game
+        Time.timeScale = 1;
+        isGamePaused = false;
     }
 
     private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)
