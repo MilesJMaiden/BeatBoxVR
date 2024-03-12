@@ -3166,7 +3166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391150781813531907}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7666051, y: 0, z: 0, w: 0.64211893}
   m_LocalPosition: {x: 0.49, y: 0.074, z: 0.3955}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -3180,7 +3180,7 @@ Transform:
   - {fileID: 7914903789233817202}
   - {fileID: 4805818626401825410}
   m_Father: {fileID: 2738847207828390191}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -100.1, y: 0, z: 0}
 --- !u!33 &3434653848122159132
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3557,6 +3557,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  scoreZone: {fileID: 0}
 --- !u!1 &4290842924157086030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,7 +4201,7 @@ Transform:
   m_GameObject: {fileID: 8411253317580326904}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.195, y: -0.421, z: -0.0038}
+  m_LocalPosition: {x: -0.195, y: -0.395, z: -0.0038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
