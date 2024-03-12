@@ -134,6 +134,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  scoreZone: {fileID: 0}
 --- !u!1 &1063052361529515193
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +616,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.01127047, y: 0.10319454, z: -0.19845544, w: 0.97459704}
   m_LocalPosition: {x: -0.973, y: -0.853, z: 0.291}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.2, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730584437228780494}
@@ -12772,6 +12773,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  scoreZone: {fileID: 0}
 --- !u!1 &6591272879409489557
 GameObject:
   m_ObjectHideFlags: 0
@@ -13361,7 +13363,7 @@ Transform:
   m_GameObject: {fileID: 8600569266366611857}
   serializedVersion: 2
   m_LocalRotation: {x: -0.039728537, y: -0.19100228, z: 0.19972888, w: 0.96023345}
-  m_LocalPosition: {x: 0, y: 0.08000004, z: 0}
+  m_LocalPosition: {x: -0.187, y: 0.01, z: 0.033}
   m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 1
   m_Children:
