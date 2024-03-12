@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class PercussionInstrument : MonoBehaviour
@@ -25,7 +26,7 @@ public class PercussionInstrument : MonoBehaviour
 
     private bool vfxEnabled = true;
     private bool animationsEnabled = true;
-
+    
     public ScoreZone scoreZone;
 
     void Start()
@@ -79,7 +80,7 @@ public class PercussionInstrument : MonoBehaviour
                     if (vfxPrefab != null)
                     {
                         Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up);
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up,velocity);
                     }
                 }
 
@@ -95,13 +96,17 @@ public class PercussionInstrument : MonoBehaviour
         }
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction)
+    private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction, float velocity)
     {
+        // Instantiate vfx
         Quaternion hitRotation = Quaternion.identity;
         GameObject vfxInstance = Instantiate(vfxPrefab, position, hitRotation);
 
+        // Adjust vfx size by hit velocity
+        float scaleMultiplier = CalculateScaleMultiplier(velocity);
+        ApplyScaleMultiplierInChild(vfxInstance, scaleMultiplier);
 
-
+        // Destroy vfx after life duration
         Destroy(vfxInstance, vfxLifetime);
         Debug.Log($"Instantiated VFX: {vfxPrefab.name} at position: {position}");
     }
@@ -115,6 +120,21 @@ public class PercussionInstrument : MonoBehaviour
         else
             return largeSplashVFXPrefab;
     }
+
+    private float CalculateScaleMultiplier(float velocity)
+    {
+        return Mathf.Clamp(velocity, 0.1f, 1.8f);
+    }
+
+    private void ApplyScaleMultiplierInChild(GameObject vfxInstance, float scaleMultiplier)
+    {
+        for(int i = 0; i < vfxInstance.transform.childCount; i++)
+        {
+            Transform child = vfxInstance.transform.GetChild(i);
+            child.localScale = new Vector3(0.2f, 0.2f, 0.2f * scaleMultiplier);
+        }
+    }
+
 
     private void PlayInstrumentSound(Collider other, float velocity)
     {
