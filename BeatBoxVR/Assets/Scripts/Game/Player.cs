@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
 
     [Header("Note Interaction")]
-    public ScoreZone scoreZone; // Reference to the ScoreZone component
+    [Header("Score Zones")]
+    public ScoreZone hiHatScoreZone;
+    public ScoreZone kickDrumScoreZone;
 
     private XRIDefaultInputActions inputActions;
     private InputAction leftJoystickAction;
@@ -27,9 +29,11 @@ public class Player : MonoBehaviour
     public PlayAlongDetailLoader loader; // Assign this in the Inspector
     private float currentAudioAdjustments;
 
-    [Header("Animation for Kick Drum and HiHat")]
+    [Header("Animation Control")]
     public GameObject kickDrum;
     public GameObject hiHat;
+    public bool animationsEnabled = true;
+
     private void Awake()
     {
         // Initialize input actions
@@ -112,8 +116,14 @@ public class Player : MonoBehaviour
         // Play HiHat animation
         StartCoroutine(AnimateHiHat());
 
-        // Attempt to hit a HiHat note in the score zone
-        scoreZone.AttemptToHitNoteWithTag("HiHat");
+        if (hiHatScoreZone != null)
+        {
+            hiHatScoreZone.AttemptToHitNoteWithTag("HiHat");
+        }
+        else
+        {
+            Debug.LogError("HiHat ScoreZone reference not set in the Player script.");
+        }
     }
 
     private void PlayKickDrum()
@@ -125,12 +135,23 @@ public class Player : MonoBehaviour
         // Play Kick Drum animation
         StartCoroutine(AnimateKickDrum());
 
-        // Attempt to hit a Kick Drum note in the score zone
-        scoreZone.AttemptToHitNoteWithTag("KickDrum");
+        if (kickDrumScoreZone != null)
+        {
+            kickDrumScoreZone.AttemptToHitNoteWithTag("KickDrum");
+        }
+        else
+        {
+            Debug.LogError("KickDrum ScoreZone reference not set in the Player script.");
+        }
     }
 
     private IEnumerator AnimateHiHat()
     {
+        if (!animationsEnabled)
+        {
+            yield break; // Exit if animations are disabled
+        }
+
         Animator hiHatAnimator = hiHat.GetComponent<Animator>();
         if (hiHatAnimator != null)
         {
@@ -139,10 +160,19 @@ public class Player : MonoBehaviour
         }
         yield return new WaitForSeconds(0.2f);
 
-        hiHatAnimator.SetBool("isAnimating", false);
+        if (hiHatAnimator != null)
+        {
+            hiHatAnimator.SetBool("isAnimating", false);
+        }
     }
+
     private IEnumerator AnimateKickDrum()
     {
+        if (!animationsEnabled)
+        {
+            yield break; // Exit if animations are disabled
+        }
+
         Animator kickDrumAnimator = kickDrum.GetComponent<Animator>();
         if (kickDrumAnimator != null)
         {
@@ -151,8 +181,17 @@ public class Player : MonoBehaviour
         }
         yield return new WaitForSeconds(0.2f);
 
-        kickDrumAnimator.SetBool("isAnimating", false);
+        if (kickDrumAnimator != null)
+        {
+            kickDrumAnimator.SetBool("isAnimating", false);
+        }
     }
+
+    public void ToggleAnimations()
+    {
+        animationsEnabled = !animationsEnabled;
+    }
+
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position)
     {
@@ -170,8 +209,6 @@ public class Player : MonoBehaviour
         {
             loader.currBalancedTrack.volume += currentAudioAdjustments;
         }
-
-
     }
 
     private void AdjustDrumTrackVolume (Vector2 joystickInput)
@@ -183,8 +220,6 @@ public class Player : MonoBehaviour
             loader.currDrumTrack.volume += currentAudioAdjustments;
         }
     }
-
-
 
     private void AdjustVolumeRedux(Vector2 joystickInput, bool isLeftController)
     {
