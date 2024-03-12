@@ -22,6 +22,8 @@ public class PercussionInstrument : MonoBehaviour
     public float vfxLifetime = 1.4f;
 
     private bool isAnimating = false;
+
+    private bool vfxEnabled = true;
     private bool animationsEnabled = true;
 
     public ScoreZone scoreZone;
@@ -45,50 +47,49 @@ public class PercussionInstrument : MonoBehaviour
         }
     }
 
-    public void ToggleAnimations() // Method to toggle animations on/off
+    public void ToggleAnimations()
     {
         animationsEnabled = !animationsEnabled;
+        Debug.Log("Animations toggled. Now: " + animationsEnabled);
+    }
+
+    public void ToggleVFX() // Method to toggle VFX instantiation
+    {
+        vfxEnabled = !vfxEnabled;
+        Debug.Log("VFX toggled. Now: " + vfxEnabled);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // Check if a drumstick hits the instrument
         if (other.CompareTag("RightDrumstick") || other.CompareTag("LeftDrumstick"))
         {
             Drumstick drumstick = other.GetComponent<Drumstick>();
-            if (drumstick != null && animationsEnabled)
+            if (drumstick != null)
             {
                 float velocity = drumstick.GetCurrentVelocity();
                 Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-                // Perform animations if enabled
-                if (!isAnimating || velocity > drumstick.LastHitVelocity)
+                // Notify the ScoreZone regardless of animations enabled
+                scoreZone?.HandleInstrumentHit(gameObject.tag);
+
+                // Conditional VFX instantiation based on the vfxEnabled toggle
+                if (vfxEnabled && velocity > 1)
                 {
-                    StartCoroutine(AnimateInstrument());
+                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
+                    if (vfxPrefab != null)
+                    {
+                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up);
+                    }
                 }
 
                 // Play sound based on which part of the instrument was hit
                 PlayInstrumentSound(other, velocity);
 
-                // Directly notify the ScoreZone of a hit on this instrument
-                if (scoreZone != null)
+                // Conditional animation based on the animationsEnabled toggle
+                if (animationsEnabled && (!isAnimating || velocity > drumstick.LastHitVelocity))
                 {
-                    scoreZone.HandleInstrumentHit(this.tag);
-                }
-                else
-                {
-                    Debug.LogWarning("ScoreZone reference not set in PercussionInstrument.");
-                }
-
-                // Instantiate the VFX on drums if velocity is high enough
-                if (velocity > 1)
-                {
-                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
-                    if (vfxPrefab != null)
-                    {
-                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0); // Adjusted to use centerPosition for VFX
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up); // Direction is up for consistency
-                    }
+                    StartCoroutine(AnimateInstrument());
                 }
             }
         }
@@ -126,15 +127,19 @@ public class PercussionInstrument : MonoBehaviour
 
     public IEnumerator AnimateInstrument()
     {
-        
+        if (!animationsEnabled) yield break;
+
         isAnimating = true;
-        Debug.Log("isAnimating" + isAnimating);
-        parentAnimator.SetBool("isAnimating", isAnimating);
+        Debug.Log("Animating Instrument: " + gameObject.name + " Animation Enabled: " + animationsEnabled);
+        parentAnimator.SetBool("isAnimating", true);
 
         yield return new WaitForSeconds(animationDuration);
-        
-        isAnimating = false;
-        parentAnimator.SetBool("isAnimating", isAnimating);
 
-    }  
+        if (animationsEnabled)
+        {
+            isAnimating = false;
+            Debug.Log("Stopping Animation: " + gameObject.name + " Animation Enabled: " + animationsEnabled);
+            parentAnimator.SetBool("isAnimating", false);
+        }
+    }
 }
