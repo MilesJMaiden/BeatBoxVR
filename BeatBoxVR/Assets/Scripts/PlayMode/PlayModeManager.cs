@@ -18,31 +18,30 @@ public class PlayModeManager : MonoBehaviour
 {
     public static PlayModeManager Instance;
 
-    public PlayableDirector playableDirector; // Reference to the PlayableDirector component
-    public TimelineAsset[] timelines; // Array of Timeline assets for different songs
+    public PlayableDirector playableDirector;
+    public TimelineAsset[] timelines;
 
-    public float delayBeforeStart = 3.0f; // Delay before starting a song
+    public float delayBeforeStart = 3.0f; // Existing delay before starting a song
+    private float initialDelay = 4.5f; // Additional delay to synchronize tracks and notes
     private int currentSongIndex = 0;
 
     public List<SongData> songsData = new List<SongData>();
 
     [Header("Notes Configuration")]
-    public GameObject[] notePrefabs; // Prefabs for each note type
-    public Transform[] noteSpawnPoints; // Spawn points for each note type
+    public GameObject[] notePrefabs;
+    public Transform[] noteSpawnPoints;
 
     [Header("Audio Playback")]
     public AudioSource audioSource;
     public AudioSource drumTrackSource;
 
     [Header("UI Components")]
-    // Add UI components for displaying score and streak
-    [Header("UI Components")]
-    public TextMeshProUGUI scoreText; // Already existing
-    public TextMeshProUGUI streakText; // Add this for streak display
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI streakText;
 
     private int score = 0;
-    private int streak = 0; // Declare the streak variable
-    
+    private int streak = 0;
+
     void Awake()
     {
         if (Instance == null)
@@ -53,6 +52,8 @@ public class PlayModeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        // Disable automatic playback on Awake to control when the timeline starts
+        playableDirector.playOnAwake = false;
     }
 
     void Start()
@@ -66,40 +67,75 @@ public class PlayModeManager : MonoBehaviour
         // Initial setup can be performed here if needed
     }
 
-    // Starts the coroutine to switch songs after a specified delay
     public void SwitchToSongWithDelay(int songIndex)
     {
-        StartCoroutine(SwitchSongAfterDelay(songIndex, delayBeforeStart));
+        StartCoroutine(SwitchSongAfterDelays(songIndex, delayBeforeStart + initialDelay));
     }
 
-    private IEnumerator SwitchSongAfterDelay(int songIndex, float delay)
+    private IEnumerator SwitchSongAfterDelays(int songIndex, float totalDelay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(totalDelay);
         if (songIndex >= 0 && songIndex < timelines.Length && songIndex < songsData.Count)
         {
             currentSongIndex = songIndex;
             playableDirector.playableAsset = timelines[songIndex];
-            playableDirector.Play();
 
-            // Play the main song clip
-            if (audioSource != null && songsData[songIndex].songClip != null)
-            {
-                audioSource.clip = songsData[songIndex].songClip;
-                audioSource.Play();
-            }
-
-            // Play the additional drum track in sync
-            if (drumTrackSource != null && songsData[songIndex].drumTrackClip != null)
-            {
-                drumTrackSource.clip = songsData[songIndex].drumTrackClip;
-                drumTrackSource.Play();
-            }
+            // Delay the start of the song and drum tracks by the initial delay
+            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
         }
         else
         {
             Debug.LogError("Song index out of range.");
         }
     }
+
+    private IEnumerator StartTracksWithDelay(int songIndex, float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the initial delay before starting tracks
+
+        if (audioSource != null && songsData[songIndex].songClip != null)
+        {
+            audioSource.clip = songsData[songIndex].songClip;
+            audioSource.Play();
+        }
+
+        if (drumTrackSource != null && songsData[songIndex].drumTrackClip != null)
+        {
+            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
+            drumTrackSource.Play();
+        }
+
+        // After the delay, start the timeline playback to sync with audio
+        playableDirector.Play();
+    }
+
+    public void PauseTracksAndNotes()
+    {
+        // Pause the audio sources
+        if (audioSource != null) audioSource.Pause();
+        if (drumTrackSource != null) drumTrackSource.Pause();
+
+        // Pause the timeline (which should control the movement of notes)
+        playableDirector.Pause();
+    }
+
+    public void UnpauseTracksAndNotes(bool isPaused)
+    {
+        if (!isPaused)
+        {
+            // Unpause the audio sources
+            if (audioSource != null) audioSource.UnPause();
+            if (drumTrackSource != null) drumTrackSource.UnPause();
+
+            // Resume the timeline
+            playableDirector.Play();
+        }
+        else
+        {
+            // Logic to pause (if needed)
+        }
+    }
+
 
     #region UI
     // Methods for UI buttons to control playback

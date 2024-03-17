@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     //public GameObject drumKit; // Reference to the drum kit
 
-    private bool isGamePaused = false;
+    public static bool IsGamePaused = false;
 
     //UI
     public GameObject countdownUI; // Reference to the countdown UI
@@ -28,23 +28,17 @@ public class GameManager : MonoBehaviour
 
     public void TogglePauseGame()
     {
-        if (isGamePaused)
-        {
-            // Start the countdown and unpause logic
-            StartCoroutine(CountdownAndUnpause());
-        }
-        else
-        {
-            // Pause the game immediately
-            PauseGame();
-        }
+        IsGamePaused = !IsGamePaused;
+        PlayModeManager.Instance.UnpauseTracksAndNotes(IsGamePaused); // Pass the pause state
     }
 
     private void PauseGame()
     {
-        isGamePaused = true;
+        // Logic to pause the game
         Time.timeScale = 0;
         pauseUI.SetActive(true);
+        // Ensure music and note movement are paused (handled in PlayModeManager)
+        PlayModeManager.Instance.PauseTracksAndNotes();
     }
 
     private IEnumerator CountdownAndUnpause()
@@ -59,6 +53,8 @@ public class GameManager : MonoBehaviour
             countdownText.text = count.ToString();
             yield return new WaitForSecondsRealtime(1);
         }
+
+        PlayModeManager.Instance.UnpauseTracksAndNotes();
 
         // Resume game after countdown
         countdownUI.SetActive(false);

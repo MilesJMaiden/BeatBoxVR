@@ -21,7 +21,10 @@ public class NoteBlock : MonoBehaviour
 
     private void Update()
     {
-        transform.position += movementDirection * moveSpeed * Time.deltaTime;
+        if (!GameManager.IsGamePaused)
+        {
+            transform.position += movementDirection * moveSpeed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
