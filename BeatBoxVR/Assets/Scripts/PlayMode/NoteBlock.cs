@@ -21,7 +21,7 @@ public class NoteBlock : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.IsGamePaused)
+        if (!GameManager.isGamePaused)
         {
             transform.position += movementDirection * moveSpeed * Time.deltaTime;
         }

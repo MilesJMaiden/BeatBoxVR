@@ -68,6 +68,27 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
         // Initial setup can be performed here if needed
     }
 
+    public void SwitchToSongWithDelay(int songIndex)
+    {
+        StartCoroutine(SwitchSongAfterDelays(songIndex, delayBeforeStart + initialDelay));
+    }
+
+    private IEnumerator SwitchSongAfterDelays(int songIndex, float totalDelay)
+    {
+        yield return new WaitForSeconds(totalDelay);
+        if (songIndex >= 0 && songIndex < timelines.Length && songIndex < songsData.Count)
+        {
+            currentSongIndex = songIndex;
+            playableDirector.playableAsset = timelines[songIndex];
+
+            // Delay the start of the song and drum tracks by the initial delay
+            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
+        }
+        else
+        {
+            Debug.LogError("Song index out of range.");
+        }
+    }
 
     public void SwitchToSong(int songIndex)
     {
@@ -166,6 +187,7 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     public void SkipToNextSong()
     {
         currentSongIndex = (currentSongIndex + 1) % timelines.Length; // Increment and loop around if needed
+        SwitchToSongWithDelay(currentSongIndex);
     }
 
     // UI button actions to switch to specific songs
