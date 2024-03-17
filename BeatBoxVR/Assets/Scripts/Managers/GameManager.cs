@@ -29,7 +29,15 @@ public class GameManager : MonoBehaviour
     public void TogglePauseGame()
     {
         IsGamePaused = !IsGamePaused;
-        PlayModeManager.Instance.UnpauseTracksAndNotes(IsGamePaused); // Pass the pause state
+
+        if (IsGamePaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            StartCoroutine(CountdownAndUnpause());
+        }
     }
 
     private void PauseGame()
@@ -54,12 +62,12 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
 
-        PlayModeManager.Instance.UnpauseTracksAndNotes();
+        // Here's where the corrected variable name is used
+        IsGamePaused = false; // Unpause the game
+        PlayModeManager.Instance.UnpauseTracksAndNotes(IsGamePaused);
 
-        // Resume game after countdown
         countdownUI.SetActive(false);
-        Time.timeScale = 1;
-        isGamePaused = false;
+        Time.timeScale = 1; // Resume game time
     }
 
     private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)

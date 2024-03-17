@@ -7272,7 +7272,7 @@ MonoBehaviour:
   timelines:
   - {fileID: 11400000, guid: 5a77936b85122014c8c8ef1ed404d1f4, type: 2}
   - {fileID: 11400000, guid: 96f2ec6ca38714848ad33159333a984d, type: 2}
-  delayBeforeStart: 3
+  delayBeforeStart: 0
   songsData:
   - songClip: {fileID: 8300000, guid: 7e57b8c452082754389e79a0ca33226a, type: 3}
     songSpeed: 1
@@ -7313,8 +7313,8 @@ PlayableDirector:
   m_GameObject: {fileID: 5946369258880921190}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5a77936b85122014c8c8ef1ed404d1f4, type: 2}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -10437,9 +10437,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4709487644291085596}
         m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnSong2ButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

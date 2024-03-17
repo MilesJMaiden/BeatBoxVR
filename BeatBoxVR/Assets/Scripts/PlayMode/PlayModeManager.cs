@@ -21,9 +21,10 @@ public class PlayModeManager : MonoBehaviour
     public PlayableDirector playableDirector;
     public TimelineAsset[] timelines;
 
-    public float delayBeforeStart = 3.0f; // Existing delay before starting a song
-    private float initialDelay = 4.5f; // Additional delay to synchronize tracks and notes
-    private int currentSongIndex = 0;
+public float delayBeforeStart = 3.0f; // Delay before starting a song
+    private float initialDelay = 4.5f; // Additional delay for synchronization
+    private int currentSongIndex = -1; // Initialized to -1 to indicate no song is selected
+
 
     public List<SongData> songsData = new List<SongData>();
 
@@ -42,7 +43,7 @@ public class PlayModeManager : MonoBehaviour
     private int score = 0;
     private int streak = 0;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -52,7 +53,7 @@ public class PlayModeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // Disable automatic playback on Awake to control when the timeline starts
+        // Make sure the timeline doesn't play automatically.
         playableDirector.playOnAwake = false;
     }
 
@@ -67,45 +68,48 @@ public class PlayModeManager : MonoBehaviour
         // Initial setup can be performed here if needed
     }
 
-    public void SwitchToSongWithDelay(int songIndex)
-    {
-        StartCoroutine(SwitchSongAfterDelays(songIndex, delayBeforeStart + initialDelay));
-    }
 
-    private IEnumerator SwitchSongAfterDelays(int songIndex, float totalDelay)
+    public void SwitchToSong(int songIndex)
     {
-        yield return new WaitForSeconds(totalDelay);
-        if (songIndex >= 0 && songIndex < timelines.Length && songIndex < songsData.Count)
-        {
-            currentSongIndex = songIndex;
-            playableDirector.playableAsset = timelines[songIndex];
-
-            // Delay the start of the song and drum tracks by the initial delay
-            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
-        }
-        else
+        // Ensure we're operating within bounds.
+        if (songIndex < 0 || songIndex >= timelines.Length)
         {
             Debug.LogError("Song index out of range.");
+            return;
         }
+
+        // Destroy any existing note blocks.
+        DestroyAllNoteBlocks();
+
+        // Set the current song index.
+        currentSongIndex = songIndex;
+
+        // Assign the selected timeline.
+        playableDirector.playableAsset = timelines[songIndex];
+
+        // Delay the start of tracks to ensure synchronization.
+        StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
     }
 
     private IEnumerator StartTracksWithDelay(int songIndex, float delay)
     {
-        yield return new WaitForSeconds(delay); // Wait for the initial delay before starting tracks
+        // Wait for the specified delay.
+        yield return new WaitForSeconds(delay);
 
-        if (audioSource != null && songsData[songIndex].songClip != null)
+        // Start playing the selected tracks.
+        if (audioSource && songsData[songIndex].songClip)
         {
             audioSource.clip = songsData[songIndex].songClip;
             audioSource.Play();
         }
 
-        if (drumTrackSource != null && songsData[songIndex].drumTrackClip != null)
+        if (drumTrackSource && songsData[songIndex].drumTrackClip)
         {
             drumTrackSource.clip = songsData[songIndex].drumTrackClip;
             drumTrackSource.Play();
         }
 
-        // After the delay, start the timeline playback to sync with audio
+        // Start the timeline.
         playableDirector.Play();
     }
 
@@ -136,6 +140,14 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
+    public void DestroyAllNoteBlocks()
+    {
+        foreach (var noteBlock in FindObjectsOfType<NoteBlock>())
+        {
+            Destroy(noteBlock.gameObject);
+        }
+    }
+
 
     #region UI
     // Methods for UI buttons to control playback
@@ -154,12 +166,18 @@ public class PlayModeManager : MonoBehaviour
     public void SkipToNextSong()
     {
         currentSongIndex = (currentSongIndex + 1) % timelines.Length; // Increment and loop around if needed
-        SwitchToSongWithDelay(currentSongIndex);
     }
 
     // UI button actions to switch to specific songs
-    public void OnSong1ButtonPressed() { SwitchToSongWithDelay(0); }
-    public void OnSong2ButtonPressed() { SwitchToSongWithDelay(1); }
+    public void OnSong1ButtonPressed() {
+
+        SwitchToSong(0);
+        DestroyAllNoteBlocks();
+    }
+    public void OnSong2ButtonPressed() { 
+        SwitchToSong(1);
+        DestroyAllNoteBlocks();
+    }
     #endregion
 
     // Spawns notes of the specified types at their designated spawn points
