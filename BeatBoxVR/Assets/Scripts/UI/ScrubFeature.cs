@@ -17,7 +17,7 @@ public class ScrubFeature : MonoBehaviour, IPointerDownHandler
         
 
         
-        if (eventPos.y >= .72f && eventPos.y <= .84f)
+        if (eventPos.y >= 1.13f && eventPos.y <= 1.23f)
             if (eventPos.x >= 0.78 && eventPos.x <= 2.14f)
             {
                 newTime = 0.067f + (((eventData.pointerPressRaycast.worldPosition.x - 0.78f) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
