@@ -175,15 +175,13 @@ MonoBehaviour:
   expectedTag: SmallTomTom
   hitVFXPrefab: {fileID: 203772289011457570, guid: 93d203e7f8ebf474b93ea34b9814ac39,
     type: 3}
-  missVFXPrefab: {fileID: 2375842249092589218, guid: 404ff4eae5ed8474b8bbfb23281d9e60,
+  missVFXPrefab: {fileID: 203772289011457570, guid: 7ba2ec13b355c2a4095d84f221aed488,
     type: 3}
   destroyDelay: 0.2
   moveSpeed: 1
   animationDuration: 0.1
   missHit: 0
   meshAnimator: {fileID: 4839680680873305993}
-  missZone: {fileID: 0}
-  colorOrigin: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &-2560253378382439293
 Rigidbody:
   m_ObjectHideFlags: 0

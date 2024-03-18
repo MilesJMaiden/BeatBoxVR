@@ -268,7 +268,7 @@ public class PlayModeManager : MonoBehaviour
 
     public IEnumerator MissZoneGetLit()
     {
-        missZone.material.color = Color.red;
+        missZone.material.color = Color.grey;
         yield return new WaitForSeconds(0.1f);
 
         missZone.material.color = colorOrigin;

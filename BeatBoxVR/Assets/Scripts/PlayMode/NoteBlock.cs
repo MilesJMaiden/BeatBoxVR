@@ -70,8 +70,8 @@ public class NoteBlock : MonoBehaviour
             Debug.Log("Miss detected for: " + gameObject.name); // Debug
             if (missVFXPrefab != null)
             {
-                //GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
-                //Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
+                GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
+                Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
 
                 StartCoroutine(AnimateNotes());// Animate notes
 
@@ -88,12 +88,12 @@ public class NoteBlock : MonoBehaviour
     {
 
         missHit = true;
-        meshAnimator.SetBool("missHit", true);
+        meshAnimator.SetBool("MissHit", true);
 
         yield return new WaitForSeconds(animationDuration);
 
         missHit = false;
-        meshAnimator.SetBool("missHit", false);
+        meshAnimator.SetBool("MissHit", false);
 
     }
 
