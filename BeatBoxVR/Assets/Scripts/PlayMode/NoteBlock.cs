@@ -18,14 +18,10 @@ public class NoteBlock : MonoBehaviour
 
     public Animator meshAnimator;
 
-    public MeshRenderer missZone;
-    public Color colorOrigin;
 
     private void Start()
     {
         meshAnimator.SetBool("MissHit", missHit);
-
-        colorOrigin = missZone.material.color;
     }
     public void InitializeNoteBlock(Vector3 direction, float speed)
     {

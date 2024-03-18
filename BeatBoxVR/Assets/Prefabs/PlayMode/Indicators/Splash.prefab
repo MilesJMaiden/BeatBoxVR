@@ -1208,6 +1208,11 @@ MonoBehaviour:
     type: 3}
   destroyDelay: 0.2
   moveSpeed: 1
+  animationDuration: 0.1
+  missHit: 0
+  meshAnimator: {fileID: 5775930582028332035}
+  missZone: {fileID: 0}
+  colorOrigin: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &3849140557826285957
 Rigidbody:
   m_ObjectHideFlags: 0
