@@ -46,10 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentSettings:
-  - name: Bar
-    skybox: {fileID: 8900000, guid: 67f137536e5af8740a6f7ce9681500ab, type: 3}
-    environmentPrefab: {fileID: 5468107097509599231}
-    environmentImage: {fileID: 21300000, guid: 5930c72b2b307b640becc858369d9c95, type: 3}
   - name: Studio
     skybox: {fileID: 8900000, guid: 67f137536e5af8740a6f7ce9681500ab, type: 3}
     environmentPrefab: {fileID: 4508767570047792990}
@@ -308,12 +304,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff1d99d295299241bb73170e97b11d9, type: 3}
---- !u!1 &5468107097509599231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8158407490635946934, guid: eff1d99d295299241bb73170e97b11d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 4240950540976507977}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8473331737745807498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5714417421260297411, guid: eff1d99d295299241bb73170e97b11d9,
