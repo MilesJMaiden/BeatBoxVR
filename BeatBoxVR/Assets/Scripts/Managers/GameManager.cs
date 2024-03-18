@@ -66,21 +66,6 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
     }
 
-    private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)
-    {
-        float startAlpha = canvasGroup.alpha;
-        float elapsedTime = 0;
-
-        while (elapsedTime < duration)
-        {
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Additional logic after fade if needed
-    }
-
     #region GameModeTransitions
     // Method to deactivate all game modes
     private void DeactivateAllModes()
