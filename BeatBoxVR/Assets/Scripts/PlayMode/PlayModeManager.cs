@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using UnityEngine.UI;
+using UnityEngine;
+using System.Collections;
 
 [System.Serializable]
 public class SongData
@@ -20,12 +19,6 @@ public class PlayModeManager : MonoBehaviour
 
     public PlayableDirector playableDirector;
     public TimelineAsset[] timelines;
-
-    public float delayBeforeStart = 3.0f; // Delay before starting a song
-    private float initialDelay = 4.5f; // Additional delay for synchronization
-    private int currentSongIndex = -1; // Initialized to -1 to indicate no song is selected
-
-
     public List<SongData> songsData = new List<SongData>();
 
     [Header("Notes Configuration")]
@@ -46,6 +39,7 @@ public class PlayModeManager : MonoBehaviour
     private Color colorOrigin;
     private int score = 0;
     private int streak = 0;
+    private int currentSongIndex = -1;
 
     private void Awake()
     {
@@ -57,114 +51,53 @@ public class PlayModeManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // Make sure the timeline doesn't play automatically.
-        playableDirector.playOnAwake = false;
+        playableDirector.playOnAwake = false; // Prevent automatic timeline play
     }
 
     void Start()
     {
         InitializePlayMode();
         UpdateScore(0);
-
         colorOrigin = missZone.material.color;
     }
 
     void InitializePlayMode()
     {
-        // Initial setup can be performed here if needed
+        // Any initial setup
     }
 
-    public void SwitchToSongWithDelay(int songIndex)
-    {
-        StartCoroutine(SwitchSongAfterDelays(songIndex, delayBeforeStart + initialDelay));
-    }
-
-    private IEnumerator SwitchSongAfterDelays(int songIndex, float totalDelay)
-    {
-        yield return new WaitForSeconds(totalDelay);
-        if (songIndex >= 0 && songIndex < timelines.Length && songIndex < songsData.Count)
-        {
-            currentSongIndex = songIndex;
-            playableDirector.playableAsset = timelines[songIndex];
-
-            // Delay the start of the song and drum tracks by the initial delay
-            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
-        }
-        else
-        {
-            Debug.LogError("Song index out of range.");
-        }
-    }
-
+    // Directly switch to song without delays
     public void SwitchToSong(int songIndex)
     {
-        // Ensure we're operating within bounds.
         if (songIndex < 0 || songIndex >= timelines.Length)
         {
             Debug.LogError("Song index out of range.");
             return;
         }
 
-        // Destroy any existing note blocks.
         DestroyAllNoteBlocks();
-
-        // Set the current song index.
         currentSongIndex = songIndex;
-
-        // Assign the selected timeline.
         playableDirector.playableAsset = timelines[songIndex];
+        audioSource.clip = songsData[songIndex].songClip;
+        drumTrackSource.clip = songsData[songIndex].drumTrackClip;
 
-        // Delay the start of tracks to ensure synchronization.
-        StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
-    }
-
-    private IEnumerator StartTracksWithDelay(int songIndex, float delay)
-    {
-        // Wait for the specified delay.
-        yield return new WaitForSeconds(delay);
-
-        // Start playing the selected tracks.
-        if (audioSource && songsData[songIndex].songClip)
-        {
-            audioSource.clip = songsData[songIndex].songClip;
-            audioSource.Play();
-        }
-
-        if (drumTrackSource && songsData[songIndex].drumTrackClip)
-        {
-            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
-            drumTrackSource.Play();
-        }
-
-        // Start the timeline.
+        audioSource.Play();
+        drumTrackSource.Play();
         playableDirector.Play();
     }
 
     public void PauseTracksAndNotes()
     {
-        // Pause the audio sources
-        if (audioSource != null) audioSource.Pause();
-        if (drumTrackSource != null) drumTrackSource.Pause();
-
-        // Pause the timeline (which should control the movement of notes)
+        audioSource.Pause();
+        drumTrackSource.Pause();
         playableDirector.Pause();
     }
 
-    public void UnpauseTracksAndNotes(bool isPaused)
+    public void UnpauseTracksAndNotes()
     {
-        if (!isPaused)
-        {
-            // Unpause the audio sources
-            if (audioSource != null) audioSource.UnPause();
-            if (drumTrackSource != null) drumTrackSource.UnPause();
-
-            // Resume the timeline
-            playableDirector.Play();
-        }
-        else
-        {
-            // Logic to pause (if needed)
-        }
+        audioSource.UnPause();
+        drumTrackSource.UnPause();
+        playableDirector.Play();
     }
 
     public void DestroyAllNoteBlocks()
@@ -175,35 +108,12 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
-
-    #region UI
     // Methods for UI buttons to control playback
-    public void PauseSong()
+    public void OnSongButtonPressed(int songIndex)
     {
-        playableDirector.Pause();
-    }
-
-    public void PlaySong()
-    {
-        if (playableDirector.state != PlayState.Playing)
-            playableDirector.Play();
-    }
-
-    // UI button actions to switch to specific songs
-    public void OnSong1ButtonPressed()
-    {
-
-        SwitchToSongWithDelay(0);
-        DestroyAllNoteBlocks();
+        SwitchToSong(songIndex);
         ResetScoreAndStreak();
     }
-    public void OnSong2ButtonPressed()
-    {
-        SwitchToSongWithDelay(1);
-        DestroyAllNoteBlocks();
-        ResetScoreAndStreak();
-    }
-    #endregion
 
     // Spawns notes of the specified types at their designated spawn points
     private void SpawnNoteOfType(int noteType)
@@ -270,9 +180,13 @@ public class PlayModeManager : MonoBehaviour
 
     public IEnumerator MissZoneGetLit()
     {
+        // Change the miss zone's color to grey (or any color indicating a miss) temporarily.
         missZone.material.color = Color.grey;
-        yield return new WaitForSeconds(0.1f);
 
+        // Wait for a short period before reverting the color.
+        yield return new WaitForSeconds(0.1f); // Adjust the duration based on how long you want the effect to last.
+
+        // Revert the miss zone's color back to its original color.
         missZone.material.color = colorOrigin;
     }
 

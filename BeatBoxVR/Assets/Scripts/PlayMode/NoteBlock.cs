@@ -19,6 +19,7 @@ public class NoteBlock : MonoBehaviour
     public Animator meshAnimator;
 
 
+
     private void Start()
     {
         meshAnimator.SetBool("MissHit", missHit);
