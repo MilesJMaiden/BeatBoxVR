@@ -60,7 +60,6 @@ public class NoteBlock : MonoBehaviour
             }
 
             // Correct instrument was hit
-            PlayModeManager.Instance.IncrementStreak(); // Increment streak
             PlayModeManager.Instance.UpdateScore(1); // Update score accoring to streak multiplier
 
             Destroy(gameObject); // Destroy the note block itself after the delay
