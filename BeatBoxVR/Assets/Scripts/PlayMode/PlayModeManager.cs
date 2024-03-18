@@ -88,7 +88,7 @@ public class PlayModeManager : MonoBehaviour
             playableDirector.playableAsset = timelines[songIndex];
 
             // Delay the start of the song and drum tracks by the initial delay
-            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
+           StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
         }
         else
         {
@@ -192,12 +192,12 @@ public class PlayModeManager : MonoBehaviour
     // UI button actions to switch to specific songs
     public void OnSong1ButtonPressed() {
 
-        SwitchToSong(0);
+        SwitchToSongWithDelay(0);
         DestroyAllNoteBlocks();
         ResetScoreAndStreak();
     }
-    public void OnSong2ButtonPressed() { 
-        SwitchToSong(1);
+    public void OnSong2ButtonPressed() {
+        SwitchToSongWithDelay(1);
         DestroyAllNoteBlocks();
         ResetScoreAndStreak();
     }
