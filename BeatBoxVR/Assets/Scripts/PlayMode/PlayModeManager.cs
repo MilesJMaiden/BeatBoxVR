@@ -21,7 +21,7 @@ public class PlayModeManager : MonoBehaviour
     public PlayableDirector playableDirector;
     public TimelineAsset[] timelines;
 
-public float delayBeforeStart = 3.0f; // Delay before starting a song
+    public float delayBeforeStart = 3.0f; // Delay before starting a song
     private float initialDelay = 4.5f; // Additional delay for synchronization
     private int currentSongIndex = -1; // Initialized to -1 to indicate no song is selected
 
@@ -35,11 +35,15 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     [Header("Audio Playback")]
     public AudioSource audioSource;
     public AudioSource drumTrackSource;
+    public AudioSource soundEffectSource;
 
     [Header("UI Components")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI streakText;
 
+    [Header("MissHit")]
+    public MeshRenderer missZone;
+    private Color colorOrigin;
     private int score = 0;
     private int streak = 0;
 
@@ -61,6 +65,8 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     {
         InitializePlayMode();
         UpdateScore(0);
+
+        colorOrigin = missZone.material.color;
     }
 
     void InitializePlayMode()
@@ -265,6 +271,19 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     {
         // Assuming you have a TextMeshProUGUI component for displaying the streak
         streakText.text = "Streak: " + streak;
+    }
+
+    public void PlayMissHitSound()
+    {
+        soundEffectSource.Play();
+    }
+
+    public IEnumerator MissZoneGetLit()
+    {
+        missZone.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+
+        missZone.material.color = colorOrigin;
     }
 
     //Individual Notes

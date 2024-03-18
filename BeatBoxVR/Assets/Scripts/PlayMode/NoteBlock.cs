@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.DynamicMoveProvider;
 
@@ -10,9 +11,22 @@ public class NoteBlock : MonoBehaviour
 
     private Vector3 movementDirection;
     public float moveSpeed;
+    public float animationDuration = 0.1f;
 
     public bool IsHit { get; private set; } = false;
+    public bool missHit = false;
 
+    public Animator meshAnimator;
+
+    public MeshRenderer missZone;
+    public Color colorOrigin;
+
+    private void Start()
+    {
+        meshAnimator.SetBool("MissHit", missHit);
+
+        colorOrigin = missZone.material.color;
+    }
     public void InitializeNoteBlock(Vector3 direction, float speed)
     {
         movementDirection = direction;
@@ -61,12 +75,32 @@ public class NoteBlock : MonoBehaviour
             Debug.Log("Miss detected for: " + gameObject.name); // Debug
             if (missVFXPrefab != null)
             {
-                GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
-                Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
+                //GameObject missVFXInstance = Instantiate(missVFXPrefab, transform.position, Quaternion.identity);
+                //Destroy(missVFXInstance, destroyDelay); // Destroy the miss VFX after the specified delay
+
+                StartCoroutine(AnimateNotes());// Animate notes
+
+                PlayModeManager.Instance.MissZoneGetLit();// Misszone shines red light
+                PlayModeManager.Instance.PlayMissHitSound();// Play miss hit sound
             }
 
             PlayModeManager.Instance.ResetStreak(); // Reset
             Destroy(gameObject);
         }
     }
+
+    public IEnumerator AnimateNotes()
+    {
+
+        missHit = true;
+        meshAnimator.SetBool("missHit", true);
+
+        yield return new WaitForSeconds(animationDuration);
+
+        missHit = false;
+        meshAnimator.SetBool("missHit", false);
+
+    }
+
+
 }
