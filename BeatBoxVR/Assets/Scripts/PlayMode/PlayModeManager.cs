@@ -11,6 +11,7 @@ public class SongData
 {
     public AudioClip songClip;
     public float songSpeed;
+    public AudioClip drumTrackClip;
 }
 
 public class PlayModeManager : MonoBehaviour
@@ -87,7 +88,7 @@ public class PlayModeManager : MonoBehaviour
             playableDirector.playableAsset = timelines[songIndex];
 
             // Delay the start of the song and drum tracks by the initial delay
-           StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
+            StartCoroutine(StartTracksWithDelay(songIndex, initialDelay));
         }
         else
         {
@@ -127,6 +128,12 @@ public class PlayModeManager : MonoBehaviour
         {
             audioSource.clip = songsData[songIndex].songClip;
             audioSource.Play();
+        }
+
+        if (drumTrackSource && songsData[songIndex].drumTrackClip)
+        {
+            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
+            drumTrackSource.Play();
         }
 
         // Start the timeline.
@@ -183,13 +190,15 @@ public class PlayModeManager : MonoBehaviour
     }
 
     // UI button actions to switch to specific songs
-    public void OnSong1ButtonPressed() {
+    public void OnSong1ButtonPressed()
+    {
 
         SwitchToSongWithDelay(0);
         DestroyAllNoteBlocks();
         ResetScoreAndStreak();
     }
-    public void OnSong2ButtonPressed() {
+    public void OnSong2ButtonPressed()
+    {
         SwitchToSongWithDelay(1);
         DestroyAllNoteBlocks();
         ResetScoreAndStreak();
