@@ -11,7 +11,6 @@ public class SongData
 {
     public AudioClip songClip;
     public float songSpeed;
-    public AudioClip drumTrackClip;
 }
 
 public class PlayModeManager : MonoBehaviour
@@ -128,12 +127,6 @@ public class PlayModeManager : MonoBehaviour
         {
             audioSource.clip = songsData[songIndex].songClip;
             audioSource.Play();
-        }
-
-        if (drumTrackSource && songsData[songIndex].drumTrackClip)
-        {
-            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
-            drumTrackSource.Play();
         }
 
         // Start the timeline.
