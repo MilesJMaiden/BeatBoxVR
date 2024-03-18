@@ -4387,8 +4387,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4709487644291085596}
         m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
-        m_MethodName: OnSong1ButtonPressed
-        m_Mode: 1
+        m_MethodName: OnSongButtonPressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7401,7 +7401,6 @@ MonoBehaviour:
   timelines:
   - {fileID: 11400000, guid: 5a77936b85122014c8c8ef1ed404d1f4, type: 2}
   - {fileID: 11400000, guid: 96f2ec6ca38714848ad33159333a984d, type: 2}
-  delayBeforeStart: 0
   songsData:
   - songClip: {fileID: 8300000, guid: 7e57b8c452082754389e79a0ca33226a, type: 3}
     songSpeed: 1
@@ -10570,12 +10569,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4709487644291085596}
         m_TargetAssemblyTypeName: PlayModeManager, Assembly-CSharp
-        m_MethodName: OnSong2ButtonPressed
-        m_Mode: 1
+        m_MethodName: OnSongButtonPressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
