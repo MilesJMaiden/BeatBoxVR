@@ -183,22 +183,17 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
             playableDirector.Play();
     }
 
-    // Skips to the next song in the playlist
-    public void SkipToNextSong()
-    {
-        currentSongIndex = (currentSongIndex + 1) % timelines.Length; // Increment and loop around if needed
-        SwitchToSongWithDelay(currentSongIndex);
-    }
-
     // UI button actions to switch to specific songs
     public void OnSong1ButtonPressed() {
 
         SwitchToSong(0);
         DestroyAllNoteBlocks();
+        ResetScoreAndStreak();
     }
     public void OnSong2ButtonPressed() { 
         SwitchToSong(1);
         DestroyAllNoteBlocks();
+        ResetScoreAndStreak();
     }
     #endregion
 
@@ -221,7 +216,7 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     private void UpdateUI()
     {
         if (scoreText != null) scoreText.text = "Score: " + score;
-        if (streakText != null) streakText.text = "Streak: " + streak;
+        if (streakText != null) streakText.text = "Streak: x " + streak;
     }
 
     // Calculates the multiplier based on the current streak
@@ -248,13 +243,6 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
         UpdateUI();
     }
 
-    public void IncrementStreak()
-    {
-        streak++;
-        UpdateStreakDisplay(); // This method updates the streak UI
-    }
-    // Resets the streak to 0 and updates the UI
-
     public void ResetStreak()
     {
         streak = 0;
@@ -264,7 +252,7 @@ public float delayBeforeStart = 3.0f; // Delay before starting a song
     private void UpdateStreakDisplay()
     {
         // Assuming you have a TextMeshProUGUI component for displaying the streak
-        streakText.text = "Streak: " + streak;
+        streakText.text = "x " + streak;
     }
 
     //Individual Notes
