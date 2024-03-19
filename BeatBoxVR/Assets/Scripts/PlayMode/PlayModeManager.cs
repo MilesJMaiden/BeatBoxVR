@@ -80,8 +80,24 @@ public class PlayModeManager : MonoBehaviour
 
         // Setup and play the new song
         currentSongIndex = songIndex;
+        // Load new timeline and audio
         playableDirector.playableAsset = timelines[songIndex];
+        if (songsData.Count > songIndex)
+        {
+            audioSource.clip = songsData[songIndex].songClip;
+            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
+        }
+        else
+        {
+            Debug.LogError($"No SongData found for song index {songIndex}.");
+        }
+
+        // Delay the start if needed or play immediately
+        //audioSource.Play();
+        //drumTrackSource.Play();
         playableDirector.Play();
+
+        Debug.Log($"Started song {songIndex}: {timelines[songIndex].name}");
     }
 
     public void PauseTracksAndNotes()
@@ -106,10 +122,14 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
-    public void OnSongButtonPressed(int songIndex)
+    public void OnSong1ButtonPressed()
     {
-        // Immediately switch to the selected song without delay
-        SwitchToSong(songIndex);
+        SwitchToSong(0); // Index for the first song
+    }
+
+    public void OnSong2ButtonPressed()
+    {
+        SwitchToSong(1); // Index for the second song
     }
 
 
