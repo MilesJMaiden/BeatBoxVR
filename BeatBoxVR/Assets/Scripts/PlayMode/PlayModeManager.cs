@@ -66,8 +66,7 @@ public class PlayModeManager : MonoBehaviour
         // Any initial setup
     }
 
-    // Directly switch to song without delays
-    public void SwitchToSong(int songIndex)
+    private void SwitchToSong(int songIndex)
     {
         if (songIndex < 0 || songIndex >= timelines.Length)
         {
@@ -75,14 +74,13 @@ public class PlayModeManager : MonoBehaviour
             return;
         }
 
+        // Destroy any existing note blocks and reset the score and streak
         DestroyAllNoteBlocks();
+        ResetScoreAndStreak();
+
+        // Setup and play the new song
         currentSongIndex = songIndex;
         playableDirector.playableAsset = timelines[songIndex];
-        audioSource.clip = songsData[songIndex].songClip;
-        drumTrackSource.clip = songsData[songIndex].drumTrackClip;
-
-        audioSource.Play();
-        drumTrackSource.Play();
         playableDirector.Play();
     }
 
@@ -108,12 +106,12 @@ public class PlayModeManager : MonoBehaviour
         }
     }
 
-    // Methods for UI buttons to control playback
     public void OnSongButtonPressed(int songIndex)
     {
+        // Immediately switch to the selected song without delay
         SwitchToSong(songIndex);
-        ResetScoreAndStreak();
     }
+
 
     // Spawns notes of the specified types at their designated spawn points
     private void SpawnNoteOfType(int noteType)
@@ -172,6 +170,7 @@ public class PlayModeManager : MonoBehaviour
         // Assuming you have a TextMeshProUGUI component for displaying the streak
         streakText.text = "x " + streak;
     }
+
 
     public void PlayMissHitSound()
     {
