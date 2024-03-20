@@ -15,8 +15,16 @@ public class SoundManager : MonoBehaviour
         public AudioClip sound;      // Sound for the percussion hit
     }
 
+    [System.Serializable]
+    public class DrumKit
+    {
+        public string KitName;           // Tag to identify the percussion instrument
+        public PercussionSound[] drumKit;
+    }
+
     // Lists to hold the sounds for drums and cymbals
     public List<PercussionSound> percussionSounds;
+    public List<DrumKit> drumKitList;
 
     // Play a sound based on the tag, position, and velocity
     public void PlaySound(string tag, Vector3 position, float velocity)
@@ -64,5 +72,10 @@ public class SoundManager : MonoBehaviour
     {
         // Convert the volume to a logarithmic scale and set it
         audioMixer.SetFloat("DrumVolume", Mathf.Log10(volume) * 20);
+    }
+
+    public void loadDrumKit(int kitIndex)
+    {
+
     }
 }

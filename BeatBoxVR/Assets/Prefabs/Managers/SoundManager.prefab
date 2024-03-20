@@ -78,3 +78,72 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
   - tag: HiHat
     sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
+  drumKitList:
+  - KitName: Default Drum Kit
+    drumKit:
+    - tag: SnareDrum
+      sound: {fileID: 8300000, guid: 20fa4d2f4a806da4b8aa74a03fb68e87, type: 3}
+    - tag: SnareDrumRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: SmallTomTom
+      sound: {fileID: 8300000, guid: 0923a3b012272644db5aafb15f7dbb9b, type: 3}
+    - tag: SmallTomTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: MediumTomTom
+      sound: {fileID: 8300000, guid: 70c5a333b0bea7348bbe566bd62bb85a, type: 3}
+    - tag: MediumTomTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: FloorTom
+      sound: {fileID: 8300000, guid: d1b7fd791cea15745bdd82ceed0c5e33, type: 3}
+    - tag: FloorTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: CrashCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: CrashCymbalRim
+      sound: {fileID: 8300000, guid: 4b034ca249ef2e444bece8fcf0840bd4, type: 3}
+    - tag: RideCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: RideCymbalRim
+      sound: {fileID: 8300000, guid: 6cdc4711aabdd5c479bbec297e34a744, type: 3}
+    - tag: SplashCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: SplashCymbalRim
+      sound: {fileID: 8300000, guid: 9494383ee2458c943bb8a94d511de28c, type: 3}
+    - tag: KickDrum
+      sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
+    - tag: HiHat
+      sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
+  - KitName: 60's Abbey Road Drum Kit
+    drumKit:
+    - tag: SnareDrum
+      sound: {fileID: 8300000, guid: 20fa4d2f4a806da4b8aa74a03fb68e87, type: 3}
+    - tag: SnareDrumRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: SmallTomTom
+      sound: {fileID: 8300000, guid: 0923a3b012272644db5aafb15f7dbb9b, type: 3}
+    - tag: SmallTomTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: MediumTomTom
+      sound: {fileID: 8300000, guid: 70c5a333b0bea7348bbe566bd62bb85a, type: 3}
+    - tag: MediumTomTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: FloorTom
+      sound: {fileID: 8300000, guid: d1b7fd791cea15745bdd82ceed0c5e33, type: 3}
+    - tag: FloorTomRim
+      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+    - tag: CrashCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: CrashCymbalRim
+      sound: {fileID: 8300000, guid: 4b034ca249ef2e444bece8fcf0840bd4, type: 3}
+    - tag: RideCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: RideCymbalRim
+      sound: {fileID: 8300000, guid: 6cdc4711aabdd5c479bbec297e34a744, type: 3}
+    - tag: SplashCymbal
+      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+    - tag: SplashCymbalRim
+      sound: {fileID: 8300000, guid: 9494383ee2458c943bb8a94d511de28c, type: 3}
+    - tag: KickDrum
+      sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
+    - tag: HiHat
+      sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
