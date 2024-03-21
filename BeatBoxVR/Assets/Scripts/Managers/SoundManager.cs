@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using static SoundManager;
 
 public class SoundManager : MonoBehaviour
 {
@@ -76,6 +77,9 @@ public class SoundManager : MonoBehaviour
 
     public void loadDrumKit(int kitIndex)
     {
-
+        for (int i = 0; i < percussionSounds.Count; i++)
+        {
+            percussionSounds[i] = drumKitList[kitIndex].drumKit[i]; 
+        }
     }
 }

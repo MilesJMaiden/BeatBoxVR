@@ -116,34 +116,102 @@ MonoBehaviour:
   - KitName: 60's Abbey Road Drum Kit
     drumKit:
     - tag: SnareDrum
-      sound: {fileID: 8300000, guid: 20fa4d2f4a806da4b8aa74a03fb68e87, type: 3}
+      sound: {fileID: 8300000, guid: b8f21a29b750aca4db20e14f80ba1e28, type: 3}
     - tag: SnareDrumRim
-      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+      sound: {fileID: 8300000, guid: ac501518b385bea41b5b5a2b7f804ac5, type: 3}
     - tag: SmallTomTom
-      sound: {fileID: 8300000, guid: 0923a3b012272644db5aafb15f7dbb9b, type: 3}
+      sound: {fileID: 8300000, guid: de06b3bd5d2eca14fa9b5b64d1ea7acc, type: 3}
     - tag: SmallTomTomRim
-      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+      sound: {fileID: 8300000, guid: c2ab2d9b9217e7a44a0b1fe5af015507, type: 3}
     - tag: MediumTomTom
-      sound: {fileID: 8300000, guid: 70c5a333b0bea7348bbe566bd62bb85a, type: 3}
+      sound: {fileID: 8300000, guid: 6b77ed7e6f6789843bf4698973588bb2, type: 3}
     - tag: MediumTomTomRim
-      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+      sound: {fileID: 8300000, guid: 0ff95daac8a2c66409099159cda1f6db, type: 3}
     - tag: FloorTom
-      sound: {fileID: 8300000, guid: d1b7fd791cea15745bdd82ceed0c5e33, type: 3}
+      sound: {fileID: 8300000, guid: 1f80f7130fc76a945b49f388cde539d6, type: 3}
     - tag: FloorTomRim
-      sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
+      sound: {fileID: 8300000, guid: ad98d5857070324439f2f6e0adff2884, type: 3}
     - tag: CrashCymbal
-      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+      sound: {fileID: 8300000, guid: cf5c8dbfd3e3e30408c44d7dee3a1356, type: 3}
     - tag: CrashCymbalRim
-      sound: {fileID: 8300000, guid: 4b034ca249ef2e444bece8fcf0840bd4, type: 3}
+      sound: {fileID: 8300000, guid: 9cb01d529eefb784d85e70226db844f9, type: 3}
     - tag: RideCymbal
-      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+      sound: {fileID: 8300000, guid: 64810b8774188f547b6d51cb798b42c0, type: 3}
     - tag: RideCymbalRim
-      sound: {fileID: 8300000, guid: 6cdc4711aabdd5c479bbec297e34a744, type: 3}
+      sound: {fileID: 8300000, guid: fef5a041f6054f44c926b1f73a81fdea, type: 3}
     - tag: SplashCymbal
-      sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
+      sound: {fileID: 8300000, guid: 380b5727f956f4f43b0b8943fe602854, type: 3}
     - tag: SplashCymbalRim
-      sound: {fileID: 8300000, guid: 9494383ee2458c943bb8a94d511de28c, type: 3}
+      sound: {fileID: 8300000, guid: e499f91680376b34888241fbfc193b80, type: 3}
     - tag: KickDrum
-      sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
+      sound: {fileID: 8300000, guid: 99f39cc6d30c6384d88d496f0f19cfb0, type: 3}
     - tag: HiHat
-      sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
+      sound: {fileID: 8300000, guid: ea28b743cb5a0ac4ca9bfd0705750b95, type: 3}
+  - KitName: Abbey Road Jazz Drum Kit
+    drumKit:
+    - tag: SnareDrum
+      sound: {fileID: 8300000, guid: d28abd92e0f994e49b550efccf8da177, type: 3}
+    - tag: SnareDrumRim
+      sound: {fileID: 8300000, guid: d26970f50f903eb4b918a4bca42071ad, type: 3}
+    - tag: SmallTomTom
+      sound: {fileID: 8300000, guid: 4778c77b07e3301429d33881c79664b9, type: 3}
+    - tag: SmallTomTomRim
+      sound: {fileID: 8300000, guid: 77dd2f95227e5e64fac8bc82871223e9, type: 3}
+    - tag: MediumTomTom
+      sound: {fileID: 8300000, guid: 57ccf7fa9d0c73d4bac5b242daa7517e, type: 3}
+    - tag: MediumTomTomRim
+      sound: {fileID: 8300000, guid: 08f2fba0fe26ce04b8621e469ea78912, type: 3}
+    - tag: FloorTom
+      sound: {fileID: 8300000, guid: b003072452ed45f4e9c6c9f41fcfa015, type: 3}
+    - tag: FloorTomRim
+      sound: {fileID: 8300000, guid: ff49623ffa2270744947f3b9daf25ed6, type: 3}
+    - tag: CrashCymbal
+      sound: {fileID: 8300000, guid: 3805ecf879e0c7241848bde9f7b35bb9, type: 3}
+    - tag: CrashCymbalRim
+      sound: {fileID: 8300000, guid: 451db8ef5bf49a34f8db0b1869718c9a, type: 3}
+    - tag: RideCymbal
+      sound: {fileID: 8300000, guid: 3244256dc7db1a340b77ef9f9673ef82, type: 3}
+    - tag: RideCymbalRim
+      sound: {fileID: 8300000, guid: 456ca639d9ae5db4388e31f3acd57be3, type: 3}
+    - tag: SplashCymbal
+      sound: {fileID: 8300000, guid: add4134e497db9b42b6b9722ef68273f, type: 3}
+    - tag: SplashCymbalRim
+      sound: {fileID: 8300000, guid: 2c0fee6494677a0459df54afd04d127a, type: 3}
+    - tag: KickDrum
+      sound: {fileID: 8300000, guid: 78706ec5f1b7bf945b67ced3e8d7170a, type: 3}
+    - tag: HiHat
+      sound: {fileID: 8300000, guid: 8ff9becda6c33484ca8b4b0e01ba1cc0, type: 3}
+  - KitName: Abbey Road Soul Drum Kit
+    drumKit:
+    - tag: SnareDrum
+      sound: {fileID: 8300000, guid: 05a8f83731607954489c397a9154ba37, type: 3}
+    - tag: SnareDrumRim
+      sound: {fileID: 8300000, guid: ad41c03e5e2933c4b92f0fcb1e79f27f, type: 3}
+    - tag: SmallTomTom
+      sound: {fileID: 8300000, guid: db66983b69ead9f478497320487160c4, type: 3}
+    - tag: SmallTomTomRim
+      sound: {fileID: 8300000, guid: 795ae44e321ac0441a79f7ac91a0b9b5, type: 3}
+    - tag: MediumTomTom
+      sound: {fileID: 8300000, guid: 73cbfcd2cf3832f4699e42f350924eb3, type: 3}
+    - tag: MediumTomTomRim
+      sound: {fileID: 8300000, guid: a8801a90cc577f24e9a6790224c81700, type: 3}
+    - tag: FloorTom
+      sound: {fileID: 8300000, guid: 312ece47999d98e4db4e28c0cfd60132, type: 3}
+    - tag: FloorTomRim
+      sound: {fileID: 8300000, guid: 50b692e89e475cc43962c5c0104e44e7, type: 3}
+    - tag: CrashCymbal
+      sound: {fileID: 8300000, guid: 89dd479b254a15f42b577a5ef0f61616, type: 3}
+    - tag: CrashCymbalRim
+      sound: {fileID: 8300000, guid: b2291fd7a276d294caf9ab2c8e7308cc, type: 3}
+    - tag: RideCymbal
+      sound: {fileID: 8300000, guid: 1c21d4c09605cf046b63fa336f2705c3, type: 3}
+    - tag: RideCymbalRim
+      sound: {fileID: 8300000, guid: 1c7a36870be910d4fa3913e275af8299, type: 3}
+    - tag: SplashCymbal
+      sound: {fileID: 8300000, guid: 7ce0b568ee5670548859b26524ecf3a1, type: 3}
+    - tag: SplashCymbalRim
+      sound: {fileID: 8300000, guid: c080026a0447a404a9d2debd7a856191, type: 3}
+    - tag: KickDrum
+      sound: {fileID: 8300000, guid: 8b7f3140812e2364eac21bd108dfc9c1, type: 3}
+    - tag: HiHat
+      sound: {fileID: 8300000, guid: 08e23ae051872e345a846ad76b9bf6b2, type: 3}
