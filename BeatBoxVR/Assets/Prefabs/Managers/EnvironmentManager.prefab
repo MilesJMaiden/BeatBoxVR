@@ -54,6 +54,10 @@ MonoBehaviour:
     skybox: {fileID: 8900000, guid: 14e4ab7ea2c1f484faa89daef7511079, type: 3}
     environmentPrefab: {fileID: 3313795342881220958}
     environmentImage: {fileID: 21300000, guid: 7579b1a66f9f79a44bf6f70a4b7dca9d, type: 3}
+  - name: Bar
+    skybox: {fileID: 8900000, guid: 737ebadde0b78ed47bbd33ffca84b8a6, type: 3}
+    environmentPrefab: {fileID: 5468107097509599231}
+    environmentImage: {fileID: 21300000, guid: 5930c72b2b307b640becc858369d9c95, type: 3}
   skyboxMaterial: {fileID: 2100000, guid: 598c010340e9ef04baf32c15abb801bf, type: 2}
   environmentNameText: {fileID: 0}
   environmentImageUI: {fileID: 0}
@@ -299,11 +303,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 8158407490635946934, guid: eff1d99d295299241bb73170e97b11d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff1d99d295299241bb73170e97b11d9, type: 3}
+--- !u!1 &5468107097509599231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8158407490635946934, guid: eff1d99d295299241bb73170e97b11d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4240950540976507977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8473331737745807498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5714417421260297411, guid: eff1d99d295299241bb73170e97b11d9,
