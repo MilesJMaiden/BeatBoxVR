@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using static EnvironmentManager;
 using static SoundManager;
 
 public class SoundManager : MonoBehaviour
@@ -20,12 +23,16 @@ public class SoundManager : MonoBehaviour
     public class DrumKit
     {
         public string KitName;           // Tag to identify the percussion instrument
+        public Sprite KitImage;
         public PercussionSound[] drumKit;
     }
 
     // Lists to hold the sounds for drums and cymbals
     public List<PercussionSound> percussionSounds;
     public List<DrumKit> drumKitList;
+    private int currDrumKitIndex = 0;
+    public TextMeshProUGUI currDrumKitTMP;
+    public Image currDrumKitSprite;
 
     // Play a sound based on the tag, position, and velocity
     public void PlaySound(string tag, Vector3 position, float velocity)
@@ -77,9 +84,27 @@ public class SoundManager : MonoBehaviour
 
     public void loadDrumKit(int kitIndex)
     {
+        Debug.Log(kitIndex);
+        Debug.Log(drumKitList[kitIndex].KitName);
+        currDrumKitTMP.text = drumKitList[kitIndex].KitName;
+        currDrumKitSprite.sprite = drumKitList[kitIndex].KitImage;
+
         for (int i = 0; i < percussionSounds.Count; i++)
         {
             percussionSounds[i] = drumKitList[kitIndex].drumKit[i]; 
         }
     }
+
+    public void incrementDrumKit()
+    {
+        currDrumKitIndex = (currDrumKitIndex + 1) % drumKitList.Count;
+        loadDrumKit(currDrumKitIndex);
+    }
+
+    public void decrementDrumKit()
+    {
+        currDrumKitIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
+        loadDrumKit(currDrumKitIndex);
+    }
+
 }

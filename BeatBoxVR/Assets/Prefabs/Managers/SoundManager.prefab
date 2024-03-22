@@ -80,6 +80,7 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
   drumKitList:
   - KitName: Default Drum Kit
+    KitImage: {fileID: 21300000, guid: 516a32ea1fa7fe54a9eae1aceabf6257, type: 3}
     drumKit:
     - tag: SnareDrum
       sound: {fileID: 8300000, guid: 20fa4d2f4a806da4b8aa74a03fb68e87, type: 3}
@@ -113,7 +114,8 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
-  - KitName: 60's Abbey Road Drum Kit
+  - KitName: 60's Abbey Road
+    KitImage: {fileID: 21300000, guid: f784142b08559ae40a7dc1316e7c2b88, type: 3}
     drumKit:
     - tag: SnareDrum
       sound: {fileID: 8300000, guid: b8f21a29b750aca4db20e14f80ba1e28, type: 3}
@@ -147,7 +149,8 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: 99f39cc6d30c6384d88d496f0f19cfb0, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: ea28b743cb5a0ac4ca9bfd0705750b95, type: 3}
-  - KitName: Abbey Road Jazz Drum Kit
+  - KitName: Jazz Drum Kit
+    KitImage: {fileID: 21300000, guid: bebd166d8439c3c43908f6bae821cd2f, type: 3}
     drumKit:
     - tag: SnareDrum
       sound: {fileID: 8300000, guid: d28abd92e0f994e49b550efccf8da177, type: 3}
@@ -181,7 +184,8 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: 78706ec5f1b7bf945b67ced3e8d7170a, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: 8ff9becda6c33484ca8b4b0e01ba1cc0, type: 3}
-  - KitName: Abbey Road Soul Drum Kit
+  - KitName: Soul Drum Kit
+    KitImage: {fileID: 21300000, guid: 8af0a61a633aabb4e8bc6b2c27c4af68, type: 3}
     drumKit:
     - tag: SnareDrum
       sound: {fileID: 8300000, guid: 05a8f83731607954489c397a9154ba37, type: 3}
@@ -215,3 +219,5 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: 8b7f3140812e2364eac21bd108dfc9c1, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: 08e23ae051872e345a846ad76b9bf6b2, type: 3}
+  currDrumKitTMP: {fileID: 0}
+  currDrumKitSprite: {fileID: 0}
