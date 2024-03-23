@@ -17,7 +17,16 @@ public class DetectBlock : MonoBehaviour
 
     public void Update()
     {
-        
+        // This part is not finished
+        // Missing:
+        // indicators go into detection zone
+        // if hit in same tag drum
+        // if hit successful hit particle
+        // if not miss particle
+
+
+
+
         // change this part : Hit Timing 
         if (Input.GetKeyDown(KeyCode.T))
         {
