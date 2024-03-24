@@ -123,6 +123,11 @@ MonoBehaviour:
   rightHand: {fileID: 5892607280492749312}
   leftHand: {fileID: 7646323852468809475}
   expectedTag: MediumTomTom
+  hitVFXPrefab: {fileID: 203772289011457570, guid: 93d203e7f8ebf474b93ea34b9814ac39,
+    type: 3}
+  missVFXPrefab: {fileID: 203772289011457570, guid: 7ba2ec13b355c2a4095d84f221aed488,
+    type: 3}
+  destroyDelay: 0.5
 --- !u!1 &5892607280492749312
 GameObject:
   m_ObjectHideFlags: 0

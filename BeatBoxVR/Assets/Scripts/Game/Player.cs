@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public ScoreZone hiHatScoreZone;
     public ScoreZone kickDrumScoreZone;
 
+    public DetectBlock hihatDetectBlock;
+    public DetectBlock kickDrumDetectBlock;
+
     private XRIDefaultInputActions inputActions;
     private InputAction leftJoystickAction;
     private InputAction rightJoystickAction;
@@ -119,6 +122,7 @@ public class Player : MonoBehaviour
         if (hiHatScoreZone != null)
         {
             hiHatScoreZone.AttemptToHitNoteWithTag("HiHat");
+            hihatDetectBlock.AttemptToHitNoteWithTag("HiHat");
         }
         else
         {
@@ -138,6 +142,7 @@ public class Player : MonoBehaviour
         if (kickDrumScoreZone != null)
         {
             kickDrumScoreZone.AttemptToHitNoteWithTag("KickDrum");
+            kickDrumDetectBlock.AttemptToHitNoteWithTag("KickDrum");
         }
         else
         {

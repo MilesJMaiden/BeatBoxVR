@@ -294,6 +294,11 @@ MonoBehaviour:
   rightHand: {fileID: 8073270513391525445}
   leftHand: {fileID: 2915789837675336770}
   expectedTag: HiHat
+  hitVFXPrefab: {fileID: 203772289011457570, guid: 93d203e7f8ebf474b93ea34b9814ac39,
+    type: 3}
+  missVFXPrefab: {fileID: 203772289011457570, guid: 7ba2ec13b355c2a4095d84f221aed488,
+    type: 3}
+  destroyDelay: 0.5
 --- !u!1 &8073270513391525445
 GameObject:
   m_ObjectHideFlags: 0

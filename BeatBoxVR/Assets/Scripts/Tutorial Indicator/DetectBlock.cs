@@ -35,15 +35,40 @@ public class DetectBlock : MonoBehaviour
             tutorialHandIndicatorInZone.Remove(tutorialHandIndicator);
         }
     }
+
+    public void AttemptToHitNoteWithTag(string noteTag)
+    {
+
+        foreach (var tutorialHandIndicator in tutorialHandIndicatorInZone)
+        {
+            if (tutorialHandIndicator.expectedTag == noteTag && !tutorialHandIndicator.IsHit)
+            {
+                Debug.Log($"Hitting note: {tutorialHandIndicator.name}, Tag: {noteTag}");
+                tutorialHandIndicator.HandleHit();
+
+                break;
+            }
+        }
+
+        Debug.Log($"Total hits processed for {noteTag}");
+    }
+
+    public void HandleInstrumentHit(string instrumentTag)
+    {
+        foreach (var tutorialHandIndicator in tutorialHandIndicatorInZone)
+        {
+            if (tutorialHandIndicator.expectedTag == instrumentTag && !tutorialHandIndicator.IsHit)
+            {
+                tutorialHandIndicator.HandleHit(); // Marks the note as hit and updates the game state
+                // No need for hitCount logic here unless you have a specific gameplay reason
+            }
+        }
+    }
     public void Update()
     {
-        // This part is not finished
-        // Missing:
-        // indicators go into detection zone
-        // if hit in same tag drum
-        // if hit successful hit particle
-        // if not miss particle
-
+        //Missing:
+        // HandleMiss();
+        // Test
 
 
 

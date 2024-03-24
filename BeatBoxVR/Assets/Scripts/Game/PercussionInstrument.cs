@@ -28,6 +28,7 @@ public class PercussionInstrument : MonoBehaviour
     private bool animationsEnabled = true;
     
     public ScoreZone scoreZone;
+    public DetectBlock detectBlock;
 
     void Start()
     {
@@ -70,8 +71,10 @@ public class PercussionInstrument : MonoBehaviour
                 float velocity = drumstick.GetCurrentVelocity();
                 Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-                // Notify the ScoreZone regardless of animations enabled
+                // Notify the ScoreZone and DetectBlock regardless of animations enabled
                 scoreZone?.HandleInstrumentHit(gameObject.tag);
+
+                detectBlock?.HandleInstrumentHit(gameObject.tag);
 
                 // Conditional VFX instantiation based on the vfxEnabled toggle
                 if (vfxEnabled && velocity > 1)
