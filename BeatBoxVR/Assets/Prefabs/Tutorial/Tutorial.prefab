@@ -398,9 +398,10 @@ GameObject:
   - component: {fileID: 6994716432564441804}
   - component: {fileID: 670852419910104001}
   - component: {fileID: 5286464103396504002}
+  - component: {fileID: 1839534229830559443}
   m_Layer: 0
   m_Name: MediumTom
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -454,6 +455,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &1839534229830559443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690579009594955382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30750126, y: 0.104640886, z: 0.19040057}
+  m_Center: {x: -0.0017361045, y: -0.010656359, z: 0.0038775804}
 --- !u!1 &744641486682803571
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,9 +692,10 @@ GameObject:
   - component: {fileID: 8132283098274051769}
   - component: {fileID: 5829090669416725997}
   - component: {fileID: 6320105266887118448}
+  - component: {fileID: 4772064833019484873}
   m_Layer: 0
   m_Name: SmallTom
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -726,6 +749,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &4772064833019484873
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224060597240471466}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30137292, y: 0.10483725, z: 0.19793436}
+  m_Center: {x: 0.0018276721, y: 0.00075096823, z: -0.0033385458}
 --- !u!1 &1375698524390300809
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,9 +952,10 @@ GameObject:
   - component: {fileID: 4758103510431108918}
   - component: {fileID: 8608280286374372509}
   - component: {fileID: 6283511747037663691}
+  - component: {fileID: 6557357289417216635}
   m_Layer: 0
   m_Name: RideCymbal
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -964,6 +1009,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &6557357289417216635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441316796254146885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3011498, y: 0.102635995, z: 0.20861866}
+  m_Center: {x: 0.00024190545, y: 0.0014894586, z: -0.0024950877}
 --- !u!1 &1948049391328707090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,9 +1691,10 @@ GameObject:
   - component: {fileID: 6602219598677145030}
   - component: {fileID: 692809273008831412}
   - component: {fileID: 6029859105967863966}
+  - component: {fileID: 6778204212941261371}
   m_Layer: 0
   m_Name: Snare
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1748,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &6778204212941261371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306877436013824912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30093348, y: 0.093930125, z: 0.20518158}
+  m_Center: {x: 0.00039714575, y: 0.010867141, z: -0.0022871944}
 --- !u!1 &2307527315767391247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,9 +2657,10 @@ GameObject:
   - component: {fileID: 7774963701075522904}
   - component: {fileID: 7687847892350324053}
   - component: {fileID: 5528313334159277077}
+  - component: {fileID: 1304041762379755539}
   m_Layer: 0
   m_Name: SplashCymbal
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2625,6 +2714,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 8
+--- !u!65 &1304041762379755539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3784945339255919260}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2937777, y: 0.101342656, z: 0.20600414}
+  m_Center: {x: -0.0029921532, y: 0.001197923, z: 0.0011277795}
 --- !u!1 &3797212281813073592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,9 +3569,10 @@ GameObject:
   - component: {fileID: 928111197074181470}
   - component: {fileID: 3237466108919380288}
   - component: {fileID: 8387936504606465440}
+  - component: {fileID: 600691129801206789}
   m_Layer: 0
   m_Name: KickDrum
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3515,6 +3626,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &600691129801206789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588838348962325660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2980934, y: 0.0937404, z: 0.19967866}
+  m_Center: {x: 0.0009910315, y: 0.010076, z: 0.0006361042}
 --- !u!1 &4705373063385280184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3526,9 +3658,10 @@ GameObject:
   - component: {fileID: 8365465268853764732}
   - component: {fileID: 2715855127714049401}
   - component: {fileID: 4625138639451465725}
+  - component: {fileID: 5598060021294367296}
   m_Layer: 0
   m_Name: FloorTom
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3580,8 +3713,29 @@ MonoBehaviour:
   size: {x: 0.2, y: 0.2, z: 0.2}
   blockLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   drum: 6
+--- !u!65 &5598060021294367296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705373063385280184}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29245836, y: 0.10000849, z: 0.19351795}
+  m_Center: {x: 0.0035155118, y: 0.005512044, z: -0.007809271}
 --- !u!1 &4843015476573927298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,9 +5711,10 @@ GameObject:
   - component: {fileID: 3274229039315470731}
   - component: {fileID: 1637141725594392006}
   - component: {fileID: 1690970566677687601}
+  - component: {fileID: 8945679574282379285}
   m_Layer: 0
   m_Name: Hi-Hat
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5613,6 +5768,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &8945679574282379285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185653351851914613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.29909992, y: 0.11554988, z: 0.19250292}
+  m_Center: {x: -0.00017940998, y: -0.0050786734, z: 0.0015316086}
 --- !u!1 &7327377572566076045
 GameObject:
   m_ObjectHideFlags: 0
@@ -6426,9 +6602,10 @@ GameObject:
   - component: {fileID: 4755483071153392414}
   - component: {fileID: 2263589494945276908}
   - component: {fileID: 2609964258252224648}
+  - component: {fileID: 6960349385019860461}
   m_Layer: 0
   m_Name: CrashCymbal
-  m_TagString: Untagged
+  m_TagString: ScoreZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,6 +6659,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   drum: 0
+--- !u!65 &6960349385019860461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383311823528250181}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3008043, y: 0.105923176, z: 0.19649918}
+  m_Center: {x: 0.001345709, y: -0.0032199603, z: 0.0023945943}
 --- !u!1 &8385456344139208564
 GameObject:
   m_ObjectHideFlags: 0
