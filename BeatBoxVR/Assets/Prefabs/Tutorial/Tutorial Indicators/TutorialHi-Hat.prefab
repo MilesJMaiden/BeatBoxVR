@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 4380859143017264540}
   m_Layer: 6
   m_Name: TutorialHi-Hat
-  m_TagString: Untagged
+  m_TagString: HiHat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 8073270513391525445}
   leftHand: {fileID: 2915789837675336770}
+  expectedTag: HiHat
 --- !u!1 &8073270513391525445
 GameObject:
   m_ObjectHideFlags: 0

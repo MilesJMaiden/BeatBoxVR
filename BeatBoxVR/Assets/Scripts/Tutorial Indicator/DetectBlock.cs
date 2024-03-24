@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DetectBlock : MonoBehaviour
@@ -9,12 +10,31 @@ public class DetectBlock : MonoBehaviour
     public LayerMask blockLayerMask;
     public Drum drum;
 
+    private List<TutorialHandIndicator> tutorialHandIndicatorInZone = new List<TutorialHandIndicator>();
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, size);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        TutorialHandIndicator tutorialHandIndicator = other.GetComponent<TutorialHandIndicator>();
+        if (tutorialHandIndicator != null)
+        {
+            tutorialHandIndicatorInZone.Add(tutorialHandIndicator);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        TutorialHandIndicator tutorialHandIndicator = other.GetComponent<TutorialHandIndicator>();
+        if (tutorialHandIndicator != null)
+        {
+            tutorialHandIndicatorInZone.Remove(tutorialHandIndicator);
+        }
+    }
     public void Update()
     {
         // This part is not finished
@@ -28,27 +48,27 @@ public class DetectBlock : MonoBehaviour
 
 
         // change this part : Hit Timing 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Collider[] cols = Physics.OverlapBox(transform.position, size / 2, Quaternion.identity, blockLayerMask);
-            if(cols.Length <= 0 )
-            {
-                Debug.Log("Miss");
-                return;
-            }
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    Collider[] cols = Physics.OverlapBox(transform.position, size / 2, Quaternion.identity, blockLayerMask);
+        //    if(cols.Length <= 0 )
+        //    {
+        //        Debug.Log("Miss");
+        //        return;
+        //    }
 
-            float distance = Vector3.Distance ( cols[0].transform.position,transform.position);
-            Debug.Log($"distance : {distance}");
+        //    float distance = Vector3.Distance ( cols[0].transform.position,transform.position);
+        //    Debug.Log($"distance : {distance}");
 
-            if ( distance <= 0.05f )
-            {
-                Debug.Log("perfect");
-            }
-            else if (distance <= 0.5f)
-            {
-                Debug.Log("good");
-            }
-        }
+        //    if ( distance <= 0.05f )
+        //    {
+        //        Debug.Log("perfect");
+        //    }
+        //    else if (distance <= 0.5f)
+        //    {
+        //        Debug.Log("good");
+        //    }
+        //}
     }
 }
 

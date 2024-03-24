@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 6854792726067973471}
   m_Layer: 6
   m_Name: TutorialRideCymbal
-  m_TagString: Untagged
+  m_TagString: RideCymbalRim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,3 +464,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 5604776860616929378}
   leftHand: {fileID: 222672079748393798}
+  expectedTag: RideCymbalRim

@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 4740808493929128257}
   m_Layer: 6
   m_Name: TutorialFloorTom
-  m_TagString: Untagged
+  m_TagString: FloorTom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1930823343909198674}
   leftHand: {fileID: 8974680832988643805}
+  expectedTag: FloorTom
 --- !u!1 &8974680832988643805
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,4 +6,6 @@ public class TutorialHandIndicator : MonoBehaviour
 {
     public GameObject rightHand;
     public GameObject leftHand;
+
+    public string expectedTag;
 }

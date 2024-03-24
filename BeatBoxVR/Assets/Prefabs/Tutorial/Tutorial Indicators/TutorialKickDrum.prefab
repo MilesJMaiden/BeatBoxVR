@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 6369855656268832931}
   m_Layer: 6
   m_Name: TutorialKickDrum
-  m_TagString: Untagged
+  m_TagString: KickDrum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 5187366238001709835}
   leftHand: {fileID: 3886326200972900794}
+  expectedTag: KickDrum
 --- !u!1 &5187366238001709835
 GameObject:
   m_ObjectHideFlags: 0

@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 8817971820956662259}
   m_Layer: 6
   m_Name: TutorialSnare
-  m_TagString: Untagged
+  m_TagString: SnareDrum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,3 +464,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1341092702995913228}
   leftHand: {fileID: 6230297844068153217}
+  expectedTag: SnareDrum
