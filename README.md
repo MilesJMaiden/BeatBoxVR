@@ -1,4 +1,4 @@
-# VirtualReality
+# BeatBoxVR
 Source files for the Virtual Reality module at Goldsmiths University;
 
 Game Title: BeatBox VR
