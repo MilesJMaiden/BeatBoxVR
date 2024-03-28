@@ -3,7 +3,7 @@ using UnityEngine.UI; // Include the UI namespace for Button.
 
 public class TabSystem : MonoBehaviour
 {
-    // Array of buttons for the tabs.
+    // Array of tab buttons.
     public Button[] tabs;
 
     // Array of GameObjects that correspond to each tab.
@@ -28,7 +28,7 @@ public class TabSystem : MonoBehaviour
         // Deactivate all others.
         for (int i = 0; i < tabPages.Length; i++)
         {
-            if (tabPages[i] != null) // Check if the GameObject reference is not null.
+            if (tabPages[i] != null)
             {
                 tabPages[i].SetActive(i == tabIndex);
             }
