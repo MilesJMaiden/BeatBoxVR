@@ -54,6 +54,11 @@ MonoBehaviour:
     skybox: {fileID: 8900000, guid: 14e4ab7ea2c1f484faa89daef7511079, type: 3}
     environmentPrefab: {fileID: 3313795342881220958}
     environmentImage: {fileID: 21300000, guid: 7579b1a66f9f79a44bf6f70a4b7dca9d, type: 3}
+  - name: Bar
+    skybox: {fileID: 0}
+    environmentPrefab: {fileID: 8158407490635946934, guid: eff1d99d295299241bb73170e97b11d9,
+      type: 3}
+    environmentImage: {fileID: 21300000, guid: 5930c72b2b307b640becc858369d9c95, type: 3}
   skyboxMaterial: {fileID: 2100000, guid: 598c010340e9ef04baf32c15abb801bf, type: 2}
   environmentNameText: {fileID: 0}
   environmentImageUI: {fileID: 0}
