@@ -371,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5220793675137602350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -386,8 +386,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4280102536014866280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 26}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1210,7 +1210,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000015258789, y: -81.00001}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7939140499368101390
 CanvasRenderer:
@@ -3442,7 +3442,7 @@ GameObject:
   - component: {fileID: 8582972389514683563}
   - component: {fileID: 904165787564016158}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4019,7 +4019,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 237, y: 16}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1001024381295815336
 CanvasRenderer:
@@ -5106,7 +5106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e508048498052e846982558bf31ac8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetImage: {fileID: 0}
+  targetImage: {fileID: 6167047182154119697}
   green: {r: 0.49803922, g: 1, b: 0, a: 0.07058824}
   red: {r: 1, g: 0.21568628, b: 0, a: 0.07058824}
   blue: {r: 0, g: 0.5294118, b: 1, a: 0.07058824}
@@ -5734,8 +5734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 38.9, y: 14.2}
-  m_SizeDelta: {x: 77.7, y: 28.3}
+  m_AnchoredPosition: {x: -6, y: 12.1}
+  m_SizeDelta: {x: -0.04979253, y: 9.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3931900116213167209
 CanvasRenderer:
@@ -6230,7 +6230,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 237.00005, y: 98}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5878415068274367194
 CanvasRenderer:
@@ -6510,7 +6510,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000045776367, y: 163}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3017249381766029262
 CanvasRenderer:
@@ -7224,7 +7224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8570899767051056834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7906,7 +7906,7 @@ GameObject:
   - component: {fileID: 1879153188347911492}
   - component: {fileID: 963193821624307451}
   m_Layer: 0
-  m_Name: DrumCustomizationManager
+  m_Name: CustomizationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7952,22 +7952,22 @@ MonoBehaviour:
     baseMap: {fileID: 2800000, guid: 968a57330a015f140835071b4c99f5d1, type: 3}
     specularMap: {fileID: 2800000, guid: 1f34744c2fa939f4b804da1fbba22fd8, type: 3}
     normalMap: {fileID: 2800000, guid: 3dc09a98b49796743bcadcc90f4e291f, type: 3}
-    setPreviewImage: {fileID: 0}
+    setPreviewImage: {fileID: 21300000, guid: 882651c8827e51c49865348872b7ef71, type: 3}
   - name: Red Marble
     baseMap: {fileID: 2800000, guid: 17b715606cc562f448ec14af4ec800c8, type: 3}
     specularMap: {fileID: 2800000, guid: 0d2d6ae821fd261428b87dc470c2eddb, type: 3}
     normalMap: {fileID: 2800000, guid: 2333813ace53fd7429fb2c30db5c10ff, type: 3}
-    setPreviewImage: {fileID: 0}
+    setPreviewImage: {fileID: 21300000, guid: 7c67c1922970a05409579be483c21e09, type: 3}
   - name: Pop Pink
     baseMap: {fileID: 2800000, guid: 705da52123a19f64e88ce183f70e2e46, type: 3}
     specularMap: {fileID: 2800000, guid: 5933e4e1082973e4789d5e2e95d2aff8, type: 3}
     normalMap: {fileID: 2800000, guid: 3914587a9ffb5f34eb590c89de6f0e26, type: 3}
-    setPreviewImage: {fileID: 0}
+    setPreviewImage: {fileID: 21300000, guid: bc2a7ae99b4fbf74bb6c9b4bcddb6003, type: 3}
   - name: Pop Blue
     baseMap: {fileID: 2800000, guid: 9fb67261b53ce164d8c1c544ade34294, type: 3}
     specularMap: {fileID: 2800000, guid: b7f9ac4594fa305419e26161360bfee2, type: 3}
     normalMap: {fileID: 2800000, guid: e8ce0a25a0299fc4385d67bda44f91bf, type: 3}
-    setPreviewImage: {fileID: 0}
+    setPreviewImage: {fileID: 21300000, guid: 5b3fc0b712566b74f905ac5042550f95, type: 3}
   textureSetNameText: {fileID: 2924260658631399114}
   textureSetPreviewImage: {fileID: 5582956109198982993}
 --- !u!1 &4008904097818800138
@@ -8349,7 +8349,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000015258789, y: 80.000114}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &547519545793029163
 CanvasRenderer:
@@ -8558,7 +8558,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000076293945, y: -1.9998894}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4216387954822870572
 CanvasRenderer:
@@ -8887,7 +8887,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 237.00005, y: 181}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5848963979371797650
 CanvasRenderer:
@@ -12141,8 +12141,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 105.82, y: 27}
-  m_SizeDelta: {x: 863.23, y: 27.2}
+  m_AnchoredPosition: {x: 105.82, y: 18}
+  m_SizeDelta: {x: 863.23, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6204516359746471999
 MonoBehaviour:
@@ -12191,7 +12191,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12282,7 +12282,7 @@ GameObject:
   - component: {fileID: 7529895302298637115}
   - component: {fileID: 5833915712433091007}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12441,7 +12441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 253.99994, y: 17.999992}
+  m_AnchoredPosition: {x: 235, y: 17.999992}
   m_SizeDelta: {x: 40.000122, y: 366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6595131695624516001
@@ -13547,7 +13547,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000076293945, y: -163.00003}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4876394825415851840
 CanvasRenderer:
@@ -14620,7 +14620,7 @@ RectTransform:
   m_Father: {fileID: 4927599563180008584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 12}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14674,7 +14674,7 @@ GameObject:
   - component: {fileID: 7664961510984023226}
   - component: {fileID: 2421064906550278871}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15958,7 +15958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7394125938028881291
 RectTransform:
   m_ObjectHideFlags: 0
