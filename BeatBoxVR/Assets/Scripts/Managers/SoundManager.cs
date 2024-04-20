@@ -24,9 +24,20 @@ public class SoundManager : MonoBehaviour
     [System.Serializable]
     public class DrumKit
     {
-        public string KitName;           // Tag to identify the percussion instrument
+        public string KitName;
         public Sprite KitImage;
         public PercussionSound[] drumKit;
+
+        public void PreloadSounds()
+        {
+            foreach (var sound in drumKit)
+            {
+                if (sound.sound != null)
+                {
+                    sound.sound.LoadAudioData();
+                }
+            }
+        }
     }
 
     // Lists to hold the sounds for drums and cymbals
@@ -35,6 +46,21 @@ public class SoundManager : MonoBehaviour
     private int currDrumKitIndex = 0;
     public TextMeshProUGUI currDrumKitTMP;
     public Image currDrumKitSprite;
+
+    void Start()
+    {
+        PreloadAllSounds();
+        LoadDrumKit(0); // Load the first kit or current kit
+    }
+
+    private void PreloadAllSounds()
+    {
+        foreach (var kit in drumKitList)
+        {
+            kit.PreloadSounds();
+        }
+    }
+
 
     // This method needs to differentiate based on hi-hat state
     public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
@@ -46,7 +72,7 @@ public class SoundManager : MonoBehaviour
             soundObject.transform.position = position;
             AudioSource audioSource = soundObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // 3D sound
+            audioSource.spatialBlend = 1.0f;
             audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
             audioSource.pitch = 1.0f + velocity * 0.1f;
             audioSource.Play();
@@ -60,13 +86,18 @@ public class SoundManager : MonoBehaviour
 
     private AudioClip GetClipForTag(string tag, bool isHiHatOpen)
     {
-        // Adjust tag based on hi-hat state
         if (tag.Contains("HiHat"))
-        {
             tag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
+
+        foreach (var kit in drumKitList)
+        {
+            foreach (var sound in kit.drumKit)
+            {
+                if (sound.tag == tag)
+                    return sound.sound;
+            }
         }
-        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
-        return sound?.sound;
+        return null;
     }
 
     // Method to adjust the master volume
