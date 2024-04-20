@@ -34,41 +34,49 @@ public class SoundManager : MonoBehaviour
     public TextMeshProUGUI currDrumKitTMP;
     public Image currDrumKitSprite;
 
-    // Adjusted to check both open and closed hi-hat sounds
-    public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen)
+    // This method needs to differentiate based on hi-hat state
+    public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
     {
-        string adjustedTag = isHiHatOpen ? tag + " Open" : tag + " Closed";
-        AudioClip clip = GetClipForTag(adjustedTag) ?? GetClipForTag(tag);  // Fallback to the default tag if specific open/close sound is not found
-
-        if (clip != null)
+        // Append tag modification for hi-hat here
+        string modifiedTag = tag;
+        if (tag == "HiHat")
         {
-            PlayAudioClip(clip, position, velocity);
+            modifiedTag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
+        }
+
+        AudioClip clip = GetClipForTag(modifiedTag);
+        if (clip)
+        {
+            AudioSource audioSource = CreateAudioSource(position);
+            SetupAudioSource(audioSource, clip, velocity);
         }
         else
         {
-            Debug.LogWarning("No sound found for tag: " + adjustedTag);
+            Debug.LogWarning("No sound found for tag: " + modifiedTag);
         }
     }
 
-    // Play a sound based on the tag, position, and velocity
-    private void PlayAudioClip(AudioClip clip, Vector3 position, float velocity)
+    private AudioSource CreateAudioSource(Vector3 position)
     {
         GameObject soundObject = new GameObject("TemporaryAudio");
         soundObject.transform.position = position;
-        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.spatialBlend = 1.0f;
-        audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
-        audioSource.pitch = 1.0f + velocity * 0.1f;
-        audioSource.Play();
-        Destroy(soundObject, clip.length);
+        return soundObject.AddComponent<AudioSource>();
     }
 
-    // Helper method to get the appropriate AudioClip based on the tag
+    private void SetupAudioSource(AudioSource source, AudioClip clip, float velocity)
+    {
+        source.clip = clip;
+        source.spatialBlend = 1.0f;
+        source.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
+        source.pitch = 1.0f + velocity * 0.1f;
+        source.Play();
+        Destroy(source.gameObject, clip.length);
+    }
+
     private AudioClip GetClipForTag(string tag)
     {
-        PercussionSound percussionSound = percussionSounds.Find(ps => ps.tag == tag);
-        return percussionSound?.sound;
+        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
+        return sound?.sound;
     }
 
     // Method to adjust the master volume
