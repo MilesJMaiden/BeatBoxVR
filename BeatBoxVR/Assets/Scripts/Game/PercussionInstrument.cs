@@ -81,8 +81,8 @@ public class PercussionInstrument : MonoBehaviour
                     GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
                     if (vfxPrefab != null)
                     {
-                        Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up, velocity);
+                        //Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+                        //InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up, velocity);
                     }
                 }
 

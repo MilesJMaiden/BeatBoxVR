@@ -23,6 +23,8 @@ public class Drumstick : MonoBehaviour
     public bool enableHapticFeedback = true; // Flag to control haptic feedback
     public float LastHitVelocity { get; private set; }
 
+    public ScoreZone scoreZone;
+
     void Start()
     {
         //player = FindObjectOfType<Player>(); // Ensure there's a way to access the Player instance
@@ -52,7 +54,7 @@ public class Drumstick : MonoBehaviour
             float clampedVelocity = GetCurrentVelocity();
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;  // Get the hi-hat state from the player
+            bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;
             string soundTag = other.tag == "HiHat" ? (isHiHatOpen ? "HiHat Open" : "HiHat Closed") : other.tag;
 
             soundManager.PlaySound(soundTag, tipTransform.position, clampedVelocity / MaxVelocity, isHiHatOpen);
@@ -60,12 +62,18 @@ public class Drumstick : MonoBehaviour
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
-                //InstantiateVFX(vfxPrefab, other);
+                InstantiateVFX(vfxPrefab, other);
             }
 
             if (enableHapticFeedback)
             {
                 TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
+            }
+
+            // Trigger score zone logic if there is a hit and scoreZone is assigned
+            if (scoreZone != null)
+            {
+                scoreZone.AttemptToHitNoteWithTag(soundTag); // This should be the tag related to music notes, not drum parts unless they are the same
             }
         }
     }

@@ -24,19 +24,47 @@ public class SoundManager : MonoBehaviour
     [System.Serializable]
     public class DrumKit
     {
-        public string KitName;           // Tag to identify the percussion instrument
+        public string KitName;
         public Sprite KitImage;
         public PercussionSound[] drumKit;
+        public Dictionary<string, AudioClip> soundMap = new Dictionary<string, AudioClip>();
+
+        public void BuildSoundDictionary()
+        {
+            soundMap.Clear();
+            foreach (PercussionSound sound in drumKit)
+            {
+                if (!soundMap.ContainsKey(sound.tag))
+                    soundMap.Add(sound.tag, sound.sound);
+                else
+                    Debug.LogWarning("Duplicate sound tag found: " + sound.tag);
+            }
+        }
     }
 
-    // Lists to hold the sounds for drums and cymbals
-    public List<PercussionSound> percussionSounds;
     public List<DrumKit> drumKitList;
     private int currDrumKitIndex = 0;
     public TextMeshProUGUI currDrumKitTMP;
     public Image currDrumKitSprite;
 
-    // This method needs to differentiate based on hi-hat state
+
+    void Start()
+    {
+        LoadDrumKit(0); // Load the first drum kit
+    }
+
+    public AudioClip GetClipForTag(string tag, bool isHiHatOpen)
+    {
+        if (tag.Contains("HiHat"))
+            tag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
+
+        if (drumKitList[currDrumKitIndex].soundMap.TryGetValue(tag, out AudioClip clip))
+            return clip;
+
+        Debug.LogWarning("Sound clip not found for tag: " + tag);
+        return null;
+    }
+
     public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
     {
         AudioClip clip = GetClipForTag(tag, isHiHatOpen);
@@ -46,7 +74,7 @@ public class SoundManager : MonoBehaviour
             soundObject.transform.position = position;
             AudioSource audioSource = soundObject.AddComponent<AudioSource>();
             audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // 3D sound
+            audioSource.spatialBlend = 1.0f;
             audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
             audioSource.pitch = 1.0f + velocity * 0.1f;
             audioSource.Play();
@@ -58,53 +86,28 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private AudioClip GetClipForTag(string tag, bool isHiHatOpen)
-    {
-        // Adjust tag based on hi-hat state
-        if (tag.Contains("HiHat"))
-        {
-            tag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
-        }
-        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
-        return sound?.sound;
-    }
-
-    // Method to adjust the master volume
-    public void SetMasterVolume(float sliderValue)
-    {
-        // Ensure sliderValue is never 0 to avoid log10(0) which is undefined
-        sliderValue = Mathf.Max(sliderValue, 0.0001f);
-        float volumeDb = Mathf.Log10(sliderValue) * 20;
-        audioMixer.SetFloat("MasterVolume", volumeDb);
-    }
-
-    // Method to adjust the drum volume
-    public void SetDrumVolume(float volume)
-    {
-        // Convert the volume to a logarithmic scale and set it
-        audioMixer.SetFloat("DrumVolume", Mathf.Log10(volume) * 20);
-    }
-
     public void LoadDrumKit(int kitIndex)
     {
         if (kitIndex >= 0 && kitIndex < drumKitList.Count)
         {
+            drumKitList[kitIndex].BuildSoundDictionary(); // Build dictionary for the kit
+            currDrumKitIndex = kitIndex;
             currDrumKitTMP.text = drumKitList[kitIndex].KitName;
             currDrumKitSprite.sprite = drumKitList[kitIndex].KitImage;
-            percussionSounds = new List<PercussionSound>(drumKitList[kitIndex].drumKit);
         }
     }
 
+    // Methods for cycling through drum kits
     public void incrementDrumKit()
     {
-        currDrumKitIndex = (currDrumKitIndex + 1) % drumKitList.Count;
-        LoadDrumKit(currDrumKitIndex);
+        int nextIndex = (currDrumKitIndex + 1) % drumKitList.Count;
+        LoadDrumKit(nextIndex);
     }
 
     public void decrementDrumKit()
     {
-        currDrumKitIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
-        LoadDrumKit(currDrumKitIndex);
+        int prevIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
+        LoadDrumKit(prevIndex);
     }
 
 }
