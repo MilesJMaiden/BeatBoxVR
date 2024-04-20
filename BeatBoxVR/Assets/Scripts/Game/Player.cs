@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    //
 
     [Header("Note Interaction")]
     [Header("Score Zones")]

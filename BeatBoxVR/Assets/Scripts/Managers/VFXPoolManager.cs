@@ -4,7 +4,7 @@ using UnityEngine;
 public class VFXPoolManager : MonoBehaviour
 {
     public static VFXPoolManager Instance;
-
+    //
     [System.Serializable]
     public class Pool
     {
