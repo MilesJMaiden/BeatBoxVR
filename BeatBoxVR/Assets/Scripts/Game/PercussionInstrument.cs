@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PercussionInstrument : MonoBehaviour
 {
+    //
     private Player player;
 
     public GameObject animationPivot;

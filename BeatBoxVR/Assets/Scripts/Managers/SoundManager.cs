@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    //
     [Header("Audio Mixer")]
     public AudioMixer audioMixer; // Assign this in the Inspector
 
