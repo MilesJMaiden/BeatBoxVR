@@ -45,41 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 809e386a27221d548b757d448e374625, type: 2}
-  percussionSounds:
-  - tag: SnareDrum
-    sound: {fileID: 8300000, guid: 20fa4d2f4a806da4b8aa74a03fb68e87, type: 3}
-  - tag: SnareDrumRim
-    sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
-  - tag: SmallTomTom
-    sound: {fileID: 8300000, guid: 0923a3b012272644db5aafb15f7dbb9b, type: 3}
-  - tag: SmallTomTomRim
-    sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
-  - tag: MediumTomTom
-    sound: {fileID: 8300000, guid: 70c5a333b0bea7348bbe566bd62bb85a, type: 3}
-  - tag: MediumTomTomRim
-    sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
-  - tag: FloorTom
-    sound: {fileID: 8300000, guid: d1b7fd791cea15745bdd82ceed0c5e33, type: 3}
-  - tag: FloorTomRim
-    sound: {fileID: 8300000, guid: c76ed4351cab1dd4b8e2386c71c116de, type: 3}
-  - tag: CrashCymbal
-    sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
-  - tag: CrashCymbalRim
-    sound: {fileID: 8300000, guid: 4b034ca249ef2e444bece8fcf0840bd4, type: 3}
-  - tag: RideCymbal
-    sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
-  - tag: RideCymbalRim
-    sound: {fileID: 8300000, guid: 6cdc4711aabdd5c479bbec297e34a744, type: 3}
-  - tag: SplashCymbal
-    sound: {fileID: 8300000, guid: 8edaf0df1e4695a4e835942e7a168486, type: 3}
-  - tag: SplashCymbalRim
-    sound: {fileID: 8300000, guid: 9494383ee2458c943bb8a94d511de28c, type: 3}
-  - tag: KickDrum
-    sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
-  - tag: HiHat Closed
-    sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
-  - tag: HiHat Open
-    sound: {fileID: 8300000, guid: a8af0a2a1a06e404c9a615a267817bb1, type: 3}
   drumKitList:
   - KitName: Default Drum Kit
     KitImage: {fileID: 21300000, guid: 516a32ea1fa7fe54a9eae1aceabf6257, type: 3}
@@ -116,6 +81,10 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: e2777c185a8a9a8479968cd805be4b8c, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
+    - tag: HiHat Open
+      sound: {fileID: 8300000, guid: a8af0a2a1a06e404c9a615a267817bb1, type: 3}
+    - tag: HiHat Closed
+      sound: {fileID: 8300000, guid: b3e78bb708e70414aa5ef13b1d126b1d, type: 3}
   - KitName: 60's Abbey Road
     KitImage: {fileID: 21300000, guid: f784142b08559ae40a7dc1316e7c2b88, type: 3}
     drumKit:
@@ -151,6 +120,12 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: 99f39cc6d30c6384d88d496f0f19cfb0, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: ea28b743cb5a0ac4ca9bfd0705750b95, type: 3}
+    - tag: HiHat
+      sound: {fileID: 8300000, guid: ea28b743cb5a0ac4ca9bfd0705750b95, type: 3}
+    - tag: HiHat Open
+      sound: {fileID: 8300000, guid: c2480f2f9ac46574490588bee6b38be4, type: 3}
+    - tag: HiHat Closed
+      sound: {fileID: 8300000, guid: 3d555f39989d0fc4482a8637a84dc62d, type: 3}
   - KitName: Jazz Drum Kit
     KitImage: {fileID: 21300000, guid: bebd166d8439c3c43908f6bae821cd2f, type: 3}
     drumKit:
@@ -185,6 +160,10 @@ MonoBehaviour:
     - tag: KickDrum
       sound: {fileID: 8300000, guid: 78706ec5f1b7bf945b67ced3e8d7170a, type: 3}
     - tag: HiHat
+      sound: {fileID: 8300000, guid: 8ff9becda6c33484ca8b4b0e01ba1cc0, type: 3}
+    - tag: HiHat Open
+      sound: {fileID: 8300000, guid: 577c151baefae81419fa7a24d93e9955, type: 3}
+    - tag: HiHat Closed
       sound: {fileID: 8300000, guid: 8ff9becda6c33484ca8b4b0e01ba1cc0, type: 3}
   - KitName: Soul Drum Kit
     KitImage: {fileID: 21300000, guid: 8af0a61a633aabb4e8bc6b2c27c4af68, type: 3}
@@ -221,5 +200,9 @@ MonoBehaviour:
       sound: {fileID: 8300000, guid: 8b7f3140812e2364eac21bd108dfc9c1, type: 3}
     - tag: HiHat
       sound: {fileID: 8300000, guid: 08e23ae051872e345a846ad76b9bf6b2, type: 3}
+    - tag: HiHat Open
+      sound: {fileID: 8300000, guid: dd4a58fa8d5772d4ea507855392a84fc, type: 3}
+    - tag: HiHat Closed
+      sound: {fileID: 8300000, guid: c45ead29a1448f64f97d37315f92769b, type: 3}
   currDrumKitTMP: {fileID: 0}
   currDrumKitSprite: {fileID: 0}
