@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PercussionInstrument : MonoBehaviour
 {
+    private Player player;
+
     public GameObject animationPivot;
 
     public GameObject smallSplashVFXPrefab;
@@ -31,6 +33,8 @@ public class PercussionInstrument : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         soundManager = FindObjectOfType<SoundManager>();
         parentAnimator.SetBool("isAnimating", isAnimating);
         if (soundManager == null)
@@ -141,7 +145,9 @@ public class PercussionInstrument : MonoBehaviour
         if (other == surfaceCollider || (rimCollider != null && other == rimCollider))
         {
             string soundType = other == surfaceCollider ? "" : "Rim";
-            soundManager.PlaySound(this.tag + soundType, transform.position, velocity);
+            // Use the isHiHatOpen property from the Player instance
+            bool isHiHatOpen = (this.tag == "HiHat") ? player.isHiHatOpen : false;
+            soundManager.PlaySound(this.tag + soundType, transform.position, velocity, isHiHatOpen);
         }
     }
 

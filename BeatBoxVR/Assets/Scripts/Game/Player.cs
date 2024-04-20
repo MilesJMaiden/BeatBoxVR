@@ -34,6 +34,13 @@ public class Player : MonoBehaviour
     public GameObject hiHat;
     public bool animationsEnabled = true;
 
+    [Header("Hi-Hat Interaction")]
+    public GameObject hiHatTop; // Top part of the hi-hat
+    public Transform startPosition; // Start position for the hi-hat top
+    public Transform endPosition; // End position for the hi-hat top when the pedal is fully pressed
+    private InputAction hiHatPedalAction; // Input for hi-hat pedal
+    public bool isHiHatOpen = false; // Current state of the hi-hat
+
     private void Awake()
     {
         // Initialize input actions
@@ -47,7 +54,11 @@ public class Player : MonoBehaviour
         inputActions.XRILeftHand.PauseGame.performed += _ => gameManager.TogglePauseGame();
         inputActions.XRIRightHand.PauseGame.performed += _ => gameManager.TogglePauseGame();
 
-        inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
+        //inputActions.XRILeftHand.PlayHiHatAction.performed += ctx => PlayHiHat();
+        hiHatPedalAction = inputActions.XRILeftHand.PlayHiHatAction;
+        hiHatPedalAction.performed += ctx => UpdateHiHat(ctx.ReadValue<float>());
+        hiHatPedalAction.canceled += _ => UpdateHiHat(0);
+
         inputActions.XRIRightHand.PlayKickDrumAction.performed += ctx => PlayKickDrum();
 
         inputActions.XRILeftHand.AdjustVolumeRedux.performed += ctx => AdjustVolumeRedux(ctx.ReadValue<Vector2>(), true);
@@ -73,12 +84,7 @@ public class Player : MonoBehaviour
         leftJoystickAction.Enable();
         rightJoystickAction.Enable();
 
-
-
-        // Assign callbacks for input events
-        //leftJoystickAction.performed += ctx => AdjustRebalancedTrackVolume(ctx.ReadValue<Vector2>());
-        //rightJoystickAction.performed += ctx => AdjustDrumTrackVolume(ctx.ReadValue<Vector2>());
-
+        hiHatPedalAction.Enable();
     }
 
     private void OnDisable()
@@ -92,6 +98,8 @@ public class Player : MonoBehaviour
 
         leftJoystickAction.Disable();
         rightJoystickAction.Disable();
+
+        hiHatPedalAction.Disable();
     }
 
     private void TogglePauseGame()
@@ -107,29 +115,55 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void PlayHiHat()
+    //private void PlayHiHat()
+    //{
+    //    // Play HiHat sound and instantiate VFX
+    //    soundManager.PlaySound("HiHat", hiHatTransform.position, 1.0f);
+    //    InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+
+    //    // Play HiHat animation
+    //    StartCoroutine(AnimateHiHat());
+
+    //    if (hiHatScoreZone != null)
+    //    {
+    //        hiHatScoreZone.AttemptToHitNoteWithTag("HiHat");
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("HiHat ScoreZone reference not set in the Player script.");
+    //    }
+    //}
+
+    private void UpdateHiHat(float pedalPressure)
     {
-        // Play HiHat sound and instantiate VFX
-        soundManager.PlaySound("HiHat", hiHatTransform.position, 1.0f);
-        InstantiateVFX(hiHatVFXPrefab, hiHatTransform.position);
+        // Map the pedal pressure to the hi-hat position and sound
+        float normalizedPressure = Mathf.Clamp01(pedalPressure);
+        hiHatTop.transform.position = Vector3.Lerp(startPosition.position, endPosition.position, normalizedPressure);
 
-        // Play HiHat animation
-        StartCoroutine(AnimateHiHat());
+        // Determine whether the hi-hat should be open or closed
+        bool shouldBeOpen = normalizedPressure > 0.5f;
+        if (isHiHatOpen != shouldBeOpen)
+        {
+            isHiHatOpen = shouldBeOpen;
+            soundManager.PlaySound(isHiHatOpen ? "HiHat Open" : "HiHat Closed", hiHatTop.transform.position, normalizedPressure, isHiHatOpen);
+        }
+    }
 
-        if (hiHatScoreZone != null)
-        {
-            hiHatScoreZone.AttemptToHitNoteWithTag("HiHat");
-        }
-        else
-        {
-            Debug.LogError("HiHat ScoreZone reference not set in the Player script.");
-        }
+    public void SetHiHatOpen(bool open)
+    {
+        isHiHatOpen = open;
+        // You can also trigger any other changes here, such as sound or animation adjustments
+    }
+
+    public bool GetIsHiHatOpen()
+    {
+        return isHiHatOpen;
     }
 
     private void PlayKickDrum()
     {
         // Play Kick Drum sound and instantiate VFX
-        soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f);
+        soundManager.PlaySound("KickDrum", kickDrumTransform.position, 1.0f, false);
         InstantiateVFX(kickDrumVFXPrefab, kickDrumTransform.position);
 
         // Play Kick Drum animation

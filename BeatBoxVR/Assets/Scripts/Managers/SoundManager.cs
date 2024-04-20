@@ -34,29 +34,34 @@ public class SoundManager : MonoBehaviour
     public TextMeshProUGUI currDrumKitTMP;
     public Image currDrumKitSprite;
 
-    // Play a sound based on the tag, position, and velocity
-    public void PlaySound(string tag, Vector3 position, float velocity)
+    // Adjusted to check both open and closed hi-hat sounds
+    public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen)
     {
-        AudioClip clip = GetClipForTag(tag);
+        string adjustedTag = isHiHatOpen ? tag + " Open" : tag + " Closed";
+        AudioClip clip = GetClipForTag(adjustedTag) ?? GetClipForTag(tag);  // Fallback to the default tag if specific open/close sound is not found
+
         if (clip != null)
         {
-            GameObject soundObject = new GameObject("TemporaryAudio");
-            soundObject.transform.position = position;
-            AudioSource audioSource = soundObject.AddComponent<AudioSource>();
-            audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // Sets the sound to be 3D/ Spatial
-
-            // Adjusts volume and pitch based on the hit velocity 
-            audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
-            audioSource.pitch = 1.0f + velocity * 0.1f;
-
-            audioSource.Play();
-            Destroy(soundObject, clip.length);
+            PlayAudioClip(clip, position, velocity);
         }
         else
         {
-            Debug.LogWarning("No sound found for tag: " + tag);
+            Debug.LogWarning("No sound found for tag: " + adjustedTag);
         }
+    }
+
+    // Play a sound based on the tag, position, and velocity
+    private void PlayAudioClip(AudioClip clip, Vector3 position, float velocity)
+    {
+        GameObject soundObject = new GameObject("TemporaryAudio");
+        soundObject.transform.position = position;
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
+        audioSource.pitch = 1.0f + velocity * 0.1f;
+        audioSource.Play();
+        Destroy(soundObject, clip.length);
     }
 
     // Helper method to get the appropriate AudioClip based on the tag
@@ -82,29 +87,26 @@ public class SoundManager : MonoBehaviour
         audioMixer.SetFloat("DrumVolume", Mathf.Log10(volume) * 20);
     }
 
-    public void loadDrumKit(int kitIndex)
+    public void LoadDrumKit(int kitIndex)
     {
-        Debug.Log(kitIndex);
-        Debug.Log(drumKitList[kitIndex].KitName);
-        currDrumKitTMP.text = drumKitList[kitIndex].KitName;
-        currDrumKitSprite.sprite = drumKitList[kitIndex].KitImage;
-
-        for (int i = 0; i < percussionSounds.Count; i++)
+        if (kitIndex >= 0 && kitIndex < drumKitList.Count)
         {
-            percussionSounds[i] = drumKitList[kitIndex].drumKit[i]; 
+            currDrumKitTMP.text = drumKitList[kitIndex].KitName;
+            currDrumKitSprite.sprite = drumKitList[kitIndex].KitImage;
+            percussionSounds = new List<PercussionSound>(drumKitList[kitIndex].drumKit);
         }
     }
 
     public void incrementDrumKit()
     {
         currDrumKitIndex = (currDrumKitIndex + 1) % drumKitList.Count;
-        loadDrumKit(currDrumKitIndex);
+        LoadDrumKit(currDrumKitIndex);
     }
 
     public void decrementDrumKit()
     {
         currDrumKitIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
-        loadDrumKit(currDrumKitIndex);
+        LoadDrumKit(currDrumKitIndex);
     }
 
 }

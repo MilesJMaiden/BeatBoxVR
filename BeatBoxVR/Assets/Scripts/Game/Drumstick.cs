@@ -3,6 +3,8 @@ using UnityEngine.XR;
 
 public class Drumstick : MonoBehaviour
 {
+    private Player player;
+
     private SoundManager soundManager;
     
     public GameObject whiteSparkVFXPrefab;
@@ -46,6 +48,7 @@ public class Drumstick : MonoBehaviour
         return Mathf.Clamp(tipVelocity, 0, MaxVelocity);
     }
 
+
     void OnTriggerEnter(Collider other)
     {
         if (tipMovementDirection.y < 0) // Check if moving downwards
@@ -53,14 +56,15 @@ public class Drumstick : MonoBehaviour
             float clampedVelocity = GetCurrentVelocity();
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            soundManager.PlaySound(other.tag, tipTransform.position, clampedVelocity / MaxVelocity);
+            bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;
+            soundManager.PlaySound(other.tag, tipTransform.position, clampedVelocity / MaxVelocity, isHiHatOpen);
 
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
                 if (vfxPrefab != null)
                 {
-                    //InstantiateVFX(vfxPrefab, other);
+                    InstantiateVFX(vfxPrefab, other);
                 }
             }
 
