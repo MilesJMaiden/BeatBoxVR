@@ -140,15 +140,12 @@ public class PercussionInstrument : MonoBehaviour
     }
 
 
-    private void PlayInstrumentSound(Collider other, float velocity)
+    private void PlayInstrumentSound(Collider other, float velocity, bool isHiHatOpen = false)
     {
-        if (other == surfaceCollider || (rimCollider != null && other == rimCollider))
-        {
-            string soundType = other == surfaceCollider ? "" : "Rim";
-            // Use the isHiHatOpen property from the Player instance
-            bool isHiHatOpen = (this.tag == "HiHat") ? player.isHiHatOpen : false;
-            soundManager.PlaySound(this.tag + soundType, transform.position, velocity, isHiHatOpen);
-        }
+        string soundType = (other == rimCollider && rimCollider != null) ? " Rim" : "";
+        // Append the sound type based on hi-hat state for hi-hat tags
+        string tagToUse = this.tag + (this.tag == "HiHat" ? (isHiHatOpen ? " Open" : " Closed") : "");
+        soundManager.PlaySound(tagToUse, transform.position, velocity);
     }
 
     public IEnumerator AnimateInstrument()

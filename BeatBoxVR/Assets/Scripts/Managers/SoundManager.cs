@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -37,22 +38,15 @@ public class SoundManager : MonoBehaviour
     // This method needs to differentiate based on hi-hat state
     public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
     {
-        // Append tag modification for hi-hat here
-        string modifiedTag = tag;
-        if (tag == "HiHat")
-        {
-            modifiedTag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
-        }
-
-        AudioClip clip = GetClipForTag(modifiedTag);
-        if (clip)
+        AudioClip clip = GetClipForTag(tag, isHiHatOpen);  // Adjust to pass the hi-hat state
+        if (clip != null)
         {
             AudioSource audioSource = CreateAudioSource(position);
             SetupAudioSource(audioSource, clip, velocity);
         }
         else
         {
-            Debug.LogWarning("No sound found for tag: " + modifiedTag);
+            Debug.LogWarning($"No sound found for tag: {tag} with hi-hat state: {(isHiHatOpen ? "open" : "closed")}");
         }
     }
 
@@ -73,10 +67,13 @@ public class SoundManager : MonoBehaviour
         Destroy(source.gameObject, clip.length);
     }
 
-    private AudioClip GetClipForTag(string tag)
+    private AudioClip GetClipForTag(string tag, bool isHiHatOpen)
     {
-        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
-        return sound?.sound;
+        if (tag == "HiHat")  // Modify the tag based on hi-hat state
+        {
+            tag += isHiHatOpen ? " Open" : " Closed";
+        }
+        return percussionSounds.FirstOrDefault(ps => ps.tag == tag)?.sound;
     }
 
     // Method to adjust the master volume
