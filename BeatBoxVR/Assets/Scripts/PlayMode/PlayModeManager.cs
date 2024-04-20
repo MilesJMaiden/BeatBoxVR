@@ -57,6 +57,7 @@ public class PlayModeManager : MonoBehaviour
     void Start()
     {
         InitializePlayMode();
+        PreloadSongs();  // Preload all songs
         UpdateScore(0);
         colorOrigin = missZone.material.color;
     }
@@ -66,39 +67,63 @@ public class PlayModeManager : MonoBehaviour
         // Any initial setup
     }
 
+    void PreloadSongs()
+    {
+        foreach (var songData in songsData)
+        {
+            if (songData.songClip != null)
+                songData.songClip.LoadAudioData();  // Ensures the song is loaded into memory
+            if (songData.drumTrackClip != null)
+                songData.drumTrackClip.LoadAudioData();  // Ensures the drum track is loaded into memory
+        }
+        Debug.Log("All songs preloaded.");
+    }
+
+    public void RestartSong()
+    {
+        if (currentSongIndex == -1) return; // No song has been played yet.
+
+        // Stop current tracks and director
+        PauseTracksAndNotes();
+
+        // Destroy all existing notes
+        DestroyAllNoteBlocks();
+
+        // Reset the score and streak
+        ResetScoreAndStreak();
+
+        // Restart the song at the current index
+        SwitchToSong(currentSongIndex);
+    }
+
     private void SwitchToSong(int songIndex)
     {
-        if (songIndex < 0 || songIndex >= timelines.Length)
+        if (songIndex < 0 || songIndex >= songsData.Count)
         {
             Debug.LogError("Song index out of range.");
             return;
         }
 
-        // Destroy any existing note blocks and reset the score and streak
+        // Stop and clean up before switching
+        playableDirector.Stop();
+        audioSource.Stop();
+        drumTrackSource.Stop();
         DestroyAllNoteBlocks();
         ResetScoreAndStreak();
 
-        // Setup and play the new song
-        currentSongIndex = songIndex;
         // Load new timeline and audio
         playableDirector.playableAsset = timelines[songIndex];
-        if (songsData.Count > songIndex)
-        {
-            audioSource.clip = songsData[songIndex].songClip;
-            drumTrackSource.clip = songsData[songIndex].drumTrackClip;
-        }
-        else
-        {
-            Debug.LogError($"No SongData found for song index {songIndex}.");
-        }
+        audioSource.clip = songsData[songIndex].songClip;
+        drumTrackSource.clip = songsData[songIndex].drumTrackClip;
 
-        // Delay the start if needed or play immediately
-        //audioSource.Play();
-        //drumTrackSource.Play();
+        // Play the loaded content
+        audioSource.Play();
+        drumTrackSource.Play();
         playableDirector.Play();
 
-        Debug.Log($"Started song {songIndex}: {timelines[songIndex].name}");
+        Debug.Log($"Switched to song {songIndex}: {timelines[songIndex].name}");
     }
+
 
     public void PauseTracksAndNotes()
     {
@@ -116,10 +141,12 @@ public class PlayModeManager : MonoBehaviour
 
     public void DestroyAllNoteBlocks()
     {
-        foreach (var noteBlock in FindObjectsOfType<NoteBlock>())
+        NoteBlock[] noteBlocks = FindObjectsOfType<NoteBlock>();
+        foreach (var noteBlock in noteBlocks)
         {
             Destroy(noteBlock.gameObject);
         }
+        Debug.Log("All note blocks destroyed.");
     }
 
     public void OnSong1ButtonPressed()
