@@ -74,9 +74,6 @@ public class PercussionInstrument : MonoBehaviour
                 float velocity = drumstick.GetCurrentVelocity();
                 Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-                // Notify the ScoreZone regardless of animations enabled
-                scoreZone?.HandleInstrumentHit(gameObject.tag);
-
                 // Conditional VFX instantiation based on the vfxEnabled toggle
                 if (vfxEnabled && velocity > 1)
                 {
@@ -84,11 +81,11 @@ public class PercussionInstrument : MonoBehaviour
                     if (vfxPrefab != null)
                     {
                         Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up,velocity);
+                        InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up, velocity);
                     }
                 }
 
-                // Play sound based on which part of the instrument was hit
+                bool isHiHatOpen = (this.tag == "HiHat") ? player.GetIsHiHatOpen() : false;
                 PlayInstrumentSound(other, velocity);
 
                 // Conditional animation based on the animationsEnabled toggle
@@ -140,12 +137,13 @@ public class PercussionInstrument : MonoBehaviour
     }
 
 
-    private void PlayInstrumentSound(Collider other, float velocity, bool isHiHatOpen = false)
+    private void PlayInstrumentSound(Collider other, float velocity)
     {
+        bool isHiHatOpen = player.GetIsHiHatOpen(); // Ensure this accesses the current state correctly.
         string soundType = (other == rimCollider && rimCollider != null) ? " Rim" : "";
         // Append the sound type based on hi-hat state for hi-hat tags
         string tagToUse = this.tag + (this.tag == "HiHat" ? (isHiHatOpen ? " Open" : " Closed") : "");
-        soundManager.PlaySound(tagToUse, transform.position, velocity);
+        soundManager.PlaySound(tagToUse, transform.position, velocity, isHiHatOpen);
     }
 
     public IEnumerator AnimateInstrument()

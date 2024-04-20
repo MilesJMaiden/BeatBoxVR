@@ -378,12 +378,12 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 },
                 {
                     ""name"": ""PlayHiHatAction"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f163731e-c0f7-4b0e-a4c9-ebfd0630a126"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Rotation"",

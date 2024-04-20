@@ -38,11 +38,18 @@ public class SoundManager : MonoBehaviour
     // This method needs to differentiate based on hi-hat state
     public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
     {
-        AudioClip clip = GetClipForTag(tag, isHiHatOpen);  // Adjust to pass the hi-hat state
+        AudioClip clip = GetClipForTag(tag, isHiHatOpen);
         if (clip != null)
         {
-            AudioSource audioSource = CreateAudioSource(position);
-            SetupAudioSource(audioSource, clip, velocity);
+            GameObject soundObject = new GameObject("TemporaryAudio");
+            soundObject.transform.position = position;
+            AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+            audioSource.clip = clip;
+            audioSource.spatialBlend = 1.0f; // 3D sound
+            audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
+            audioSource.pitch = 1.0f + velocity * 0.1f;
+            audioSource.Play();
+            Destroy(soundObject, clip.length);
         }
         else
         {
@@ -50,30 +57,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private AudioSource CreateAudioSource(Vector3 position)
-    {
-        GameObject soundObject = new GameObject("TemporaryAudio");
-        soundObject.transform.position = position;
-        return soundObject.AddComponent<AudioSource>();
-    }
-
-    private void SetupAudioSource(AudioSource source, AudioClip clip, float velocity)
-    {
-        source.clip = clip;
-        source.spatialBlend = 1.0f;
-        source.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
-        source.pitch = 1.0f + velocity * 0.1f;
-        source.Play();
-        Destroy(source.gameObject, clip.length);
-    }
-
     private AudioClip GetClipForTag(string tag, bool isHiHatOpen)
     {
-        if (tag == "HiHat")  // Modify the tag based on hi-hat state
+        // Adjust tag based on hi-hat state
+        if (tag.Contains("HiHat"))
         {
-            tag += isHiHatOpen ? " Open" : " Closed";
+            tag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
         }
-        return percussionSounds.FirstOrDefault(ps => ps.tag == tag)?.sound;
+        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
+        return sound?.sound;
     }
 
     // Method to adjust the master volume

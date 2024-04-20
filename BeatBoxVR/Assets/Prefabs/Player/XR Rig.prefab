@@ -1580,6 +1580,10 @@ MonoBehaviour:
   kickDrum: {fileID: 0}
   hiHat: {fileID: 0}
   animationsEnabled: 1
+  hiHatTop: {fileID: 0}
+  startPosition: {fileID: 0}
+  endPosition: {fileID: 0}
+  isHiHatOpen: 0
 --- !u!1 &3623489899314893314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,6 +2674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2280429259485660960, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5499048685195394109}
+    - target: {fileID: 2280429259485660960, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
       propertyPath: redSparkVFXPrefab
       value: 
       objectReference: {fileID: 2375842249092589218, guid: 404ff4eae5ed8474b8bbfb23281d9e60,
@@ -2765,6 +2774,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: RightDrumstick
       objectReference: {fileID: 0}
+    - target: {fileID: 2280429259485660960, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5499048685195394109}
     - target: {fileID: 3529863159614565858, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
       propertyPath: m_LocalPosition.x

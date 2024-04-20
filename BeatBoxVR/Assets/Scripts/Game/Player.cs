@@ -138,14 +138,14 @@ public class Player : MonoBehaviour
     {
         float normalizedPressure = Mathf.Clamp01(pedalPressure);
         hiHatTop.transform.position = Vector3.Lerp(startPosition.position, endPosition.position, normalizedPressure);
-        isHiHatOpen = normalizedPressure > 0.5f;
-    }
 
-
-    public void SetHiHatOpen(bool open)
-    {
-        isHiHatOpen = open;
-        // You can also trigger any other changes here, such as sound or animation adjustments
+        // Determine if the hi-hat should be considered open or closed
+        bool shouldBeOpen = normalizedPressure > 0.5f;
+        if (isHiHatOpen != shouldBeOpen)
+        {
+            isHiHatOpen = shouldBeOpen;
+            Debug.Log($"HiHat state updated: {(isHiHatOpen ? "Open" : "Closed")}");
+        }
     }
 
     public bool GetIsHiHatOpen()

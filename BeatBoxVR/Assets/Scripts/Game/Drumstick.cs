@@ -3,7 +3,7 @@ using UnityEngine.XR;
 
 public class Drumstick : MonoBehaviour
 {
-    private Player player;
+    [SerializeField] private Player player;
 
     private SoundManager soundManager;
     
@@ -25,12 +25,8 @@ public class Drumstick : MonoBehaviour
 
     void Start()
     {
+        //player = FindObjectOfType<Player>(); // Ensure there's a way to access the Player instance
         soundManager = FindObjectOfType<SoundManager>();
-        if (soundManager == null)
-        {
-            Debug.LogError("SoundManager not found in the scene");
-        }
-
         previousTipPosition = tipTransform.position;
     }
 
@@ -56,16 +52,15 @@ public class Drumstick : MonoBehaviour
             float clampedVelocity = GetCurrentVelocity();
             Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
-            bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;
-            soundManager.PlaySound(other.tag, tipTransform.position, clampedVelocity / MaxVelocity, isHiHatOpen);
+            bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;  // Get the hi-hat state from the player
+            string soundTag = other.tag == "HiHat" ? (isHiHatOpen ? "HiHat Open" : "HiHat Closed") : other.tag;
+
+            soundManager.PlaySound(soundTag, tipTransform.position, clampedVelocity / MaxVelocity, isHiHatOpen);
 
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
-                if (vfxPrefab != null)
-                {
-                    InstantiateVFX(vfxPrefab, other);
-                }
+                InstantiateVFX(vfxPrefab, other);
             }
 
             if (enableHapticFeedback)
