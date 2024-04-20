@@ -1,18 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using static EnvironmentManager;
-using static SoundManager;
 
 public class SoundManager : MonoBehaviour
 {
     [Header("Audio Mixer")]
     public AudioMixer audioMixer; // Assign this in the Inspector
 
-    // Serializable class to hold sound data for drums and cymbals
     [System.Serializable]
     public class PercussionSound
     {
@@ -28,59 +25,67 @@ public class SoundManager : MonoBehaviour
         public PercussionSound[] drumKit;
     }
 
-    // Lists to hold the sounds for drums and cymbals
     public List<PercussionSound> percussionSounds;
     public List<DrumKit> drumKitList;
+    private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     private int currDrumKitIndex = 0;
     public TextMeshProUGUI currDrumKitTMP;
     public Image currDrumKitSprite;
 
-    // This method needs to differentiate based on hi-hat state
+    void Start()
+    {
+        LoadAllSounds();
+    }
+
+    private void LoadAllSounds()
+    {
+        foreach (var sound in percussionSounds)
+        {
+            if (!audioClips.ContainsKey(sound.tag))
+                audioClips.Add(sound.tag, sound.sound);
+        }
+    }
+
     public void PlaySound(string tag, Vector3 position, float velocity, bool isHiHatOpen = false)
     {
-        AudioClip clip = GetClipForTag(tag, isHiHatOpen);
-        if (clip != null)
+        string adjustedTag = AdjustTagBasedOnHiHatState(tag, isHiHatOpen);
+        if (audioClips.TryGetValue(adjustedTag, out AudioClip clip))
         {
-            GameObject soundObject = new GameObject("TemporaryAudio");
-            soundObject.transform.position = position;
-            AudioSource audioSource = soundObject.AddComponent<AudioSource>();
-            audioSource.clip = clip;
-            audioSource.spatialBlend = 1.0f; // 3D sound
-            audioSource.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
-            audioSource.pitch = 1.0f + velocity * 0.1f;
-            audioSource.Play();
-            Destroy(soundObject, clip.length);
+            AudioSource source = AudioSourcePool.Instance.GetSource();
+            source.transform.position = position;
+            source.clip = clip;
+            source.volume = Mathf.Clamp(velocity, 0.0f, 1.0f);
+            source.pitch = 1.0f + velocity * 0.1f;
+            source.Play();
+
+            StartCoroutine(ReturnSourceToPool(source, clip.length));
         }
         else
         {
-            Debug.LogWarning($"No sound found for tag: {tag} with hi-hat state: {(isHiHatOpen ? "open" : "closed")}");
+            Debug.LogWarning($"No sound found for tag: {adjustedTag}");
         }
     }
 
-    private AudioClip GetClipForTag(string tag, bool isHiHatOpen)
+    private string AdjustTagBasedOnHiHatState(string tag, bool isHiHatOpen)
     {
-        // Adjust tag based on hi-hat state
-        if (tag.Contains("HiHat"))
-        {
-            tag = isHiHatOpen ? "HiHat Open" : "HiHat Closed";
-        }
-        PercussionSound sound = percussionSounds.Find(ps => ps.tag == tag);
-        return sound?.sound;
+        return tag.Contains("HiHat") ? (isHiHatOpen ? "HiHat Open" : "HiHat Closed") : tag;
     }
 
-    // Method to adjust the master volume
+    private IEnumerator ReturnSourceToPool(AudioSource source, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioSourcePool.Instance.ReturnSource(source);
+    }
+
     public void SetMasterVolume(float sliderValue)
     {
-        // Ensure sliderValue is never 0 to avoid log10(0) which is undefined
-        sliderValue = Mathf.Max(sliderValue, 0.0001f);
+        sliderValue = Mathf.Max(sliderValue, 0.0001f);  // Ensure slider value is never zero
         float volumeDb = Mathf.Log10(sliderValue) * 20;
         audioMixer.SetFloat("MasterVolume", volumeDb);
     }
 
-    // Method to adjust the drum volume
     public void SetDrumVolume(float volume)
     {
-        // Convert the volume to a logarithmic scale and set it
         audioMixer.SetFloat("DrumVolume", Mathf.Log10(volume) * 20);
     }
 
@@ -105,5 +110,4 @@ public class SoundManager : MonoBehaviour
         currDrumKitIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
         LoadDrumKit(currDrumKitIndex);
     }
-
 }
