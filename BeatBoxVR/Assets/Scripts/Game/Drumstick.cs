@@ -52,7 +52,7 @@ public class Drumstick : MonoBehaviour
         if (tipMovementDirection.y < 0) // Check if moving downwards
         {
             float clampedVelocity = GetCurrentVelocity();
-            Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
+            //Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
 
             bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;
             string soundTag = other.tag == "HiHat" ? (isHiHatOpen ? "HiHat Open" : "HiHat Closed") : other.tag;

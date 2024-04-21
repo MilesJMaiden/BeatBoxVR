@@ -65,38 +65,38 @@ public class PercussionInstrument : MonoBehaviour
         Debug.Log("VFX toggled. Now: " + vfxEnabled);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("RightDrumstick") || other.CompareTag("LeftDrumstick"))
-        {
-            Drumstick drumstick = other.GetComponent<Drumstick>();
-            if (drumstick != null)
-            {
-                float velocity = drumstick.GetCurrentVelocity();
-                Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Drumstick"))
+    //    {
+    //        Drumstick drumstick = other.GetComponent<Drumstick>();
+    //        if (drumstick != null)
+    //        {
+    //            float velocity = drumstick.GetCurrentVelocity();
+    //            //Debug.Log($"Percussion instrument hit detected. Instrument: {gameObject.name}, Velocity: {velocity}");
 
-                // Conditional VFX instantiation based on the vfxEnabled toggle
-                if (vfxEnabled && velocity > 1)
-                {
-                    GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
-                    if (vfxPrefab != null)
-                    {
-                        //Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
-                        //InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up, velocity);
-                    }
-                }
+    //            // Conditional VFX instantiation based on the vfxEnabled toggle
+    //            if (vfxEnabled && velocity > 1)
+    //            {
+    //                GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(velocity);
+    //                if (vfxPrefab != null)
+    //                {
+    //                    //Vector3 spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+    //                    //InstantiateVFX(vfxPrefab, spawnPosition, Vector3.up, velocity);
+    //                }
+    //            }
 
-                bool isHiHatOpen = (this.tag == "HiHat") ? player.GetIsHiHatOpen() : false;
-                PlayInstrumentSound(other, velocity);
+    //            bool isHiHatOpen = (this.tag == "HiHat") ? player.GetIsHiHatOpen() : false;
+    //            PlayInstrumentSound(other, velocity);
 
-                // Conditional animation based on the animationsEnabled toggle
-                if (animationsEnabled && (!isAnimating || velocity > drumstick.LastHitVelocity))
-                {
-                    StartCoroutine(AnimateInstrument());
-                }
-            }
-        }
-    }
+    //            // Conditional animation based on the animationsEnabled toggle
+    //            if (animationsEnabled && (!isAnimating || velocity > drumstick.LastHitVelocity))
+    //            {
+    //                StartCoroutine(AnimateInstrument());
+    //            }
+    //        }
+    //    }
+    //}
 
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction, float velocity)
     {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6293147695407835226}
   m_Layer: 0
   m_Name: Drumstick
-  m_TagString: LeftDrumstick
+  m_TagString: Drumstick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
   tipTransform: {fileID: 3273985625040863214}
   instantiateVFX: 1
   enableHapticFeedback: 1
+  scoreZone: {fileID: 0}
 --- !u!54 &8383255093238196266
 Rigidbody:
   m_ObjectHideFlags: 0
