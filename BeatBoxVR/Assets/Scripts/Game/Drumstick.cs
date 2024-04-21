@@ -74,6 +74,11 @@ public class Drumstick : MonoBehaviour
             {
                 scoreZone.AttemptToHitNoteWithTag(soundTag);
             }
+
+            if (scoreZone != null)
+            {
+                scoreZone.AttemptToHitNoteWithTag(soundTag); // This should be the tag related to music notes, not drum parts unless they are the same
+            }
         }
     }
 
