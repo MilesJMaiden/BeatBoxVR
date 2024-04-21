@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -46,14 +47,11 @@ public class Drumstick : MonoBehaviour
         return Mathf.Clamp(tipVelocity, 0, MaxVelocity);
     }
 
-
     void OnTriggerEnter(Collider other)
     {
         if (tipMovementDirection.y < 0) // Check if moving downwards
         {
             float clampedVelocity = GetCurrentVelocity();
-            //Debug.Log($"Drumstick hit detected. Velocity: {clampedVelocity}. Collider Tag: {other.tag}");
-
             bool isHiHatOpen = player?.GetIsHiHatOpen() ?? false;
             string soundTag = other.tag == "HiHat" ? (isHiHatOpen ? "HiHat Open" : "HiHat Closed") : other.tag;
 
@@ -61,8 +59,10 @@ public class Drumstick : MonoBehaviour
 
             if (clampedVelocity > 1 && instantiateVFX)
             {
-                GameObject vfxPrefab = SelectVFXPrefabBasedOnVelocity(clampedVelocity);
-                InstantiateVFX(vfxPrefab, other);
+                string vfxTag = GetVFXTagBasedOnVelocity(clampedVelocity);
+                Vector3 hitPoint = other.ClosestPoint(tipTransform.position);
+                Quaternion hitRotation = Quaternion.LookRotation(-tipMovementDirection);
+                InstantiateVFX(vfxTag, hitPoint, hitRotation, clampedVelocity);
             }
 
             if (enableHapticFeedback)
@@ -70,12 +70,21 @@ public class Drumstick : MonoBehaviour
                 TriggerHapticFeedback(gameObject.tag, 0.1f, Mathf.InverseLerp(0, MaxVelocity, clampedVelocity));
             }
 
-            // Trigger score zone logic if there is a hit and scoreZone is assigned
             if (scoreZone != null)
             {
-                scoreZone.AttemptToHitNoteWithTag(soundTag); // This should be the tag related to music notes, not drum parts unless they are the same
+                scoreZone.AttemptToHitNoteWithTag(soundTag);
             }
         }
+    }
+
+    private string GetVFXTagBasedOnVelocity(float velocity)
+    {
+        if (velocity <= 4)
+            return "WhiteSpark";
+        else if (velocity <= 7)
+            return "YellowSpark";
+        else
+            return "RedSpark";
     }
 
     // Method to toggle VFX instantiation
@@ -101,24 +110,29 @@ public class Drumstick : MonoBehaviour
         
     }
 
-    private void InstantiateVFX(GameObject vfxPrefab, Collider hitCollider)
+    private void InstantiateVFX(string vfxTag, Vector3 position, Quaternion rotation, float velocity)
     {
-        // Assuming the hit is from above and we're looking for the highest point on the collider.
-        Vector3 hitPoint = new Vector3(tipTransform.position.x, hitCollider.bounds.max.y, tipTransform.position.z);
-        Vector3 estimatedNormal = Vector3.up; // Default normal, works well for flat horizontal surfaces
-
-        // Instantiate the VFX at the hit point, using the estimated normal for rotation.
-        Quaternion hitRotation = Quaternion.LookRotation(estimatedNormal);
-        GameObject vfxInstance = Instantiate(vfxPrefab, hitPoint, hitRotation);
-
-        ParticleSystem particleSystem = vfxInstance.GetComponentInChildren<ParticleSystem>();
-        if (particleSystem != null)
+        // Spawn the VFX GameObject from the pool with a specified lifetime
+        GameObject vfxInstance = VFXPoolManager.Instance.SpawnFromPool(vfxTag, position, rotation, vfxLifetime);
+        if (vfxInstance != null)
         {
-            ApplyParticleModifications(particleSystem, tipVelocity);
-        }
+            // Get the VFXInstance component from the spawned GameObject
+            VFXInstance vfxControl = vfxInstance.transform.GetChild(0).GetComponent<VFXInstance>();
+            if (vfxControl != null)
+            {
+                vfxControl.ApplyParticleModifications(velocity);
+            }
 
-        Destroy(vfxInstance, vfxLifetime);
+            StartCoroutine(DisableAndReturnToPool(vfxInstance, vfxLifetime));
+        }
     }
+
+    IEnumerator DisableAndReturnToPool(GameObject vfxInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        vfxInstance.SetActive(false); // Deactivates the instance, making it ready for reuse
+    }
+
 
     private void ApplyParticleModifications(ParticleSystem particleSystem, float velocity)
     {
@@ -131,11 +145,11 @@ public class Drumstick : MonoBehaviour
 
         // Adjust emission rate
         var emissionModule = particleSystem.emission;
-        emissionModule.rateOverTime = Mathf.Lerp(10, 100, scaleMultiplier);
+        emissionModule.rateOverTime = Mathf.Lerp(10, 50, scaleMultiplier);
 
         // Adjust shape length for a more natural effect
         var shapeModule = particleSystem.shape;
-        shapeModule.length = Mathf.Lerp(0.005f, 0.2f, Mathf.Pow(scaleMultiplier, 2));
+        shapeModule.length = Mathf.Lerp(0.005f, 0.1f, Mathf.Pow(scaleMultiplier, 2));
     }
 
     private float CalculateScaleMultiplier(float velocity)
