@@ -46,6 +46,8 @@ public class VFXPoolManager : MonoBehaviour
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 
         objectToSpawn.SetActive(true);
+
+        // spawn object from center of each drum
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 
