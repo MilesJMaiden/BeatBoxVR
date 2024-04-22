@@ -60,13 +60,9 @@ public class Drumstick : MonoBehaviour
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 string vfxTag = GetVFXTagBasedOnVelocity(clampedVelocity);
-                // Spawn from center of each instrument
-                PercussionInstrument percussionInstrument = other.GetComponent<PercussionInstrument>();
-                Vector3 spawnPoint = percussionInstrument.centerPosition.transform.position; 
-                Quaternion spawnRotation = Quaternion.identity;
-                //Vector3 hitPoint = other.ClosestPoint(tipTransform.position);
-                //Quaternion hitRotation = Quaternion.LookRotation(-tipMovementDirection);
-                InstantiateVFX(vfxTag, spawnPoint, spawnRotation, clampedVelocity);
+                Vector3 hitPoint = other.ClosestPoint(tipTransform.position);
+                Quaternion hitRotation = Quaternion.LookRotation(-tipMovementDirection);
+                InstantiateVFX(vfxTag, hitPoint, hitRotation, clampedVelocity);
             }
 
             if (enableHapticFeedback)
