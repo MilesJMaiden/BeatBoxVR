@@ -500,6 +500,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFXPoolManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4114214542981443625, guid: d1248456dc8ef08429f49b07cc501c10,
+        type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 3637540540281794905, guid: e5605c85d21a26d44b7255e1b60f85c0,
+        type: 3}
+    - target: {fileID: 4114214542981443625, guid: d1248456dc8ef08429f49b07cc501c10,
+        type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 7885758199092067150, guid: 26ddbfeb97cd16f4c9c614b5a7c5fe79,
+        type: 3}
+    - target: {fileID: 4114214542981443625, guid: d1248456dc8ef08429f49b07cc501c10,
+        type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 2909426510772528110, guid: 34c792685134de840a74eeb83123d2ea,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10582,17 +10600,17 @@ PrefabInstance:
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.291
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: 0.492
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.616
+      value: -0.673
       objectReference: {fileID: 0}
     - target: {fileID: 7728434629676696033, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
