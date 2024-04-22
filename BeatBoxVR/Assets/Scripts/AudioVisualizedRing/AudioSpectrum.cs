@@ -5,7 +5,8 @@ using UnityEngine;
 public class AudioSpectrum : MonoBehaviour
 {
     public AudioSource audioSource;
-    [SerializeField]private float[] audioSamples = new float[512];
+    // Length of array need to be changed
+    [SerializeField]public static float[] audioSamples = new float[512];
 
     // Start is called before the first frame update
     void Start()
