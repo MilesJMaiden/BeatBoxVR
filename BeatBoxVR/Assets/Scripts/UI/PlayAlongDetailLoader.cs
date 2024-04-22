@@ -46,7 +46,7 @@ public class PlayAlongDetailLoader : MonoBehaviour
     }
 
 
-    
+
 
 
 
@@ -59,7 +59,7 @@ public class PlayAlongDetailLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
