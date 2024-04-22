@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstantiateRingCubes : MonoBehaviour
 {
     public GameObject cubePrefab;
-    GameObject[] cubes = new GameObject[512];
+    GameObject[] cubes = new GameObject[128];
     public float maxScale;
     // Start is called before the first frame update
     void Start()
@@ -17,8 +17,8 @@ public class InstantiateRingCubes : MonoBehaviour
             instanceCubes.transform.parent = this.transform;
             instanceCubes.name = "cube" + i;
             // angle need to be changed with list length
-            this.transform.eulerAngles = new Vector3(0, -0.703125f * i, 0);
-            instanceCubes.transform.position = Vector3.forward * 100;
+            this.transform.eulerAngles = new Vector3(0, -2.8125f * i, 0);
+            instanceCubes.transform.position = Vector3.forward * 2;
             cubes[i] = instanceCubes;
         }
     }
@@ -30,7 +30,7 @@ public class InstantiateRingCubes : MonoBehaviour
         {
             if (cubes != null)
             {
-                cubes[i].transform.localScale = new Vector3(5, AudioSpectrum.audioSamples[i], 5);
+                cubes[i].transform.localScale = new Vector3(1, AudioSpectrum.audioSamples[i]*100, 1);
             }
         }
     }
