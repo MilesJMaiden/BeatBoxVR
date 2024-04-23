@@ -98,6 +98,10 @@ public class PercussionInstrument : MonoBehaviour
     //    }
     //}
 
+    public Vector3 VFXPosition(Vector3 spawnPosition)
+    {
+        return spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+    }
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction, float velocity)
     {
         // Instantiate vfx

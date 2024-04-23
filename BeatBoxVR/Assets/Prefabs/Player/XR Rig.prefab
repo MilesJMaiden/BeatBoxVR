@@ -2672,6 +2672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drumstick
       objectReference: {fileID: 0}
+    - target: {fileID: 1973353008610775427, guid: 92482df20e979c249bb1aec34fd4194d,
+        type: 3}
+      propertyPath: m_TagString
+      value: LeftDrumstick
+      objectReference: {fileID: 0}
     - target: {fileID: 2280429259485660960, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
       propertyPath: player
@@ -2772,7 +2777,7 @@ PrefabInstance:
     - target: {fileID: 1973353008610775427, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
       propertyPath: m_TagString
-      value: Drumstick
+      value: RightDrumstick
       objectReference: {fileID: 0}
     - target: {fileID: 2280429259485660960, guid: 92482df20e979c249bb1aec34fd4194d,
         type: 3}
