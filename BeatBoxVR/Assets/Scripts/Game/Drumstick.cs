@@ -57,17 +57,22 @@ public class Drumstick : MonoBehaviour
 
             soundManager.PlaySound(soundTag, tipTransform.position, clampedVelocity / MaxVelocity, isHiHatOpen);
 
+            PercussionInstrument percussionInstrument = other.GetComponent<PercussionInstrument>();
+            
+            // Instantiate VFX
             if (clampedVelocity > 1 && instantiateVFX)
             {
                 string vfxTag = GetVFXTagBasedOnVelocity(clampedVelocity);
                 //Vector3 hitPoint = other.ClosestPoint(tipTransform.position);
                 //Quaternion hitRotation = Quaternion.LookRotation(-tipMovementDirection);
-                PercussionInstrument percussionInstrument = other.GetComponent<PercussionInstrument>();
                 Vector3 spawnPoint  = Vector3.zero;
                 spawnPoint = percussionInstrument.VFXPosition(spawnPoint);
                 Quaternion spawnRotation = Quaternion.identity;
                 InstantiateVFX(vfxTag, spawnPoint, spawnRotation, clampedVelocity);
             }
+
+            // Animate the drums
+            StartCoroutine(percussionInstrument.AnimateInstrument());
 
             if (enableHapticFeedback)
             {
