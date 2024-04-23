@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bands: 1
   startScale: 0.2
-  scaleMultiplier: 50
+  scaleMultiplier: 5
   lerpSpeed: 10
   useBuffer: 1
 --- !u!1 &187430729
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bands: 3
   startScale: 0.2
-  scaleMultiplier: 50
+  scaleMultiplier: 20
   lerpSpeed: 10
   useBuffer: 1
 --- !u!43 &280866809
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 7114769681843970414, guid: 84b5fadb14582654783fc0d6d3be32f2,
     type: 3}
-  maxScale: 150
+  maxScale: 80
   lerpSpeed: 15
   startScale: 0.05
 --- !u!4 &411766060
@@ -3753,7 +3753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bands: 2
   startScale: 0.2
-  scaleMultiplier: 50
+  scaleMultiplier: 10
   lerpSpeed: 10
   useBuffer: 1
 --- !u!114 &556512927 stripped
@@ -4148,7 +4148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bands: 0
   startScale: 0.2
-  scaleMultiplier: 50
+  scaleMultiplier: 5
   lerpSpeed: 10
   useBuffer: 1
 --- !u!43 &676243134
@@ -8119,7 +8119,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b6b91ed12911ac7409e666517b79e8dd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bd9a0b3ea95d40b46afa9fa38b9ffea5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8753,7 +8753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bands: 4
   startScale: 0.2
-  scaleMultiplier: 50
+  scaleMultiplier: 20
   lerpSpeed: 10
   useBuffer: 1
 --- !u!43 &1807730676
