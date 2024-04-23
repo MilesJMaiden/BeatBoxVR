@@ -7,7 +7,9 @@ public class InstantiateRingCubes : MonoBehaviour
     public GameObject cubePrefab;
     GameObject[] cubes = new GameObject[128];
     public float maxScale;
-    // Start is called before the first frame update
+    public float lerpSpeed;
+    public float startScale;
+
     void Start()
     {
         for (int i = 0; i < cubes.Length; i++)
@@ -16,21 +18,24 @@ public class InstantiateRingCubes : MonoBehaviour
             instanceCubes.transform.position = this.transform.position;
             instanceCubes.transform.parent = this.transform;
             instanceCubes.name = "cube" + i;
-            // angle need to be changed with list length
-            this.transform.eulerAngles = new Vector3(0, -2.8125f * i, 0);
-            instanceCubes.transform.position = Vector3.forward * 2;
+
+           
+            this.transform.eulerAngles = new Vector3(0, -5.625f * i, 0);
+            instanceCubes.transform.position = Vector3.forward * 2f;
             cubes[i] = instanceCubes;
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         for(int i =0; i< cubes.Length; i++)
         {
             if (cubes != null)
             {
-                cubes[i].transform.localScale = new Vector3(1, AudioSpectrum.audioSamples[i]*100, 1);
+                cubes[i].transform.localScale = Vector3.Lerp(transform.localScale* startScale,
+                    new Vector3(0.05f, AudioSpectrum.audioSamples[i]*50, 0.05f),
+                    Time.deltaTime*lerpSpeed);
             }
         }
     }
