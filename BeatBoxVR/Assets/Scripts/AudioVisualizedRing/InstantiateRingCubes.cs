@@ -34,7 +34,7 @@ public class InstantiateRingCubes : MonoBehaviour
             if (cubes != null)
             {
                 cubes[i].transform.localScale = Vector3.Lerp(transform.localScale* startScale,
-                    new Vector3(0.05f, AudioSpectrum.audioSamples[i]*50, 0.05f),
+                    new Vector3(0.05f, AudioSpectrum.audioSamples[i]*400, 0.05f),
                     Time.deltaTime*lerpSpeed);
             }
         }
