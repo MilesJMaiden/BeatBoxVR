@@ -52,13 +52,15 @@ public class AudioSpectrum : MonoBehaviour
             if (frequencyBand[i] > bandBuffer[i])
             {
                 bandBuffer[i] = frequencyBand[i];
-                bufferDecrease[i] = 0.005f;
+                //bufferDecrease[i] = 0.005f;
+                bufferDecrease[i] = 0.01f;
             }
 
             if (frequencyBand[i] < bandBuffer[i])
             {
                 bandBuffer[i] -= bufferDecrease[i];
-                bufferDecrease[i] *= 1.2f;
+                //bufferDecrease[i] *= 1.2f;
+                bufferDecrease[i] *= 2.4f;
             }
         }
     }
