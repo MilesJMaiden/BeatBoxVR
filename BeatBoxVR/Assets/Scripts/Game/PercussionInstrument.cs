@@ -29,6 +29,7 @@ public class PercussionInstrument : MonoBehaviour
 
     private bool vfxEnabled = true;
     private bool animationsEnabled = true;
+    public float heightAdustmentSP = 0.1f;
     
     public ScoreZone scoreZone;
 
@@ -100,7 +101,7 @@ public class PercussionInstrument : MonoBehaviour
 
     public Vector3 VFXPosition(Vector3 spawnPosition)
     {
-        return spawnPosition = centerPosition.position + new Vector3(0, 0.1f, 0);
+        return spawnPosition = centerPosition.position + new Vector3(0, heightAdustmentSP, 0);
     }
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position, Vector3 direction, float velocity)
     {
