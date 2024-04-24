@@ -74,7 +74,7 @@ public class PlayAlongButtonManager : MonoBehaviour
         currentAudioTimeTMP.text = time.ToString(@"m\:ss");
         //ProgressBar.fillAmount = 0.08f + ((loader.currBalancedTrack.time-0)*2*(.42f-0.08f))/(loader.SongPlaylist[currentSongID].songLengthSec-0);
         //        ProgressBar.fillAmount = (83.333333f * (loader.currBalancedTrack.time- 0.8f)) / (83.333333f * (.92f-0.08f));
-        ProgressBar.fillAmount = 0.067f + (((loader.currBalancedTrack.time - 0)*(0.92f - 0.067f)) / (loader.SongPlaylist[currentSongID].songLengthSec - 0));
+        ProgressBar.fillAmount = 0.03f + (((loader.currBalancedTrack.time - 0)*(0.98f - 0.03f)) / (loader.SongPlaylist[currentSongID].songLengthSec - 0));
 
     }
 
@@ -85,7 +85,7 @@ public class PlayAlongButtonManager : MonoBehaviour
         currentAudioTimeTMP.text = time.ToString(@"m\:ss");
         //ProgressBar.fillAmount = 0.08f + ((loader.currBalancedTrack.time-0)*2*(.42f-0.08f))/(loader.SongPlaylist[currentSongID].songLengthSec-0);
         //        ProgressBar.fillAmount = (83.333333f * (loader.currBalancedTrack.time- 0.8f)) / (83.333333f * (.92f-0.08f));
-        ProgressBar.fillAmount = 0.067f + (((clickedTime - 0) * (0.92f - 0.067f)) / (loader.SongPlaylist[currentSongID].songLengthSec - 0));
+        ProgressBar.fillAmount = 0.03f + (((clickedTime - 0) * (0.98f - 0.03f)) / (loader.SongPlaylist[currentSongID].songLengthSec - 0));
 
     }
 

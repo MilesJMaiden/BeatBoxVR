@@ -37,7 +37,6 @@ public class PlayAlongDetailLoader : MonoBehaviour
 
         TimeSpan time = TimeSpan.FromSeconds(SongPlaylist[id].songLengthSec);
         songLengthTMP.text = time.ToString(@"m\:ss");
-        songLengthTMP2.text = time.ToString(@"m\:ss");
 
         AlbumArt.sprite = SongPlaylist[id].AlbumCover;
         currDrumTrack.clip = SongPlaylist[id].drumTrack;

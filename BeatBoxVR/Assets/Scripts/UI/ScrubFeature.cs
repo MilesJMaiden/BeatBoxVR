@@ -17,11 +17,12 @@ public class ScrubFeature : MonoBehaviour, IPointerDownHandler
         
 
         
-        if (eventPos.y >= 1.13f && eventPos.y <= 1.23f)
-            if (eventPos.x >= 0.78 && eventPos.x <= 2.14f)
+        if (eventPos.y >= 1.23f && eventPos.y <= 1.27f)
+            if (eventPos.x >= .99f && eventPos.x <= 1.95f)
             {
-                newTime = 0.067f + (((eventData.pointerPressRaycast.worldPosition.x - 0.78f) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
-                    / (2.14f - 0.78f));
+ 
+                newTime = 0.03f + (((eventData.pointerPressRaycast.worldPosition.x - 0.99f) * (m_PlayAlongDetailLoader.SongPlaylist[m_PlayAlongButtonManager.currentSongID].songLengthSec)) 
+                    / (1.95f - 0.99f));
 
                 Debug.Log("New Time: " + newTime);
 
