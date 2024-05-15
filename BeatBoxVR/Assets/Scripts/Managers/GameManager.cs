@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialModePrefab;
     public GameObject playModePrefab;
 
+    //Audio Visualiser
+    public GameObject avRing;
+    public GameObject avBand;
+
     // Deactivate all game modes on start to ensure a clean slate
     private void Start()
     {
@@ -75,11 +79,22 @@ public class GameManager : MonoBehaviour
         playModePrefab.SetActive(false);
     }
 
+    //
+    private void DeactivateAV()
+    {
+        // Audio Visualizer set false
+        avRing.SetActive(false);
+        avBand.SetActive(false);
+    }
+
     // Method to start Free Play Mode
     public void StartFreePlayMode()
     {
         DeactivateAllModes();
         // Free play mode means deactivating all specific game modes, so no prefab is activated here
+
+        avRing.SetActive(true);
+        avBand.SetActive(true);
     }
 
     // Method to start Play Along Mode
@@ -87,6 +102,9 @@ public class GameManager : MonoBehaviour
     {
         DeactivateAllModes();
         playAlongModePrefab.SetActive(true);
+
+        avRing.SetActive(true);
+        avBand.SetActive(true);
     }
 
     // Method to start Tutorial Mode
@@ -94,6 +112,8 @@ public class GameManager : MonoBehaviour
     {
         DeactivateAllModes();
         tutorialModePrefab.SetActive(true);
+
+        DeactivateAV();
     }
 
     // Method to start Play Mode
@@ -101,7 +121,11 @@ public class GameManager : MonoBehaviour
     {
         DeactivateAllModes();
         playModePrefab.SetActive(true);
+
+        DeactivateAV();
+        avBand.SetActive(true);
     }
     #endregion
+
 
 }
