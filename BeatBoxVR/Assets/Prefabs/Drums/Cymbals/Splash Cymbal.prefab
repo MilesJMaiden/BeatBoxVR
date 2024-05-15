@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2187172330608978163
 Transform:
   m_ObjectHideFlags: 0
@@ -12092,6 +12092,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  heightAdustmentSP: 0.1
   scoreZone: {fileID: 0}
 --- !u!1 &2666275153013936749
 GameObject:
@@ -13287,6 +13288,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  heightAdustmentSP: 0.1
   scoreZone: {fileID: 0}
 --- !u!1 &8714923818770530197
 GameObject:
