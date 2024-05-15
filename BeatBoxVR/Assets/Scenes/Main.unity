@@ -11175,6 +11175,12 @@ PrefabInstance:
       objectReference: {fileID: 7691823183569434479}
     - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
+      propertyPath: hiHatVFXPrefab
+      value: 
+      objectReference: {fileID: 7625058704682546739, guid: 6e8535fd16189f942969a8ada52cf772,
+        type: 3}
+    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
       propertyPath: kickDrumScoreZone
       value: 
       objectReference: {fileID: 223677664}
@@ -11183,6 +11189,12 @@ PrefabInstance:
       propertyPath: kickDrumTransform
       value: 
       objectReference: {fileID: 4585011255972844722}
+    - target: {fileID: 5499048685195394109, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
+        type: 3}
+      propertyPath: kickDrumVFXPrefab
+      value: 
+      objectReference: {fileID: 7625058704682546739, guid: 6e8535fd16189f942969a8ada52cf772,
+        type: 3}
     - target: {fileID: 5510189023252422844, guid: 60b772f35c5f38e4ba390ab9397ce9f0,
         type: 3}
       propertyPath: m_InteractionManager
