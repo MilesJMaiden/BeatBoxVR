@@ -476,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1156591875351911095
 Transform:
   m_ObjectHideFlags: 0
@@ -1291,6 +1291,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  heightAdustmentSP: 0.1
   scoreZone: {fileID: 0}
 --- !u!1 &5798325845956047905
 GameObject:
@@ -1508,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1880580116128770755
 Transform:
   m_ObjectHideFlags: 0
@@ -13368,6 +13369,7 @@ MonoBehaviour:
   cymbalRotationIntensity: 15
   animationDuration: 0.2
   vfxLifetime: 1.4
+  heightAdustmentSP: 0.1
   scoreZone: {fileID: 0}
 --- !u!1 &8596924089708603633
 GameObject:
