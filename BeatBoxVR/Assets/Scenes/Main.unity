@@ -7263,6 +7263,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1713454181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3447762949414158057, guid: bd45d5dd9c8e7114fa8e25f1a3508d3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7769179736112932071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1734171204 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854008621420673734, guid: d788a0b93b3fccb4ba07338568f7bcb8,
@@ -9711,6 +9717,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1713454181}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194312010205650939, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1251169631570311260, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_Name
@@ -9831,6 +9877,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2035711132}
+    - target: {fileID: 2326911187115645836, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326911187115645836, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642977351787808469, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9951,6 +10007,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1141904683}
+    - target: {fileID: 5019164577169403417, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019164577169403417, guid: 057d928f9f30ba049817bf092da25969,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5047888762437906006, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -10024,7 +10090,7 @@ PrefabInstance:
     - target: {fileID: 7455663187111076598, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7597735764824003516, guid: 057d928f9f30ba049817bf092da25969,
         type: 3}
@@ -11153,6 +11219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125214219992856246, guid: bd45d5dd9c8e7114fa8e25f1a3508d3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7348599823701567159, guid: bd45d5dd9c8e7114fa8e25f1a3508d3e,
         type: 3}
