@@ -8,7 +8,7 @@ public class SelectedUI : MonoBehaviour
     public bool active;
 
 
-    private void OnEnable()
+    public void OnEnable()
     {
         activeImg.SetActive(false);
         active = false;
