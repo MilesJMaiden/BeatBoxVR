@@ -5,20 +5,35 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
 
+    public static TutorialManager instance;
+
     [SerializeField] SelectedUI[] tutorialSelectedUIs;
     [SerializeField] SelectedUI[] bpmSelectedUIs;
 
     public NotationLoad[] tutorialNotationLoads;
     public TutorialChangeSpeed[] changeSpeeds;
 
-    public TutorialIndicators indicators;
+    public TutorialIndicators[] indicators;
     private void Awake()
     {
         changeSpeeds = FindObjectsOfType<TutorialChangeSpeed>();
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
+
+    public bool playing = false;
     public void OnClickedPlay()
     {
+        if (playing)
+        {
+            Time.timeScale = 1;
+            return;
+        }
         
+        playing = true;
+
         string tutorialName = null;
 
 
@@ -71,6 +86,28 @@ public class TutorialManager : MonoBehaviour
     }
     public void OnClickedStop()
     {
-        indicators.StopNote();
+        Time.timeScale = 0;
+        
+        //indicators.StopNote();
+    }
+
+    public void TutorialClose()
+    {
+        Time.timeScale = 1;
+        playing = false;
+    }
+
+    public void StartTutorialMode()
+    {
+        for (int i = 0; i < tutorialSelectedUIs.Length; i++)
+        {
+            tutorialSelectedUIs[i].OnEnable();
+        }
+        for (int i = 0; i < bpmSelectedUIs.Length; i++)
+        {
+            bpmSelectedUIs[i].OnEnable();
+        }
+
+        playing = false;
     }
 }

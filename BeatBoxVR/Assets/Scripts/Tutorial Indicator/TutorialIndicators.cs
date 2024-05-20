@@ -20,12 +20,22 @@ public class TutorialIndicators : MonoBehaviour
 
     void Update()
     {
+        if (!TutorialManager.instance.playing)
+        {
+            return;
+        }
+
         if (notation.Length == 0)
         {
             return;
         }
 
-        if(Time.time > nextPlayTime)
+        if (Time.timeScale <= 0)
+        {
+            return;
+        }
+
+        if (Time.time > nextPlayTime)
         {
             nextPlayTime = Time.time + TutorialSpeedController.Instance.speed;
             if(notation.Substring(currentNote,1) != "0")
@@ -59,6 +69,6 @@ public class TutorialIndicators : MonoBehaviour
 
     public void StopNote()
     {
-       
+       Time.timeScale = 0;
     }
 }

@@ -224,7 +224,9 @@ public class Player : MonoBehaviour
     private void InstantiateVFX(GameObject vfxPrefab, Vector3 position)
     {
         // Instantiate the VFX prefab and destroy it after vfxLifetime
-        var vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
+        Quaternion vfxRotation = Quaternion.Euler(-90, 0,0);
+        var vfxInstance = Instantiate(vfxPrefab, position, vfxRotation);
+        Debug.Log("the base drum vfx is looking at " + vfxRotation.x);
         Destroy(vfxInstance, vfxLifetime);
     }
 
