@@ -109,5 +109,16 @@ public class SoundManager : MonoBehaviour
         int prevIndex = (currDrumKitIndex - 1 + drumKitList.Count) % drumKitList.Count;
         LoadDrumKit(prevIndex);
     }
-
+    public void SetMasterVolume(Slider slider)
+    {
+        float sliderValue = slider.value;
+        float volume = Mathf.Log10(sliderValue) * 20;
+        audioMixer.SetFloat("MasterVolume", volume);
+    }
+    public void SetDrumVolume(Slider slider)
+    {
+        float sliderValue = slider.value;
+        float volume = Mathf.Log10(sliderValue) * 20;
+        audioMixer.SetFloat("DrumVolume", volume);
+    }
 }
