@@ -11792,43 +11792,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5381507745238402576, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6176518299114982264, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3463071790101147219, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3451712957677029622, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8898613148908586612, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2146873611188075526, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 945298640052653953, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3863873693580681517, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2995697353987384278, guid: 057d928f9f30ba049817bf092da25969,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 057d928f9f30ba049817bf092da25969, type: 3}
 --- !u!114 &1098948845629775429 stripped
 MonoBehaviour:
@@ -12791,6 +12755,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1145754693}
+    - target: {fileID: 7537416744725078639, guid: 03a99da3cff870f4080a7fdad61141ff,
+        type: 3}
+      propertyPath: scoreZone
+      value: 
+      objectReference: {fileID: 1098948845629775434}
     - target: {fileID: 7537416744725078639, guid: 03a99da3cff870f4080a7fdad61141ff,
         type: 3}
       propertyPath: heightAdustmentSP
